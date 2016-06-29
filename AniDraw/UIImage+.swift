@@ -26,7 +26,7 @@ public extension UIImage {
         var highY:Int = 0
         let data:UnsafeMutablePointer<Void>? = CGBitmapContextGetData(context)
         if let data = data {
-            var dataType:UnsafeMutablePointer<UInt8>? = UnsafeMutablePointer<UInt8>(data)
+            let dataType:UnsafeMutablePointer<UInt8>? = UnsafeMutablePointer<UInt8>(data)
             if var dataType = dataType {
                 for y in 0..<height {
                     for x in 0..<width {
