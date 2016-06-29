@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CharactersController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    @IBAction func unwindToCharactersController(segue: UIStoryboardSegue) {
+        
+    }
 }
 
