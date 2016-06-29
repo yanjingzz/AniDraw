@@ -28,6 +28,14 @@
 		275ABBD31D226EF700BC3B8D /* SKTEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBC71D226EF700BC3B8D /* SKTEffects.swift */; };
 		275ABBD41D226EF700BC3B8D /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBC81D226EF700BC3B8D /* SKTTimingFunctions.swift */; };
 		275ABBD51D226EF700BC3B8D /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBC91D226EF700BC3B8D /* Vector3.swift */; };
+		27AFB3151D235FCD00325894 /* BodyPartNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3141D235FCD00325894 /* BodyPartNode.swift */; };
+		27AFB3181D23604A00325894 /* CharacterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3171D23604A00325894 /* CharacterNode.swift */; };
+		27AFB31A1D23629E00325894 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3191D23629E00325894 /* AnimationController.swift */; };
+		27AFB31C1D2362CF00325894 /* DanceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31B1D2362CF00325894 /* DanceScene.swift */; };
+		27AFB31E1D2365A200325894 /* Posture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31D1D2365A200325894 /* Posture.swift */; };
+		27AFB3201D236A5000325894 /* Keyframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31F1D236A5000325894 /* Keyframe.swift */; };
+		27AFB3221D236B8A00325894 /* DanceMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3211D236B8A00325894 /* DanceMove.swift */; };
+		27AFB3461D236DEC00325894 /* DanceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 27AFB3451D236DEC00325894 /* DanceScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +62,14 @@
 		275ABBC71D226EF700BC3B8D /* SKTEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTEffects.swift; sourceTree = "<group>"; };
 		275ABBC81D226EF700BC3B8D /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTTimingFunctions.swift; sourceTree = "<group>"; };
 		275ABBC91D226EF700BC3B8D /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
+		27AFB3141D235FCD00325894 /* BodyPartNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPartNode.swift; sourceTree = "<group>"; };
+		27AFB3171D23604A00325894 /* CharacterNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterNode.swift; sourceTree = "<group>"; };
+		27AFB3191D23629E00325894 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
+		27AFB31B1D2362CF00325894 /* DanceScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceScene.swift; sourceTree = "<group>"; };
+		27AFB31D1D2365A200325894 /* Posture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Posture.swift; sourceTree = "<group>"; };
+		27AFB31F1D236A5000325894 /* Keyframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyframe.swift; sourceTree = "<group>"; };
+		27AFB3211D236B8A00325894 /* DanceMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceMove.swift; sourceTree = "<group>"; };
+		27AFB3451D236DEC00325894 /* DanceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DanceScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,13 +102,16 @@
 		275ABBA41D224E4200BC3B8D /* AniDraw */ = {
 			isa = PBXGroup;
 			children = (
+				27AFB3161D235FDB00325894 /* UI */,
+				27AFB3141D235FCD00325894 /* BodyPartNode.swift */,
+				27AFB3171D23604A00325894 /* CharacterNode.swift */,
+				27AFB31D1D2365A200325894 /* Posture.swift */,
+				27AFB31F1D236A5000325894 /* Keyframe.swift */,
+				27AFB3211D236B8A00325894 /* DanceMove.swift */,
+				27AFB3451D236DEC00325894 /* DanceScene.sks */,
+				27AFB31B1D2362CF00325894 /* DanceScene.swift */,
 				275ABBA51D224E4200BC3B8D /* AppDelegate.swift */,
-				275ABBA71D224E4200BC3B8D /* CharactersController.swift */,
 				271258621D22B7D000BD9C36 /* UIImage+.swift */,
-				275ABBB91D2257BF00BC3B8D /* SkeletonController.swift */,
-				275ABBB71D22549F00BC3B8D /* DrawController.swift */,
-				275ABBA91D224E4200BC3B8D /* Main.storyboard */,
-				275ABBBB1D2261E200BC3B8D /* DrawView.swift */,
 				275ABBAC1D224E4200BC3B8D /* Assets.xcassets */,
 				275ABBAE1D224E4200BC3B8D /* LaunchScreen.storyboard */,
 				275ABBB11D224E4200BC3B8D /* Info.plist */,
@@ -118,6 +137,19 @@
 				275ABBC91D226EF700BC3B8D /* Vector3.swift */,
 			);
 			path = SKTUtils;
+			sourceTree = "<group>";
+		};
+		27AFB3161D235FDB00325894 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				275ABBA91D224E4200BC3B8D /* Main.storyboard */,
+				27AFB3191D23629E00325894 /* AnimationController.swift */,
+				275ABBA71D224E4200BC3B8D /* CharactersController.swift */,
+				275ABBB91D2257BF00BC3B8D /* SkeletonController.swift */,
+				275ABBB71D22549F00BC3B8D /* DrawController.swift */,
+				275ABBBB1D2261E200BC3B8D /* DrawView.swift */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +213,7 @@
 			files = (
 				275ABBB01D224E4200BC3B8D /* LaunchScreen.storyboard in Resources */,
 				275ABBAD1D224E4200BC3B8D /* Assets.xcassets in Resources */,
+				27AFB3461D236DEC00325894 /* DanceScene.sks in Resources */,
 				275ABBAB1D224E4200BC3B8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,21 +226,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				275ABBCB1D226EF700BC3B8D /* CGPoint+Extensions.swift in Sources */,
+				27AFB31C1D2362CF00325894 /* DanceScene.swift in Sources */,
+				27AFB31E1D2365A200325894 /* Posture.swift in Sources */,
 				275ABBD31D226EF700BC3B8D /* SKTEffects.swift in Sources */,
 				275ABBCE1D226EF700BC3B8D /* SKAction+Extensions.swift in Sources */,
 				275ABBB81D22549F00BC3B8D /* DrawController.swift in Sources */,
 				275ABBD11D226EF700BC3B8D /* SKNode+Extensions.swift in Sources */,
+				27AFB3181D23604A00325894 /* CharacterNode.swift in Sources */,
 				275ABBBC1D2261E200BC3B8D /* DrawView.swift in Sources */,
+				27AFB3221D236B8A00325894 /* DanceMove.swift in Sources */,
 				275ABBD41D226EF700BC3B8D /* SKTTimingFunctions.swift in Sources */,
 				275ABBCF1D226EF700BC3B8D /* SKAction+SpecialEffects.swift in Sources */,
 				275ABBCD1D226EF700BC3B8D /* Int+Extensions.swift in Sources */,
 				275ABBD51D226EF700BC3B8D /* Vector3.swift in Sources */,
 				275ABBA81D224E4200BC3B8D /* CharactersController.swift in Sources */,
 				275ABBD01D226EF700BC3B8D /* SKColor+Extensions.swift in Sources */,
+				27AFB3151D235FCD00325894 /* BodyPartNode.swift in Sources */,
 				275ABBCC1D226EF700BC3B8D /* CGVector+Extensions.swift in Sources */,
 				275ABBA61D224E4200BC3B8D /* AppDelegate.swift in Sources */,
 				275ABBD21D226EF700BC3B8D /* SKTAudio.swift in Sources */,
 				271258631D22B7D000BD9C36 /* UIImage+.swift in Sources */,
+				27AFB31A1D23629E00325894 /* AnimationController.swift in Sources */,
+				27AFB3201D236A5000325894 /* Keyframe.swift in Sources */,
 				275ABBCA1D226EF700BC3B8D /* CGFloat+Extensions.swift in Sources */,
 				275ABBBA1D2257BF00BC3B8D /* SkeletonController.swift in Sources */,
 			);

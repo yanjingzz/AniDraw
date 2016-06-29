@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IKV-mr-pMN">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -28,6 +27,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="58" height="57"/>
                                         <state key="normal" image="play"/>
                                         <state key="selected" image="playdown"/>
+                                        <connections>
+                                            <segue destination="JtF-Wr-vC4" kind="show" id="wdu-8I-1Nm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kC4-ED-zs5">
                                         <rect key="frame" x="70" y="0.0" width="58" height="57"/>
@@ -64,6 +66,53 @@
             </objects>
             <point key="canvasLocation" x="-593" y="339"/>
         </scene>
+        <!--Animation Controller-->
+        <scene sceneID="Agr-k0-dLc">
+            <objects>
+                <viewController id="JtF-Wr-vC4" customClass="AnimationController" customModule="AniDraw" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MfZ-CE-9uw"/>
+                        <viewControllerLayoutGuide type="bottom" id="6tB-WB-hrg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YXQ-Fs-frw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uE-dd-vJ1">
+                                <rect key="frame" x="20" y="8" width="34" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2d1-IO-fpa"/>
+                                    <action selector="goBack:" destination="JtF-Wr-vC4" eventType="touchUpInside" id="x1A-Eo-7BJ"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJn-HP-Hik" customClass="SKView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vJn-HP-Hik" firstAttribute="leading" secondItem="YXQ-Fs-frw" secondAttribute="leading" id="ASN-cy-F6Y"/>
+                            <constraint firstAttribute="trailing" secondItem="vJn-HP-Hik" secondAttribute="trailing" id="D0L-4O-Xxy"/>
+                            <constraint firstItem="0uE-dd-vJ1" firstAttribute="top" secondItem="MfZ-CE-9uw" secondAttribute="bottom" constant="8" symbolic="YES" id="RDs-kb-45I"/>
+                            <constraint firstItem="vJn-HP-Hik" firstAttribute="top" secondItem="MfZ-CE-9uw" secondAttribute="bottom" id="lKj-UD-tcO"/>
+                            <constraint firstItem="0uE-dd-vJ1" firstAttribute="leading" secondItem="YXQ-Fs-frw" secondAttribute="leadingMargin" id="lMQ-mW-Rmy"/>
+                            <constraint firstItem="vJn-HP-Hik" firstAttribute="bottom" secondItem="6tB-WB-hrg" secondAttribute="top" id="vId-F3-WyO"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="skView" destination="vJn-HP-Hik" id="Tb0-Ze-rkA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hy9-1f-qNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-593" y="1124"/>
+        </scene>
         <!--Draw Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -76,23 +125,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srw-1J-y9f" customClass="DrawView" customModule="AniDraw" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="r4S-7J-WIv" appends="YES" id="SK9-rd-UWv"/>
-                                    <outletCollection property="gestureRecognizers" destination="6zC-UA-6vu" appends="YES" id="Dvu-fE-bVR"/>
-                                </connections>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdt-zR-NAT">
-                                <rect key="frame" x="20" y="8" width="34" height="30"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oDn-te-uJS"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAb-Uf-nQF">
                                 <rect key="frame" x="522" y="523" width="58" height="57"/>
                                 <state key="normal" image="add"/>
@@ -139,6 +171,23 @@
                                     <action selector="selectTool:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WfK-ld-BvB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdt-zR-NAT">
+                                <rect key="frame" x="20" y="8" width="34" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oDn-te-uJS"/>
+                                </connections>
+                            </button>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srw-1J-y9f" customClass="DrawView" customModule="AniDraw" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="r4S-7J-WIv" appends="YES" id="SK9-rd-UWv"/>
+                                    <outletCollection property="gestureRecognizers" destination="6zC-UA-6vu" appends="YES" id="Dvu-fE-bVR"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -150,15 +199,15 @@
                             <constraint firstItem="xks-aH-qEL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-100" placeholder="YES" id="MN7-GS-rsf"/>
                             <constraint firstAttribute="bottom" secondItem="qAb-Uf-nQF" secondAttribute="bottom" constant="20" symbolic="YES" id="Mi4-Ll-KZK"/>
                             <constraint firstItem="6gQ-Og-jos" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-100" placeholder="YES" id="Nrt-Cy-K4E"/>
+                            <constraint firstItem="jnS-NP-Tyx" firstAttribute="top" secondItem="jdt-zR-NAT" secondAttribute="bottom" constant="36" id="UVV-YM-KAu"/>
                             <constraint firstItem="qAb-Uf-nQF" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="XmW-Ff-Aqb"/>
-                            <constraint firstItem="jdt-zR-NAT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Y0I-li-h4z"/>
                             <constraint firstItem="BRe-i1-4DL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-100" placeholder="YES" id="a6Y-k4-Dei"/>
                             <constraint firstItem="MS2-aQ-LVN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-100" placeholder="YES" id="cM6-XZ-7Rl"/>
-                            <constraint firstItem="jnS-NP-Tyx" firstAttribute="top" secondItem="jdt-zR-NAT" secondAttribute="bottom" constant="36" id="f8Q-Ba-twe"/>
                             <constraint firstItem="Srw-1J-y9f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kBk-It-4As"/>
                             <constraint firstItem="Srw-1J-y9f" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="kCa-hn-xKD"/>
+                            <constraint firstItem="jdt-zR-NAT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nAC-lf-h9a"/>
                             <constraint firstItem="MS2-aQ-LVN" firstAttribute="top" secondItem="6gQ-Og-jos" secondAttribute="bottom" constant="12" id="nC6-mZ-jRh"/>
-                            <constraint firstItem="jdt-zR-NAT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="zMs-oQ-6al"/>
+                            <constraint firstItem="jdt-zR-NAT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="tF9-3w-GqS"/>
                             <constraint firstItem="6gQ-Og-jos" firstAttribute="top" secondItem="jnS-NP-Tyx" secondAttribute="bottom" constant="12" id="znW-sb-ZHk"/>
                         </constraints>
                     </view>

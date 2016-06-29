@@ -27,10 +27,10 @@ public extension UIImage {
         let data:UnsafeMutablePointer<Void>? = CGBitmapContextGetData(context)
         if let data = data {
             let dataType:UnsafeMutablePointer<UInt8>? = UnsafeMutablePointer<UInt8>(data)
-            if var dataType = dataType {
+            if let dataType = dataType {
                 for y in 0..<height {
                     for x in 0..<width {
-                        var pixelIndex:Int = (width * y + x) * 4 /* 4 for A, R, G, B */;
+                        let pixelIndex:Int = (width * y + x) * 4 /* 4 for A, R, G, B */;
                         if (dataType[pixelIndex] != 0) { //Alpha value is not zero; pixel is not transparent.
                             if (x < lowX) { lowX = x };
                             if (x > highX) { highX = x };
