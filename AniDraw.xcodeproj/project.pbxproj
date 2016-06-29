@@ -33,9 +33,9 @@
 		27AFB31A1D23629E00325894 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3191D23629E00325894 /* AnimationController.swift */; };
 		27AFB31C1D2362CF00325894 /* DanceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31B1D2362CF00325894 /* DanceScene.swift */; };
 		27AFB31E1D2365A200325894 /* Posture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31D1D2365A200325894 /* Posture.swift */; };
-		27AFB3201D236A5000325894 /* Keyframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31F1D236A5000325894 /* Keyframe.swift */; };
 		27AFB3221D236B8A00325894 /* DanceMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3211D236B8A00325894 /* DanceMove.swift */; };
 		27AFB3461D236DEC00325894 /* DanceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 27AFB3451D236DEC00325894 /* DanceScene.sks */; };
+		27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31F1D236A5000325894 /* Keyframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -241,6 +241,7 @@
 				275ABBD51D226EF700BC3B8D /* Vector3.swift in Sources */,
 				275ABBA81D224E4200BC3B8D /* CharactersController.swift in Sources */,
 				275ABBD01D226EF700BC3B8D /* SKColor+Extensions.swift in Sources */,
+				27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */,
 				27AFB3151D235FCD00325894 /* BodyPartNode.swift in Sources */,
 				275ABBCC1D226EF700BC3B8D /* CGVector+Extensions.swift in Sources */,
 				275ABBA61D224E4200BC3B8D /* AppDelegate.swift in Sources */,
