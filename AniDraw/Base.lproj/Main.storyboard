@@ -36,7 +36,7 @@
                                         <state key="normal" image="add"/>
                                         <state key="selected" image="adddown"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="9XR-nB-WmU"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="drawCharacter" id="9XR-nB-WmU"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08Y-YJ-FZj">
@@ -138,7 +138,7 @@
                                 <state key="normal" image="add"/>
                                 <state key="selected" image="adddown"/>
                                 <connections>
-                                    <segue destination="9qp-jS-GwS" kind="show" identifier="nextStep" id="R2f-3y-tg9"/>
+                                    <segue destination="9qp-jS-GwS" kind="show" identifier="putSkeleton" id="R2f-3y-tg9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xks-aH-qEL">
@@ -244,7 +244,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="character_eg" translatesAutoresizingMaskIntoConstraints="NO" id="cWx-2h-OxV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="character_eg2" translatesAutoresizingMaskIntoConstraints="NO" id="cWx-2h-OxV">
                                 <rect key="frame" x="-212" y="-84" width="1024" height="768"/>
                             </imageView>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKb-Mb-4vE" customClass="SkeletonView" customModule="AniDraw" customModuleProvider="target">
@@ -260,7 +260,7 @@
                                 <state key="normal" image="add"/>
                                 <state key="selected" image="adddown"/>
                                 <connections>
-                                    <segue destination="J8z-Y0-QNi" kind="unwind" unwindAction="unwindToCharactersController:" id="IYQ-3p-Dzi"/>
+                                    <segue destination="J8z-Y0-QNi" kind="unwind" identifier="doneAddingCharacter" unwindAction="unwindToCharactersController:" id="IYQ-3p-Dzi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZt-5Q-YMn">
@@ -308,7 +308,7 @@
         <image name="adddown" width="58" height="57"/>
         <image name="backwithstar" width="1024" height="768"/>
         <image name="brush" width="220" height="26"/>
-        <image name="character_eg" width="1024" height="768"/>
+        <image name="character_eg2" width="1024" height="768"/>
         <image name="crayon" width="218" height="37"/>
         <image name="music" width="58" height="57"/>
         <image name="pen" width="225" height="40"/>

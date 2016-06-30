@@ -1,0 +1,6 @@
+framework module Beethoven {
+  umbrella header "Beethoven-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pitchy {
+  umbrella header "Pitchy-umbrella.h"
+
+  export *
+  module * { export * }
+}

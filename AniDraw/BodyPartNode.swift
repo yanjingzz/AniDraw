@@ -39,18 +39,7 @@ enum BodyPartName: Int {
             return all
         }
     }
-    
-    static var allJoints: [BodyPartName] {
-        get{
-            var all = [BodyPartName]()
-            var m = 1
-            while let part = BodyPartName(rawValue: m) {
-                all.append(part)
-                m += 1
-            }
-            return all
-        }
-    }
+
 
 
 }

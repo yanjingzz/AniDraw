@@ -23,11 +23,11 @@ class JointView: UIView {
         path.fill()
     }
     
-    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-        if window == nil || superview == nil || hidden  {
-            return false
-        }
-        return (point - bounds.center).length() < 50
-    }
+//    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+//        if window == nil || superview == nil || hidden  {
+//            return false
+//        }
+//        return (point - bounds.center).length() < 50
+//    }
 
 }

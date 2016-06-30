@@ -41,6 +41,7 @@
 		27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31F1D236A5000325894 /* Keyframe.swift */; };
 		27F6AD221D23A89500BF3116 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6AD211D23A89500BF3116 /* SkeletonView.swift */; };
 		27F6AD241D23A8D200BF3116 /* JointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6AD231D23A8D200BF3116 /* JointView.swift */; };
+		280B5F0A342D36ADE844D5B2 /* Pods_AniDraw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A56761E1255BDF6AE5EA5E /* Pods_AniDraw.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,9 @@
 		27AFB3451D236DEC00325894 /* DanceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DanceScene.sks; sourceTree = "<group>"; };
 		27F6AD211D23A89500BF3116 /* SkeletonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		27F6AD231D23A8D200BF3116 /* JointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JointView.swift; sourceTree = "<group>"; };
+		58A56761E1255BDF6AE5EA5E /* Pods_AniDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AniDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B82212FB773A5012C1FFF4B3 /* Pods-AniDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniDraw.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw.debug.xcconfig"; sourceTree = "<group>"; };
+		EC73AE9467A5B672CE6A3650 /* Pods-AniDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniDraw.release.xcconfig"; path = "Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				280B5F0A342D36ADE844D5B2 /* Pods_AniDraw.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +103,8 @@
 			children = (
 				275ABBA41D224E4200BC3B8D /* AniDraw */,
 				275ABBA31D224E4200BC3B8D /* Products */,
+				67C1747C30EE5DAFBA87933E /* Pods */,
+				E707276443EA5C9BE3FB16BB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,6 +174,23 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		67C1747C30EE5DAFBA87933E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B82212FB773A5012C1FFF4B3 /* Pods-AniDraw.debug.xcconfig */,
+				EC73AE9467A5B672CE6A3650 /* Pods-AniDraw.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E707276443EA5C9BE3FB16BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58A56761E1255BDF6AE5EA5E /* Pods_AniDraw.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 275ABBB41D224E4200BC3B8D /* Build configuration list for PBXNativeTarget "AniDraw" */;
 			buildPhases = (
+				E68496A02640A3E8273DC5FC /* 📦 Check Pods Manifest.lock */,
 				275ABB9E1D224E4200BC3B8D /* Sources */,
 				275ABB9F1D224E4200BC3B8D /* Frameworks */,
 				275ABBA01D224E4200BC3B8D /* Resources */,
+				EF092F80D99BECDD61774731 /* 📦 Embed Pods Frameworks */,
+				522927A73BCF4A04C8DB39F5 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,6 +261,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		522927A73BCF4A04C8DB39F5 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E68496A02640A3E8273DC5FC /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EF092F80D99BECDD61774731 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		275ABB9E1D224E4200BC3B8D /* Sources */ = {
@@ -382,6 +457,7 @@
 		};
 		275ABBB51D224E4200BC3B8D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B82212FB773A5012C1FFF4B3 /* Pods-AniDraw.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AniDraw/Info.plist;
@@ -395,6 +471,7 @@
 		};
 		275ABBB61D224E4200BC3B8D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC73AE9467A5B672CE6A3650 /* Pods-AniDraw.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AniDraw/Info.plist;

@@ -81,7 +81,7 @@ class DrawController: UIViewController {
     }
     
     private struct Storyborad {
-        static let NextStepSegueIdentifier = "nextStep"
+        static let NextStepSegueIdentifier = "putSkeleton"
     }
     
     // MARK: - Navigation
