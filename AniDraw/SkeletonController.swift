@@ -89,39 +89,39 @@ class SkeletonController: UIViewController {
                             pixels[width * y + x] = 0x00FF00FF // green
                         }
                     } else if dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) > 0 {
-//                        switch p {
-//                        case _ where dot(p-leftAnklePoint, leftAnklePoint - leftKneePoint) > 0:
-//                            // left foot
-//                            if pixel.alphaValue != 0 {
-//                                pixels[width * y + x] = 0x00FFFFFF //yellow
-//                            }
-//                        case _ where  dot(p-leftElbowPoint,leftElbowPoint - leftShoulderPoint) > 0 &&
-//                            dot(p-leftShoulderPoint, (leftWristPoint - leftElbowPoint).perpendicular) < 0 :
-//                            //left forarm
-//                            if pixel.alphaValue != 0 {
-//                                pixels[width * y + x] = 0x0000FFFF // red
-//                            }
-//                            
-//                        case _ where dot(p-leftKneePoint, leftAnklePoint - leftKneePoint) > 0:
-//                            // left shank
-//                            if pixel.alphaValue != 0 {
-//                                pixels[width * y + x] = 0xFFFF00FF //cyan
-//                            }
-//                        case _ where dot(p-leftHipPoint,  leftKneePoint - leftHipPoint) > 0:
-//                            //right thigh
-//                            if pixel.alphaValue != 0 {
-//                                pixels[width * y + x] = 0xFF00FFFF //magenta
-//                            }
-//                            
-//                            
-//                        case _ where dot(p-leftShoulderPoint, leftShoulderPoint - bodyPoint) > 0:
-//                            //left upper arm
-//                            if pixel.alphaValue != 0 {
-//                                pixels[width * y + x] = 0xFF0000FF // blue
-//                            }
-//                        default:
-//                            break
-//                        }
+                        switch p {
+                        case _ where dot(p-leftAnklePoint, leftAnklePoint - leftKneePoint) > 0:
+                            // left foot
+                            if pixel.alphaValue != 0 {
+                                pixels[width * y + x] = 0x00FFFFFF //yellow
+                            }
+                        case _ where  dot(p-leftElbowPoint,leftElbowPoint - leftShoulderPoint) > 0 &&
+                            dot(p-leftShoulderPoint, (leftWristPoint - leftElbowPoint).perpendicular) < 0 :
+                            //left forarm
+                            if pixel.alphaValue != 0 {
+                                pixels[width * y + x] = 0x0000FFFF // red
+                            }
+                            
+                        case _ where dot(p-leftKneePoint, leftAnklePoint - leftKneePoint) > 0:
+                            // left shank
+                            if pixel.alphaValue != 0 {
+                                pixels[width * y + x] = 0xFFFF00FF //cyan
+                            }
+                        case _ where dot(p-leftHipPoint,  leftKneePoint - leftHipPoint) > 0:
+                            //right thigh
+                            if pixel.alphaValue != 0 {
+                                pixels[width * y + x] = 0xFF00FFFF //magenta
+                            }
+                            
+                            
+                        case _ where dot(p-leftShoulderPoint, leftShoulderPoint - bodyPoint) > 0:
+                            //left upper arm
+                            if pixel.alphaValue != 0 {
+                                pixels[width * y + x] = 0xFF0000FF // blue
+                            }
+                        default:
+                            break
+                        }
                     } else {
                         switch p {
                         case _ where dot(p-rightAnklePoint, rightAnklePoint - rightKneePoint) > 0:
