@@ -58,6 +58,7 @@ class DrawController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectedTool = .Pen
         // Do any additional setup after loading the view.
     }
 
@@ -66,7 +67,6 @@ class DrawController: UIViewController {
         
         for button in toolsButton {
             button.frame.origin = CGPoint(x: -100, y: button.frame.minY)
-            print(button.frame)
         }
     }
     override func didReceiveMemoryWarning() {
@@ -96,7 +96,8 @@ class DrawController: UIViewController {
         switch identifier {
         case Storyborad.NextStepSegueIdentifier:
             if let skeletonVC = segue.destinationViewController as? SkeletonController {
-                skeletonVC.characterSkin = drawView.image
+                let image = drawView.image
+                skeletonVC.characterSkin = image
             }
         default:
             break

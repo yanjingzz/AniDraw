@@ -24,75 +24,79 @@ import CoreGraphics
 import SpriteKit
 
 public extension CGVector {
-  /**
-   * Creates a new CGVector given a CGPoint.
-   */
-  public init(point: CGPoint) {
-    self.init(dx: point.x, dy: point.y)
-  }
-  
-  /**
-   * Given an angle in radians, creates a vector of length 1.0 and returns the
-   * result as a new CGVector. An angle of 0 is assumed to point to the right.
-   */
-  public init(angle: CGFloat) {
-    self.init(dx: cos(angle), dy: sin(angle))
-  }
+    /**
+    * Creates a new CGVector given a CGPoint.
+    */
+    public init(point: CGPoint) {
+        self.init(dx: point.x, dy: point.y)
+    }
 
-  /**
-   * Adds (dx, dy) to the vector.
-   */
-  public mutating func offset(dx dx: CGFloat, dy: CGFloat) -> CGVector {
-    self.dx += dx
-    self.dy += dy
-    return self
-  }
+    /**
+    * Given an angle in radians, creates a vector of length 1.0 and returns the
+    * result as a new CGVector. An angle of 0 is assumed to point to the right.
+    */
+    public init(angle: CGFloat) {
+        self.init(dx: cos(angle), dy: sin(angle))
+    }
 
-  /**
-   * Returns the length (magnitude) of the vector described by the CGVector.
-   */
-  public func length() -> CGFloat {
+    /**
+    * Adds (dx, dy) to the vector.
+    */
+    public mutating func offset(dx dx: CGFloat, dy: CGFloat) -> CGVector {
+        self.dx += dx
+        self.dy += dy
+        return self
+    }
+
+    /**
+    * Returns the length (magnitude) of the vector described by the CGVector.
+    */
+        public func length() -> CGFloat {
     return sqrt(dx*dx + dy*dy)
-  }
+    }
 
-  /**
-   * Returns the squared length of the vector described by the CGVector.
-   */
-  public func lengthSquared() -> CGFloat {
-    return dx*dx + dy*dy
-  }
+    /**
+    * Returns the squared length of the vector described by the CGVector.
+    */
+    public func lengthSquared() -> CGFloat {
+        return dx*dx + dy*dy
+    }
 
-  /**
-   * Normalizes the vector described by the CGVector to length 1.0 and returns
-   * the result as a new CGVector.
-  public  */
-  func normalized() -> CGVector {
-    let len = length()
-    return len>0 ? self / len : CGVector.zero
-  }
+    /**
+    * Normalizes the vector described by the CGVector to length 1.0 and returns
+    * the result as a new CGVector.
+    public  */
+    func normalized() -> CGVector {
+        let len = length()
+        return len>0 ? self / len : CGVector.zero
+    }
 
-  /**
-   * Normalizes the vector described by the CGVector to length 1.0.
-   */
-  public mutating func normalize() -> CGVector {
-    self = normalized()
-    return self
-  }
+    /**
+    * Normalizes the vector described by the CGVector to length 1.0.
+    */
+    public mutating func normalize() -> CGVector {
+        self = normalized()
+        return self
+    }
 
-  /**
-   * Calculates the distance between two CGVectors. Pythagoras!
-   */
-  public func distanceTo(vector: CGVector) -> CGFloat {
-    return (self - vector).length()
-  }
+    /**
+    * Calculates the distance between two CGVectors. Pythagoras!
+    */
+    public func distanceTo(vector: CGVector) -> CGFloat {
+        return (self - vector).length()
+    }
 
-  /**
-   * Returns the angle in radians of the vector described by the CGVector.
-   * The range of the angle is -π to π; an angle of 0 points to the right.
-   */
-  public var angle: CGFloat {
-    return atan2(dy, dx)
-  }
+    /**
+    * Returns the angle in radians of the vector described by the CGVector.
+    * The range of the angle is -π to π; an angle of 0 points to the right.
+    */
+    public var angle: CGFloat {
+        return atan2(dy, dx)
+    }
+    
+    public var perpendicular: CGVector {
+        return CGVector(dx: dy, dy: -dx)
+    }
 }
 
 /**
@@ -186,4 +190,8 @@ public func /= (inout vector: CGVector, scalar: CGFloat) {
  */
 public func lerp(start start: CGVector, end: CGVector, t: CGFloat) -> CGVector {
   return CGVector(dx: start.dx + (end.dx - start.dx)*t, dy: start.dy + (end.dy - start.dy)*t)
+}
+
+public func dot(left: CGVector, _ right: CGVector) -> CGFloat {
+    return left.dx * right.dx + left.dy * right.dy
 }

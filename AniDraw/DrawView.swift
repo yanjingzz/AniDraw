@@ -17,7 +17,7 @@ class DrawView: UIView {
     private var incrementalImage: UIImage?
     var image: UIImage? {
         get {
-            return incrementalImage
+            return incrementalImage?.trimToNontransparent()
         }
     }
     private var pts = [CGPoint](count:5, repeatedValue: CGPoint(x: 0, y: 0))

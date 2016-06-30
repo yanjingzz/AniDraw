@@ -125,6 +125,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srw-1J-y9f" customClass="DrawView" customModule="AniDraw" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="r4S-7J-WIv" appends="YES" id="SK9-rd-UWv"/>
+                                    <outletCollection property="gestureRecognizers" destination="6zC-UA-6vu" appends="YES" id="Dvu-fE-bVR"/>
+                                </connections>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAb-Uf-nQF">
                                 <rect key="frame" x="522" y="523" width="58" height="57"/>
                                 <state key="normal" image="add"/>
@@ -180,14 +188,6 @@
                                     <action selector="goBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oDn-te-uJS"/>
                                 </connections>
                             </button>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srw-1J-y9f" customClass="DrawView" customModule="AniDraw" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="r4S-7J-WIv" appends="YES" id="SK9-rd-UWv"/>
-                                    <outletCollection property="gestureRecognizers" destination="6zC-UA-6vu" appends="YES" id="Dvu-fE-bVR"/>
-                                </connections>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -244,6 +244,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="character_eg" translatesAutoresizingMaskIntoConstraints="NO" id="cWx-2h-OxV">
+                                <rect key="frame" x="-212" y="-84" width="1024" height="768"/>
+                            </imageView>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKb-Mb-4vE" customClass="SkeletonView" customModule="AniDraw" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="yoK-8Y-5Qb" appends="YES" id="cPf-H1-jjw"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YhF-hM-p1l">
+                                <rect key="frame" x="522" y="523" width="58" height="57"/>
+                                <state key="normal" image="add"/>
+                                <state key="selected" image="adddown"/>
+                                <connections>
+                                    <segue destination="J8z-Y0-QNi" kind="unwind" unwindAction="unwindToCharactersController:" id="IYQ-3p-Dzi"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZt-5Q-YMn">
                                 <rect key="frame" x="20" y="8" width="34" height="30"/>
                                 <state key="normal" title="Back">
@@ -253,40 +272,33 @@
                                     <action selector="goBack:" destination="9qp-jS-GwS" eventType="touchUpInside" id="kB6-wA-caU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YhF-hM-p1l">
-                                <rect key="frame" x="522" y="523" width="58" height="57"/>
-                                <state key="normal" image="add"/>
-                                <state key="selected" image="adddown"/>
-                                <connections>
-                                    <segue destination="J8z-Y0-QNi" kind="unwind" unwindAction="unwindToCharactersController:" id="IYQ-3p-Dzi"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8i-M7-gZr">
-                                <rect key="frame" x="292.5" y="238.5" width="16.5" height="122"/>
-                                <string key="text">O
-/|\
-|||
-∆
-| |
-| |</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="F8i-M7-gZr" firstAttribute="centerX" secondItem="Clk-2S-mW4" secondAttribute="centerX" id="9CH-ub-FAx"/>
                             <constraint firstItem="YhF-hM-p1l" firstAttribute="trailing" secondItem="Clk-2S-mW4" secondAttribute="trailingMargin" id="Maq-gb-XIl"/>
+                            <constraint firstAttribute="trailing" secondItem="wKb-Mb-4vE" secondAttribute="trailing" id="Mco-ym-mDf"/>
                             <constraint firstAttribute="bottom" secondItem="YhF-hM-p1l" secondAttribute="bottom" constant="20" symbolic="YES" id="T4l-1s-53V"/>
                             <constraint firstItem="mZt-5Q-YMn" firstAttribute="leading" secondItem="Clk-2S-mW4" secondAttribute="leadingMargin" id="cKv-dl-MwL"/>
-                            <constraint firstItem="F8i-M7-gZr" firstAttribute="centerY" secondItem="Clk-2S-mW4" secondAttribute="centerY" id="q1z-bh-Dad"/>
+                            <constraint firstItem="cWx-2h-OxV" firstAttribute="centerY" secondItem="Clk-2S-mW4" secondAttribute="centerY" id="olg-Z3-BIu"/>
+                            <constraint firstItem="wKb-Mb-4vE" firstAttribute="leading" secondItem="Clk-2S-mW4" secondAttribute="leading" id="qBS-Or-Kh6"/>
                             <constraint firstItem="mZt-5Q-YMn" firstAttribute="top" secondItem="krB-5f-9Ds" secondAttribute="bottom" constant="8" symbolic="YES" id="s6p-QK-nwL"/>
+                            <constraint firstItem="RB8-Il-vsU" firstAttribute="top" secondItem="wKb-Mb-4vE" secondAttribute="bottom" id="sMT-M4-R1b"/>
+                            <constraint firstItem="cWx-2h-OxV" firstAttribute="centerX" secondItem="Clk-2S-mW4" secondAttribute="centerX" id="xhW-UO-cas"/>
+                            <constraint firstItem="wKb-Mb-4vE" firstAttribute="top" secondItem="krB-5f-9Ds" secondAttribute="bottom" id="zOZ-Kb-5A9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="characterImageView" destination="cWx-2h-OxV" id="cc0-41-sMI"/>
+                        <outlet property="skeletonView" destination="wKb-Mb-4vE" id="Ld8-xa-ov4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FMD-kV-YfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="J8z-Y0-QNi" userLabel="Exit" sceneMemberID="exit"/>
+                <panGestureRecognizer cancelsTouchesInView="NO" minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="yoK-8Y-5Qb">
+                    <connections>
+                        <action selector="moveJointsWithPanRecognizer:" destination="9qp-jS-GwS" id="UUO-lt-PpJ"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1129" y="339"/>
         </scene>
@@ -296,6 +308,7 @@
         <image name="adddown" width="58" height="57"/>
         <image name="backwithstar" width="1024" height="768"/>
         <image name="brush" width="220" height="26"/>
+        <image name="character_eg" width="1024" height="768"/>
         <image name="crayon" width="218" height="37"/>
         <image name="music" width="58" height="57"/>
         <image name="pen" width="225" height="40"/>

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2701F1401D2428AA00C597E6 /* UInt32+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F13F1D2428AA00C597E6 /* UInt32+.swift */; };
+		2701F1421D243BF600C597E6 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F1411D243BF600C597E6 /* CGRect+.swift */; };
+		2701F1441D24BDF700C597E6 /* Joints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F1431D24BDF700C597E6 /* Joints.swift */; };
 		271258631D22B7D000BD9C36 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271258621D22B7D000BD9C36 /* UIImage+.swift */; };
 		275ABBA61D224E4200BC3B8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBA51D224E4200BC3B8D /* AppDelegate.swift */; };
 		275ABBA81D224E4200BC3B8D /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBA71D224E4200BC3B8D /* CharactersController.swift */; };
@@ -36,9 +39,14 @@
 		27AFB3221D236B8A00325894 /* DanceMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3211D236B8A00325894 /* DanceMove.swift */; };
 		27AFB3461D236DEC00325894 /* DanceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 27AFB3451D236DEC00325894 /* DanceScene.sks */; };
 		27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31F1D236A5000325894 /* Keyframe.swift */; };
+		27F6AD221D23A89500BF3116 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6AD211D23A89500BF3116 /* SkeletonView.swift */; };
+		27F6AD241D23A8D200BF3116 /* JointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6AD231D23A8D200BF3116 /* JointView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2701F13F1D2428AA00C597E6 /* UInt32+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt32+.swift"; sourceTree = "<group>"; };
+		2701F1411D243BF600C597E6 /* CGRect+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
+		2701F1431D24BDF700C597E6 /* Joints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joints.swift; sourceTree = "<group>"; };
 		271258621D22B7D000BD9C36 /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		275ABBA21D224E4200BC3B8D /* AniDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		275ABBA51D224E4200BC3B8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +78,8 @@
 		27AFB31F1D236A5000325894 /* Keyframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyframe.swift; sourceTree = "<group>"; };
 		27AFB3211D236B8A00325894 /* DanceMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceMove.swift; sourceTree = "<group>"; };
 		27AFB3451D236DEC00325894 /* DanceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DanceScene.sks; sourceTree = "<group>"; };
+		27F6AD211D23A89500BF3116 /* SkeletonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
+		27F6AD231D23A8D200BF3116 /* JointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JointView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +114,7 @@
 			children = (
 				27AFB3161D235FDB00325894 /* UI */,
 				27AFB3141D235FCD00325894 /* BodyPartNode.swift */,
+				2701F1431D24BDF700C597E6 /* Joints.swift */,
 				27AFB3171D23604A00325894 /* CharacterNode.swift */,
 				27AFB31D1D2365A200325894 /* Posture.swift */,
 				27AFB31F1D236A5000325894 /* Keyframe.swift */,
@@ -111,6 +122,8 @@
 				27AFB3451D236DEC00325894 /* DanceScene.sks */,
 				27AFB31B1D2362CF00325894 /* DanceScene.swift */,
 				275ABBA51D224E4200BC3B8D /* AppDelegate.swift */,
+				2701F1411D243BF600C597E6 /* CGRect+.swift */,
+				2701F13F1D2428AA00C597E6 /* UInt32+.swift */,
 				271258621D22B7D000BD9C36 /* UIImage+.swift */,
 				275ABBAC1D224E4200BC3B8D /* Assets.xcassets */,
 				275ABBAE1D224E4200BC3B8D /* LaunchScreen.storyboard */,
@@ -145,9 +158,11 @@
 				275ABBA91D224E4200BC3B8D /* Main.storyboard */,
 				27AFB3191D23629E00325894 /* AnimationController.swift */,
 				275ABBA71D224E4200BC3B8D /* CharactersController.swift */,
-				275ABBB91D2257BF00BC3B8D /* SkeletonController.swift */,
 				275ABBB71D22549F00BC3B8D /* DrawController.swift */,
 				275ABBBB1D2261E200BC3B8D /* DrawView.swift */,
+				275ABBB91D2257BF00BC3B8D /* SkeletonController.swift */,
+				27F6AD211D23A89500BF3116 /* SkeletonView.swift */,
+				27F6AD231D23A8D200BF3116 /* JointView.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -230,6 +245,7 @@
 				27AFB31E1D2365A200325894 /* Posture.swift in Sources */,
 				275ABBD31D226EF700BC3B8D /* SKTEffects.swift in Sources */,
 				275ABBCE1D226EF700BC3B8D /* SKAction+Extensions.swift in Sources */,
+				27F6AD221D23A89500BF3116 /* SkeletonView.swift in Sources */,
 				275ABBB81D22549F00BC3B8D /* DrawController.swift in Sources */,
 				275ABBD11D226EF700BC3B8D /* SKNode+Extensions.swift in Sources */,
 				27AFB3181D23604A00325894 /* CharacterNode.swift in Sources */,
@@ -238,15 +254,19 @@
 				275ABBD41D226EF700BC3B8D /* SKTTimingFunctions.swift in Sources */,
 				275ABBCF1D226EF700BC3B8D /* SKAction+SpecialEffects.swift in Sources */,
 				275ABBCD1D226EF700BC3B8D /* Int+Extensions.swift in Sources */,
+				27F6AD241D23A8D200BF3116 /* JointView.swift in Sources */,
 				275ABBD51D226EF700BC3B8D /* Vector3.swift in Sources */,
 				275ABBA81D224E4200BC3B8D /* CharactersController.swift in Sources */,
 				275ABBD01D226EF700BC3B8D /* SKColor+Extensions.swift in Sources */,
 				27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */,
 				27AFB3151D235FCD00325894 /* BodyPartNode.swift in Sources */,
+				2701F1401D2428AA00C597E6 /* UInt32+.swift in Sources */,
 				275ABBCC1D226EF700BC3B8D /* CGVector+Extensions.swift in Sources */,
+				2701F1441D24BDF700C597E6 /* Joints.swift in Sources */,
 				275ABBA61D224E4200BC3B8D /* AppDelegate.swift in Sources */,
 				275ABBD21D226EF700BC3B8D /* SKTAudio.swift in Sources */,
 				271258631D22B7D000BD9C36 /* UIImage+.swift in Sources */,
+				2701F1421D243BF600C597E6 /* CGRect+.swift in Sources */,
 				27AFB31A1D23629E00325894 /* AnimationController.swift in Sources */,
 				275ABBCA1D226EF700BC3B8D /* CGFloat+Extensions.swift in Sources */,
 				275ABBBA1D2257BF00BC3B8D /* SkeletonController.swift in Sources */,

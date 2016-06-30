@@ -93,6 +93,10 @@ public extension CGPoint {
   public var angle: CGFloat {
     return atan2(y, x)
   }
+    
+    public var perpendicular: CGPoint {
+        return CGPoint(x: y, y: -x)
+    }
 }
 
 /**
@@ -242,4 +246,7 @@ public func /= (inout left: CGPoint, right: CGVector) {
  */
 public func lerp(start start: CGPoint, end: CGPoint, t: CGFloat) -> CGPoint {
   return CGPoint(x: start.x + (end.x - start.x)*t, y: start.y + (end.y - start.y)*t)
+}
+public func dot(left: CGPoint, _ right: CGPoint) -> CGFloat {
+    return left.x * right.x + left.y * right.y
 }
