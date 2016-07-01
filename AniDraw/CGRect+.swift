@@ -8,7 +8,10 @@
 
 import UIKit
 extension CGRect {
-    var center:CGPoint {
+    public var center:CGPoint {
         return CGPoint(x: midX, y: midY)
+    }
+    public func shrinkedByMargin(margin: CGFloat) -> CGRect {
+     return CGRect(x: minX + margin, y: minY + margin, width: size.width - 2 * margin, height: size.height - 2 * margin)
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class SkeletonController: UIViewController {
     
@@ -17,8 +18,29 @@ class SkeletonController: UIViewController {
         dismissViewControllerAnimated(true) { }
     }
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let characterImage = characterSkin {
+            characterImageView.image = characterImage
+        } else {
+            characterSkin = characterImageView.image?.trimToNontransparent()
+        }
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateImage()
+    }
+    
+    // MARK: - Move Points
+    
     private var movedView : UIView?
     private var moved = false
+   
     
     @IBAction private func moveJointsWithPanRecognizer(recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
@@ -41,16 +63,53 @@ class SkeletonController: UIViewController {
             }
         case .Ended:
             if movedView != nil {
-//                updateImage()
+                updateImage()
             }
             fallthrough
         default:
             movedView = nil
         }
     }
+    
+    // MARK: - Navigation
+    
+    private struct Storyboard {
+        static let DoneAddingCharacterIdentifier = "doneAddingCharacter"
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if let identifier = segue.identifier where identifier == Storyboard.DoneAddingCharacterIdentifier {
+            if let charactersVC = segue.destinationViewController as? CharactersController {
+                let character = CharacterNode(bodyPartImages: segmentedParts,imagesFrame: segmentedPartsFrame, jointsPosition: self.skeletonView.jointPositionInView)
+                charactersVC.characterNode = character
+                
+            }
+        }
+    }
+    
+    @IBAction private func doneAddingCharacter() {
+        let HUD = JGProgressHUD(style: .Light)
+        HUD.textLabel.text = "Saving"
+        HUD.showInView(view)
+        segmentParts(){
+           
+            HUD.dismiss()
+            self.performSegueWithIdentifier(Storyboard.DoneAddingCharacterIdentifier, sender: nil)
 
+        }
+    }
+    
+    
+    // MARK: - Image Segmentation
+    
+    
+    var segmentedParts = [BodyPartName: CGImage]()
+    var segmentedPartsFrame = [BodyPartName: CGRect]()
     func jointPoint(joint: JointName) -> CGPoint {
-        return skeletonView.joints[joint]!.frame.center
+        return skeletonView.jointPositionInView[joint]!
     }
     
     
@@ -83,12 +142,10 @@ class SkeletonController: UIViewController {
                     }
                     let p = self.characterImageView.convertPoint(CGPoint(x:x,y:y), toView: self.skeletonView)
                     let pixel = pixels[width * y + x]
-                    for part in BodyPartName.allParts {
-                        if inBodyPart[part]!(p) && pixel.alphaValue != 0 && pixel.alphaValue != 0xFF {
-                            pixels[width * y + x] = self.colorForPart[part]!
-                        }
+                    if pixel.alphaValue != 0 && pixel.alphaValue != 0xFF {
+                        let part = inBodyPart(p)
+                        pixels[width * y + x] = self.colorForPart[part]!
                     }
-                    
                 }
             }
             let alteredImage = CGBitmapContextCreateImage(context)!
@@ -104,22 +161,38 @@ class SkeletonController: UIViewController {
         
     }
     
-    func segmentParts() -> [BodyPartName: CGImage] {
+    func segmentParts(completion: () -> Void){
+        for joint in JointName.allJoints {
+            print(".\(joint): CGPoint(x: \(jointPoint(joint).x), y: \(jointPoint(joint).y))")
+        }
         let image = characterSkin.CGImage!
-        var ret = [BodyPartName: CGImage]()
         let inBodyPart = belongsToBodyPart()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)) {
-            
             self.moved = false
             let (pixels, _) = image.toARGBBitmapData()
             var data = [BodyPartName: (pixel: UnsafeMutablePointer<UInt32>, context: CGContext?)]()
-            for joint in BodyPartName.allParts {
-                let c = image.createARGBBitmapContext()
-                let p = UnsafeMutablePointer<UInt32>(CGBitmapContextGetData(c))
-                data[joint] = (pixel: p,context: c)
-            }
+            
             let width = CGImageGetWidth(image)
             let height = CGImageGetHeight(image)
+            
+            var lowX = [BodyPartName: Int]()
+            var lowY = [BodyPartName: Int]()
+            var highX = [BodyPartName: Int]()
+            var highY = [BodyPartName: Int]()
+            
+            for part in BodyPartName.allParts {
+                lowX[part] = width
+                lowY[part] = height
+                highX[part] = 0
+                highY[part] = 0
+            }
+            
+            for part in BodyPartName.allParts {
+                let c = image.createARGBBitmapContext()
+                let p = UnsafeMutablePointer<UInt32>(CGBitmapContextGetData(c))
+                data[part] = (pixel: p,context: c)
+            }
+            
             
             for y in 0..<height {
                 for x in 0..<width {
@@ -128,56 +201,33 @@ class SkeletonController: UIViewController {
                     }
                     let p = self.characterImageView.convertPoint(CGPoint(x:x,y:y), toView: self.skeletonView)
                     let pixel = pixels[width * y + x]
-                    for part in BodyPartName.allParts {
-                        if inBodyPart[part]!(p) {
-                            data[part]?.pixel[width * y + x] = pixel
-                        }
+                    if pixel.alphaValue != 0 {
+                        let part = inBodyPart(p)
+                        data[part]?.pixel[width * y + x] = pixel
+                        lowX[part] = x < lowX[part] ? x : lowX[part]
+                        highX[part] = x > highX[part] ? x : highX[part]
+                        lowY[part] = y < lowY[part] ? y : lowY[part]
+                        highY[part] = y > highY[part] ? y : highY [part]
                     }
-                    
                 }
             }
             free(pixels)
             for part in BodyPartName.allParts {
-                ret[part] = CGBitmapContextCreateImage(data[part]?.context)
+                let image = CGBitmapContextCreateImage(data[part]?.context)
+                let newRect = CGRect(x: lowX[part]!, y: lowY[part]!, width: highX[part]!-lowX[part]!, height: highY[part]!-lowY[part]!)
+                let imageRef = CGImageCreateWithImageInRect(image, newRect)
+                self.segmentedParts[part] = imageRef!
+                let convertedRect = CGRect(origin: self.characterImageView.convertPoint(newRect.origin, toView: self.skeletonView), size: newRect.size)
+                self.segmentedPartsFrame[part] = convertedRect
+                free(data[part]!.pixel)
             }
 
-            
+            dispatch_async(dispatch_get_main_queue(), completion)
         }
 
-        return ret
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        if let characterImage = characterSkin {
-            characterImageView.image = characterImage
-        } else {
-            characterSkin = characterImageView.image?.trimToNontransparent()
-        }
-        // Do any additional setup after loading the view.
     }
     
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        print("prepare for segue")
-        print(segue.identifier)
-    }
-    
-    
-    func belongsToBodyPart() -> [BodyPartName: (CGPoint) -> Bool] {
+    func belongsToBodyPart() -> (CGPoint) -> BodyPartName {
         let neckPoint = jointPoint(.Neck)
         let waistPoint = jointPoint(.Waist)
         let bodyPoint = (neckPoint+waistPoint)/2
@@ -195,118 +245,61 @@ class SkeletonController: UIViewController {
         let rightHipPoint = jointPoint(.RightHip)
         let rightKneePoint = jointPoint(.RightKnee)
         let rightAnklePoint = jointPoint(.RightAnkle)
-        
-        let headClosure:  (CGPoint) -> Bool = {
-            return dot($0-neckPoint,neckPoint - waistPoint) > 0
-        }
-        let leftFootClosure:(CGPoint) -> Bool = { p in
-            guard dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) > 0 else {
-                return false
+        let ret: (CGPoint) -> BodyPartName = {p in
+            if dot(p-neckPoint,neckPoint - waistPoint) > 0 {
+                return .Head
             }
-            return dot(p-leftAnklePoint, leftAnklePoint - leftKneePoint) > 0
+            if dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) > 0 {
+                // left body
+                if dot(p-leftAnklePoint, leftAnklePoint - leftKneePoint) > 0 {
+                    return .LeftFoot
+                }
+                if dot(p-leftElbowPoint,leftElbowPoint - leftShoulderPoint) > 0 &&
+                    dot(p-leftShoulderPoint, (leftWristPoint - leftElbowPoint).perpendicular) < 0 {
+                    return .LeftForearm
+                }
+                if dot(p-leftKneePoint, leftAnklePoint - leftKneePoint) > 0 {
+                    // && dot(p-leftAnklePoint, leftAnklePoint - leftKneePoint) <= 0
+                    return .LeftShank
+                }
+                if dot(p-leftHipPoint,  leftKneePoint - leftHipPoint) > 0 {
+                    // && dot(p-leftKneePoint, leftAnklePoint - leftKneePoint) <= 0
+                    return .LeftThigh
+                }
+                if dot(p-leftShoulderPoint, leftShoulderPoint - bodyPoint) > 0 &&
+                    dot(p-leftElbowPoint,leftElbowPoint - leftShoulderPoint) <= 0 {
+                    return .LeftUpperArm
+                }
+            
+            } else {
+                // right body
+                if dot(p-rightAnklePoint, rightAnklePoint - rightKneePoint) > 0 {
+                    return .RightFoot
+                }
+                if dot(p-rightElbowPoint,rightElbowPoint - rightShoulderPoint) > 0 &&
+                    dot(p-rightShoulderPoint, (rightWristPoint - rightElbowPoint).perpendicular) >= 0 {
+                    return .RightForearm
+                }
+                if dot(p-rightKneePoint, rightAnklePoint - rightKneePoint) > 0 {
+                    // && dot(p-rightAnklePoint, rightAnklePoint - rightKneePoint) <= 0
+                    return .RightShank
+                }
+                if dot(p-rightHipPoint,  rightKneePoint - rightHipPoint) > 0 {
+                    // && dot(p-rightKneePoint, rightAnklePoint - rightKneePoint) <= 0
+                    return .RightThigh
+                }
+                if dot(p-rightShoulderPoint, rightShoulderPoint - bodyPoint) > 0 &&
+                    dot(p-rightElbowPoint,rightElbowPoint - rightShoulderPoint) <= 0 {
+                    return .RightUpperArm
+                }
+            }
+            //Not limbs or head
+            if dot(p-waistPoint,neckPoint - waistPoint) > 0 {
+                return .UpperBody
+            }
+            return .LowerBody
             
         }
-        let leftForearmClosure:(CGPoint) -> Bool = { p in
-            guard dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) > 0 else {
-                return false
-            }
-            return dot(p-leftElbowPoint,leftElbowPoint - leftShoulderPoint) > 0 &&
-                dot(p-leftShoulderPoint, (leftWristPoint - leftElbowPoint).perpendicular) < 0
-            
-        }
-        let leftShankClosure:(CGPoint) -> Bool = { p in
-            guard dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) > 0 else {
-                return false
-            }
-            return dot(p-leftKneePoint, leftAnklePoint - leftKneePoint) > 0 &&
-                dot(p-leftAnklePoint, leftAnklePoint - leftKneePoint) <= 0
-        }
-        let leftThighClosure:(CGPoint) -> Bool = { p in
-            guard dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) > 0  && !leftForearmClosure(p) else {
-                return false
-            }
-            return dot(p-leftHipPoint,  leftKneePoint - leftHipPoint) > 0 &&
-                dot(p-leftKneePoint, leftAnklePoint - leftKneePoint) <= 0
-        }
-        let leftUpperArmClosure:(CGPoint) -> Bool = { p in
-            guard dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) > 0 &&
-                !headClosure(p) else {
-                    return false
-            }
-            return dot(p-leftShoulderPoint, leftShoulderPoint - bodyPoint) > 0 &&
-                dot(p-leftElbowPoint,leftElbowPoint - leftShoulderPoint) <= 0
-        }
-        
-        let rightFootClosure:(CGPoint) -> Bool = { p in
-            guard dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) <= 0 else {
-                return false
-            }
-            return dot(p-rightAnklePoint, rightAnklePoint - rightKneePoint) > 0
-            
-        }
-        let rightForearmClosure:(CGPoint) -> Bool = { p in
-            guard dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) <= 0 else {
-                return false
-            }
-            return dot(p-rightElbowPoint,rightElbowPoint - rightShoulderPoint) > 0 &&
-                dot(p-rightShoulderPoint, (rightWristPoint - rightElbowPoint).perpendicular) >= 0
-            
-        }
-        let rightShankClosure:(CGPoint) -> Bool = { p in
-            guard dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) <= 0 else {
-                return false
-            }
-            return dot(p-rightKneePoint, rightAnklePoint - rightKneePoint) > 0 &&
-                dot(p-rightAnklePoint, rightAnklePoint - rightKneePoint) <= 0
-        }
-        let rightThighClosure:(CGPoint) -> Bool = { p in
-            guard dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) <= 0   && !rightForearmClosure(p) else {
-                return false
-            }
-            return dot(p-rightHipPoint,  rightKneePoint - rightHipPoint) > 0 &&
-                dot(p-rightKneePoint, rightAnklePoint - rightKneePoint) <= 0
-        }
-        let rightUpperArmClosure:(CGPoint) -> Bool = { p in
-            guard dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) <= 0 &&
-                !headClosure(p) else {
-                    return false
-            }
-            return dot(p-rightShoulderPoint, rightShoulderPoint - bodyPoint) > 0 &&
-                dot(p-rightElbowPoint,rightElbowPoint - rightShoulderPoint) <= 0
-        }
-        let upperBodyClosure:(CGPoint) -> Bool = { p in
-            guard !headClosure(p) && !leftForearmClosure(p) && !leftUpperArmClosure(p) && !leftThighClosure(p) && !leftFootClosure(p) && !leftShankClosure(p) && !rightForearmClosure(p) && !rightUpperArmClosure(p) && !rightThighClosure(p) && !rightFootClosure(p) && !rightShankClosure(p)
-                else {
-                    return false
-            }
-            return dot(p-waistPoint,neckPoint - waistPoint) > 0
-            
-        }
-        let lowerBodyClosure: (CGPoint) -> Bool = { p in
-            guard !headClosure(p) && !leftForearmClosure(p) && !leftUpperArmClosure(p) && !leftThighClosure(p) && !leftFootClosure(p) && !leftShankClosure(p) && !rightForearmClosure(p) && !rightUpperArmClosure(p) && !rightThighClosure(p) && !rightFootClosure(p) && !rightShankClosure(p)
-                else {
-                    return false
-            }
-            return dot(p-waistPoint,neckPoint - waistPoint) <= 0
-            
-        }
-        
-        let ret: [BodyPartName: (CGPoint) -> Bool] = [
-            .Head: headClosure,
-            .UpperBody: upperBodyClosure,
-            .LowerBody: lowerBodyClosure,
-            .LeftFoot: leftFootClosure,
-            .LeftForearm: leftForearmClosure,
-            .LeftShank: leftShankClosure,
-            .LeftThigh: leftThighClosure,
-            .LeftUpperArm: leftUpperArmClosure,
-            .RightFoot: rightFootClosure,
-            .RightForearm: rightForearmClosure,
-            .RightShank: rightShankClosure,
-            .RightThigh: rightThighClosure,
-            .RightUpperArm: rightUpperArmClosure
-            
-        ]
         return ret
         
     }

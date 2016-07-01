@@ -58,7 +58,6 @@ class DrawController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedTool = .Pen
         // Do any additional setup after loading the view.
     }
 
@@ -66,7 +65,11 @@ class DrawController: UIViewController {
         super.viewDidLayoutSubviews()
         
         for button in toolsButton {
-            button.frame.origin = CGPoint(x: -100, y: button.frame.minY)
+            if button.tag == DrawingTool.Pencil.rawValue {
+                button.frame.origin = CGPoint(x: 0, y: button.frame.minY)
+            } else {
+                button.frame.origin = CGPoint(x: -100, y: button.frame.minY)
+            }
         }
     }
     override func didReceiveMemoryWarning() {

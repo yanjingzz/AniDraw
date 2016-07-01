@@ -13,7 +13,14 @@ class SkeletonView: UIView {
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     
-    lazy var joints: [JointName: JointView] = self.createJoints()
+    lazy private var joints: [JointName: JointView] = self.createJoints()
+    var jointPositionInView:[JointName: CGPoint] {
+        var ret = [JointName: CGPoint]()
+        for (joint, view) in joints {
+            ret[joint] = view.frame.center
+        }
+        return ret
+    }
     
     private func createJoints() -> [JointName: JointView] {
         var joints = [JointName: JointView]()
@@ -54,20 +61,20 @@ class SkeletonView: UIView {
     
     struct Constants {
         static let DefaultPositionForJoint:[JointName: CGPoint] = [
-            .Neck:     CGPoint(x: 512, y: 200),
-            .Waist:     CGPoint(x: 512, y: 300),
-            .LeftShoulder:  CGPoint(x: 512 - 150, y: 250),
-            .LeftElbow:   CGPoint(x: 512 - 150, y: 350),
-            .LeftWrist:   CGPoint(x: 512 - 150, y: 450),
-            .LeftHip:     CGPoint(x: 512 - 50, y: 400),
-            .LeftKnee:     CGPoint(x: 512 - 50, y: 500),
-            .LeftAnkle:      CGPoint(x: 512 - 50, y: 550),
-            .RightShoulder: CGPoint(x: 512 + 150, y: 250),
-            .RightElbow:  CGPoint(x: 512 + 150, y: 350),
-            .RightWrist:   CGPoint(x: 512 + 150, y: 450),
-            .RightHip:    CGPoint(x: 512 + 50, y: 400),
-            .RightKnee:    CGPoint(x: 512 + 50, y: 500),
-            .RightAnkle:     CGPoint(x: 512 + 50, y: 550)
+            .Neck: CGPoint(x: 511.0, y: 280.0),
+            .Waist: CGPoint(x: 511.0, y: 339.0),
+            .LeftShoulder: CGPoint(x: 460.0, y: 299.0),
+            .LeftElbow: CGPoint(x: 419.0, y: 335.0),
+            .LeftWrist: CGPoint(x: 395.0, y: 460.0),
+            .LeftHip: CGPoint(x: 487.0, y: 435.0),
+            .LeftKnee: CGPoint(x: 486.0, y: 519.0),
+            .LeftAnkle: CGPoint(x: 481.0, y: 607.0),
+            .RightShoulder: CGPoint(x: 559.0, y: 296.0),
+            .RightElbow: CGPoint(x: 607.0, y: 336.0),
+            .RightWrist: CGPoint(x: 629.0, y: 452.0),
+            .RightHip: CGPoint(x: 537.0, y: 434.0),
+            .RightKnee: CGPoint(x: 542.0, y: 514.0),
+            .RightAnkle: CGPoint(x: 549.0, y: 601.0)
         ]
         static let LinesBetweenJoints: [(JointName, JointName)] = [
             (.Neck, .Waist),

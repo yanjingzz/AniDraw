@@ -11,6 +11,8 @@
 		2701F1421D243BF600C597E6 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F1411D243BF600C597E6 /* CGRect+.swift */; };
 		2701F1441D24BDF700C597E6 /* Joints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F1431D24BDF700C597E6 /* Joints.swift */; };
 		271258631D22B7D000BD9C36 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271258621D22B7D000BD9C36 /* UIImage+.swift */; };
+		27252A251D255A89002CE361 /* CGImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27252A241D255A89002CE361 /* CGImage+.swift */; };
+		27252A271D260C7B002CE361 /* CharactersScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27252A261D260C7B002CE361 /* CharactersScene.swift */; };
 		275ABBA61D224E4200BC3B8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBA51D224E4200BC3B8D /* AppDelegate.swift */; };
 		275ABBA81D224E4200BC3B8D /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBA71D224E4200BC3B8D /* CharactersController.swift */; };
 		275ABBAB1D224E4200BC3B8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275ABBA91D224E4200BC3B8D /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 		2701F1411D243BF600C597E6 /* CGRect+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
 		2701F1431D24BDF700C597E6 /* Joints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joints.swift; sourceTree = "<group>"; };
 		271258621D22B7D000BD9C36 /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		27252A241D255A89002CE361 /* CGImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+.swift"; sourceTree = "<group>"; };
+		27252A261D260C7B002CE361 /* CharactersScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersScene.swift; sourceTree = "<group>"; };
 		275ABBA21D224E4200BC3B8D /* AniDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		275ABBA51D224E4200BC3B8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		275ABBA71D224E4200BC3B8D /* CharactersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
@@ -120,11 +124,12 @@
 			isa = PBXGroup;
 			children = (
 				27AFB3161D235FDB00325894 /* UI */,
-				27AFB3141D235FCD00325894 /* BodyPartNode.swift */,
 				2701F1431D24BDF700C597E6 /* Joints.swift */,
+				27AFB3141D235FCD00325894 /* BodyPartNode.swift */,
 				27AFB3171D23604A00325894 /* CharacterNode.swift */,
 				27AFB31D1D2365A200325894 /* Posture.swift */,
 				27AFB31F1D236A5000325894 /* Keyframe.swift */,
+				27252A261D260C7B002CE361 /* CharactersScene.swift */,
 				27AFB3211D236B8A00325894 /* DanceMove.swift */,
 				27AFB3451D236DEC00325894 /* DanceScene.sks */,
 				27AFB31B1D2362CF00325894 /* DanceScene.swift */,
@@ -132,6 +137,7 @@
 				2701F1411D243BF600C597E6 /* CGRect+.swift */,
 				2701F13F1D2428AA00C597E6 /* UInt32+.swift */,
 				271258621D22B7D000BD9C36 /* UIImage+.swift */,
+				27252A241D255A89002CE361 /* CGImage+.swift */,
 				275ABBAC1D224E4200BC3B8D /* Assets.xcassets */,
 				275ABBAE1D224E4200BC3B8D /* LaunchScreen.storyboard */,
 				275ABBB11D224E4200BC3B8D /* Info.plist */,
@@ -320,6 +326,7 @@
 				27AFB31E1D2365A200325894 /* Posture.swift in Sources */,
 				275ABBD31D226EF700BC3B8D /* SKTEffects.swift in Sources */,
 				275ABBCE1D226EF700BC3B8D /* SKAction+Extensions.swift in Sources */,
+				27252A251D255A89002CE361 /* CGImage+.swift in Sources */,
 				27F6AD221D23A89500BF3116 /* SkeletonView.swift in Sources */,
 				275ABBB81D22549F00BC3B8D /* DrawController.swift in Sources */,
 				275ABBD11D226EF700BC3B8D /* SKNode+Extensions.swift in Sources */,
@@ -344,6 +351,7 @@
 				2701F1421D243BF600C597E6 /* CGRect+.swift in Sources */,
 				27AFB31A1D23629E00325894 /* AnimationController.swift in Sources */,
 				275ABBCA1D226EF700BC3B8D /* CGFloat+Extensions.swift in Sources */,
+				27252A271D260C7B002CE361 /* CharactersScene.swift in Sources */,
 				275ABBBA1D2257BF00BC3B8D /* SkeletonController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

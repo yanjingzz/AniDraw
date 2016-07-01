@@ -14,20 +14,29 @@ class JointView: UIView {
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
         let margin: CGFloat = 2.0
-        let rect = CGRect(x: bounds.minX + margin, y: bounds.minY + margin, width: bounds.size.width - 2 * margin, height: bounds.size.height - 2 * margin)
-        let path = UIBezierPath(ovalInRect: rect)
-        path.lineWidth = 2.0
-        UIColor.grayColor().setStroke()
-        UIColor.whiteColor().setFill()
-        path.stroke()
-        path.fill()
+        for i in 1...3 {
+            let rect = bounds.shrinkedByMargin(CGFloat(i) * margin)
+            let path = UIBezierPath(ovalInRect: rect)
+            path.lineWidth = 2.0
+            if i % 2 == 0 {
+                UIColor.grayColor().setStroke()
+            }
+            else {
+                UIColor.whiteColor().setStroke()
+            }
+            path.stroke()
+        }
+       
+        
+        
+        
     }
     
-//    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-//        if window == nil || superview == nil || hidden  {
-//            return false
-//        }
-//        return (point - bounds.center).length() < 50
-//    }
+    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+        if window == nil || superview == nil || hidden  {
+            return false
+        }
+        return (point - bounds.center).length() < 20
+    }
 
 }
