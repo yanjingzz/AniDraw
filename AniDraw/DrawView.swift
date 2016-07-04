@@ -11,7 +11,7 @@ import UIKit
 class DrawView: UIView {
     
     var tool: DrawingTool?
-
+    var color: UIColor = UIColor.blackColor()
     private struct PointWithWidth {
         var point: CGPoint
         var width: CGFloat
@@ -52,9 +52,15 @@ class DrawView: UIView {
         incrementalImage?.drawInRect(rect)
         for path in paths {
             if tool == .Some(.Eraser) {
-                path.fillWithBlendMode(CGBlendMode.Clear, alpha: 1.0)
-            } else {
+                UIColor.whiteColor().setFill()
+                UIColor.whiteColor().setStroke()
                 path.fill()
+                path.stroke()
+            } else {
+                color.setFill()
+                color.setStroke()
+                path.fill()
+                path.stroke()
             }
         }
     }
@@ -202,9 +208,14 @@ class DrawView: UIView {
         for path in paths {
             
             if tool == .Some(.Eraser) {
+                
                 path.fillWithBlendMode(CGBlendMode.Clear, alpha: 1.0)
+                path.strokeWithBlendMode(CGBlendMode.Clear, alpha: 1.0)
             } else {
+                color.setFill()
+                color.setStroke()
                 path.fill()
+                path.stroke()
             }
         }
         incrementalImage = UIGraphicsGetImageFromCurrentImageContext()
