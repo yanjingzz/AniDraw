@@ -44,7 +44,7 @@ class CharactersController: UIViewController {
         return true
     }
     
-    private func updateCharacter() {
+    func updateCharacter() {
         print("Character controller update character.")
         scene.characterNode = characterNode
     }
@@ -55,5 +55,20 @@ class CharactersController: UIViewController {
 //
 //        }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let ident = segue.identifier else{
+            return
+        }
+        switch ident {
+        case "dance":
+            if let destVC = segue.destinationViewController as? AnimationController {
+                destVC.characterNode = characterNode?.copy() as! CharacterNode?
+            }
+        default:
+            break
+        }
+    }
+
 }
 

@@ -29,7 +29,7 @@
                                         <state key="normal" image="play"/>
                                         <state key="selected" image="playdown"/>
                                         <connections>
-                                            <segue destination="JtF-Wr-vC4" kind="show" id="wdu-8I-1Nm"/>
+                                            <segue destination="JtF-Wr-vC4" kind="show" identifier="dance" id="wdu-8I-1Nm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kC4-ED-zs5">
@@ -141,64 +141,80 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhK-ih-nPH">
                                 <rect key="frame" x="40" y="397" width="30" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.85504928691275173" green="0.23602663590604023" blue="0.13110843120805368" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="TKp-8n-GuK"/>
                                     <constraint firstAttribute="width" constant="30" id="p8z-at-7YQ"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="6tK-RE-9db" kind="popoverPresentation" identifier="showPopover" popoverAnchorView="JhK-ih-nPH" id="OB1-mG-ntx">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="selectColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jCX-ks-02d"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycC-PM-isv">
                                 <rect key="frame" x="40" y="435" width="30" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.94439492449664431" green="0.60523280201342278" blue="0.085334521812080538" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="4u9-3y-vQ5"/>
                                     <constraint firstAttribute="height" constant="30" id="Kds-QQ-aYd"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="selectColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dVt-Xv-7Mp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNb-PA-hbc">
                                 <rect key="frame" x="40" y="472" width="30" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.92549019607843142" green="0.71372549019607845" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="EZX-ze-s3R"/>
                                     <constraint firstAttribute="width" constant="30" id="QAr-rT-8I6"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="selectColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pl3-Q5-kdF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfv-7v-9kb">
                                 <rect key="frame" x="7" y="378" width="30" height="30"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="3kB-Mr-TPV"/>
                                     <constraint firstAttribute="width" constant="30" id="pB4-Ub-zUP"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="selectColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BIY-38-ub0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMn-4O-DWf">
                                 <rect key="frame" x="7" y="416" width="30" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.26818111538887024" green="0.44923478364944458" blue="0.080812901258468628" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="QTD-nx-mx5"/>
                                     <constraint firstAttribute="height" constant="30" id="amh-Rk-kL5"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="selectColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rvo-hj-OBj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2E-vO-exm">
                                 <rect key="frame" x="7" y="454" width="30" height="30"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.16891683638095856" green="0.54512858390808105" blue="0.89887666702270508" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="R2d-CG-9iK"/>
                                     <constraint firstAttribute="height" constant="30" id="t6A-Lh-KiC"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="selectColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z3E-t3-lBZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAU-hm-SW1">
                                 <rect key="frame" x="7" y="490" width="30" height="30"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.65074454697986572" green="0.43445889261744963" blue="0.89935507550335569" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Dzc-ad-JFp"/>
                                     <constraint firstAttribute="width" constant="30" id="gnT-5d-kJD"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="selectColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5PR-eI-QHN"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dock" translatesAutoresizingMaskIntoConstraints="NO" id="uKi-L4-Swr">
                                 <rect key="frame" x="0.0" y="57" width="82" height="485"/>
@@ -283,7 +299,7 @@
                             <constraint firstItem="GAc-0k-qBR" firstAttribute="top" secondItem="gfv-7v-9kb" secondAttribute="top" id="Eh4-8b-StX"/>
                             <constraint firstItem="JhK-ih-nPH" firstAttribute="leading" secondItem="uKi-L4-Swr" secondAttribute="leading" constant="40" id="Hcj-x2-Xxu"/>
                             <constraint firstItem="GAc-0k-qBR" firstAttribute="leading" secondItem="gfv-7v-9kb" secondAttribute="leading" id="IkO-53-gc4"/>
-                            <constraint firstItem="GAc-0k-qBR" firstAttribute="leading" secondItem="JhK-ih-nPH" secondAttribute="leading" id="Kq1-Uz-2f0"/>
+                            <constraint firstItem="GAc-0k-qBR" firstAttribute="leading" secondItem="JhK-ih-nPH" secondAttribute="leading" placeholder="YES" id="Kq1-Uz-2f0"/>
                             <constraint firstItem="xks-aH-qEL" firstAttribute="centerY" secondItem="uKi-L4-Swr" secondAttribute="centerY" constant="12" id="KsT-0S-e1g"/>
                             <constraint firstItem="Srw-1J-y9f" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Kwi-83-gOa"/>
                             <constraint firstItem="xks-aH-qEL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-100" placeholder="YES" id="MN7-GS-rsf"/>
@@ -296,7 +312,7 @@
                             <constraint firstItem="GAc-0k-qBR" firstAttribute="top" secondItem="bNb-PA-hbc" secondAttribute="top" id="Udd-pR-eZf"/>
                             <constraint firstItem="GAc-0k-qBR" firstAttribute="leading" secondItem="qAU-hm-SW1" secondAttribute="leading" id="Ueh-0n-abt"/>
                             <constraint firstItem="gfv-7v-9kb" firstAttribute="top" secondItem="uKi-L4-Swr" secondAttribute="top" constant="321" id="WSv-16-LFk"/>
-                            <constraint firstItem="GAc-0k-qBR" firstAttribute="top" secondItem="JhK-ih-nPH" secondAttribute="top" id="WfI-sG-DQj"/>
+                            <constraint firstItem="GAc-0k-qBR" firstAttribute="top" secondItem="JhK-ih-nPH" secondAttribute="top" placeholder="YES" id="WfI-sG-DQj"/>
                             <constraint firstItem="GAc-0k-qBR" firstAttribute="leading" secondItem="JhK-ih-nPH" secondAttribute="leading" id="Wrj-gT-Nvv"/>
                             <constraint firstItem="EMn-4O-DWf" firstAttribute="centerX" secondItem="gfv-7v-9kb" secondAttribute="centerX" id="X1k-3x-JM6"/>
                             <constraint firstItem="qAb-Uf-nQF" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="XmW-Ff-Aqb"/>
@@ -362,13 +378,16 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="drawView" destination="Srw-1J-y9f" id="kzF-mL-4x3"/>
-                        <outlet property="firstColorButton" destination="JhK-ih-nPH" id="888-js-5m6"/>
+                        <outlet property="firstColorButton" destination="gfv-7v-9kb" id="M4z-5z-svR"/>
                         <outlet property="selectedColorCircleView" destination="GAc-0k-qBR" id="qWD-t0-nSq"/>
                         <outletCollection property="toolsButton" destination="jnS-NP-Tyx" collectionClass="NSMutableArray" id="FF2-6c-Oop"/>
                         <outletCollection property="toolsButton" destination="6gQ-Og-jos" collectionClass="NSMutableArray" id="Y5T-yi-gn2"/>
                         <outletCollection property="toolsButton" destination="MS2-aQ-LVN" collectionClass="NSMutableArray" id="JEC-e1-YxI"/>
                         <outletCollection property="toolsButton" destination="BRe-i1-4DL" collectionClass="NSMutableArray" id="jWh-6N-9LR"/>
                         <outletCollection property="toolsButton" destination="xks-aH-qEL" collectionClass="NSMutableArray" id="lFP-XF-uz2"/>
+                        <segue destination="6tK-RE-9db" kind="popoverPresentation" identifier="showPopover" popoverAnchorView="GAc-0k-qBR" id="ZFY-Sf-75x">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

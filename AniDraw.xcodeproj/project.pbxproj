@@ -40,6 +40,7 @@
 		27AFB31E1D2365A200325894 /* Posture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31D1D2365A200325894 /* Posture.swift */; };
 		27AFB3221D236B8A00325894 /* DanceMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3211D236B8A00325894 /* DanceMove.swift */; };
 		27AFB3461D236DEC00325894 /* DanceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 27AFB3451D236DEC00325894 /* DanceScene.sks */; };
+		27CA0ACA1D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AC81D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodeld */; };
 		27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31F1D236A5000325894 /* Keyframe.swift */; };
 		27F6AD221D23A89500BF3116 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6AD211D23A89500BF3116 /* SkeletonView.swift */; };
 		27F6AD241D23A8D200BF3116 /* JointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6AD231D23A8D200BF3116 /* JointView.swift */; };
@@ -83,6 +84,7 @@
 		27AFB31F1D236A5000325894 /* Keyframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyframe.swift; sourceTree = "<group>"; };
 		27AFB3211D236B8A00325894 /* DanceMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceMove.swift; sourceTree = "<group>"; };
 		27AFB3451D236DEC00325894 /* DanceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DanceScene.sks; sourceTree = "<group>"; };
+		27CA0AC91D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CharacterStorageModel.xcdatamodel; sourceTree = "<group>"; };
 		27F6AD211D23A89500BF3116 /* SkeletonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		27F6AD231D23A8D200BF3116 /* JointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JointView.swift; sourceTree = "<group>"; };
 		58A56761E1255BDF6AE5EA5E /* Pods_AniDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AniDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 				27AFB3161D235FDB00325894 /* UI */,
 				2701F1431D24BDF700C597E6 /* Joints.swift */,
 				27AFB3141D235FCD00325894 /* BodyPartNode.swift */,
+				27CA0AC81D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodeld */,
 				27AFB3171D23604A00325894 /* CharacterNode.swift */,
 				27252A261D260C7B002CE361 /* CharactersScene.swift */,
 				27AFB31D1D2365A200325894 /* Posture.swift */,
@@ -331,6 +334,7 @@
 				275ABBB81D22549F00BC3B8D /* DrawController.swift in Sources */,
 				275ABBD11D226EF700BC3B8D /* SKNode+Extensions.swift in Sources */,
 				27AFB3181D23604A00325894 /* CharacterNode.swift in Sources */,
+				27CA0ACA1D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodeld in Sources */,
 				275ABBBC1D2261E200BC3B8D /* DrawView.swift in Sources */,
 				27AFB3221D236B8A00325894 /* DanceMove.swift in Sources */,
 				275ABBD41D226EF700BC3B8D /* SKTTimingFunctions.swift in Sources */,
@@ -513,6 +517,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		27CA0AC81D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				27CA0AC91D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodel */,
+			);
+			currentVersion = 27CA0AC91D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodel */;
+			path = CharacterStorageModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 275ABB9A1D224E4200BC3B8D /* Project object */;
 }
