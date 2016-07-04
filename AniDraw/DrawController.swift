@@ -24,7 +24,26 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
     @IBOutlet weak var selectedColorCircleView: UIImageView!
     @IBOutlet weak var firstColorButton: UIButton!
     
-    var colorButton: UIButton?
+    var selectedColorButton: UIButton? {
+        didSet {
+            if selectedColorButton != nil {
+                selectedColorCircleView.frame.origin = selectedColorButton!.frame.origin
+            }
+            
+        }
+    }
+    
+    @IBAction private func selectColor(sender: UIButton) {
+        if let c = sender.backgroundColor {
+            drawView.color = c
+        }
+        
+        if sender == selectedColorButton {
+            performSegueWithIdentifier(Storyborad.PopoverSegueIdentifier, sender: sender)
+        }
+        self.selectedColorButton = sender
+    }
+    
     private struct Constant {
         static let drawingToolsAnimationDuration = 0.3
     }
@@ -66,12 +85,13 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        drawView.color = firstColorButton.backgroundColor!
+        selectedColorButton = firstColorButton
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+        selectedColorCircleView.frame.origin = selectedColorButton!.frame.origin
         for button in toolsButton {
             if button.tag == DrawingTool.Pencil.rawValue {
                 button.frame.origin = CGPoint(x: 0, y: button.frame.minY)
@@ -79,6 +99,7 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
                 button.frame.origin = CGPoint(x: -100, y: button.frame.minY)
             }
         }
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -112,17 +133,20 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
                 skeletonVC.characterSkin = image
             }
         case Storyborad.PopoverSegueIdentifier:
-            guard let destNav = segue.destinationViewController as? UINavigationController, let colorVC = destNav.visibleViewController as? MSColorSelectionViewController, let button = sender as? UIButton else{
+            guard let destNav = segue.destinationViewController as? UINavigationController, let colorVC = destNav.visibleViewController as? MSColorSelectionViewController else{
                 break
             }
-            self.colorButton = button
+            
             let popoverVC = destNav.popoverPresentationController! as UIPopoverPresentationController
             popoverVC.sourceView = self.view
-            popoverVC.sourceRect = button.frame
+            popoverVC.sourceRect = selectedColorCircleView.frame
             popoverVC.presentedViewController.preferredContentSize = colorVC.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
             destNav.popoverPresentationController?.delegate = self
             colorVC.delegate = self
-            colorVC.color = UIColor.redColor()
+            if let c = selectedColorButton?.backgroundColor {
+                colorVC.color = c
+            }
+            
         default:
             break
         }
@@ -133,7 +157,7 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
     }
     
     func colorViewController(colorViewCntroller: MSColorSelectionViewController!, didChangeColor color: UIColor!) {
-        guard let button = colorButton, let c = color else {
+        guard let button = selectedColorButton, let c = color else {
             return
         }
         button.backgroundColor = c

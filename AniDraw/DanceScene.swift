@@ -9,9 +9,22 @@
 import SpriteKit
 
 class DanceScene: SKScene {
-    var characterNode: CharacterNode!
-    var rotaNode1: SKSpriteNode!
-    var rotaNode2: SKSpriteNode!
+    var characterNode: CharacterNode? {
+        willSet {
+             if let c = characterNode {
+                removeChildrenInArray([c])
+            }
+        }
+        didSet {
+            if let c = characterNode {
+                
+                if let v = view {
+                    c.position = v.bounds.center
+                }
+                addChild(c)
+            }
+        }
+    }
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
     }
