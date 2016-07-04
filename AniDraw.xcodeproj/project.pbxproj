@@ -7,6 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B8B05BE1D2A4EDD00CD1DC6 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05961D2A4EDD00CD1DC6 /* Array.swift */; };
+		0B8B05BF1D2A4EDD00CD1DC6 /* DisplayObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05971D2A4EDD00CD1DC6 /* DisplayObject.swift */; };
+		0B8B05C01D2A4EDD00CD1DC6 /* DisplayObjectContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05981D2A4EDD00CD1DC6 /* DisplayObjectContainer.swift */; };
+		0B8B05C11D2A4EDD00CD1DC6 /* easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05991D2A4EDD00CD1DC6 /* easing.swift */; };
+		0B8B05C21D2A4EDD00CD1DC6 /* EasingDeclarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B059A1D2A4EDD00CD1DC6 /* EasingDeclarations.swift */; };
+		0B8B05C31D2A4EDD00CD1DC6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B059B1D2A4EDD00CD1DC6 /* Event.swift */; };
+		0B8B05C41D2A4EDD00CD1DC6 /* EventDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B059C1D2A4EDD00CD1DC6 /* EventDispatcher.swift */; };
+		0B8B05C51D2A4EDD00CD1DC6 /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B059D1D2A4EDD00CD1DC6 /* EventHandler.swift */; };
+		0B8B05C61D2A4EDD00CD1DC6 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B059E1D2A4EDD00CD1DC6 /* Global.swift */; };
+		0B8B05C71D2A4EDD00CD1DC6 /* Graphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B059F1D2A4EDD00CD1DC6 /* Graphics.swift */; };
+		0B8B05C81D2A4EDD00CD1DC6 /* GraphicsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05A01D2A4EDD00CD1DC6 /* GraphicsNode.swift */; };
+		0B8B05C91D2A4EDD00CD1DC6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B05A11D2A4EDD00CD1DC6 /* Info.plist */; };
+		0B8B05CA1D2A4EDD00CD1DC6 /* InteractiveNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05A21D2A4EDD00CD1DC6 /* InteractiveNode.swift */; };
+		0B8B05CB1D2A4EDD00CD1DC6 /* InteractiveObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05A31D2A4EDD00CD1DC6 /* InteractiveObject.swift */; };
+		0B8B05CC1D2A4EDD00CD1DC6 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05A41D2A4EDD00CD1DC6 /* LabelNode.swift */; };
+		0B8B05CD1D2A4EDD00CD1DC6 /* MovieClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05A51D2A4EDD00CD1DC6 /* MovieClip.swift */; };
+		0B8B05CE1D2A4EDD00CD1DC6 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05A61D2A4EDD00CD1DC6 /* Object.swift */; };
+		0B8B05CF1D2A4EDD00CD1DC6 /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05A71D2A4EDD00CD1DC6 /* SimpleButton.swift */; };
+		0B8B05D01D2A4EDD00CD1DC6 /* SKEase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05A81D2A4EDD00CD1DC6 /* SKEase.swift */; };
+		0B8B05D11D2A4EDD00CD1DC6 /* SKMultilineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05A91D2A4EDD00CD1DC6 /* SKMultilineLabel.swift */; };
+		0B8B05D21D2A4EDD00CD1DC6 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05AA1D2A4EDD00CD1DC6 /* Sound.swift */; };
+		0B8B05D31D2A4EDD00CD1DC6 /* SoundChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05AB1D2A4EDD00CD1DC6 /* SoundChannel.swift */; };
+		0B8B05D41D2A4EDD00CD1DC6 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05AC1D2A4EDD00CD1DC6 /* Sprite.swift */; };
+		0B8B05D51D2A4EDD00CD1DC6 /* SpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05AD1D2A4EDD00CD1DC6 /* SpriteNode.swift */; };
+		0B8B05D61D2A4EDD00CD1DC6 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05AE1D2A4EDD00CD1DC6 /* Stage.swift */; };
+		0B8B05D71D2A4EDD00CD1DC6 /* StageScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05AF1D2A4EDD00CD1DC6 /* StageScene.swift */; };
+		0B8B05D81D2A4EDD00CD1DC6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05B01D2A4EDD00CD1DC6 /* String.swift */; };
+		0B8B05D91D2A4EDD00CD1DC6 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05B11D2A4EDD00CD1DC6 /* TextField.swift */; };
+		0B8B05DA1D2A4EDD00CD1DC6 /* TextFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05B21D2A4EDD00CD1DC6 /* TextFormat.swift */; };
+		0B8B05DB1D2A4EDD00CD1DC6 /* Touch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05B31D2A4EDD00CD1DC6 /* Touch.swift */; };
+		0B8B05DC1D2A4EDD00CD1DC6 /* TouchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05B41D2A4EDD00CD1DC6 /* TouchEvent.swift */; };
+		0B8B05DD1D2A4EDD00CD1DC6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05B51D2A4EDD00CD1DC6 /* UIColor.swift */; };
+		0B8B05DE1D2A4EDD00CD1DC6 /* ActionSwift3.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B05B71D2A4EDD00CD1DC6 /* ActionSwift3.xcconfig */; };
+		0B8B05DF1D2A4EDD00CD1DC6 /* ActionSwift3-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B05B81D2A4EDD00CD1DC6 /* ActionSwift3-dummy.m */; };
+		0B8B05E01D2A4EDD00CD1DC6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B05BB1D2A4EDD00CD1DC6 /* Info.plist */; };
 		2701F1401D2428AA00C597E6 /* UInt32+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F13F1D2428AA00C597E6 /* UInt32+.swift */; };
 		2701F1421D243BF600C597E6 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F1411D243BF600C597E6 /* CGRect+.swift */; };
 		2701F1441D24BDF700C597E6 /* Joints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F1431D24BDF700C597E6 /* Joints.swift */; };
@@ -47,6 +82,45 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B8B05951D2A4EDD00CD1DC6 /* ActionSwift3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionSwift3.h; path = ActionSwift3/ActionSwift3.h; sourceTree = "<group>"; };
+		0B8B05961D2A4EDD00CD1DC6 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array.swift; path = ActionSwift3/Array.swift; sourceTree = "<group>"; };
+		0B8B05971D2A4EDD00CD1DC6 /* DisplayObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayObject.swift; path = ActionSwift3/display/DisplayObject.swift; sourceTree = "<group>"; };
+		0B8B05981D2A4EDD00CD1DC6 /* DisplayObjectContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayObjectContainer.swift; path = ActionSwift3/display/DisplayObjectContainer.swift; sourceTree = "<group>"; };
+		0B8B05991D2A4EDD00CD1DC6 /* easing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = easing.swift; path = ActionSwift3/easing.swift; sourceTree = "<group>"; };
+		0B8B059A1D2A4EDD00CD1DC6 /* EasingDeclarations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EasingDeclarations.swift; path = ActionSwift3/EasingDeclarations.swift; sourceTree = "<group>"; };
+		0B8B059B1D2A4EDD00CD1DC6 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = ActionSwift3/com/actionswift/events/Event.swift; sourceTree = "<group>"; };
+		0B8B059C1D2A4EDD00CD1DC6 /* EventDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDispatcher.swift; path = ActionSwift3/com/actionswift/events/EventDispatcher.swift; sourceTree = "<group>"; };
+		0B8B059D1D2A4EDD00CD1DC6 /* EventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventHandler.swift; path = ActionSwift3/com/actionswift/events/EventHandler.swift; sourceTree = "<group>"; };
+		0B8B059E1D2A4EDD00CD1DC6 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Global.swift; path = ActionSwift3/Global.swift; sourceTree = "<group>"; };
+		0B8B059F1D2A4EDD00CD1DC6 /* Graphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Graphics.swift; path = ActionSwift3/display/Graphics.swift; sourceTree = "<group>"; };
+		0B8B05A01D2A4EDD00CD1DC6 /* GraphicsNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphicsNode.swift; path = ActionSwift3/display/GraphicsNode.swift; sourceTree = "<group>"; };
+		0B8B05A11D2A4EDD00CD1DC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ActionSwift3/Info.plist; sourceTree = "<group>"; };
+		0B8B05A21D2A4EDD00CD1DC6 /* InteractiveNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InteractiveNode.swift; path = ActionSwift3/display/InteractiveNode.swift; sourceTree = "<group>"; };
+		0B8B05A31D2A4EDD00CD1DC6 /* InteractiveObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InteractiveObject.swift; path = ActionSwift3/display/InteractiveObject.swift; sourceTree = "<group>"; };
+		0B8B05A41D2A4EDD00CD1DC6 /* LabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelNode.swift; path = ActionSwift3/display/LabelNode.swift; sourceTree = "<group>"; };
+		0B8B05A51D2A4EDD00CD1DC6 /* MovieClip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieClip.swift; path = ActionSwift3/display/MovieClip.swift; sourceTree = "<group>"; };
+		0B8B05A61D2A4EDD00CD1DC6 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Object.swift; path = ActionSwift3/Object.swift; sourceTree = "<group>"; };
+		0B8B05A71D2A4EDD00CD1DC6 /* SimpleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleButton.swift; path = ActionSwift3/display/SimpleButton.swift; sourceTree = "<group>"; };
+		0B8B05A81D2A4EDD00CD1DC6 /* SKEase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKEase.swift; path = ActionSwift3/SKEase.swift; sourceTree = "<group>"; };
+		0B8B05A91D2A4EDD00CD1DC6 /* SKMultilineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKMultilineLabel.swift; path = ActionSwift3/SKMultilineLabel.swift; sourceTree = "<group>"; };
+		0B8B05AA1D2A4EDD00CD1DC6 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = ActionSwift3/media/Sound.swift; sourceTree = "<group>"; };
+		0B8B05AB1D2A4EDD00CD1DC6 /* SoundChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundChannel.swift; path = ActionSwift3/media/SoundChannel.swift; sourceTree = "<group>"; };
+		0B8B05AC1D2A4EDD00CD1DC6 /* Sprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sprite.swift; path = ActionSwift3/display/Sprite.swift; sourceTree = "<group>"; };
+		0B8B05AD1D2A4EDD00CD1DC6 /* SpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpriteNode.swift; path = ActionSwift3/display/SpriteNode.swift; sourceTree = "<group>"; };
+		0B8B05AE1D2A4EDD00CD1DC6 /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stage.swift; path = ActionSwift3/display/Stage.swift; sourceTree = "<group>"; };
+		0B8B05AF1D2A4EDD00CD1DC6 /* StageScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageScene.swift; path = ActionSwift3/display/StageScene.swift; sourceTree = "<group>"; };
+		0B8B05B01D2A4EDD00CD1DC6 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = ActionSwift3/String.swift; sourceTree = "<group>"; };
+		0B8B05B11D2A4EDD00CD1DC6 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = ActionSwift3/text/TextField.swift; sourceTree = "<group>"; };
+		0B8B05B21D2A4EDD00CD1DC6 /* TextFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFormat.swift; path = ActionSwift3/text/TextFormat.swift; sourceTree = "<group>"; };
+		0B8B05B31D2A4EDD00CD1DC6 /* Touch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Touch.swift; path = ActionSwift3/com/actionswift/events/Touch.swift; sourceTree = "<group>"; };
+		0B8B05B41D2A4EDD00CD1DC6 /* TouchEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TouchEvent.swift; path = ActionSwift3/com/actionswift/events/TouchEvent.swift; sourceTree = "<group>"; };
+		0B8B05B51D2A4EDD00CD1DC6 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = ActionSwift3/UIColor.swift; sourceTree = "<group>"; };
+		0B8B05B61D2A4EDD00CD1DC6 /* ActionSwift3.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = ActionSwift3.modulemap; sourceTree = "<group>"; };
+		0B8B05B71D2A4EDD00CD1DC6 /* ActionSwift3.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ActionSwift3.xcconfig; sourceTree = "<group>"; };
+		0B8B05B81D2A4EDD00CD1DC6 /* ActionSwift3-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ActionSwift3-dummy.m"; sourceTree = "<group>"; };
+		0B8B05B91D2A4EDD00CD1DC6 /* ActionSwift3-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ActionSwift3-prefix.pch"; sourceTree = "<group>"; };
+		0B8B05BA1D2A4EDD00CD1DC6 /* ActionSwift3-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ActionSwift3-umbrella.h"; sourceTree = "<group>"; };
+		0B8B05BB1D2A4EDD00CD1DC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2701F13F1D2428AA00C597E6 /* UInt32+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt32+.swift"; sourceTree = "<group>"; };
 		2701F1411D243BF600C597E6 /* CGRect+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
 		2701F1431D24BDF700C597E6 /* Joints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joints.swift; sourceTree = "<group>"; };
@@ -102,6 +176,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B8B05BC1D2A4EDD00CD1DC6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0B8B05B61D2A4EDD00CD1DC6 /* ActionSwift3.modulemap */,
+				0B8B05B71D2A4EDD00CD1DC6 /* ActionSwift3.xcconfig */,
+				0B8B05B81D2A4EDD00CD1DC6 /* ActionSwift3-dummy.m */,
+				0B8B05B91D2A4EDD00CD1DC6 /* ActionSwift3-prefix.pch */,
+				0B8B05BA1D2A4EDD00CD1DC6 /* ActionSwift3-umbrella.h */,
+				0B8B05BB1D2A4EDD00CD1DC6 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ActionSwift3";
+			sourceTree = "<group>";
+		};
+		0B8B05BD1D2A4EDD00CD1DC6 /* ActionSwift3 */ = {
+			isa = PBXGroup;
+			children = (
+				0B8B05951D2A4EDD00CD1DC6 /* ActionSwift3.h */,
+				0B8B05961D2A4EDD00CD1DC6 /* Array.swift */,
+				0B8B05971D2A4EDD00CD1DC6 /* DisplayObject.swift */,
+				0B8B05981D2A4EDD00CD1DC6 /* DisplayObjectContainer.swift */,
+				0B8B05991D2A4EDD00CD1DC6 /* easing.swift */,
+				0B8B059A1D2A4EDD00CD1DC6 /* EasingDeclarations.swift */,
+				0B8B059B1D2A4EDD00CD1DC6 /* Event.swift */,
+				0B8B059C1D2A4EDD00CD1DC6 /* EventDispatcher.swift */,
+				0B8B059D1D2A4EDD00CD1DC6 /* EventHandler.swift */,
+				0B8B059E1D2A4EDD00CD1DC6 /* Global.swift */,
+				0B8B059F1D2A4EDD00CD1DC6 /* Graphics.swift */,
+				0B8B05A01D2A4EDD00CD1DC6 /* GraphicsNode.swift */,
+				0B8B05A11D2A4EDD00CD1DC6 /* Info.plist */,
+				0B8B05A21D2A4EDD00CD1DC6 /* InteractiveNode.swift */,
+				0B8B05A31D2A4EDD00CD1DC6 /* InteractiveObject.swift */,
+				0B8B05A41D2A4EDD00CD1DC6 /* LabelNode.swift */,
+				0B8B05A51D2A4EDD00CD1DC6 /* MovieClip.swift */,
+				0B8B05A61D2A4EDD00CD1DC6 /* Object.swift */,
+				0B8B05A71D2A4EDD00CD1DC6 /* SimpleButton.swift */,
+				0B8B05A81D2A4EDD00CD1DC6 /* SKEase.swift */,
+				0B8B05A91D2A4EDD00CD1DC6 /* SKMultilineLabel.swift */,
+				0B8B05AA1D2A4EDD00CD1DC6 /* Sound.swift */,
+				0B8B05AB1D2A4EDD00CD1DC6 /* SoundChannel.swift */,
+				0B8B05AC1D2A4EDD00CD1DC6 /* Sprite.swift */,
+				0B8B05AD1D2A4EDD00CD1DC6 /* SpriteNode.swift */,
+				0B8B05AE1D2A4EDD00CD1DC6 /* Stage.swift */,
+				0B8B05AF1D2A4EDD00CD1DC6 /* StageScene.swift */,
+				0B8B05B01D2A4EDD00CD1DC6 /* String.swift */,
+				0B8B05B11D2A4EDD00CD1DC6 /* TextField.swift */,
+				0B8B05B21D2A4EDD00CD1DC6 /* TextFormat.swift */,
+				0B8B05B31D2A4EDD00CD1DC6 /* Touch.swift */,
+				0B8B05B41D2A4EDD00CD1DC6 /* TouchEvent.swift */,
+				0B8B05B51D2A4EDD00CD1DC6 /* UIColor.swift */,
+				0B8B05BC1D2A4EDD00CD1DC6 /* Support Files */,
+			);
+			name = ActionSwift3;
+			path = ../Pods/ActionSwift3;
+			sourceTree = "<group>";
+		};
 		275ABB991D224E4200BC3B8D = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +268,7 @@
 				2701F13F1D2428AA00C597E6 /* UInt32+.swift */,
 				271258621D22B7D000BD9C36 /* UIImage+.swift */,
 				27252A241D255A89002CE361 /* CGImage+.swift */,
+				0B8B05BD1D2A4EDD00CD1DC6 /* ActionSwift3 */,
 				275ABBAC1D224E4200BC3B8D /* Assets.xcassets */,
 				275ABBAE1D224E4200BC3B8D /* LaunchScreen.storyboard */,
 				275ABBB11D224E4200BC3B8D /* Info.plist */,
@@ -204,12 +335,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 275ABBB41D224E4200BC3B8D /* Build configuration list for PBXNativeTarget "AniDraw" */;
 			buildPhases = (
+				632E4D36157EFA8564D55EA6 /* 📦 Check Pods Manifest.lock */,
 				E68496A02640A3E8273DC5FC /* [CP] Check Pods Manifest.lock */,
 				275ABB9E1D224E4200BC3B8D /* Sources */,
 				275ABB9F1D224E4200BC3B8D /* Frameworks */,
 				275ABBA01D224E4200BC3B8D /* Resources */,
 				EF092F80D99BECDD61774731 /* [CP] Embed Pods Frameworks */,
 				522927A73BCF4A04C8DB39F5 /* [CP] Copy Pods Resources */,
+				C826EE0653BEAF6E64C121CB /* 📦 Embed Pods Frameworks */,
+				D551C3432669C2CB8019CBD7 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,7 +366,7 @@
 				TargetAttributes = {
 					275ABBA11D224E4200BC3B8D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = TL45XG83G4;
+						DevelopmentTeam = KU9ZGHL9NX;
 					};
 				};
 			};
@@ -259,10 +393,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B8B05DE1D2A4EDD00CD1DC6 /* ActionSwift3.xcconfig in Resources */,
 				275ABBB01D224E4200BC3B8D /* LaunchScreen.storyboard in Resources */,
 				275ABBAD1D224E4200BC3B8D /* Assets.xcassets in Resources */,
 				27AFB3461D236DEC00325894 /* DanceScene.sks in Resources */,
+				0B8B05C91D2A4EDD00CD1DC6 /* Info.plist in Resources */,
 				275ABBAB1D224E4200BC3B8D /* Main.storyboard in Resources */,
+				0B8B05E01D2A4EDD00CD1DC6 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +414,51 @@
 			inputPaths = (
 			);
 			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		632E4D36157EFA8564D55EA6 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C826EE0653BEAF6E64C121CB /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D551C3432669C2CB8019CBD7 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,37 +503,69 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B8B05D81D2A4EDD00CD1DC6 /* String.swift in Sources */,
 				275ABBCB1D226EF700BC3B8D /* CGPoint+Extensions.swift in Sources */,
 				27AFB31C1D2362CF00325894 /* DanceScene.swift in Sources */,
 				27AFB31E1D2365A200325894 /* Posture.swift in Sources */,
+				0B8B05D91D2A4EDD00CD1DC6 /* TextField.swift in Sources */,
 				275ABBD31D226EF700BC3B8D /* SKTEffects.swift in Sources */,
+				0B8B05CC1D2A4EDD00CD1DC6 /* LabelNode.swift in Sources */,
 				275ABBCE1D226EF700BC3B8D /* SKAction+Extensions.swift in Sources */,
+				0B8B05D31D2A4EDD00CD1DC6 /* SoundChannel.swift in Sources */,
+				0B8B05D51D2A4EDD00CD1DC6 /* SpriteNode.swift in Sources */,
 				27252A251D255A89002CE361 /* CGImage+.swift in Sources */,
+				0B8B05C31D2A4EDD00CD1DC6 /* Event.swift in Sources */,
+				0B8B05D61D2A4EDD00CD1DC6 /* Stage.swift in Sources */,
+				0B8B05BE1D2A4EDD00CD1DC6 /* Array.swift in Sources */,
+				0B8B05CD1D2A4EDD00CD1DC6 /* MovieClip.swift in Sources */,
+				0B8B05BF1D2A4EDD00CD1DC6 /* DisplayObject.swift in Sources */,
+				0B8B05C81D2A4EDD00CD1DC6 /* GraphicsNode.swift in Sources */,
 				27F6AD221D23A89500BF3116 /* SkeletonView.swift in Sources */,
 				275ABBB81D22549F00BC3B8D /* DrawController.swift in Sources */,
+				0B8B05C21D2A4EDD00CD1DC6 /* EasingDeclarations.swift in Sources */,
+				0B8B05C61D2A4EDD00CD1DC6 /* Global.swift in Sources */,
 				275ABBD11D226EF700BC3B8D /* SKNode+Extensions.swift in Sources */,
+				0B8B05DD1D2A4EDD00CD1DC6 /* UIColor.swift in Sources */,
 				27AFB3181D23604A00325894 /* CharacterNode.swift in Sources */,
 				275ABBBC1D2261E200BC3B8D /* DrawView.swift in Sources */,
 				27AFB3221D236B8A00325894 /* DanceMove.swift in Sources */,
 				275ABBD41D226EF700BC3B8D /* SKTTimingFunctions.swift in Sources */,
+				0B8B05D01D2A4EDD00CD1DC6 /* SKEase.swift in Sources */,
 				275ABBCF1D226EF700BC3B8D /* SKAction+SpecialEffects.swift in Sources */,
 				275ABBCD1D226EF700BC3B8D /* Int+Extensions.swift in Sources */,
 				27F6AD241D23A8D200BF3116 /* JointView.swift in Sources */,
+				0B8B05C11D2A4EDD00CD1DC6 /* easing.swift in Sources */,
 				275ABBD51D226EF700BC3B8D /* Vector3.swift in Sources */,
 				275ABBA81D224E4200BC3B8D /* CharactersController.swift in Sources */,
+				0B8B05C71D2A4EDD00CD1DC6 /* Graphics.swift in Sources */,
 				275ABBD01D226EF700BC3B8D /* SKColor+Extensions.swift in Sources */,
 				27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */,
 				27AFB3151D235FCD00325894 /* BodyPartNode.swift in Sources */,
+				0B8B05DF1D2A4EDD00CD1DC6 /* ActionSwift3-dummy.m in Sources */,
 				2701F1401D2428AA00C597E6 /* UInt32+.swift in Sources */,
+				0B8B05CB1D2A4EDD00CD1DC6 /* InteractiveObject.swift in Sources */,
 				275ABBCC1D226EF700BC3B8D /* CGVector+Extensions.swift in Sources */,
 				2701F1441D24BDF700C597E6 /* Joints.swift in Sources */,
+				0B8B05C51D2A4EDD00CD1DC6 /* EventHandler.swift in Sources */,
 				275ABBA61D224E4200BC3B8D /* AppDelegate.swift in Sources */,
+				0B8B05D11D2A4EDD00CD1DC6 /* SKMultilineLabel.swift in Sources */,
+				0B8B05D21D2A4EDD00CD1DC6 /* Sound.swift in Sources */,
+				0B8B05DA1D2A4EDD00CD1DC6 /* TextFormat.swift in Sources */,
 				275ABBD21D226EF700BC3B8D /* SKTAudio.swift in Sources */,
 				271258631D22B7D000BD9C36 /* UIImage+.swift in Sources */,
+				0B8B05DC1D2A4EDD00CD1DC6 /* TouchEvent.swift in Sources */,
+				0B8B05CA1D2A4EDD00CD1DC6 /* InteractiveNode.swift in Sources */,
 				2701F1421D243BF600C597E6 /* CGRect+.swift in Sources */,
+				0B8B05D71D2A4EDD00CD1DC6 /* StageScene.swift in Sources */,
 				27AFB31A1D23629E00325894 /* AnimationController.swift in Sources */,
+				0B8B05D41D2A4EDD00CD1DC6 /* Sprite.swift in Sources */,
+				0B8B05C41D2A4EDD00CD1DC6 /* EventDispatcher.swift in Sources */,
+				0B8B05C01D2A4EDD00CD1DC6 /* DisplayObjectContainer.swift in Sources */,
 				275ABBCA1D226EF700BC3B8D /* CGFloat+Extensions.swift in Sources */,
+				0B8B05DB1D2A4EDD00CD1DC6 /* Touch.swift in Sources */,
+				0B8B05CF1D2A4EDD00CD1DC6 /* SimpleButton.swift in Sources */,
 				27252A271D260C7B002CE361 /* CharactersScene.swift in Sources */,
+				0B8B05CE1D2A4EDD00CD1DC6 /* Object.swift in Sources */,
 				275ABBBA1D2257BF00BC3B8D /* SkeletonController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,11 +682,14 @@
 			baseConfigurationReference = B82212FB773A5012C1FFF4B3 /* Pods-AniDraw.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = younn.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -482,11 +699,14 @@
 			baseConfigurationReference = EC73AE9467A5B672CE6A3650 /* Pods-AniDraw.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = younn.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;

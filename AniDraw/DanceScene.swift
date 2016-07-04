@@ -14,7 +14,6 @@ class DanceScene: SKScene {
     var rotaNode2: SKSpriteNode!
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-
     }
     
     override func update(currentTime: CFTimeInterval) {

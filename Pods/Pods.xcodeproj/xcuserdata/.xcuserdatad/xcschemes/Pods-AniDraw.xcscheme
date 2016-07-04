@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9E610B651759423741EC103C7C5A1BC1'
+               BlueprintIdentifier = '7468480F45CE49B6E2A3B0CEAD5575BB'
                BlueprintName = 'Pods-AniDraw'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods-AniDraw.framework'>

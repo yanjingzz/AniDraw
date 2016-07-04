@@ -8,122 +8,151 @@
 
 /* Begin PBXBuildFile section */
 		01CFE72603C22865312BCD6DD54D4DA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32444F82DFAC984B7EDD1408F5E33CCC /* QuartzCore.framework */; };
-		028A48D558BB468E503F431727286796 /* Pods-AniDraw-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A241CBD5BAAEA8E7946BA8B489CE8E /* Pods-AniDraw-dummy.m */; };
-		09435816567501D89698B5F88A4E44B9 /* JGProgressHUDSuccessIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D71ED1DB29D22950E75F2747A60259 /* JGProgressHUDSuccessIndicatorView.m */; };
-		0AF03BEB17B21617DAE72E1DB2AA6239 /* JGProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A25EC0844CB5C0F3467FE1C6C2BB4E9A /* JGProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0D0F309DC3A69EE1B12FC3327839C85C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AB83A40837644AD90090FA385C08A8 /* Config.swift */; };
-		0D6294F75EF712E12213A1E3529B1DB5 /* MSColorSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0160BC867ECAFCC2868938E05AFD2F50 /* MSColorSelectionView.m */; };
+		09435816567501D89698B5F88A4E44B9 /* JGProgressHUDSuccessIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C939E9EA80BFA13701836D80409A1614 /* JGProgressHUDSuccessIndicatorView.m */; };
+		0AF03BEB17B21617DAE72E1DB2AA6239 /* JGProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D951986825FBD71B7D39E1DE535DA91 /* JGProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D0F309DC3A69EE1B12FC3327839C85C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D87F11C3E7628A45A8DCB887DF0301 /* Config.swift */; };
+		0D6294F75EF712E12213A1E3529B1DB5 /* MSColorSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A986F7EB37B3842A39A7B03F482AFBE2 /* MSColorSelectionView.m */; };
 		0DF682557E4E56CF2E6204A510B39EAA /* Pitchy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B30FCEA41EED8B5F8C0B95A47CC7923 /* Pitchy.framework */; };
-		112F63A968D2B1E3103BE1D0957DF597 /* JGProgressHUD Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B389CAB2A06913450908DB0C57FCE09C /* JGProgressHUD Resources.bundle */; };
-		13F5432D9AE3A511EA76506B27B07500 /* MSColorSelectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = CFCC39510571211FE78C4B6E3EC0A6F4 /* MSColorSelectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		17EEAADCF13E184CAC4B48CF8B52B8A5 /* MSColorPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 954F053824AF45C2A9C1F8425F46CD79 /* MSColorPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		197E8602976643CB9329010568986AFC /* PitchCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E8040CFEDCA0F28750A1622877257B /* PitchCalculator.swift */; };
-		1ACCAD57CE934B6110C14CF4A53F7745 /* NoteCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E35CF0A31EE52142316A979DC8FAC9A /* NoteCalculator.swift */; };
+		112F63A968D2B1E3103BE1D0957DF597 /* JGProgressHUD Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C6817E0A422281BE26A7F9E333FEE1E7 /* JGProgressHUD Resources.bundle */; };
+		13F5432D9AE3A511EA76506B27B07500 /* MSColorSelectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 01BD67BDD803E46B117D95768A0AFDEA /* MSColorSelectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		14EEF0195E7543D196A47DD6B0596ECE /* SpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDF3A8445FDD88E49A3424E895C73DE /* SpriteNode.swift */; };
+		158B041E2297EBC8E5A2E1457AD26D70 /* Pods-AniDraw-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4CF476A90CDEA859150A4BEBE35B99A /* Pods-AniDraw-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17EEAADCF13E184CAC4B48CF8B52B8A5 /* MSColorPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 2298FA5E0B0F4673AAC1EB66399D6882 /* MSColorPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		197E8602976643CB9329010568986AFC /* PitchCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0897032ED3242F95BD7B18BA3AE41D15 /* PitchCalculator.swift */; };
+		1A43CC56392D7DD1BB00A94FD1E32D26 /* InteractiveNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3140EBE30F3DE7D438FF6E09EA1A6D /* InteractiveNode.swift */; };
+		1ACCAD57CE934B6110C14CF4A53F7745 /* NoteCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1912DF81937885E76C8CD63C3640CD /* NoteCalculator.swift */; };
+		2000C8F691E420826F25BBF26221AEA4 /* ActionSwift3-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D25C8BE76B98DDDA01B293C6A36DA39 /* ActionSwift3-dummy.m */; };
 		251018738E93FDD329D3CDC028CBFB4C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 856C37C6B1B6797CB1E2602E5D0B1956 /* AVFoundation.framework */; };
-		251773F056BA41A68BDD9C62633EB279 /* JGProgressHUDRingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F816AD781DCD5AD0B18FEB2479C0AB46 /* JGProgressHUDRingIndicatorView.m */; };
-		2A4030FDDC08174CBC4105CE5A550B5F /* MSColorWheelView.h in Headers */ = {isa = PBXBuildFile; fileRef = AB41D8DB79C8E76C3AAA8D5350B587E1 /* MSColorWheelView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2C5854EDCC54A5074C4FACFA645411E0 /* MSColorComponentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E15649DF942801C386BBF7E4E264CFB /* MSColorComponentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2DF89AC7D23F7B8C2360B001472B16C5 /* MSHSBView.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F1F0AABE90FBA0573A1B383241B8FA /* MSHSBView.m */; };
-		2E4FE147AE34E3F2155B66A91E389FDF /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5549E979B3291B547F7767B50BC9DB92 /* Array+Extensions.swift */; };
-		2FC2B94F8965DB44B4F1A2552BC70511 /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68CB3DFD239009B2B6CB1EABF4990C2 /* Buffer.swift */; };
-		3210552EE14BF09797714D00F55D075B /* JGProgressHUD-Defines.h in Headers */ = {isa = PBXBuildFile; fileRef = 41F6CF37A98765E711599E993E11656B /* JGProgressHUD-Defines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		33C6B2006FA8CC268C70BF0B44231421 /* MSColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FD11B2E0B6AAE09498EFAD23960CB19D /* MSColorUtils.m */; };
-		37D7598C4598060384560906F1A0B6C7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CAA9E142209E0D24BE9B1723AF6F43 /* Note.swift */; };
-		3BB2534DCF13A506F1BEA2FFB530BA65 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72192E273B1A1491D1F20B5701E4893 /* Error.swift */; };
+		251773F056BA41A68BDD9C62633EB279 /* JGProgressHUDRingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54FC27B167A661789C6EE253093E6D68 /* JGProgressHUDRingIndicatorView.m */; };
+		25629E37BFF8609C8A867F40DBD6DE14 /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9489083095C7C2B7C9FF8F0D3BA9197A /* EventHandler.swift */; };
+		2A4030FDDC08174CBC4105CE5A550B5F /* MSColorWheelView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C37531F436235CE69C93E0469866BD6 /* MSColorWheelView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A48D0F9D921FB1413634B4961E4087B /* easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C4AF5DE8F797C2F377FF98531D606 /* easing.swift */; };
+		2C5854EDCC54A5074C4FACFA645411E0 /* MSColorComponentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E4FF6D08DDCBBE4AE9035F3C06FCDC /* MSColorComponentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DEC853BD87E1B9190AD40B58D69E8EF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D444BBEFF94AA3767269E7A1C411AA4 /* String.swift */; };
+		2DF89AC7D23F7B8C2360B001472B16C5 /* MSHSBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18593F8B5B2CC88E62ECC64E483CDFC6 /* MSHSBView.m */; };
+		2E4FE147AE34E3F2155B66A91E389FDF /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FFF12FA57CD768016839C23BB1849 /* Array+Extensions.swift */; };
+		2FC2B94F8965DB44B4F1A2552BC70511 /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2075C933E87F463F7485D4DB875E10F /* Buffer.swift */; };
+		308A06B594A398282FBB9B315BAE78A5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C13C528B42F96AF39C1976538CD67B /* TextField.swift */; };
+		3210552EE14BF09797714D00F55D075B /* JGProgressHUD-Defines.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EBA2E5FD9927FB7976D83AD32AC624B /* JGProgressHUD-Defines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33C6B2006FA8CC268C70BF0B44231421 /* MSColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 55437EBA9324D421EE778CEC4F46CC10 /* MSColorUtils.m */; };
+		35DFAF2DC48F69B15F1B8CF8B007FDB1 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 987855AFBC61FDD714522525624F1C6C /* Info.plist */; };
+		361F1830B9206B3523DB8C108443C2BE /* EventDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E1AFC11D473C80A04926874DE584D6 /* EventDispatcher.swift */; };
+		37D7598C4598060384560906F1A0B6C7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20171944C92817F0B7394419F311CA0 /* Note.swift */; };
+		39522AA13522CFC7C3AD644BDA5B0951 /* TouchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931CF6F227D87A3F5A74F0BA790FC70F /* TouchEvent.swift */; };
+		3BB2534DCF13A506F1BEA2FFB530BA65 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB4D110753054FF2387AE2775A2BB4 /* Error.swift */; };
 		3DE6FA0BBBAD04435534B55D04B64E55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */; };
-		3E2E09E45D3E8C651AE4C6F6B4418D16 /* Pitchy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 983734B77FA962423EDF01EB4B68BF00 /* Pitchy-dummy.m */; };
-		3EA3D6FE284197163A75940BB41BB1BC /* TransformStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FBD16F61C5834D1C0D9681392E724F /* TransformStrategy.swift */; };
-		3EBA98EEF1A580EC8BF2CE2E7903ECC4 /* JGProgressHUDRingIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = D7C38548082E60299DF7226DC4BE2133 /* JGProgressHUDRingIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F6A29B571A4D5FB8792CBCF4C92BD56 /* OutputSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76D35049BE92A33BAC7E204758B5CBB /* OutputSignalTracker.swift */; };
-		43573F03D53511D1412B71AFF07AC07A /* HPSEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F773FBA6F6FBE565F73F2306C231E6B8 /* HPSEstimator.swift */; };
+		3E2E09E45D3E8C651AE4C6F6B4418D16 /* Pitchy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 241EE5AAAADACC28A93C98F5C0360615 /* Pitchy-dummy.m */; };
+		3EA3D6FE284197163A75940BB41BB1BC /* TransformStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F59C81654F934904A46B06D5430599 /* TransformStrategy.swift */; };
+		3EBA98EEF1A580EC8BF2CE2E7903ECC4 /* JGProgressHUDRingIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = D703D507CC2FEC5B1B7D2970D47E0918 /* JGProgressHUDRingIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F6A29B571A4D5FB8792CBCF4C92BD56 /* OutputSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D99A8905EA470FF7FFC6CA7719784 /* OutputSignalTracker.swift */; };
+		43573F03D53511D1412B71AFF07AC07A /* HPSEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAE8E6E62A07AB7A27F20E3E9579F7D /* HPSEstimator.swift */; };
 		44F7DF4EBA12C2E9D12B03D4C78D9418 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBDF51BCFF7B12905A80C4763741A354 /* Accelerate.framework */; };
-		4534DB58B44B2A5B0A877395EECDE26A /* WaveCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B4A09FCAA531BB8B044E9A35F736 /* WaveCalculator.swift */; };
-		476E30A7475DCC20F88BE4982A8E4924 /* JGProgressHUDErrorIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A076201F8FA2FE3585B7AB0F7DD7594 /* JGProgressHUDErrorIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49870BA1A2353BDFF6400084B84982F6 /* Pods-AniDraw-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4CF476A90CDEA859150A4BEBE35B99A /* Pods-AniDraw-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4534DB58B44B2A5B0A877395EECDE26A /* WaveCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21E86CD8D9902C0048855A1852065B /* WaveCalculator.swift */; };
+		476E30A7475DCC20F88BE4982A8E4924 /* JGProgressHUDErrorIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 09D36043654B5A6345714C197853A6FD /* JGProgressHUDErrorIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AD6B41A59D343694F523F8861A6E975 /* SoundChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD466B91DB83739A0105297CC591EA92 /* SoundChannel.swift */; };
+		4D8A04BFE98E6AC0536F481BC88D479D /* DisplayObjectContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A9F5BBB98F1C0DCCCC4DBA0E63006A /* DisplayObjectContainer.swift */; };
 		50EA2AD3CB6A4AA84E69D4B8745B7205 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E777C52B5634683EBF56EBC34422885 /* UIKit.framework */; };
-		559DFCBE5D8C7A43125930F08E125094 /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52033BF77648B7D22FC7A83DFA99E0 /* Transformer.swift */; };
-		56BE2E91871CB441CADCB53B2C77B398 /* Beethoven-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FCF24E1F127AAD9A07EB5CEEF2916F /* Beethoven-dummy.m */; };
-		58B32E4E41DCD355573FD78404A4C899 /* MSRGBView.h in Headers */ = {isa = PBXBuildFile; fileRef = 593C8C4E5713AE8ADF23BAD4B97FFCB3 /* MSRGBView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5BA96791D2E14ABF9334ADD4E8894D30 /* MSColorComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370585426A8420E4E8C5A5712FE6FC07 /* MSColorComponentView.m */; };
-		6378051D71EA27AF7724DC783FAD0702 /* QuinnsFirstEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F998BB2476FDF4D6E4DC3B6A481511A /* QuinnsFirstEstimator.swift */; };
-		63997D8F0F4649CB330965E3AC466DDC /* SignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A43727F64422681AF128B4EBB4B60 /* SignalTracker.swift */; };
-		66D284FD4C72EEC21B6B365B4B5C1475 /* JGProgressHUDFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 14039C6FF2030B9E9CCAC14B0DD662F1 /* JGProgressHUDFadeAnimation.m */; };
-		696877E890292E13A59AB7AF614B494F /* MSColorUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1800933901CE785B87F8C1E058306458 /* MSColorUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6B6486F666F86C0DF9A50AE06747FED5 /* MSColorSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7E2A9A4B2A97442FB54493932EE2F /* MSColorSelectionViewController.m */; };
-		6C0A8E721107BEB86C3F40EE27A86245 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267CDA6999FB17380000C178211B7CD6 /* Config.swift */; };
-		6E11BBCB62AF8722C16B2D84EB2C12FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */; };
-		6F49484E7A394DBFCA5AF2C6ABFB3D91 /* QuadradicEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C190B0C5ED611A2D982EC27C4C22B22E /* QuadradicEstimator.swift */; };
-		6F90BD17C9A552F3579230348DC130E0 /* EstimationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E8BC3344C9B8E8BB2C4797E8F02B9A /* EstimationError.swift */; };
-		70B92815323E77F69937824CA239B6AB /* EstimationStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA591B7A6E68ECC280DBCF51AA7BBC /* EstimationStrategy.swift */; };
-		72E250C04949942C751C0B61CA3CFFD1 /* JGProgressHUDIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A87FA105F722484972E218D535D8242 /* JGProgressHUDIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7807E4544CE620CD6AB2561ADC0425EC /* JGProgressHUDSuccessIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = CE40F277676BCF3EE95D0B4796D93D41 /* JGProgressHUDSuccessIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		782C5582613189572A50B43E49DB71B1 /* JGProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8561D4ED802B842D4AACA0304DB05F3C /* JGProgressHUD.m */; };
-		7845BE0FF876B96E5FF8D9513E928CAF /* JGProgressHUDFadeZoomAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 548A11056EB694AD898FE15FDCE5C3A3 /* JGProgressHUDFadeZoomAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		51C3CBB2775B707874A6666B376435D1 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F4D2BEBB4911B2D6E8BDF07B750C53 /* Stage.swift */; };
+		51D3C37AD397ACF90817434E730169CF /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368B3D88D72D2C1755F7FAB43AE0337 /* Object.swift */; };
+		559DFCBE5D8C7A43125930F08E125094 /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8016CA5DEDAE5DDA1DA2E03AB378B1 /* Transformer.swift */; };
+		56BE2E91871CB441CADCB53B2C77B398 /* Beethoven-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEF690B98822222E0D9461523DF5481 /* Beethoven-dummy.m */; };
+		58B32E4E41DCD355573FD78404A4C899 /* MSRGBView.h in Headers */ = {isa = PBXBuildFile; fileRef = F6BCAA36418E64F65FAAD84E896BBD17 /* MSRGBView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A643688AF078BDF92E21746E66FAA51 /* MovieClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1F32FD4614EA52C98450708D4ADA62 /* MovieClip.swift */; };
+		5BA96791D2E14ABF9334ADD4E8894D30 /* MSColorComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A92AED54DCB579B8FAEB52C7A7B95E6 /* MSColorComponentView.m */; };
+		6378051D71EA27AF7724DC783FAD0702 /* QuinnsFirstEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A1F17A80D041820D4662862B73F59 /* QuinnsFirstEstimator.swift */; };
+		63997D8F0F4649CB330965E3AC466DDC /* SignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78249CA49DD0F79AB6972B649C4C371 /* SignalTracker.swift */; };
+		66D284FD4C72EEC21B6B365B4B5C1475 /* JGProgressHUDFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E068683073F225DFDC1AB7E93F78A1E /* JGProgressHUDFadeAnimation.m */; };
+		696877E890292E13A59AB7AF614B494F /* MSColorUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = CCFD9085B691E5C3717C6BFF350E6676 /* MSColorUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B6486F666F86C0DF9A50AE06747FED5 /* MSColorSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E65D87C7B3C5C7FDB64228E80D3C8DF0 /* MSColorSelectionViewController.m */; };
+		6C0A8E721107BEB86C3F40EE27A86245 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4508054ED50D9FA2A7A2CD35C94D2FA5 /* Config.swift */; };
+		6ECF627340C41E2DA0EEBAF9599B95B6 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E42FC0274506448843925DD466E0B3 /* Global.swift */; };
+		6F49484E7A394DBFCA5AF2C6ABFB3D91 /* QuadradicEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605F8C57C5CD37E78FD117C2CDD422C /* QuadradicEstimator.swift */; };
+		6F90BD17C9A552F3579230348DC130E0 /* EstimationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E3AB2AD3F3ADADA56F71202986B5D3 /* EstimationError.swift */; };
+		70B92815323E77F69937824CA239B6AB /* EstimationStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379BBAA0902B9BA7A699DFC4861DC014 /* EstimationStrategy.swift */; };
+		72979CB195574FF19C4958BEE8B6B352 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CFE7184FD44DEC3F0F12A248A09748 /* UIColor.swift */; };
+		72E250C04949942C751C0B61CA3CFFD1 /* JGProgressHUDIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5541C57ECAD8FAF86C15ABC2D4F9DAE0 /* JGProgressHUDIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7807E4544CE620CD6AB2561ADC0425EC /* JGProgressHUDSuccessIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 26EF1F8E1B2B245514895E69F1A3C347 /* JGProgressHUDSuccessIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		782C5582613189572A50B43E49DB71B1 /* JGProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B127142B0D97E889183E721D5DCB24 /* JGProgressHUD.m */; };
+		7845BE0FF876B96E5FF8D9513E928CAF /* JGProgressHUDFadeZoomAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = F68A6653B2AF9373FC64B57CE52FA6FA /* JGProgressHUDFadeZoomAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7953BC2441CC6CDDCA4F70F763BD5D24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */; };
-		79CC6B4A54228B48F0C783BB7F499A56 /* MSHSBView.h in Headers */ = {isa = PBXBuildFile; fileRef = 75D9238C850C4F4446E5D9DAA41D1210 /* MSHSBView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7B2496FC2CAC29495D0A09946EFD16CE /* AcousticWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9202B674987D958C7C094AAB1A2CF01E /* AcousticWave.swift */; };
-		7BF22F8C68C121C202A94B1883134CA4 /* MSSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E3FAEBF55957B0E2328034AEC6957 /* MSSliderView.m */; };
-		7CD913E68D464F91CF9594ECFE49F771 /* Pitchy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F583B25302D309EF4F9A10479C842A1F /* Pitchy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		879A30A98BD109C1D4A6E79EC3F92697 /* JGProgressHUDErrorIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F8D2123FA86FE6274B77ED03E4DF90 /* JGProgressHUDErrorIndicatorView.m */; };
-		89564C6D85AE2A4DF13AF536497AD603 /* JGProgressHUDPieIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = B815947CB4BD5DB8929C45BA7CE77F2E /* JGProgressHUDPieIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8AB97551B3EC56D58DB1B40042D6A441 /* JGProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 127840F4A599CAAA2300E1189AA4341A /* JGProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8CE70F0B66135405769A23C14D96AA15 /* JGProgressHUDPieIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF98A623B8B5F6013EED529D3220914 /* JGProgressHUDPieIndicatorView.m */; };
-		8D410872C0A2200E60497AB8395F59C7 /* Estimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B53E6905D89E6937228B0816BD8FE7 /* Estimator.swift */; };
-		8F2A7C3469E600FFBC6056F79B322EC1 /* InputSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003A02BBEB155A92E74C43E1AFF37804 /* InputSignalTracker.swift */; };
-		9D818CC379B5B18946157208A0A499AF /* LocationEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74830CF1C00FB4D1EE6751E29A781B /* LocationEstimator.swift */; };
-		9EBA127F90CA19F3F427C10900E5DB5C /* JGProgressHUDFadeAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A0376A6219612BFA24CB1D59CAE09209 /* JGProgressHUDFadeAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A02FA725368B9F5067246B16D22B805F /* EstimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492995B4FC9748C1DF25705FDE5159E /* EstimationFactory.swift */; };
-		A86AADDD78E4FB9A5C003F9DBD66B98E /* PitchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9026E6A22E5E6281580AFF77E922B8 /* PitchEngine.swift */; };
-		AC9FD0B289F1E676E2BEDCCB8D7DFF70 /* MSColorPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D8389DF477495CA5A78509CF0930F19B /* MSColorPicker-dummy.m */; };
-		BBD6F99671A69ED02C70D69293FC7D51 /* MSSliderView.h in Headers */ = {isa = PBXBuildFile; fileRef = AE99E0228D4F0C01C42C1B77CA71756E /* MSSliderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C13C7C3B7A47BA1A7AFA11CB4E71AE6D /* JGProgressHUDFadeZoomAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAE6F6F423FAF3F378735CB4435C9C1 /* JGProgressHUDFadeZoomAnimation.m */; };
-		C210855722BA44E4FDE24BAC79A7B44C /* FFTTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E319273127553E1B757B90B936762058 /* FFTTransformer.swift */; };
-		C2EC4B13DC0F85298B2B85AE871DBD35 /* BarycentricEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C80B4FC4F605ADBFCC70E98631726 /* BarycentricEstimator.swift */; };
-		C48DB1A4001B5B8B8B50A7C453163AD0 /* JGProgressHUDAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 483372D6067723625B6F1A91E4D302D6 /* JGProgressHUDAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CDB5976F897591D6C6A8E18747ABB9FC /* TransformFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F8B52FF28709B1AA186FBD03F7986F /* TransformFactory.swift */; };
-		CE8BB509084C32EDE102CE03D6D83753 /* MSColorPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A7DE3A45B23A83CF1F1A37809155F71B /* MSColorPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF6EC2DD2E16B730DDF73C88506952CA /* Beethoven-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A0B46DCAC7B00021D96243DA6003363F /* Beethoven-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D7498158B940FA0C972641DAAF82471E /* Pitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09D28846F8B44106B5CB47F001B3B6 /* Pitch.swift */; };
-		D7E7FF42203A23B1F087B9B2E6887238 /* JGProgressHUDImageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47339FEB78E03A5145005BE9E174CC54 /* JGProgressHUDImageIndicatorView.m */; };
+		79CC6B4A54228B48F0C783BB7F499A56 /* MSHSBView.h in Headers */ = {isa = PBXBuildFile; fileRef = B84D346873083682010B6A7578B24821 /* MSHSBView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B2496FC2CAC29495D0A09946EFD16CE /* AcousticWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617985C5AF2D75D8C51D7AB478D72F2E /* AcousticWave.swift */; };
+		7BF22F8C68C121C202A94B1883134CA4 /* MSSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E64B6651DBEC4647904AB351166C44 /* MSSliderView.m */; };
+		7CD913E68D464F91CF9594ECFE49F771 /* Pitchy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CBCE54473731878F7ADB5A4464D0C2B /* Pitchy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		879A30A98BD109C1D4A6E79EC3F92697 /* JGProgressHUDErrorIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2127D0FFB2F2CE5142E6FCF8F8C06B92 /* JGProgressHUDErrorIndicatorView.m */; };
+		8938685EF5406507423ED9131CD1B9A1 /* SKMultilineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404B18E2DFE862CB5B1E4B5AFA1B8F2 /* SKMultilineLabel.swift */; };
+		89564C6D85AE2A4DF13AF536497AD603 /* JGProgressHUDPieIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E4F1981A23E965C9FE7AC5AE6AB74B8 /* JGProgressHUDPieIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8AB97551B3EC56D58DB1B40042D6A441 /* JGProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = A146F69C7AB848B68F4DAE107E2FD2EC /* JGProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8B1C9F99607DB11E7BDC45A02775CC20 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75B2176B425062B6E994E3C9062E49 /* Sprite.swift */; };
+		8B71991328E138F0FB6ADE494791B82F /* ActionSwift3-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DB32E8AB83454CF5D7956C2AB42D10E0 /* ActionSwift3-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BC22C3EDED741B354E5D583BF5C2C20 /* InteractiveObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DB3692405B9C499FE6E635A545A13 /* InteractiveObject.swift */; };
+		8CE70F0B66135405769A23C14D96AA15 /* JGProgressHUDPieIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FE96ABCA9209396A9AA9464C3B33DE /* JGProgressHUDPieIndicatorView.m */; };
+		8D410872C0A2200E60497AB8395F59C7 /* Estimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C42EC8BC266F64126D04D1FBB6F28BB /* Estimator.swift */; };
+		8F2A7C3469E600FFBC6056F79B322EC1 /* InputSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF890B68262C4CEB9178488CC50B9F41 /* InputSignalTracker.swift */; };
+		909D857F9FBB742C4BD96AB5982C82CE /* ActionSwift3.h in Headers */ = {isa = PBXBuildFile; fileRef = 00CC93C50BDFDAAAB3CAF2973C6035EA /* ActionSwift3.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D818CC379B5B18946157208A0A499AF /* LocationEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9324B94FACCC273963765E192A209C /* LocationEstimator.swift */; };
+		9EBA127F90CA19F3F427C10900E5DB5C /* JGProgressHUDFadeAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CBB0337E92B81096FEF2116ED1277BE /* JGProgressHUDFadeAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A02FA725368B9F5067246B16D22B805F /* EstimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F220E18F78F49D4059FFA3FD166E1AB /* EstimationFactory.swift */; };
+		A86AADDD78E4FB9A5C003F9DBD66B98E /* PitchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4259DE780EF8DD5DD10B7CA63D2965B3 /* PitchEngine.swift */; };
+		A9B2BB0219722AAE0219EF3F915B40FC /* Pods-AniDraw-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A241CBD5BAAEA8E7946BA8B489CE8E /* Pods-AniDraw-dummy.m */; };
+		AA679BFCACB383A5232B5515234B9DC5 /* EasingDeclarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6645A3352D1B5CD7A50D3D5F99E315CC /* EasingDeclarations.swift */; };
+		AC9FD0B289F1E676E2BEDCCB8D7DFF70 /* MSColorPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCA18B5C8AEAB3657F77C3EF64C4E3D /* MSColorPicker-dummy.m */; };
+		AFAC8F6B91DCE370F55EE125166E1E53 /* TextFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFFD1229DB81310B56AD19506011E /* TextFormat.swift */; };
+		B077F8418FF0D0686AF41D61DBF5F6DF /* GraphicsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49F27839DFEDA0CDAA693933C2FDC2D /* GraphicsNode.swift */; };
+		B9BA7C2474FC8AF7E622293A217CE25F /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C890984423AB7DF797D126156B65C5 /* Array.swift */; };
+		BBD6F99671A69ED02C70D69293FC7D51 /* MSSliderView.h in Headers */ = {isa = PBXBuildFile; fileRef = E1E91A7552EAA9F2C2BDEA574D84DEC4 /* MSSliderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BD6A5CD2C3F76AA80385A5A395CF19C4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CED56BD014B0028BB5DBFEDA7ABF1D /* Event.swift */; };
+		C13C7C3B7A47BA1A7AFA11CB4E71AE6D /* JGProgressHUDFadeZoomAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB7A8F9109664AC7C566002AA621BB /* JGProgressHUDFadeZoomAnimation.m */; };
+		C19E6CB5619C87737E412731C229182D /* SKEase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF720C62D9B29C854CD2A2338C7579A /* SKEase.swift */; };
+		C210855722BA44E4FDE24BAC79A7B44C /* FFTTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BEDADB56D7FABDD2074EF8FB4439 /* FFTTransformer.swift */; };
+		C2EC4B13DC0F85298B2B85AE871DBD35 /* BarycentricEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6819DC74FCDE9CAAB8193D66B32A8E9 /* BarycentricEstimator.swift */; };
+		C48DB1A4001B5B8B8B50A7C453163AD0 /* JGProgressHUDAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C18CDB734DE8A04F274897FB26624C6 /* JGProgressHUDAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC9FD999082213CC85F4CE1633638805 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528CD0B31D9C22A4213E407D1B88ED5B /* Sound.swift */; };
+		CDB5976F897591D6C6A8E18747ABB9FC /* TransformFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC33991A9BCC917BD6C9B3947B9AE63A /* TransformFactory.swift */; };
+		CE8BB509084C32EDE102CE03D6D83753 /* MSColorPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B1D97924A7ABDD1C469C97FD056DE2A /* MSColorPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF6EC2DD2E16B730DDF73C88506952CA /* Beethoven-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 50BB6A0B292326FB3B15FFC2D940090F /* Beethoven-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0678B43C7E5A9304B510DA56C920236 /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75B627B52615CF8EDF4F9A19F052E16 /* SimpleButton.swift */; };
+		D19D3B11A4DB42D1102503E60DEF3DE8 /* Graphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361716D8F159BDD14050C54916B3E83 /* Graphics.swift */; };
+		D7498158B940FA0C972641DAAF82471E /* Pitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2091C4480981B50F0C394B14394C4D99 /* Pitch.swift */; };
+		D7E7FF42203A23B1F087B9B2E6887238 /* JGProgressHUDImageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0BAFDA374E5A92D4D1AC6FE66E2F8A /* JGProgressHUDImageIndicatorView.m */; };
 		D8928D93897D5410F8BD5A598C0193B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */; };
-		DBD3C3DC62CE6BCE5197DB76AEC3BA93 /* JGProgressHUDIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 900920522403BB212BDF37F03DBE11ED /* JGProgressHUDIndicatorView.m */; };
-		E2C1EEE841F2BC2754792E48DC249C2B /* MSColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 11DD38759CC3D004E4A568E506374439 /* MSColorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E3DC7D543BCAC3F74B67BCD77CD979C3 /* MSColorSelectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B06386C5B56D956686AA35E5ED77E22 /* MSColorSelectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED854B70B070D7FDDA5911CA815043C2 /* JGProgressHUDImageIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 053BACB7C851B274BC5778E4E450E932 /* JGProgressHUDImageIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED9870C1FC8F3CDE6BF5C4A9D312D09F /* JGProgressHUDIndeterminateIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DD9D31783A9D78C555CCC680B190C /* JGProgressHUDIndeterminateIndicatorView.m */; };
-		F61E47D3CA2A60E12AF2DC908ECB6321 /* JGProgressHUDAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0B9D07B7BEA29A573FD05728E7AD66 /* JGProgressHUDAnimation.m */; };
-		F62CE5BE0F614AA64FAF792D6DDF282D /* JainsEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24092DB71C7B5CAAA177AC0790CE7BC /* JainsEstimator.swift */; };
-		FC524D4413AEA6B4C37ECC07AE66962C /* JGProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E61968FABD09D18255CCD2AB9814382 /* JGProgressHUD-dummy.m */; };
-		FC9EDC8175C71637AAE282A0B66A6E11 /* QuinnsSecondEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF24B6C973E26BC02DB81FF7D7DF6EF0 /* QuinnsSecondEstimator.swift */; };
+		DBD3C3DC62CE6BCE5197DB76AEC3BA93 /* JGProgressHUDIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DCED75BA2CADD62E92E6A94A58A384 /* JGProgressHUDIndicatorView.m */; };
+		E051AD12FB3FD97C91A554FB1E6E38E2 /* StageScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993BE6B7B7FA614CD685E2675D3EF460 /* StageScene.swift */; };
+		E2C1EEE841F2BC2754792E48DC249C2B /* MSColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = FC36FFB38AEC3E5EE73D57FBEF6C5D03 /* MSColorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E3DC7D543BCAC3F74B67BCD77CD979C3 /* MSColorSelectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A5656A330D25D2A95B21C8D742E8E054 /* MSColorSelectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E88E81DD2E042484963304C2A42C6717 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78825AD50B26FD57918BEACEB7B19B00 /* LabelNode.swift */; };
+		E9E033384A838049B4B13C39542E0165 /* Touch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43923FAD5A4397A40E4DF66127412625 /* Touch.swift */; };
+		ED854B70B070D7FDDA5911CA815043C2 /* JGProgressHUDImageIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7939FB325F544E649A37A470FDD31423 /* JGProgressHUDImageIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9870C1FC8F3CDE6BF5C4A9D312D09F /* JGProgressHUDIndeterminateIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C1BEE47DB843FDBB6EB6A91735ADA5 /* JGProgressHUDIndeterminateIndicatorView.m */; };
+		EDF34B327A165949679ADE32DE66E9BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */; };
+		F61E47D3CA2A60E12AF2DC908ECB6321 /* JGProgressHUDAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EE786D8E3F94DC65B0AE62D3843EC2 /* JGProgressHUDAnimation.m */; };
+		F62CE5BE0F614AA64FAF792D6DDF282D /* JainsEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24247040881521C1F020E6F9BB1A6924 /* JainsEstimator.swift */; };
+		FC524D4413AEA6B4C37ECC07AE66962C /* JGProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E11F0E91C6869E6CAA3D92D8EB1425 /* JGProgressHUD-dummy.m */; };
+		FC66A7E73993E09B0973535D240537D4 /* DisplayObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB59D2EFCC71D92B4AA19689476E5E /* DisplayObject.swift */; };
+		FC9EDC8175C71637AAE282A0B66A6E11 /* QuinnsSecondEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7EE83B71AE8D7FFAE136DF1575BD94 /* QuinnsSecondEstimator.swift */; };
 		FD8AF364A38CA22F7A6A5984EC5753C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */; };
-		FE1278517CF18A25FDD8488772A6FDA5 /* SimpleTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE7F3A1FA329A36225E576EAD01643 /* SimpleTransformer.swift */; };
-		FE240E21621DDFEF1A15F62DF12E6751 /* MSRGBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B9230C0413F1EFBCF7E0F94635C1CC /* MSRGBView.m */; };
-		FE311FF60CB15F414C956FD6FA75C785 /* MSColorWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2191D6C87BA710E50DEFDF42557062D1 /* MSColorWheelView.m */; };
-		FEA21DBE90FFFA123BD5B1B18F356A60 /* JGProgressHUDIndeterminateIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 59AB95046C1266DF72E568ACF30DAB1A /* JGProgressHUDIndeterminateIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF313B4F21C8A80D417A41F5850D346B /* MaxValueEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB271E38B09EFE163D6DCB30988A7C5 /* MaxValueEstimator.swift */; };
+		FE1278517CF18A25FDD8488772A6FDA5 /* SimpleTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F3A29A0D859D68D984E7392D48416 /* SimpleTransformer.swift */; };
+		FE240E21621DDFEF1A15F62DF12E6751 /* MSRGBView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D0D789D241F773961E34B58970C038 /* MSRGBView.m */; };
+		FE311FF60CB15F414C956FD6FA75C785 /* MSColorWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C8ED0E03B044B080BFCCCC72242C7 /* MSColorWheelView.m */; };
+		FE869F19B4CD935A53941F90E7EEFC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */; };
+		FEA21DBE90FFFA123BD5B1B18F356A60 /* JGProgressHUDIndeterminateIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA8749C4AF71886F5E4E341563415A7A /* JGProgressHUDIndeterminateIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF313B4F21C8A80D417A41F5850D346B /* MaxValueEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E6BA5CD064F6100C38B62D05A0B1CA /* MaxValueEstimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2C53FB7130F4C53E9F71F57C44C6E531 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 617B0FC57CCB604D47A24E6198763D04;
-			remoteInfo = JGProgressHUD;
-		};
-		320ED5BA8D0F2AFE4202710C35238432 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4935D7F909FA1FA4819E2F69EC75829F;
-			remoteInfo = MSColorPicker;
-		};
-		475614327E883B0866B16A6CF467DC86 /* PBXContainerItemProxy */ = {
+		0814D26DF145161B8659C0AD79839A7D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3F2148881B422F7499162ACACC37D143;
 			remoteInfo = Beethoven;
+		};
+		2FF23032CE03C0631C87EC1FD6AA1C2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4935D7F909FA1FA4819E2F69EC75829F;
+			remoteInfo = MSColorPicker;
 		};
 		6017C46D344F982C1CE0038EB73CA894 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -132,7 +161,21 @@
 			remoteGlobalIDString = D547ECBAFD0BAC79D81AE36137B80925;
 			remoteInfo = Pitchy;
 		};
-		BD0D1A281AEBA47D0D559375D3B5C9E3 /* PBXContainerItemProxy */ = {
+		9309FCAD97BEAB5E1110D6829CDB5350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 617B0FC57CCB604D47A24E6198763D04;
+			remoteInfo = JGProgressHUD;
+		};
+		BED4A8AD73A336F4688B20EDA2C16B62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E37E5C333C3A6FAD817E358AE040B6F;
+			remoteInfo = ActionSwift3;
+		};
+		C95278E2F6D4D75028FB359FADEB5A11 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -142,126 +185,166 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		003A02BBEB155A92E74C43E1AFF37804 /* InputSignalTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputSignalTracker.swift; path = Source/SignalTracking/Units/InputSignalTracker.swift; sourceTree = "<group>"; };
-		0160BC867ECAFCC2868938E05AFD2F50 /* MSColorSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorSelectionView.m; path = MSColorPicker/MSColorSelectionView.m; sourceTree = "<group>"; };
-		01F8B52FF28709B1AA186FBD03F7986F /* TransformFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformFactory.swift; path = Source/Transform/TransformFactory.swift; sourceTree = "<group>"; };
-		0532339512798C9660B30CC277D226CD /* MSColorPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSColorPicker.xcconfig; sourceTree = "<group>"; };
-		053BACB7C851B274BC5778E4E450E932 /* JGProgressHUDImageIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDImageIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDImageIndicatorView.h; sourceTree = "<group>"; };
-		057F5ADB0FB7FC61EC0F5FE191CA2D9E /* Pods_AniDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AniDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0AB27942C16FD655C165DCB2D6B74E24 /* JGProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JGProgressHUD-prefix.pch"; sourceTree = "<group>"; };
-		0C0B9D07B7BEA29A573FD05728E7AD66 /* JGProgressHUDAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDAnimation.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDAnimation.m; sourceTree = "<group>"; };
-		11DD38759CC3D004E4A568E506374439 /* MSColorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorView.h; path = MSColorPicker/MSColorView.h; sourceTree = "<group>"; };
-		127840F4A599CAAA2300E1189AA4341A /* JGProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUD.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUD.h; sourceTree = "<group>"; };
-		13F7E2A9A4B2A97442FB54493932EE2F /* MSColorSelectionViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorSelectionViewController.m; path = MSColorPicker/MSColorSelectionViewController.m; sourceTree = "<group>"; };
-		14039C6FF2030B9E9CCAC14B0DD662F1 /* JGProgressHUDFadeAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDFadeAnimation.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeAnimation.m; sourceTree = "<group>"; };
-		1800933901CE785B87F8C1E058306458 /* MSColorUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorUtils.h; path = MSColorPicker/MSColorUtils.h; sourceTree = "<group>"; };
-		18F57D0F2A68740BDF39E10CD7BA79BA /* Beethoven.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Beethoven.xcconfig; sourceTree = "<group>"; };
-		1DC456A724E3A87F340D0C35BEE3A93F /* Pitchy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pitchy.xcconfig; sourceTree = "<group>"; };
-		1E61968FABD09D18255CCD2AB9814382 /* JGProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JGProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		00CC93C50BDFDAAAB3CAF2973C6035EA /* ActionSwift3.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ActionSwift3.h; path = ActionSwift3/ActionSwift3.h; sourceTree = "<group>"; };
+		01BD67BDD803E46B117D95768A0AFDEA /* MSColorSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorSelectionView.h; path = MSColorPicker/MSColorSelectionView.h; sourceTree = "<group>"; };
+		01EAFFD1229DB81310B56AD19506011E /* TextFormat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormat.swift; path = ActionSwift3/text/TextFormat.swift; sourceTree = "<group>"; };
+		02CED56BD014B0028BB5DBFEDA7ABF1D /* Event.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Event.swift; path = ActionSwift3/com/actionswift/events/Event.swift; sourceTree = "<group>"; };
+		041A1F17A80D041820D4662862B73F59 /* QuinnsFirstEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuinnsFirstEstimator.swift; path = Source/Estimation/Strategies/QuinnsFirstEstimator.swift; sourceTree = "<group>"; };
+		06FE96ABCA9209396A9AA9464C3B33DE /* JGProgressHUDPieIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDPieIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDPieIndicatorView.m; sourceTree = "<group>"; };
+		0897032ED3242F95BD7B18BA3AE41D15 /* PitchCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PitchCalculator.swift; path = Source/Calculators/PitchCalculator.swift; sourceTree = "<group>"; };
+		09D36043654B5A6345714C197853A6FD /* JGProgressHUDErrorIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDErrorIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDErrorIndicatorView.h; sourceTree = "<group>"; };
+		0B1F32FD4614EA52C98450708D4ADA62 /* MovieClip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MovieClip.swift; path = ActionSwift3/display/MovieClip.swift; sourceTree = "<group>"; };
+		0C18CDB734DE8A04F274897FB26624C6 /* JGProgressHUDAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDAnimation.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDAnimation.h; sourceTree = "<group>"; };
+		10641EC10894E1B6E34850B5668D2075 /* ActionSwift3-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ActionSwift3-prefix.pch"; sourceTree = "<group>"; };
+		1605F8C57C5CD37E78FD117C2CDD422C /* QuadradicEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuadradicEstimator.swift; path = Source/Estimation/Strategies/QuadradicEstimator.swift; sourceTree = "<group>"; };
+		18593F8B5B2CC88E62ECC64E483CDFC6 /* MSHSBView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSHSBView.m; path = MSColorPicker/MSHSBView.m; sourceTree = "<group>"; };
+		1C08D28EE1D3FE1C2862885BD3CBFCF5 /* Pitchy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pitchy-prefix.pch"; sourceTree = "<group>"; };
+		1D1912DF81937885E76C8CD63C3640CD /* NoteCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NoteCalculator.swift; path = Source/Calculators/NoteCalculator.swift; sourceTree = "<group>"; };
 		1E777C52B5634683EBF56EBC34422885 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		20B9230C0413F1EFBCF7E0F94635C1CC /* MSRGBView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSRGBView.m; path = MSColorPicker/MSRGBView.m; sourceTree = "<group>"; };
-		2191D6C87BA710E50DEFDF42557062D1 /* MSColorWheelView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorWheelView.m; path = MSColorPicker/MSColorWheelView.m; sourceTree = "<group>"; };
-		23FBD16F61C5834D1C0D9681392E724F /* TransformStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformStrategy.swift; path = Source/Transform/TransformStrategy.swift; sourceTree = "<group>"; };
-		267CDA6999FB17380000C178211B7CD6 /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Source/Config.swift; sourceTree = "<group>"; };
-		26E8BC3344C9B8E8BB2C4797E8F02B9A /* EstimationError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EstimationError.swift; path = Source/Estimation/EstimationError.swift; sourceTree = "<group>"; };
-		2C0651368731A50B4CEB1C228F6C968B /* MSColorPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MSColorPicker.modulemap; sourceTree = "<group>"; };
-		2C4C80B4FC4F605ADBFCC70E98631726 /* BarycentricEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarycentricEstimator.swift; path = Source/Estimation/Strategies/BarycentricEstimator.swift; sourceTree = "<group>"; };
-		2CDE7F3A1FA329A36225E576EAD01643 /* SimpleTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SimpleTransformer.swift; path = Source/Transform/Strategies/SimpleTransformer.swift; sourceTree = "<group>"; };
-		2F4E3FAEBF55957B0E2328034AEC6957 /* MSSliderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSliderView.m; path = MSColorPicker/MSSliderView.m; sourceTree = "<group>"; };
-		2FA51726A826134B0E8028E028543B96 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E8C78FC539C293FEA4888261EE7CBF2 /* JGProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JGProgressHUD.xcconfig; sourceTree = "<group>"; };
+		2091C4480981B50F0C394B14394C4D99 /* Pitch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pitch.swift; path = Source/Data/Pitch.swift; sourceTree = "<group>"; };
+		2127D0FFB2F2CE5142E6FCF8F8C06B92 /* JGProgressHUDErrorIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDErrorIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDErrorIndicatorView.m; sourceTree = "<group>"; };
+		2298FA5E0B0F4673AAC1EB66399D6882 /* MSColorPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorPicker.h; path = MSColorPicker/MSColorPicker.h; sourceTree = "<group>"; };
+		22EBC1FBFD0E3939EC885D8762D83865 /* ActionSwift3.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ActionSwift3.modulemap; sourceTree = "<group>"; };
+		23E6BA5CD064F6100C38B62D05A0B1CA /* MaxValueEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MaxValueEstimator.swift; path = Source/Estimation/Strategies/MaxValueEstimator.swift; sourceTree = "<group>"; };
+		241EE5AAAADACC28A93C98F5C0360615 /* Pitchy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pitchy-dummy.m"; sourceTree = "<group>"; };
+		24247040881521C1F020E6F9BB1A6924 /* JainsEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JainsEstimator.swift; path = Source/Estimation/Strategies/JainsEstimator.swift; sourceTree = "<group>"; };
+		25C1BEE47DB843FDBB6EB6A91735ADA5 /* JGProgressHUDIndeterminateIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDIndeterminateIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndeterminateIndicatorView.m; sourceTree = "<group>"; };
+		26EF1F8E1B2B245514895E69F1A3C347 /* JGProgressHUDSuccessIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDSuccessIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDSuccessIndicatorView.h; sourceTree = "<group>"; };
+		2A92AED54DCB579B8FAEB52C7A7B95E6 /* MSColorComponentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorComponentView.m; path = MSColorPicker/MSColorComponentView.m; sourceTree = "<group>"; };
+		2F220E18F78F49D4059FFA3FD166E1AB /* EstimationFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EstimationFactory.swift; path = Source/Estimation/EstimationFactory.swift; sourceTree = "<group>"; };
+		30E4FF6D08DDCBBE4AE9035F3C06FCDC /* MSColorComponentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorComponentView.h; path = MSColorPicker/MSColorComponentView.h; sourceTree = "<group>"; };
 		32444F82DFAC984B7EDD1408F5E33CCC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		36286CB44C63C21CB32894CAFC390CD0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		366F2F7625884ECBEB950E08A0CC4006 /* Pitchy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pitchy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		370585426A8420E4E8C5A5712FE6FC07 /* MSColorComponentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorComponentView.m; path = MSColorPicker/MSColorComponentView.m; sourceTree = "<group>"; };
-		39E2AF8F690B5B6851363EEAD2E1AEF3 /* MSColorPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSColorPicker-prefix.pch"; sourceTree = "<group>"; };
-		3D56686A748D049544449DCA273FF60C /* JGProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JGProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		40F8D2123FA86FE6274B77ED03E4DF90 /* JGProgressHUDErrorIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDErrorIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDErrorIndicatorView.m; sourceTree = "<group>"; };
-		41F6CF37A98765E711599E993E11656B /* JGProgressHUD-Defines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "JGProgressHUD-Defines.h"; path = "JGProgressHUD/JGProgressHUD/JGProgressHUD-Defines.h"; sourceTree = "<group>"; };
+		33C13C528B42F96AF39C1976538CD67B /* TextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = ActionSwift3/text/TextField.swift; sourceTree = "<group>"; };
+		367FEDC6809B70337B1A25323DCE8CE7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		379BBAA0902B9BA7A699DFC4861DC014 /* EstimationStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EstimationStrategy.swift; path = Source/Estimation/EstimationStrategy.swift; sourceTree = "<group>"; };
+		3AEB4D110753054FF2387AE2775A2BB4 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Source/Error.swift; sourceTree = "<group>"; };
+		3B1D97924A7ABDD1C469C97FD056DE2A /* MSColorPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSColorPicker-umbrella.h"; sourceTree = "<group>"; };
+		3F5672878D93665569CB81975F18710A /* MSColorPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSColorPicker.xcconfig; sourceTree = "<group>"; };
+		4064F14510C5D4A879EAF12F082A7B80 /* MSColorPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MSColorPicker.modulemap; sourceTree = "<group>"; };
+		41EB59D2EFCC71D92B4AA19689476E5E /* DisplayObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DisplayObject.swift; path = ActionSwift3/display/DisplayObject.swift; sourceTree = "<group>"; };
+		4237C2F46EA31283B76F78EA805D2D6C /* JGProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JGProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		4259DE780EF8DD5DD10B7CA63D2965B3 /* PitchEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PitchEngine.swift; path = Source/PitchEngine.swift; sourceTree = "<group>"; };
 		42F0269B9F919CB0C96D5EBC286F4D50 /* Pods-AniDraw.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AniDraw.modulemap"; sourceTree = "<group>"; };
-		4363CB0075753FCA9DD460BACD68885C /* Pitchy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pitchy.modulemap; sourceTree = "<group>"; };
-		47339FEB78E03A5145005BE9E174CC54 /* JGProgressHUDImageIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDImageIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDImageIndicatorView.m; sourceTree = "<group>"; };
-		483372D6067723625B6F1A91E4D302D6 /* JGProgressHUDAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDAnimation.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDAnimation.h; sourceTree = "<group>"; };
-		49D0F51F91484F966D5EB7FAA352CEB3 /* Beethoven.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Beethoven.modulemap; sourceTree = "<group>"; };
-		4C74830CF1C00FB4D1EE6751E29A781B /* LocationEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationEstimator.swift; path = Source/Estimation/LocationEstimator.swift; sourceTree = "<group>"; };
-		4DA35B39985E2AAE221BA9CA4C4C2635 /* MSColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F1747F90A69C82FCAAC5BCB41362B78 /* Beethoven-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Beethoven-prefix.pch"; sourceTree = "<group>"; };
-		548A11056EB694AD898FE15FDCE5C3A3 /* JGProgressHUDFadeZoomAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDFadeZoomAnimation.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeZoomAnimation.h; sourceTree = "<group>"; };
-		5549E979B3291B547F7767B50BC9DB92 /* Array+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Extensions.swift"; path = "Source/Extensions/Array+Extensions.swift"; sourceTree = "<group>"; };
+		4384C853F50AE1A53ECFC74D4E920CAD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43923FAD5A4397A40E4DF66127412625 /* Touch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Touch.swift; path = ActionSwift3/com/actionswift/events/Touch.swift; sourceTree = "<group>"; };
+		4508054ED50D9FA2A7A2CD35C94D2FA5 /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Source/Config.swift; sourceTree = "<group>"; };
+		46CFE7184FD44DEC3F0F12A248A09748 /* UIColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = ActionSwift3/UIColor.swift; sourceTree = "<group>"; };
+		490C4AF5DE8F797C2F377FF98531D606 /* easing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = easing.swift; path = ActionSwift3/easing.swift; sourceTree = "<group>"; };
+		4A8AF77EAB8A6293D267DA8E1BEF556B /* Beethoven-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Beethoven-prefix.pch"; sourceTree = "<group>"; };
+		4B9F3A29A0D859D68D984E7392D48416 /* SimpleTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SimpleTransformer.swift; path = Source/Transform/Strategies/SimpleTransformer.swift; sourceTree = "<group>"; };
+		4CBB0337E92B81096FEF2116ED1277BE /* JGProgressHUDFadeAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDFadeAnimation.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeAnimation.h; sourceTree = "<group>"; };
+		4CBCE54473731878F7ADB5A4464D0C2B /* Pitchy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pitchy-umbrella.h"; sourceTree = "<group>"; };
+		4D951986825FBD71B7D39E1DE535DA91 /* JGProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JGProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		50BB6A0B292326FB3B15FFC2D940090F /* Beethoven-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Beethoven-umbrella.h"; sourceTree = "<group>"; };
+		528CD0B31D9C22A4213E407D1B88ED5B /* Sound.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = ActionSwift3/media/Sound.swift; sourceTree = "<group>"; };
+		54FC27B167A661789C6EE253093E6D68 /* JGProgressHUDRingIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDRingIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDRingIndicatorView.m; sourceTree = "<group>"; };
+		5541C57ECAD8FAF86C15ABC2D4F9DAE0 /* JGProgressHUDIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndicatorView.h; sourceTree = "<group>"; };
+		55437EBA9324D421EE778CEC4F46CC10 /* MSColorUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorUtils.m; path = MSColorPicker/MSColorUtils.m; sourceTree = "<group>"; };
 		56A241CBD5BAAEA8E7946BA8B489CE8E /* Pods-AniDraw-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AniDraw-dummy.m"; sourceTree = "<group>"; };
-		593C8C4E5713AE8ADF23BAD4B97FFCB3 /* MSRGBView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSRGBView.h; path = MSColorPicker/MSRGBView.h; sourceTree = "<group>"; };
-		59AB95046C1266DF72E568ACF30DAB1A /* JGProgressHUDIndeterminateIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDIndeterminateIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndeterminateIndicatorView.h; sourceTree = "<group>"; };
-		5CAE6F6F423FAF3F378735CB4435C9C1 /* JGProgressHUDFadeZoomAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDFadeZoomAnimation.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeZoomAnimation.m; sourceTree = "<group>"; };
-		5F998BB2476FDF4D6E4DC3B6A481511A /* QuinnsFirstEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuinnsFirstEstimator.swift; path = Source/Estimation/Strategies/QuinnsFirstEstimator.swift; sourceTree = "<group>"; };
-		632BBE3F47ECC2A249DF3878BFA9680A /* JGProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JGProgressHUD.xcconfig; sourceTree = "<group>"; };
-		6A3DD9D31783A9D78C555CCC680B190C /* JGProgressHUDIndeterminateIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDIndeterminateIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndeterminateIndicatorView.m; sourceTree = "<group>"; };
-		6B06386C5B56D956686AA35E5ED77E22 /* MSColorSelectionViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorSelectionViewController.h; path = MSColorPicker/MSColorSelectionViewController.h; sourceTree = "<group>"; };
+		5C8016CA5DEDAE5DDA1DA2E03AB378B1 /* Transformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transformer.swift; path = Source/Transform/Transformer.swift; sourceTree = "<group>"; };
+		5E4F1981A23E965C9FE7AC5AE6AB74B8 /* JGProgressHUDPieIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDPieIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDPieIndicatorView.h; sourceTree = "<group>"; };
+		5EAE8E6E62A07AB7A27F20E3E9579F7D /* HPSEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HPSEstimator.swift; path = Source/Estimation/Strategies/HPSEstimator.swift; sourceTree = "<group>"; };
+		5EBA2E5FD9927FB7976D83AD32AC624B /* JGProgressHUD-Defines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "JGProgressHUD-Defines.h"; path = "JGProgressHUD/JGProgressHUD/JGProgressHUD-Defines.h"; sourceTree = "<group>"; };
+		60A9F5BBB98F1C0DCCCC4DBA0E63006A /* DisplayObjectContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DisplayObjectContainer.swift; path = ActionSwift3/display/DisplayObjectContainer.swift; sourceTree = "<group>"; };
+		617985C5AF2D75D8C51D7AB478D72F2E /* AcousticWave.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcousticWave.swift; path = Source/Data/AcousticWave.swift; sourceTree = "<group>"; };
+		65F4D2BEBB4911B2D6E8BDF07B750C53 /* Stage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stage.swift; path = ActionSwift3/display/Stage.swift; sourceTree = "<group>"; };
+		6645A3352D1B5CD7A50D3D5F99E315CC /* EasingDeclarations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EasingDeclarations.swift; path = ActionSwift3/EasingDeclarations.swift; sourceTree = "<group>"; };
+		699B131B119D288697BA1D593552599D /* ActionSwift3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ActionSwift3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B30FCEA41EED8B5F8C0B95A47CC7923 /* Pitchy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pitchy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6CC38D2C7689146B36DA6CD7F592C08D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D1BC64C949C4147D5709ADFBC2B0294 /* Beethoven.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Beethoven.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DF98A623B8B5F6013EED529D3220914 /* JGProgressHUDPieIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDPieIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDPieIndicatorView.m; sourceTree = "<group>"; };
-		73B53E6905D89E6937228B0816BD8FE7 /* Estimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Estimator.swift; path = Source/Estimation/Estimator.swift; sourceTree = "<group>"; };
-		75D9238C850C4F4446E5D9DAA41D1210 /* MSHSBView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSHSBView.h; path = MSColorPicker/MSHSBView.h; sourceTree = "<group>"; };
-		7E15649DF942801C386BBF7E4E264CFB /* MSColorComponentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorComponentView.h; path = MSColorPicker/MSColorComponentView.h; sourceTree = "<group>"; };
-		7E35CF0A31EE52142316A979DC8FAC9A /* NoteCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NoteCalculator.swift; path = Source/Calculators/NoteCalculator.swift; sourceTree = "<group>"; };
-		81D71ED1DB29D22950E75F2747A60259 /* JGProgressHUDSuccessIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDSuccessIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDSuccessIndicatorView.m; sourceTree = "<group>"; };
-		8561D4ED802B842D4AACA0304DB05F3C /* JGProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUD.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUD.m; sourceTree = "<group>"; };
+		6BFB7A8F9109664AC7C566002AA621BB /* JGProgressHUDFadeZoomAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDFadeZoomAnimation.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeZoomAnimation.m; sourceTree = "<group>"; };
+		6C37531F436235CE69C93E0469866BD6 /* MSColorWheelView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorWheelView.h; path = MSColorPicker/MSColorWheelView.h; sourceTree = "<group>"; };
+		7108C639B3C606A82F7DBFFC78144FCF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71B127142B0D97E889183E721D5DCB24 /* JGProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUD.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUD.m; sourceTree = "<group>"; };
+		72EE786D8E3F94DC65B0AE62D3843EC2 /* JGProgressHUDAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDAnimation.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDAnimation.m; sourceTree = "<group>"; };
+		73A0815F0FA02C3B237004904B37DD9A /* MSColorPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSColorPicker-prefix.pch"; sourceTree = "<group>"; };
+		749D99A8905EA470FF7FFC6CA7719784 /* OutputSignalTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OutputSignalTracker.swift; path = Source/SignalTracking/Units/OutputSignalTracker.swift; sourceTree = "<group>"; };
+		75F59C81654F934904A46B06D5430599 /* TransformStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformStrategy.swift; path = Source/Transform/TransformStrategy.swift; sourceTree = "<group>"; };
+		768F5717029243AF0CE758D8E1D668A9 /* MSColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78825AD50B26FD57918BEACEB7B19B00 /* LabelNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LabelNode.swift; path = ActionSwift3/display/LabelNode.swift; sourceTree = "<group>"; };
+		7939FB325F544E649A37A470FDD31423 /* JGProgressHUDImageIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDImageIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDImageIndicatorView.h; sourceTree = "<group>"; };
+		795DB42622CF4BB52972D8AE557537D0 /* ActionSwift3.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ActionSwift3.xcconfig; sourceTree = "<group>"; };
+		7A4E43CA11630DC4371D82BD2E2A1845 /* Beethoven.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Beethoven.modulemap; sourceTree = "<group>"; };
+		7C42EC8BC266F64126D04D1FBB6F28BB /* Estimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Estimator.swift; path = Source/Estimation/Estimator.swift; sourceTree = "<group>"; };
+		7D25C8BE76B98DDDA01B293C6A36DA39 /* ActionSwift3-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ActionSwift3-dummy.m"; sourceTree = "<group>"; };
+		7D3140EBE30F3DE7D438FF6E09EA1A6D /* InteractiveNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InteractiveNode.swift; path = ActionSwift3/display/InteractiveNode.swift; sourceTree = "<group>"; };
+		7E068683073F225DFDC1AB7E93F78A1E /* JGProgressHUDFadeAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDFadeAnimation.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeAnimation.m; sourceTree = "<group>"; };
+		8101BEDADB56D7FABDD2074EF8FB4439 /* FFTTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FFTTransformer.swift; path = Source/Transform/Strategies/FFTTransformer.swift; sourceTree = "<group>"; };
+		817D88D27F8CDC000710B24950439D02 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8361716D8F159BDD14050C54916B3E83 /* Graphics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Graphics.swift; path = ActionSwift3/display/Graphics.swift; sourceTree = "<group>"; };
 		856C37C6B1B6797CB1E2602E5D0B1956 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		89B9B4F9A5DFB5795A97BC858E41A080 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B52033BF77648B7D22FC7A83DFA99E0 /* Transformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transformer.swift; path = Source/Transform/Transformer.swift; sourceTree = "<group>"; };
-		900920522403BB212BDF37F03DBE11ED /* JGProgressHUDIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndicatorView.m; sourceTree = "<group>"; };
-		9202B674987D958C7C094AAB1A2CF01E /* AcousticWave.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcousticWave.swift; path = Source/Data/AcousticWave.swift; sourceTree = "<group>"; };
+		8CF720C62D9B29C854CD2A2338C7579A /* SKEase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SKEase.swift; path = ActionSwift3/SKEase.swift; sourceTree = "<group>"; };
+		931CF6F227D87A3F5A74F0BA790FC70F /* TouchEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TouchEvent.swift; path = ActionSwift3/com/actionswift/events/TouchEvent.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		93FA591B7A6E68ECC280DBCF51AA7BBC /* EstimationStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EstimationStrategy.swift; path = Source/Estimation/EstimationStrategy.swift; sourceTree = "<group>"; };
-		954F053824AF45C2A9C1F8425F46CD79 /* MSColorPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorPicker.h; path = MSColorPicker/MSColorPicker.h; sourceTree = "<group>"; };
-		95AB83A40837644AD90090FA385C08A8 /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Source/Config.swift; sourceTree = "<group>"; };
-		983734B77FA962423EDF01EB4B68BF00 /* Pitchy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pitchy-dummy.m"; sourceTree = "<group>"; };
-		9A076201F8FA2FE3585B7AB0F7DD7594 /* JGProgressHUDErrorIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDErrorIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDErrorIndicatorView.h; sourceTree = "<group>"; };
-		9A87FA105F722484972E218D535D8242 /* JGProgressHUDIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndicatorView.h; sourceTree = "<group>"; };
-		9EB271E38B09EFE163D6DCB30988A7C5 /* MaxValueEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MaxValueEstimator.swift; path = Source/Estimation/Strategies/MaxValueEstimator.swift; sourceTree = "<group>"; };
-		9FC944ECD3DB2E0C732E5CEA4ACA0D60 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0376A6219612BFA24CB1D59CAE09209 /* JGProgressHUDFadeAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDFadeAnimation.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeAnimation.h; sourceTree = "<group>"; };
+		9489083095C7C2B7C9FF8F0D3BA9197A /* EventHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventHandler.swift; path = ActionSwift3/com/actionswift/events/EventHandler.swift; sourceTree = "<group>"; };
+		958FFF12FA57CD768016839C23BB1849 /* Array+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Extensions.swift"; path = "Source/Extensions/Array+Extensions.swift"; sourceTree = "<group>"; };
+		987855AFBC61FDD714522525624F1C6C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = ActionSwift3/Info.plist; sourceTree = "<group>"; };
+		993BE6B7B7FA614CD685E2675D3EF460 /* StageScene.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StageScene.swift; path = ActionSwift3/display/StageScene.swift; sourceTree = "<group>"; };
+		99E11F0E91C6869E6CAA3D92D8EB1425 /* JGProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JGProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		9A1F89840A62AA2D90ED41D47D9E0B4A /* JGProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JGProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D444BBEFF94AA3767269E7A1C411AA4 /* String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = String.swift; path = ActionSwift3/String.swift; sourceTree = "<group>"; };
 		A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A0B46DCAC7B00021D96243DA6003363F /* Beethoven-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Beethoven-umbrella.h"; sourceTree = "<group>"; };
-		A25EC0844CB5C0F3467FE1C6C2BB4E9A /* JGProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JGProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		A146F69C7AB848B68F4DAE107E2FD2EC /* JGProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUD.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUD.h; sourceTree = "<group>"; };
+		A2E42FC0274506448843925DD466E0B3 /* Global.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Global.swift; path = ActionSwift3/Global.swift; sourceTree = "<group>"; };
 		A3BE6590B992827E4B105A4925058AC6 /* Pods-AniDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AniDraw.release.xcconfig"; sourceTree = "<group>"; };
-		A43B1F3740EEB2B551C38762639DE0A6 /* JGProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JGProgressHUD.modulemap; sourceTree = "<group>"; };
-		A7DE3A45B23A83CF1F1A37809155F71B /* MSColorPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSColorPicker-umbrella.h"; sourceTree = "<group>"; };
+		A5656A330D25D2A95B21C8D742E8E054 /* MSColorSelectionViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorSelectionViewController.h; path = MSColorPicker/MSColorSelectionViewController.h; sourceTree = "<group>"; };
+		A6819DC74FCDE9CAAB8193D66B32A8E9 /* BarycentricEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarycentricEstimator.swift; path = Source/Estimation/Strategies/BarycentricEstimator.swift; sourceTree = "<group>"; };
+		A6E3AB2AD3F3ADADA56F71202986B5D3 /* EstimationError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EstimationError.swift; path = Source/Estimation/EstimationError.swift; sourceTree = "<group>"; };
+		A7349CBB2A9848CC1B6CE74E5906698C /* Beethoven.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Beethoven.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8E36AEAE4ABF41B47A40E125E2FE992 /* Pods-AniDraw-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AniDraw-acknowledgements.plist"; sourceTree = "<group>"; };
-		AB41D8DB79C8E76C3AAA8D5350B587E1 /* MSColorWheelView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorWheelView.h; path = MSColorPicker/MSColorWheelView.h; sourceTree = "<group>"; };
-		AE99E0228D4F0C01C42C1B77CA71756E /* MSSliderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSliderView.h; path = MSColorPicker/MSSliderView.h; sourceTree = "<group>"; };
-		AF9026E6A22E5E6281580AFF77E922B8 /* PitchEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PitchEngine.swift; path = Source/PitchEngine.swift; sourceTree = "<group>"; };
-		B2E8040CFEDCA0F28750A1622877257B /* PitchCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PitchCalculator.swift; path = Source/Calculators/PitchCalculator.swift; sourceTree = "<group>"; };
-		B389CAB2A06913450908DB0C57FCE09C /* JGProgressHUD Resources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = "JGProgressHUD Resources.bundle"; path = "JGProgressHUD/JGProgressHUD/JGProgressHUD Resources.bundle"; sourceTree = "<group>"; };
-		B492995B4FC9748C1DF25705FDE5159E /* EstimationFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EstimationFactory.swift; path = Source/Estimation/EstimationFactory.swift; sourceTree = "<group>"; };
-		B7F1F0AABE90FBA0573A1B383241B8FA /* MSHSBView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSHSBView.m; path = MSColorPicker/MSHSBView.m; sourceTree = "<group>"; };
-		B815947CB4BD5DB8929C45BA7CE77F2E /* JGProgressHUDPieIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDPieIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDPieIndicatorView.h; sourceTree = "<group>"; };
+		A986F7EB37B3842A39A7B03F482AFBE2 /* MSColorSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorSelectionView.m; path = MSColorPicker/MSColorSelectionView.m; sourceTree = "<group>"; };
+		AB69CA375C5D270119EA63082E42319A /* JGProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JGProgressHUD.modulemap; sourceTree = "<group>"; };
+		AB8DB3692405B9C499FE6E635A545A13 /* InteractiveObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InteractiveObject.swift; path = ActionSwift3/display/InteractiveObject.swift; sourceTree = "<group>"; };
+		ABCA18B5C8AEAB3657F77C3EF64C4E3D /* MSColorPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MSColorPicker-dummy.m"; sourceTree = "<group>"; };
+		AD466B91DB83739A0105297CC591EA92 /* SoundChannel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SoundChannel.swift; path = ActionSwift3/media/SoundChannel.swift; sourceTree = "<group>"; };
+		AFDF3A8445FDD88E49A3424E895C73DE /* SpriteNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpriteNode.swift; path = ActionSwift3/display/SpriteNode.swift; sourceTree = "<group>"; };
+		B1C890984423AB7DF797D126156B65C5 /* Array.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Array.swift; path = ActionSwift3/Array.swift; sourceTree = "<group>"; };
+		B2D87F11C3E7628A45A8DCB887DF0301 /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Source/Config.swift; sourceTree = "<group>"; };
+		B34E67E1A4BC48B5FEDD3A65EC93BF0D /* Beethoven.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Beethoven.xcconfig; sourceTree = "<group>"; };
+		B75B627B52615CF8EDF4F9A19F052E16 /* SimpleButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SimpleButton.swift; path = ActionSwift3/display/SimpleButton.swift; sourceTree = "<group>"; };
+		B84D346873083682010B6A7578B24821 /* MSHSBView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSHSBView.h; path = MSColorPicker/MSHSBView.h; sourceTree = "<group>"; };
 		B99CB8A01376657B7E412EA179A0B20C /* Pods-AniDraw-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AniDraw-resources.sh"; sourceTree = "<group>"; };
-		C190B0C5ED611A2D982EC27C4C22B22E /* QuadradicEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuadradicEstimator.swift; path = Source/Estimation/Strategies/QuadradicEstimator.swift; sourceTree = "<group>"; };
+		BF9324B94FACCC273963765E192A209C /* LocationEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationEstimator.swift; path = Source/Estimation/LocationEstimator.swift; sourceTree = "<group>"; };
+		C20171944C92817F0B7394419F311CA0 /* Note.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Source/Data/Note.swift; sourceTree = "<group>"; };
+		C2075C933E87F463F7485D4DB875E10F /* Buffer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Buffer.swift; path = Source/Data/Buffer.swift; sourceTree = "<group>"; };
+		C404B18E2DFE862CB5B1E4B5AFA1B8F2 /* SKMultilineLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SKMultilineLabel.swift; path = ActionSwift3/SKMultilineLabel.swift; sourceTree = "<group>"; };
 		C5365E7753FFCE94440B94A1FDD9DC50 /* Pods-AniDraw-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AniDraw-acknowledgements.markdown"; sourceTree = "<group>"; };
-		C5CAA9E142209E0D24BE9B1723AF6F43 /* Note.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Source/Data/Note.swift; sourceTree = "<group>"; };
-		C68CB3DFD239009B2B6CB1EABF4990C2 /* Buffer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Buffer.swift; path = Source/Data/Buffer.swift; sourceTree = "<group>"; };
-		C76D35049BE92A33BAC7E204758B5CBB /* OutputSignalTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OutputSignalTracker.swift; path = Source/SignalTracking/Units/OutputSignalTracker.swift; sourceTree = "<group>"; };
-		C83A43727F64422681AF128B4EBB4B60 /* SignalTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SignalTracker.swift; path = Source/SignalTracking/SignalTracker.swift; sourceTree = "<group>"; };
+		C6817E0A422281BE26A7F9E333FEE1E7 /* JGProgressHUD Resources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = "JGProgressHUD Resources.bundle"; path = "JGProgressHUD/JGProgressHUD/JGProgressHUD Resources.bundle"; sourceTree = "<group>"; };
+		C939E9EA80BFA13701836D80409A1614 /* JGProgressHUDSuccessIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDSuccessIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDSuccessIndicatorView.m; sourceTree = "<group>"; };
 		CB8FD617BE1FD9FB739C0454FD391BFB /* Pods-AniDraw-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AniDraw-frameworks.sh"; sourceTree = "<group>"; };
 		CBDF51BCFF7B12905A80C4763741A354 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
-		CE40F277676BCF3EE95D0B4796D93D41 /* JGProgressHUDSuccessIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDSuccessIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDSuccessIndicatorView.h; sourceTree = "<group>"; };
-		CFCC39510571211FE78C4B6E3EC0A6F4 /* MSColorSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorSelectionView.h; path = MSColorPicker/MSColorSelectionView.h; sourceTree = "<group>"; };
-		D72192E273B1A1491D1F20B5701E4893 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Source/Error.swift; sourceTree = "<group>"; };
-		D7C38548082E60299DF7226DC4BE2133 /* JGProgressHUDRingIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDRingIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDRingIndicatorView.h; sourceTree = "<group>"; };
-		D8389DF477495CA5A78509CF0930F19B /* MSColorPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MSColorPicker-dummy.m"; sourceTree = "<group>"; };
-		DF24B6C973E26BC02DB81FF7D7DF6EF0 /* QuinnsSecondEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuinnsSecondEstimator.swift; path = Source/Estimation/Strategies/QuinnsSecondEstimator.swift; sourceTree = "<group>"; };
-		E319273127553E1B757B90B936762058 /* FFTTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FFTTransformer.swift; path = Source/Transform/Strategies/FFTTransformer.swift; sourceTree = "<group>"; };
+		CCBA1F9BEAD697A4A59FBA25457BCEE9 /* Pitchy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pitchy.modulemap; sourceTree = "<group>"; };
+		CCFD9085B691E5C3717C6BFF350E6676 /* MSColorUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorUtils.h; path = MSColorPicker/MSColorUtils.h; sourceTree = "<group>"; };
+		CDEF690B98822222E0D9461523DF5481 /* Beethoven-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Beethoven-dummy.m"; sourceTree = "<group>"; };
+		CE21E86CD8D9902C0048855A1852065B /* WaveCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WaveCalculator.swift; path = Source/Calculators/WaveCalculator.swift; sourceTree = "<group>"; };
+		D703D507CC2FEC5B1B7D2970D47E0918 /* JGProgressHUDRingIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDRingIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDRingIndicatorView.h; sourceTree = "<group>"; };
+		D7DCED75BA2CADD62E92E6A94A58A384 /* JGProgressHUDIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndicatorView.m; sourceTree = "<group>"; };
+		D9E64B6651DBEC4647904AB351166C44 /* MSSliderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSliderView.m; path = MSColorPicker/MSSliderView.m; sourceTree = "<group>"; };
+		DA8749C4AF71886F5E4E341563415A7A /* JGProgressHUDIndeterminateIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDIndeterminateIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndeterminateIndicatorView.h; sourceTree = "<group>"; };
+		DB0BAFDA374E5A92D4D1AC6FE66E2F8A /* JGProgressHUDImageIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDImageIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDImageIndicatorView.m; sourceTree = "<group>"; };
+		DB32E8AB83454CF5D7956C2AB42D10E0 /* ActionSwift3-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ActionSwift3-umbrella.h"; sourceTree = "<group>"; };
+		DD7EE83B71AE8D7FFAE136DF1575BD94 /* QuinnsSecondEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuinnsSecondEstimator.swift; path = Source/Estimation/Strategies/QuinnsSecondEstimator.swift; sourceTree = "<group>"; };
+		E1E91A7552EAA9F2C2BDEA574D84DEC4 /* MSSliderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSliderView.h; path = MSColorPicker/MSSliderView.h; sourceTree = "<group>"; };
+		E368B3D88D72D2C1755F7FAB43AE0337 /* Object.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Object.swift; path = ActionSwift3/Object.swift; sourceTree = "<group>"; };
+		E49F27839DFEDA0CDAA693933C2FDC2D /* GraphicsNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GraphicsNode.swift; path = ActionSwift3/display/GraphicsNode.swift; sourceTree = "<group>"; };
 		E4CF476A90CDEA859150A4BEBE35B99A /* Pods-AniDraw-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AniDraw-umbrella.h"; sourceTree = "<group>"; };
-		E6C22B24F1439943EF8C5FCF1EDE043F /* Pitchy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pitchy-prefix.pch"; sourceTree = "<group>"; };
-		E6FCF24E1F127AAD9A07EB5CEEF2916F /* Beethoven-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Beethoven-dummy.m"; sourceTree = "<group>"; };
-		EB09D28846F8B44106B5CB47F001B3B6 /* Pitch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pitch.swift; path = Source/Data/Pitch.swift; sourceTree = "<group>"; };
+		E65D87C7B3C5C7FDB64228E80D3C8DF0 /* MSColorSelectionViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorSelectionViewController.m; path = MSColorPicker/MSColorSelectionViewController.m; sourceTree = "<group>"; };
+		E6E1AFC11D473C80A04926874DE584D6 /* EventDispatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventDispatcher.swift; path = ActionSwift3/com/actionswift/events/EventDispatcher.swift; sourceTree = "<group>"; };
+		EC33991A9BCC917BD6C9B3947B9AE63A /* TransformFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformFactory.swift; path = Source/Transform/TransformFactory.swift; sourceTree = "<group>"; };
+		EC7ED791A2295C1876D190D0EA79FFB6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECAA3D1866B6A9EE0C48A6F12D4830D4 /* Pitchy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pitchy.xcconfig; sourceTree = "<group>"; };
 		ED85E7CDF81B16104C8B8572CE2A8251 /* Pods-AniDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AniDraw.debug.xcconfig"; sourceTree = "<group>"; };
-		F1B5B4A09FCAA531BB8B044E9A35F736 /* WaveCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WaveCalculator.swift; path = Source/Calculators/WaveCalculator.swift; sourceTree = "<group>"; };
-		F24092DB71C7B5CAAA177AC0790CE7BC /* JainsEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JainsEstimator.swift; path = Source/Estimation/Strategies/JainsEstimator.swift; sourceTree = "<group>"; };
-		F583B25302D309EF4F9A10479C842A1F /* Pitchy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pitchy-umbrella.h"; sourceTree = "<group>"; };
-		F773FBA6F6FBE565F73F2306C231E6B8 /* HPSEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HPSEstimator.swift; path = Source/Estimation/Strategies/HPSEstimator.swift; sourceTree = "<group>"; };
-		F816AD781DCD5AD0B18FEB2479C0AB46 /* JGProgressHUDRingIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDRingIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDRingIndicatorView.m; sourceTree = "<group>"; };
-		FD11B2E0B6AAE09498EFAD23960CB19D /* MSColorUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorUtils.m; path = MSColorPicker/MSColorUtils.m; sourceTree = "<group>"; };
+		EF890B68262C4CEB9178488CC50B9F41 /* InputSignalTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputSignalTracker.swift; path = Source/SignalTracking/Units/InputSignalTracker.swift; sourceTree = "<group>"; };
+		F3D0D789D241F773961E34B58970C038 /* MSRGBView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSRGBView.m; path = MSColorPicker/MSRGBView.m; sourceTree = "<group>"; };
+		F5C3832826BBCD7F76594BB9341428EE /* Pods_AniDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AniDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F68A6653B2AF9373FC64B57CE52FA6FA /* JGProgressHUDFadeZoomAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDFadeZoomAnimation.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeZoomAnimation.h; sourceTree = "<group>"; };
+		F6BCAA36418E64F65FAAD84E896BBD17 /* MSRGBView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSRGBView.h; path = MSColorPicker/MSRGBView.h; sourceTree = "<group>"; };
+		F6CCFE421D6DAB67CEA5E71AB0143918 /* Pitchy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pitchy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F74C8ED0E03B044B080BFCCCC72242C7 /* MSColorWheelView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorWheelView.m; path = MSColorPicker/MSColorWheelView.m; sourceTree = "<group>"; };
+		F78249CA49DD0F79AB6972B649C4C371 /* SignalTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SignalTracker.swift; path = Source/SignalTracking/SignalTracker.swift; sourceTree = "<group>"; };
+		FC36FFB38AEC3E5EE73D57FBEF6C5D03 /* MSColorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorView.h; path = MSColorPicker/MSColorView.h; sourceTree = "<group>"; };
+		FD75B2176B425062B6E994E3C9062E49 /* Sprite.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sprite.swift; path = ActionSwift3/display/Sprite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +356,14 @@
 				251018738E93FDD329D3CDC028CBFB4C /* AVFoundation.framework in Frameworks */,
 				FD8AF364A38CA22F7A6A5984EC5753C5 /* Foundation.framework in Frameworks */,
 				0DF682557E4E56CF2E6204A510B39EAA /* Pitchy.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232E317F1B05980E1F97184F4D48E418 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF34B327A165949679ADE32DE66E9BB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,11 +383,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A2287FCFFF19B88BAFE6B89068095FD5 /* Frameworks */ = {
+		92170634A3F4FE49722279358741DF9B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E11BBCB62AF8722C16B2D84EB2C12FB /* Foundation.framework in Frameworks */,
+				FE869F19B4CD935A53941F90E7EEFC82 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,32 +416,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		12FB41DCF6FF96255AA90EC9BC4067FC /* MSColorPicker */ = {
-			isa = PBXGroup;
-			children = (
-				7E15649DF942801C386BBF7E4E264CFB /* MSColorComponentView.h */,
-				370585426A8420E4E8C5A5712FE6FC07 /* MSColorComponentView.m */,
-				954F053824AF45C2A9C1F8425F46CD79 /* MSColorPicker.h */,
-				CFCC39510571211FE78C4B6E3EC0A6F4 /* MSColorSelectionView.h */,
-				0160BC867ECAFCC2868938E05AFD2F50 /* MSColorSelectionView.m */,
-				6B06386C5B56D956686AA35E5ED77E22 /* MSColorSelectionViewController.h */,
-				13F7E2A9A4B2A97442FB54493932EE2F /* MSColorSelectionViewController.m */,
-				1800933901CE785B87F8C1E058306458 /* MSColorUtils.h */,
-				FD11B2E0B6AAE09498EFAD23960CB19D /* MSColorUtils.m */,
-				11DD38759CC3D004E4A568E506374439 /* MSColorView.h */,
-				AB41D8DB79C8E76C3AAA8D5350B587E1 /* MSColorWheelView.h */,
-				2191D6C87BA710E50DEFDF42557062D1 /* MSColorWheelView.m */,
-				75D9238C850C4F4446E5D9DAA41D1210 /* MSHSBView.h */,
-				B7F1F0AABE90FBA0573A1B383241B8FA /* MSHSBView.m */,
-				593C8C4E5713AE8ADF23BAD4B97FFCB3 /* MSRGBView.h */,
-				20B9230C0413F1EFBCF7E0F94635C1CC /* MSRGBView.m */,
-				AE99E0228D4F0C01C42C1B77CA71756E /* MSSliderView.h */,
-				2F4E3FAEBF55957B0E2328034AEC6957 /* MSSliderView.m */,
-				BC4A22DA995EA7EC772C3C3A674241C6 /* Support Files */,
-			);
-			path = MSColorPicker;
-			sourceTree = "<group>";
-		};
 		141FFF272EB1CFAE08EDF620C30BA561 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,20 +424,26 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		1743B0F55650E3D9CE5E4070E259BCD4 /* Pitchy */ = {
+		14D12F74352E86656D0CDFE557349379 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9202B674987D958C7C094AAB1A2CF01E /* AcousticWave.swift */,
-				95AB83A40837644AD90090FA385C08A8 /* Config.swift */,
-				D72192E273B1A1491D1F20B5701E4893 /* Error.swift */,
-				C5CAA9E142209E0D24BE9B1723AF6F43 /* Note.swift */,
-				7E35CF0A31EE52142316A979DC8FAC9A /* NoteCalculator.swift */,
-				EB09D28846F8B44106B5CB47F001B3B6 /* Pitch.swift */,
-				B2E8040CFEDCA0F28750A1622877257B /* PitchCalculator.swift */,
-				F1B5B4A09FCAA531BB8B044E9A35F736 /* WaveCalculator.swift */,
-				EEF9C9F4F24C121D064B54C2C764344A /* Support Files */,
+				C6817E0A422281BE26A7F9E333FEE1E7 /* JGProgressHUD Resources.bundle */,
 			);
-			path = Pitchy;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		25378E88F6EEF37E6DA7E39A1877B5B8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7108C639B3C606A82F7DBFFC78144FCF /* Info.plist */,
+				4064F14510C5D4A879EAF12F082A7B80 /* MSColorPicker.modulemap */,
+				3F5672878D93665569CB81975F18710A /* MSColorPicker.xcconfig */,
+				ABCA18B5C8AEAB3657F77C3EF64C4E3D /* MSColorPicker-dummy.m */,
+				73A0815F0FA02C3B237004904B37DD9A /* MSColorPicker-prefix.pch */,
+				3B1D97924A7ABDD1C469C97FD056DE2A /* MSColorPicker-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MSColorPicker";
 			sourceTree = "<group>";
 		};
 		28D3053821BAF8F77485FE03E47CDBD2 /* Frameworks */ = {
@@ -384,13 +455,130 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		732EF90EACB9F461B118646ED1CAF0F5 /* Pods */ = {
+		3C42D3AE9F251D16E98953EAC859697D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D453668D4CF7F43039D624ABBB19544F /* Beethoven */,
-				BBEDD78C0BAF994E900415EE4164632E /* JGProgressHUD */,
-				12FB41DCF6FF96255AA90EC9BC4067FC /* MSColorPicker */,
-				1743B0F55650E3D9CE5E4070E259BCD4 /* Pitchy */,
+				699B131B119D288697BA1D593552599D /* ActionSwift3.framework */,
+				A7349CBB2A9848CC1B6CE74E5906698C /* Beethoven.framework */,
+				9A1F89840A62AA2D90ED41D47D9E0B4A /* JGProgressHUD.framework */,
+				768F5717029243AF0CE758D8E1D668A9 /* MSColorPicker.framework */,
+				F6CCFE421D6DAB67CEA5E71AB0143918 /* Pitchy.framework */,
+				F5C3832826BBCD7F76594BB9341428EE /* Pods_AniDraw.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		465CB454C3B73A33A329EBDA56316B12 /* Beethoven */ = {
+			isa = PBXGroup;
+			children = (
+				958FFF12FA57CD768016839C23BB1849 /* Array+Extensions.swift */,
+				A6819DC74FCDE9CAAB8193D66B32A8E9 /* BarycentricEstimator.swift */,
+				C2075C933E87F463F7485D4DB875E10F /* Buffer.swift */,
+				4508054ED50D9FA2A7A2CD35C94D2FA5 /* Config.swift */,
+				A6E3AB2AD3F3ADADA56F71202986B5D3 /* EstimationError.swift */,
+				2F220E18F78F49D4059FFA3FD166E1AB /* EstimationFactory.swift */,
+				379BBAA0902B9BA7A699DFC4861DC014 /* EstimationStrategy.swift */,
+				7C42EC8BC266F64126D04D1FBB6F28BB /* Estimator.swift */,
+				8101BEDADB56D7FABDD2074EF8FB4439 /* FFTTransformer.swift */,
+				5EAE8E6E62A07AB7A27F20E3E9579F7D /* HPSEstimator.swift */,
+				EF890B68262C4CEB9178488CC50B9F41 /* InputSignalTracker.swift */,
+				24247040881521C1F020E6F9BB1A6924 /* JainsEstimator.swift */,
+				BF9324B94FACCC273963765E192A209C /* LocationEstimator.swift */,
+				23E6BA5CD064F6100C38B62D05A0B1CA /* MaxValueEstimator.swift */,
+				749D99A8905EA470FF7FFC6CA7719784 /* OutputSignalTracker.swift */,
+				4259DE780EF8DD5DD10B7CA63D2965B3 /* PitchEngine.swift */,
+				1605F8C57C5CD37E78FD117C2CDD422C /* QuadradicEstimator.swift */,
+				041A1F17A80D041820D4662862B73F59 /* QuinnsFirstEstimator.swift */,
+				DD7EE83B71AE8D7FFAE136DF1575BD94 /* QuinnsSecondEstimator.swift */,
+				F78249CA49DD0F79AB6972B649C4C371 /* SignalTracker.swift */,
+				4B9F3A29A0D859D68D984E7392D48416 /* SimpleTransformer.swift */,
+				5C8016CA5DEDAE5DDA1DA2E03AB378B1 /* Transformer.swift */,
+				EC33991A9BCC917BD6C9B3947B9AE63A /* TransformFactory.swift */,
+				75F59C81654F934904A46B06D5430599 /* TransformStrategy.swift */,
+				82914A995E74BCD1186F1AB1F3738523 /* Support Files */,
+			);
+			path = Beethoven;
+			sourceTree = "<group>";
+		};
+		49793A6B36C694C76658BA8FFA00AD2E /* ActionSwift3 */ = {
+			isa = PBXGroup;
+			children = (
+				00CC93C50BDFDAAAB3CAF2973C6035EA /* ActionSwift3.h */,
+				B1C890984423AB7DF797D126156B65C5 /* Array.swift */,
+				41EB59D2EFCC71D92B4AA19689476E5E /* DisplayObject.swift */,
+				60A9F5BBB98F1C0DCCCC4DBA0E63006A /* DisplayObjectContainer.swift */,
+				490C4AF5DE8F797C2F377FF98531D606 /* easing.swift */,
+				6645A3352D1B5CD7A50D3D5F99E315CC /* EasingDeclarations.swift */,
+				02CED56BD014B0028BB5DBFEDA7ABF1D /* Event.swift */,
+				E6E1AFC11D473C80A04926874DE584D6 /* EventDispatcher.swift */,
+				9489083095C7C2B7C9FF8F0D3BA9197A /* EventHandler.swift */,
+				A2E42FC0274506448843925DD466E0B3 /* Global.swift */,
+				8361716D8F159BDD14050C54916B3E83 /* Graphics.swift */,
+				E49F27839DFEDA0CDAA693933C2FDC2D /* GraphicsNode.swift */,
+				987855AFBC61FDD714522525624F1C6C /* Info.plist */,
+				7D3140EBE30F3DE7D438FF6E09EA1A6D /* InteractiveNode.swift */,
+				AB8DB3692405B9C499FE6E635A545A13 /* InteractiveObject.swift */,
+				78825AD50B26FD57918BEACEB7B19B00 /* LabelNode.swift */,
+				0B1F32FD4614EA52C98450708D4ADA62 /* MovieClip.swift */,
+				E368B3D88D72D2C1755F7FAB43AE0337 /* Object.swift */,
+				B75B627B52615CF8EDF4F9A19F052E16 /* SimpleButton.swift */,
+				8CF720C62D9B29C854CD2A2338C7579A /* SKEase.swift */,
+				C404B18E2DFE862CB5B1E4B5AFA1B8F2 /* SKMultilineLabel.swift */,
+				528CD0B31D9C22A4213E407D1B88ED5B /* Sound.swift */,
+				AD466B91DB83739A0105297CC591EA92 /* SoundChannel.swift */,
+				FD75B2176B425062B6E994E3C9062E49 /* Sprite.swift */,
+				AFDF3A8445FDD88E49A3424E895C73DE /* SpriteNode.swift */,
+				65F4D2BEBB4911B2D6E8BDF07B750C53 /* Stage.swift */,
+				993BE6B7B7FA614CD685E2675D3EF460 /* StageScene.swift */,
+				9D444BBEFF94AA3767269E7A1C411AA4 /* String.swift */,
+				33C13C528B42F96AF39C1976538CD67B /* TextField.swift */,
+				01EAFFD1229DB81310B56AD19506011E /* TextFormat.swift */,
+				43923FAD5A4397A40E4DF66127412625 /* Touch.swift */,
+				931CF6F227D87A3F5A74F0BA790FC70F /* TouchEvent.swift */,
+				46CFE7184FD44DEC3F0F12A248A09748 /* UIColor.swift */,
+				A4C80ECC371A41CDC1661948A3F88959 /* Support Files */,
+			);
+			path = ActionSwift3;
+			sourceTree = "<group>";
+		};
+		5A4E2A5C70424B562782C0A0065AABD0 /* Pitchy */ = {
+			isa = PBXGroup;
+			children = (
+				617985C5AF2D75D8C51D7AB478D72F2E /* AcousticWave.swift */,
+				B2D87F11C3E7628A45A8DCB887DF0301 /* Config.swift */,
+				3AEB4D110753054FF2387AE2775A2BB4 /* Error.swift */,
+				C20171944C92817F0B7394419F311CA0 /* Note.swift */,
+				1D1912DF81937885E76C8CD63C3640CD /* NoteCalculator.swift */,
+				2091C4480981B50F0C394B14394C4D99 /* Pitch.swift */,
+				0897032ED3242F95BD7B18BA3AE41D15 /* PitchCalculator.swift */,
+				CE21E86CD8D9902C0048855A1852065B /* WaveCalculator.swift */,
+				62981AA2B0A6C2AD7337CBA7E629AE6D /* Support Files */,
+			);
+			path = Pitchy;
+			sourceTree = "<group>";
+		};
+		62981AA2B0A6C2AD7337CBA7E629AE6D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				817D88D27F8CDC000710B24950439D02 /* Info.plist */,
+				CCBA1F9BEAD697A4A59FBA25457BCEE9 /* Pitchy.modulemap */,
+				ECAA3D1866B6A9EE0C48A6F12D4830D4 /* Pitchy.xcconfig */,
+				241EE5AAAADACC28A93C98F5C0360615 /* Pitchy-dummy.m */,
+				1C08D28EE1D3FE1C2862885BD3CBFCF5 /* Pitchy-prefix.pch */,
+				4CBCE54473731878F7ADB5A4464D0C2B /* Pitchy-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pitchy";
+			sourceTree = "<group>";
+		};
+		73066A9999A4E40EB7EF012F44640C6A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49793A6B36C694C76658BA8FFA00AD2E /* ActionSwift3 */,
+				465CB454C3B73A33A329EBDA56316B12 /* Beethoven */,
+				B16DF44E14C09E61CD9119248EBA83F5 /* JGProgressHUD */,
+				D191687360CF42F5A6674EEC85D56A71 /* MSColorPicker */,
+				5A4E2A5C70424B562782C0A0065AABD0 /* Pitchy */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -400,36 +588,24 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				28D3053821BAF8F77485FE03E47CDBD2 /* Frameworks */,
-				732EF90EACB9F461B118646ED1CAF0F5 /* Pods */,
-				87078F57F9E396CBC9B0CEF9DEF73210 /* Products */,
+				73066A9999A4E40EB7EF012F44640C6A /* Pods */,
+				3C42D3AE9F251D16E98953EAC859697D /* Products */,
 				141FFF272EB1CFAE08EDF620C30BA561 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		7F5F4389EE58F01AED6107DE8B73396E /* Support Files */ = {
+		82914A995E74BCD1186F1AB1F3738523 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9FC944ECD3DB2E0C732E5CEA4ACA0D60 /* Info.plist */,
-				A43B1F3740EEB2B551C38762639DE0A6 /* JGProgressHUD.modulemap */,
-				632BBE3F47ECC2A249DF3878BFA9680A /* JGProgressHUD.xcconfig */,
-				1E61968FABD09D18255CCD2AB9814382 /* JGProgressHUD-dummy.m */,
-				0AB27942C16FD655C165DCB2D6B74E24 /* JGProgressHUD-prefix.pch */,
-				A25EC0844CB5C0F3467FE1C6C2BB4E9A /* JGProgressHUD-umbrella.h */,
+				7A4E43CA11630DC4371D82BD2E2A1845 /* Beethoven.modulemap */,
+				B34E67E1A4BC48B5FEDD3A65EC93BF0D /* Beethoven.xcconfig */,
+				CDEF690B98822222E0D9461523DF5481 /* Beethoven-dummy.m */,
+				4A8AF77EAB8A6293D267DA8E1BEF556B /* Beethoven-prefix.pch */,
+				50BB6A0B292326FB3B15FFC2D940090F /* Beethoven-umbrella.h */,
+				367FEDC6809B70337B1A25323DCE8CE7 /* Info.plist */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/JGProgressHUD";
-			sourceTree = "<group>";
-		};
-		87078F57F9E396CBC9B0CEF9DEF73210 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6D1BC64C949C4147D5709ADFBC2B0294 /* Beethoven.framework */,
-				3D56686A748D049544449DCA273FF60C /* JGProgressHUD.framework */,
-				4DA35B39985E2AAE221BA9CA4C4C2635 /* MSColorPicker.framework */,
-				366F2F7625884ECBEB950E08A0CC4006 /* Pitchy.framework */,
-				057F5ADB0FB7FC61EC0F5FE191CA2D9E /* Pods_AniDraw.framework */,
-			);
-			name = Products;
+			path = "../Target Support Files/Beethoven";
 			sourceTree = "<group>";
 		};
 		8FC18D81F291205FF327376F9AE0078A /* Pods-AniDraw */ = {
@@ -450,123 +626,112 @@
 			path = "Target Support Files/Pods-AniDraw";
 			sourceTree = "<group>";
 		};
-		B41B252358D4997F23317164ED5F7DCB /* Support Files */ = {
+		A4C80ECC371A41CDC1661948A3F88959 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				49D0F51F91484F966D5EB7FAA352CEB3 /* Beethoven.modulemap */,
-				18F57D0F2A68740BDF39E10CD7BA79BA /* Beethoven.xcconfig */,
-				E6FCF24E1F127AAD9A07EB5CEEF2916F /* Beethoven-dummy.m */,
-				4F1747F90A69C82FCAAC5BCB41362B78 /* Beethoven-prefix.pch */,
-				A0B46DCAC7B00021D96243DA6003363F /* Beethoven-umbrella.h */,
-				6CC38D2C7689146B36DA6CD7F592C08D /* Info.plist */,
+				22EBC1FBFD0E3939EC885D8762D83865 /* ActionSwift3.modulemap */,
+				795DB42622CF4BB52972D8AE557537D0 /* ActionSwift3.xcconfig */,
+				7D25C8BE76B98DDDA01B293C6A36DA39 /* ActionSwift3-dummy.m */,
+				10641EC10894E1B6E34850B5668D2075 /* ActionSwift3-prefix.pch */,
+				DB32E8AB83454CF5D7956C2AB42D10E0 /* ActionSwift3-umbrella.h */,
+				EC7ED791A2295C1876D190D0EA79FFB6 /* Info.plist */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Beethoven";
+			path = "../Target Support Files/ActionSwift3";
 			sourceTree = "<group>";
 		};
-		BBEDD78C0BAF994E900415EE4164632E /* JGProgressHUD */ = {
+		B16DF44E14C09E61CD9119248EBA83F5 /* JGProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				127840F4A599CAAA2300E1189AA4341A /* JGProgressHUD.h */,
-				8561D4ED802B842D4AACA0304DB05F3C /* JGProgressHUD.m */,
-				41F6CF37A98765E711599E993E11656B /* JGProgressHUD-Defines.h */,
-				483372D6067723625B6F1A91E4D302D6 /* JGProgressHUDAnimation.h */,
-				0C0B9D07B7BEA29A573FD05728E7AD66 /* JGProgressHUDAnimation.m */,
-				9A076201F8FA2FE3585B7AB0F7DD7594 /* JGProgressHUDErrorIndicatorView.h */,
-				40F8D2123FA86FE6274B77ED03E4DF90 /* JGProgressHUDErrorIndicatorView.m */,
-				A0376A6219612BFA24CB1D59CAE09209 /* JGProgressHUDFadeAnimation.h */,
-				14039C6FF2030B9E9CCAC14B0DD662F1 /* JGProgressHUDFadeAnimation.m */,
-				548A11056EB694AD898FE15FDCE5C3A3 /* JGProgressHUDFadeZoomAnimation.h */,
-				5CAE6F6F423FAF3F378735CB4435C9C1 /* JGProgressHUDFadeZoomAnimation.m */,
-				053BACB7C851B274BC5778E4E450E932 /* JGProgressHUDImageIndicatorView.h */,
-				47339FEB78E03A5145005BE9E174CC54 /* JGProgressHUDImageIndicatorView.m */,
-				59AB95046C1266DF72E568ACF30DAB1A /* JGProgressHUDIndeterminateIndicatorView.h */,
-				6A3DD9D31783A9D78C555CCC680B190C /* JGProgressHUDIndeterminateIndicatorView.m */,
-				9A87FA105F722484972E218D535D8242 /* JGProgressHUDIndicatorView.h */,
-				900920522403BB212BDF37F03DBE11ED /* JGProgressHUDIndicatorView.m */,
-				B815947CB4BD5DB8929C45BA7CE77F2E /* JGProgressHUDPieIndicatorView.h */,
-				6DF98A623B8B5F6013EED529D3220914 /* JGProgressHUDPieIndicatorView.m */,
-				D7C38548082E60299DF7226DC4BE2133 /* JGProgressHUDRingIndicatorView.h */,
-				F816AD781DCD5AD0B18FEB2479C0AB46 /* JGProgressHUDRingIndicatorView.m */,
-				CE40F277676BCF3EE95D0B4796D93D41 /* JGProgressHUDSuccessIndicatorView.h */,
-				81D71ED1DB29D22950E75F2747A60259 /* JGProgressHUDSuccessIndicatorView.m */,
-				FE04B41143A43AC3698034B23E5357DD /* Resources */,
-				7F5F4389EE58F01AED6107DE8B73396E /* Support Files */,
+				A146F69C7AB848B68F4DAE107E2FD2EC /* JGProgressHUD.h */,
+				71B127142B0D97E889183E721D5DCB24 /* JGProgressHUD.m */,
+				5EBA2E5FD9927FB7976D83AD32AC624B /* JGProgressHUD-Defines.h */,
+				0C18CDB734DE8A04F274897FB26624C6 /* JGProgressHUDAnimation.h */,
+				72EE786D8E3F94DC65B0AE62D3843EC2 /* JGProgressHUDAnimation.m */,
+				09D36043654B5A6345714C197853A6FD /* JGProgressHUDErrorIndicatorView.h */,
+				2127D0FFB2F2CE5142E6FCF8F8C06B92 /* JGProgressHUDErrorIndicatorView.m */,
+				4CBB0337E92B81096FEF2116ED1277BE /* JGProgressHUDFadeAnimation.h */,
+				7E068683073F225DFDC1AB7E93F78A1E /* JGProgressHUDFadeAnimation.m */,
+				F68A6653B2AF9373FC64B57CE52FA6FA /* JGProgressHUDFadeZoomAnimation.h */,
+				6BFB7A8F9109664AC7C566002AA621BB /* JGProgressHUDFadeZoomAnimation.m */,
+				7939FB325F544E649A37A470FDD31423 /* JGProgressHUDImageIndicatorView.h */,
+				DB0BAFDA374E5A92D4D1AC6FE66E2F8A /* JGProgressHUDImageIndicatorView.m */,
+				DA8749C4AF71886F5E4E341563415A7A /* JGProgressHUDIndeterminateIndicatorView.h */,
+				25C1BEE47DB843FDBB6EB6A91735ADA5 /* JGProgressHUDIndeterminateIndicatorView.m */,
+				5541C57ECAD8FAF86C15ABC2D4F9DAE0 /* JGProgressHUDIndicatorView.h */,
+				D7DCED75BA2CADD62E92E6A94A58A384 /* JGProgressHUDIndicatorView.m */,
+				5E4F1981A23E965C9FE7AC5AE6AB74B8 /* JGProgressHUDPieIndicatorView.h */,
+				06FE96ABCA9209396A9AA9464C3B33DE /* JGProgressHUDPieIndicatorView.m */,
+				D703D507CC2FEC5B1B7D2970D47E0918 /* JGProgressHUDRingIndicatorView.h */,
+				54FC27B167A661789C6EE253093E6D68 /* JGProgressHUDRingIndicatorView.m */,
+				26EF1F8E1B2B245514895E69F1A3C347 /* JGProgressHUDSuccessIndicatorView.h */,
+				C939E9EA80BFA13701836D80409A1614 /* JGProgressHUDSuccessIndicatorView.m */,
+				14D12F74352E86656D0CDFE557349379 /* Resources */,
+				D1AC4B8638126146AA4ADEFE12B35AD7 /* Support Files */,
 			);
 			path = JGProgressHUD;
 			sourceTree = "<group>";
 		};
-		BC4A22DA995EA7EC772C3C3A674241C6 /* Support Files */ = {
+		D191687360CF42F5A6674EEC85D56A71 /* MSColorPicker */ = {
 			isa = PBXGroup;
 			children = (
-				2FA51726A826134B0E8028E028543B96 /* Info.plist */,
-				2C0651368731A50B4CEB1C228F6C968B /* MSColorPicker.modulemap */,
-				0532339512798C9660B30CC277D226CD /* MSColorPicker.xcconfig */,
-				D8389DF477495CA5A78509CF0930F19B /* MSColorPicker-dummy.m */,
-				39E2AF8F690B5B6851363EEAD2E1AEF3 /* MSColorPicker-prefix.pch */,
-				A7DE3A45B23A83CF1F1A37809155F71B /* MSColorPicker-umbrella.h */,
+				30E4FF6D08DDCBBE4AE9035F3C06FCDC /* MSColorComponentView.h */,
+				2A92AED54DCB579B8FAEB52C7A7B95E6 /* MSColorComponentView.m */,
+				2298FA5E0B0F4673AAC1EB66399D6882 /* MSColorPicker.h */,
+				01BD67BDD803E46B117D95768A0AFDEA /* MSColorSelectionView.h */,
+				A986F7EB37B3842A39A7B03F482AFBE2 /* MSColorSelectionView.m */,
+				A5656A330D25D2A95B21C8D742E8E054 /* MSColorSelectionViewController.h */,
+				E65D87C7B3C5C7FDB64228E80D3C8DF0 /* MSColorSelectionViewController.m */,
+				CCFD9085B691E5C3717C6BFF350E6676 /* MSColorUtils.h */,
+				55437EBA9324D421EE778CEC4F46CC10 /* MSColorUtils.m */,
+				FC36FFB38AEC3E5EE73D57FBEF6C5D03 /* MSColorView.h */,
+				6C37531F436235CE69C93E0469866BD6 /* MSColorWheelView.h */,
+				F74C8ED0E03B044B080BFCCCC72242C7 /* MSColorWheelView.m */,
+				B84D346873083682010B6A7578B24821 /* MSHSBView.h */,
+				18593F8B5B2CC88E62ECC64E483CDFC6 /* MSHSBView.m */,
+				F6BCAA36418E64F65FAAD84E896BBD17 /* MSRGBView.h */,
+				F3D0D789D241F773961E34B58970C038 /* MSRGBView.m */,
+				E1E91A7552EAA9F2C2BDEA574D84DEC4 /* MSSliderView.h */,
+				D9E64B6651DBEC4647904AB351166C44 /* MSSliderView.m */,
+				25378E88F6EEF37E6DA7E39A1877B5B8 /* Support Files */,
+			);
+			path = MSColorPicker;
+			sourceTree = "<group>";
+		};
+		D1AC4B8638126146AA4ADEFE12B35AD7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4384C853F50AE1A53ECFC74D4E920CAD /* Info.plist */,
+				AB69CA375C5D270119EA63082E42319A /* JGProgressHUD.modulemap */,
+				1E8C78FC539C293FEA4888261EE7CBF2 /* JGProgressHUD.xcconfig */,
+				99E11F0E91C6869E6CAA3D92D8EB1425 /* JGProgressHUD-dummy.m */,
+				4237C2F46EA31283B76F78EA805D2D6C /* JGProgressHUD-prefix.pch */,
+				4D951986825FBD71B7D39E1DE535DA91 /* JGProgressHUD-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/MSColorPicker";
-			sourceTree = "<group>";
-		};
-		D453668D4CF7F43039D624ABBB19544F /* Beethoven */ = {
-			isa = PBXGroup;
-			children = (
-				5549E979B3291B547F7767B50BC9DB92 /* Array+Extensions.swift */,
-				2C4C80B4FC4F605ADBFCC70E98631726 /* BarycentricEstimator.swift */,
-				C68CB3DFD239009B2B6CB1EABF4990C2 /* Buffer.swift */,
-				267CDA6999FB17380000C178211B7CD6 /* Config.swift */,
-				26E8BC3344C9B8E8BB2C4797E8F02B9A /* EstimationError.swift */,
-				B492995B4FC9748C1DF25705FDE5159E /* EstimationFactory.swift */,
-				93FA591B7A6E68ECC280DBCF51AA7BBC /* EstimationStrategy.swift */,
-				73B53E6905D89E6937228B0816BD8FE7 /* Estimator.swift */,
-				E319273127553E1B757B90B936762058 /* FFTTransformer.swift */,
-				F773FBA6F6FBE565F73F2306C231E6B8 /* HPSEstimator.swift */,
-				003A02BBEB155A92E74C43E1AFF37804 /* InputSignalTracker.swift */,
-				F24092DB71C7B5CAAA177AC0790CE7BC /* JainsEstimator.swift */,
-				4C74830CF1C00FB4D1EE6751E29A781B /* LocationEstimator.swift */,
-				9EB271E38B09EFE163D6DCB30988A7C5 /* MaxValueEstimator.swift */,
-				C76D35049BE92A33BAC7E204758B5CBB /* OutputSignalTracker.swift */,
-				AF9026E6A22E5E6281580AFF77E922B8 /* PitchEngine.swift */,
-				C190B0C5ED611A2D982EC27C4C22B22E /* QuadradicEstimator.swift */,
-				5F998BB2476FDF4D6E4DC3B6A481511A /* QuinnsFirstEstimator.swift */,
-				DF24B6C973E26BC02DB81FF7D7DF6EF0 /* QuinnsSecondEstimator.swift */,
-				C83A43727F64422681AF128B4EBB4B60 /* SignalTracker.swift */,
-				2CDE7F3A1FA329A36225E576EAD01643 /* SimpleTransformer.swift */,
-				8B52033BF77648B7D22FC7A83DFA99E0 /* Transformer.swift */,
-				01F8B52FF28709B1AA186FBD03F7986F /* TransformFactory.swift */,
-				23FBD16F61C5834D1C0D9681392E724F /* TransformStrategy.swift */,
-				B41B252358D4997F23317164ED5F7DCB /* Support Files */,
-			);
-			path = Beethoven;
-			sourceTree = "<group>";
-		};
-		EEF9C9F4F24C121D064B54C2C764344A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				36286CB44C63C21CB32894CAFC390CD0 /* Info.plist */,
-				4363CB0075753FCA9DD460BACD68885C /* Pitchy.modulemap */,
-				1DC456A724E3A87F340D0C35BEE3A93F /* Pitchy.xcconfig */,
-				983734B77FA962423EDF01EB4B68BF00 /* Pitchy-dummy.m */,
-				E6C22B24F1439943EF8C5FCF1EDE043F /* Pitchy-prefix.pch */,
-				F583B25302D309EF4F9A10479C842A1F /* Pitchy-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pitchy";
-			sourceTree = "<group>";
-		};
-		FE04B41143A43AC3698034B23E5357DD /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				B389CAB2A06913450908DB0C57FCE09C /* JGProgressHUD Resources.bundle */,
-			);
-			name = Resources;
+			path = "../Target Support Files/JGProgressHUD";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		4596D6DA44112CBBC239EF205EB4920F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				158B041E2297EBC8E5A2E1457AD26D70 /* Pods-AniDraw-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45AC6A40CCD1A4F2A37E05C9A33CB002 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B71991328E138F0FB6ADE494791B82F /* ActionSwift3-umbrella.h in Headers */,
+				909D857F9FBB742C4BD96AB5982C82CE /* ActionSwift3.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BB02F551AD5F255F408F0DD0CD21307 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -590,14 +755,6 @@
 				79CC6B4A54228B48F0C783BB7F499A56 /* MSHSBView.h in Headers */,
 				58B32E4E41DCD355573FD78404A4C899 /* MSRGBView.h in Headers */,
 				BBD6F99671A69ED02C70D69293FC7D51 /* MSSliderView.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AE4299B3019DC43BCF102A1F0E84F521 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				49870BA1A2353BDFF6400084B84982F6 /* Pods-AniDraw-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,7 +804,7 @@
 			);
 			name = Beethoven;
 			productName = Beethoven;
-			productReference = 6D1BC64C949C4147D5709ADFBC2B0294 /* Beethoven.framework */;
+			productReference = A7349CBB2A9848CC1B6CE74E5906698C /* Beethoven.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		4935D7F909FA1FA4819E2F69EC75829F /* MSColorPicker */ = {
@@ -664,7 +821,7 @@
 			);
 			name = MSColorPicker;
 			productName = MSColorPicker;
-			productReference = 4DA35B39985E2AAE221BA9CA4C4C2635 /* MSColorPicker.framework */;
+			productReference = 768F5717029243AF0CE758D8E1D668A9 /* MSColorPicker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		617B0FC57CCB604D47A24E6198763D04 /* JGProgressHUD */ = {
@@ -682,7 +839,46 @@
 			);
 			name = JGProgressHUD;
 			productName = JGProgressHUD;
-			productReference = 3D56686A748D049544449DCA273FF60C /* JGProgressHUD.framework */;
+			productReference = 9A1F89840A62AA2D90ED41D47D9E0B4A /* JGProgressHUD.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7468480F45CE49B6E2A3B0CEAD5575BB /* Pods-AniDraw */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B5216E6F6729F9F4955EF8BFE6C26FE /* Build configuration list for PBXNativeTarget "Pods-AniDraw" */;
+			buildPhases = (
+				5276D68EB6C6331B7B559250EA430EDF /* Sources */,
+				232E317F1B05980E1F97184F4D48E418 /* Frameworks */,
+				4596D6DA44112CBBC239EF205EB4920F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0CD8076C2D5C766B57F852C4162A201C /* PBXTargetDependency */,
+				4D8DE13E0E7319FF53CB77271957FEB6 /* PBXTargetDependency */,
+				625E0F795CB6A4379195BE8D0E53DD59 /* PBXTargetDependency */,
+				CBFB2ED7697AA4BA02919E94BBEC81F3 /* PBXTargetDependency */,
+				6B647FB37CE962F119E7831DA0498E49 /* PBXTargetDependency */,
+			);
+			name = "Pods-AniDraw";
+			productName = "Pods-AniDraw";
+			productReference = F5C3832826BBCD7F76594BB9341428EE /* Pods_AniDraw.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7E37E5C333C3A6FAD817E358AE040B6F /* ActionSwift3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D7B9224E3CA64773FF12FB98A3AA76F /* Build configuration list for PBXNativeTarget "ActionSwift3" */;
+			buildPhases = (
+				5D11F8D27A426D1116C1E66E9B5D9754 /* Sources */,
+				92170634A3F4FE49722279358741DF9B /* Frameworks */,
+				45AC6A40CCD1A4F2A37E05C9A33CB002 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ActionSwift3;
+			productName = ActionSwift3;
+			productReference = 699B131B119D288697BA1D593552599D /* ActionSwift3.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D547ECBAFD0BAC79D81AE36137B80925 /* Pitchy */ = {
@@ -699,28 +895,7 @@
 			);
 			name = Pitchy;
 			productName = Pitchy;
-			productReference = 366F2F7625884ECBEB950E08A0CC4006 /* Pitchy.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		F10B6881934BD72D6E9E8121A81262FD /* Pods-AniDraw */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1AF5D3BEDF0B0E494C731EB55A14EBED /* Build configuration list for PBXNativeTarget "Pods-AniDraw" */;
-			buildPhases = (
-				FD4C473CA141BA36E69C52AEE0676053 /* Sources */,
-				A2287FCFFF19B88BAFE6B89068095FD5 /* Frameworks */,
-				AE4299B3019DC43BCF102A1F0E84F521 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F945C92F3878A7C9B8A4847898F2AB70 /* PBXTargetDependency */,
-				87E737796886AAED2316C6321E539FD6 /* PBXTargetDependency */,
-				9D21BF9B561B3A8FFD18FC8ED1E87A59 /* PBXTargetDependency */,
-				A207AC5E3F1A31C951FC091D95506981 /* PBXTargetDependency */,
-			);
-			name = "Pods-AniDraw";
-			productName = "Pods-AniDraw";
-			productReference = 057F5ADB0FB7FC61EC0F5FE191CA2D9E /* Pods_AniDraw.framework */;
+			productReference = F6CCFE421D6DAB67CEA5E71AB0143918 /* Pitchy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -740,15 +915,16 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 87078F57F9E396CBC9B0CEF9DEF73210 /* Products */;
+			productRefGroup = 3C42D3AE9F251D16E98953EAC859697D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				7E37E5C333C3A6FAD817E358AE040B6F /* ActionSwift3 */,
 				3F2148881B422F7499162ACACC37D143 /* Beethoven */,
 				617B0FC57CCB604D47A24E6198763D04 /* JGProgressHUD */,
 				4935D7F909FA1FA4819E2F69EC75829F /* MSColorPicker */,
 				D547ECBAFD0BAC79D81AE36137B80925 /* Pitchy */,
-				F10B6881934BD72D6E9E8121A81262FD /* Pods-AniDraw */,
+				7468480F45CE49B6E2A3B0CEAD5575BB /* Pods-AniDraw */,
 			);
 		};
 /* End PBXProject section */
@@ -794,6 +970,54 @@
 				559DFCBE5D8C7A43125930F08E125094 /* Transformer.swift in Sources */,
 				CDB5976F897591D6C6A8E18747ABB9FC /* TransformFactory.swift in Sources */,
 				3EA3D6FE284197163A75940BB41BB1BC /* TransformStrategy.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5276D68EB6C6331B7B559250EA430EDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9B2BB0219722AAE0219EF3F915B40FC /* Pods-AniDraw-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D11F8D27A426D1116C1E66E9B5D9754 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2000C8F691E420826F25BBF26221AEA4 /* ActionSwift3-dummy.m in Sources */,
+				B9BA7C2474FC8AF7E622293A217CE25F /* Array.swift in Sources */,
+				FC66A7E73993E09B0973535D240537D4 /* DisplayObject.swift in Sources */,
+				4D8A04BFE98E6AC0536F481BC88D479D /* DisplayObjectContainer.swift in Sources */,
+				2A48D0F9D921FB1413634B4961E4087B /* easing.swift in Sources */,
+				AA679BFCACB383A5232B5515234B9DC5 /* EasingDeclarations.swift in Sources */,
+				BD6A5CD2C3F76AA80385A5A395CF19C4 /* Event.swift in Sources */,
+				361F1830B9206B3523DB8C108443C2BE /* EventDispatcher.swift in Sources */,
+				25629E37BFF8609C8A867F40DBD6DE14 /* EventHandler.swift in Sources */,
+				6ECF627340C41E2DA0EEBAF9599B95B6 /* Global.swift in Sources */,
+				D19D3B11A4DB42D1102503E60DEF3DE8 /* Graphics.swift in Sources */,
+				B077F8418FF0D0686AF41D61DBF5F6DF /* GraphicsNode.swift in Sources */,
+				35DFAF2DC48F69B15F1B8CF8B007FDB1 /* Info.plist in Sources */,
+				1A43CC56392D7DD1BB00A94FD1E32D26 /* InteractiveNode.swift in Sources */,
+				8BC22C3EDED741B354E5D583BF5C2C20 /* InteractiveObject.swift in Sources */,
+				E88E81DD2E042484963304C2A42C6717 /* LabelNode.swift in Sources */,
+				5A643688AF078BDF92E21746E66FAA51 /* MovieClip.swift in Sources */,
+				51D3C37AD397ACF90817434E730169CF /* Object.swift in Sources */,
+				D0678B43C7E5A9304B510DA56C920236 /* SimpleButton.swift in Sources */,
+				C19E6CB5619C87737E412731C229182D /* SKEase.swift in Sources */,
+				8938685EF5406507423ED9131CD1B9A1 /* SKMultilineLabel.swift in Sources */,
+				CC9FD999082213CC85F4CE1633638805 /* Sound.swift in Sources */,
+				4AD6B41A59D343694F523F8861A6E975 /* SoundChannel.swift in Sources */,
+				8B1C9F99607DB11E7BDC45A02775CC20 /* Sprite.swift in Sources */,
+				14EEF0195E7543D196A47DD6B0596ECE /* SpriteNode.swift in Sources */,
+				51C3CBB2775B707874A6666B376435D1 /* Stage.swift in Sources */,
+				E051AD12FB3FD97C91A554FB1E6E38E2 /* StageScene.swift in Sources */,
+				2DEC853BD87E1B9190AD40B58D69E8EF /* String.swift in Sources */,
+				308A06B594A398282FBB9B315BAE78A5 /* TextField.swift in Sources */,
+				AFAC8F6B91DCE370F55EE125166E1E53 /* TextFormat.swift in Sources */,
+				E9E033384A838049B4B13C39542E0165 /* Touch.swift in Sources */,
+				39522AA13522CFC7C3AD644BDA5B0951 /* TouchEvent.swift in Sources */,
+				72979CB195574FF19C4958BEE8B6B352 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,46 +1072,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD4C473CA141BA36E69C52AEE0676053 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				028A48D558BB468E503F431727286796 /* Pods-AniDraw-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		87E737796886AAED2316C6321E539FD6 /* PBXTargetDependency */ = {
+		0CD8076C2D5C766B57F852C4162A201C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ActionSwift3;
+			target = 7E37E5C333C3A6FAD817E358AE040B6F /* ActionSwift3 */;
+			targetProxy = BED4A8AD73A336F4688B20EDA2C16B62 /* PBXContainerItemProxy */;
+		};
+		4D8DE13E0E7319FF53CB77271957FEB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Beethoven;
+			target = 3F2148881B422F7499162ACACC37D143 /* Beethoven */;
+			targetProxy = 0814D26DF145161B8659C0AD79839A7D /* PBXContainerItemProxy */;
+		};
+		625E0F795CB6A4379195BE8D0E53DD59 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JGProgressHUD;
 			target = 617B0FC57CCB604D47A24E6198763D04 /* JGProgressHUD */;
-			targetProxy = 2C53FB7130F4C53E9F71F57C44C6E531 /* PBXContainerItemProxy */;
+			targetProxy = 9309FCAD97BEAB5E1110D6829CDB5350 /* PBXContainerItemProxy */;
 		};
-		9D21BF9B561B3A8FFD18FC8ED1E87A59 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MSColorPicker;
-			target = 4935D7F909FA1FA4819E2F69EC75829F /* MSColorPicker */;
-			targetProxy = 320ED5BA8D0F2AFE4202710C35238432 /* PBXContainerItemProxy */;
-		};
-		A207AC5E3F1A31C951FC091D95506981 /* PBXTargetDependency */ = {
+		6B647FB37CE962F119E7831DA0498E49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Pitchy;
 			target = D547ECBAFD0BAC79D81AE36137B80925 /* Pitchy */;
-			targetProxy = BD0D1A281AEBA47D0D559375D3B5C9E3 /* PBXContainerItemProxy */;
+			targetProxy = C95278E2F6D4D75028FB359FADEB5A11 /* PBXContainerItemProxy */;
+		};
+		CBFB2ED7697AA4BA02919E94BBEC81F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MSColorPicker;
+			target = 4935D7F909FA1FA4819E2F69EC75829F /* MSColorPicker */;
+			targetProxy = 2FF23032CE03C0631C87EC1FD6AA1C2E /* PBXContainerItemProxy */;
 		};
 		D20AD56E7E59F57691A9BF29187E0403 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Pitchy;
 			target = D547ECBAFD0BAC79D81AE36137B80925 /* Pitchy */;
 			targetProxy = 6017C46D344F982C1CE0038EB73CA894 /* PBXContainerItemProxy */;
-		};
-		F945C92F3878A7C9B8A4847898F2AB70 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Beethoven;
-			target = 3F2148881B422F7499162ACACC37D143 /* Beethoven */;
-			targetProxy = 475614327E883B0866B16A6CF467DC86 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -936,7 +1158,7 @@
 		};
 		0828242C20BC8E3FB53B31451AA4F4FC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18F57D0F2A68740BDF39E10CD7BA79BA /* Beethoven.xcconfig */;
+			baseConfigurationReference = B34E67E1A4BC48B5FEDD3A65EC93BF0D /* Beethoven.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -965,7 +1187,7 @@
 		};
 		0D26D340A512BED4A866D3DF01F76510 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0532339512798C9660B30CC277D226CD /* MSColorPicker.xcconfig */;
+			baseConfigurationReference = 3F5672878D93665569CB81975F18710A /* MSColorPicker.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -992,9 +1214,9 @@
 			};
 			name = Release;
 		};
-		5407FF1D6EB06A8D865BC8A8FB39A8B7 /* Debug */ = {
+		38ACEE9699896AF45AA4626AF38340FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED85E7CDF81B16104C8B8572CE2A8251 /* Pods-AniDraw.debug.xcconfig */;
+			baseConfigurationReference = 795DB42622CF4BB52972D8AE557537D0 /* ActionSwift3.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1005,18 +1227,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-AniDraw/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/ActionSwift3/ActionSwift3-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ActionSwift3/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AniDraw/Pods-AniDraw.modulemap";
+				MODULEMAP_FILE = "Target Support Files/ActionSwift3/ActionSwift3.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_AniDraw;
+				PRODUCT_NAME = ActionSwift3;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1026,9 +1244,38 @@
 			};
 			name = Debug;
 		};
+		485036738E589555EEF3DFA982EB083D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 795DB42622CF4BB52972D8AE557537D0 /* ActionSwift3.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ActionSwift3/ActionSwift3-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ActionSwift3/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ActionSwift3/ActionSwift3.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ActionSwift3;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		56E0DF90F7F82F96A0B3869E28840A64 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DC456A724E3A87F340D0C35BEE3A93F /* Pitchy.xcconfig */;
+			baseConfigurationReference = ECAA3D1866B6A9EE0C48A6F12D4830D4 /* Pitchy.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1055,7 +1302,95 @@
 			};
 			name = Release;
 		};
-		59C61AC59F1850E4AF8D0FE358FB3172 /* Release */ = {
+		702286EBD2D4B3727208F14F5BF1E087 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F5672878D93665569CB81975F18710A /* MSColorPicker.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MSColorPicker/MSColorPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MSColorPicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MSColorPicker/MSColorPicker.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = MSColorPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7448A4A285AAF5FCEFDA76FCBDC472D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E8C78FC539C293FEA4888261EE7CBF2 /* JGProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/JGProgressHUD/JGProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JGProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JGProgressHUD/JGProgressHUD.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = JGProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8B7104833300D0894979914A86FA4566 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B34E67E1A4BC48B5FEDD3A65EC93BF0D /* Beethoven.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Beethoven/Beethoven-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Beethoven/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Beethoven/Beethoven.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Beethoven;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A06651335A71F95E0A77F47EF22A6FB6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A3BE6590B992827E4B105A4925058AC6 /* Pods-AniDraw.release.xcconfig */;
 			buildSettings = {
@@ -1088,9 +1423,9 @@
 			};
 			name = Release;
 		};
-		702286EBD2D4B3727208F14F5BF1E087 /* Debug */ = {
+		A7BA2371ED3F8A195CFFA2A13386B170 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0532339512798C9660B30CC277D226CD /* MSColorPicker.xcconfig */;
+			baseConfigurationReference = ED85E7CDF81B16104C8B8572CE2A8251 /* Pods-AniDraw.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1101,72 +1436,18 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MSColorPicker/MSColorPicker-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MSColorPicker/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-AniDraw/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MSColorPicker/MSColorPicker.modulemap";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AniDraw/Pods-AniDraw.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = MSColorPicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		7448A4A285AAF5FCEFDA76FCBDC472D6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 632BBE3F47ECC2A249DF3878BFA9680A /* JGProgressHUD.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/JGProgressHUD/JGProgressHUD-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JGProgressHUD/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/JGProgressHUD/JGProgressHUD.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = JGProgressHUD;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8B7104833300D0894979914A86FA4566 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18F57D0F2A68740BDF39E10CD7BA79BA /* Beethoven.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Beethoven/Beethoven-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Beethoven/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Beethoven/Beethoven.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Beethoven;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AniDraw;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1216,7 +1497,7 @@
 		};
 		E11C8FFD84A425228F5BF0349780756A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 632BBE3F47ECC2A249DF3878BFA9680A /* JGProgressHUD.xcconfig */;
+			baseConfigurationReference = 1E8C78FC539C293FEA4888261EE7CBF2 /* JGProgressHUD.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1245,7 +1526,7 @@
 		};
 		FDF9CDDB5CBEACFC2C78BF27768EC862 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DC456A724E3A87F340D0C35BEE3A93F /* Pitchy.xcconfig */;
+			baseConfigurationReference = ECAA3D1866B6A9EE0C48A6F12D4830D4 /* Pitchy.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1276,11 +1557,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1AF5D3BEDF0B0E494C731EB55A14EBED /* Build configuration list for PBXNativeTarget "Pods-AniDraw" */ = {
+		1B5216E6F6729F9F4955EF8BFE6C26FE /* Build configuration list for PBXNativeTarget "Pods-AniDraw" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5407FF1D6EB06A8D865BC8A8FB39A8B7 /* Debug */,
-				59C61AC59F1850E4AF8D0FE358FB3172 /* Release */,
+				A7BA2371ED3F8A195CFFA2A13386B170 /* Debug */,
+				A06651335A71F95E0A77F47EF22A6FB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1317,6 +1598,15 @@
 			buildConfigurations = (
 				FDF9CDDB5CBEACFC2C78BF27768EC862 /* Debug */,
 				56E0DF90F7F82F96A0B3869E28840A64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D7B9224E3CA64773FF12FB98A3AA76F /* Build configuration list for PBXNativeTarget "ActionSwift3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38ACEE9699896AF45AA4626AF38340FA /* Debug */,
+				485036738E589555EEF3DFA982EB083D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
