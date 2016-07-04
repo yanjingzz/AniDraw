@@ -40,7 +40,11 @@
 		27AFB31E1D2365A200325894 /* Posture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31D1D2365A200325894 /* Posture.swift */; };
 		27AFB3221D236B8A00325894 /* DanceMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3211D236B8A00325894 /* DanceMove.swift */; };
 		27AFB3461D236DEC00325894 /* DanceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 27AFB3451D236DEC00325894 /* DanceScene.sks */; };
-		27CA0ACA1D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AC81D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodeld */; };
+		27CA0ACA1D2A4F8E00F4332C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AC81D2A4F8E00F4332C /* Model.xcdatamodeld */; };
+		27CA0AF01D2A758700F4332C /* Character+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AEC1D2A758700F4332C /* Character+CoreDataProperties.swift */; };
+		27CA0AF11D2A758700F4332C /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AED1D2A758700F4332C /* Character.swift */; };
+		27CA0AF21D2A758700F4332C /* BodyPart+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AEE1D2A758700F4332C /* BodyPart+CoreDataProperties.swift */; };
+		27CA0AF31D2A758700F4332C /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AEF1D2A758700F4332C /* BodyPart.swift */; };
 		27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31F1D236A5000325894 /* Keyframe.swift */; };
 		27F6AD221D23A89500BF3116 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6AD211D23A89500BF3116 /* SkeletonView.swift */; };
 		27F6AD241D23A8D200BF3116 /* JointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6AD231D23A8D200BF3116 /* JointView.swift */; };
@@ -84,7 +88,11 @@
 		27AFB31F1D236A5000325894 /* Keyframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyframe.swift; sourceTree = "<group>"; };
 		27AFB3211D236B8A00325894 /* DanceMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceMove.swift; sourceTree = "<group>"; };
 		27AFB3451D236DEC00325894 /* DanceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DanceScene.sks; sourceTree = "<group>"; };
-		27CA0AC91D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CharacterStorageModel.xcdatamodel; sourceTree = "<group>"; };
+		27CA0AC91D2A4F8E00F4332C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		27CA0AEC1D2A758700F4332C /* Character+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		27CA0AED1D2A758700F4332C /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		27CA0AEE1D2A758700F4332C /* BodyPart+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BodyPart+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		27CA0AEF1D2A758700F4332C /* BodyPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
 		27F6AD211D23A89500BF3116 /* SkeletonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		27F6AD231D23A8D200BF3116 /* JointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JointView.swift; sourceTree = "<group>"; };
 		58A56761E1255BDF6AE5EA5E /* Pods_AniDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AniDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,9 +134,9 @@
 			isa = PBXGroup;
 			children = (
 				27AFB3161D235FDB00325894 /* UI */,
+				27CA0AF41D2A758C00F4332C /* CoreData */,
 				2701F1431D24BDF700C597E6 /* Joints.swift */,
 				27AFB3141D235FCD00325894 /* BodyPartNode.swift */,
-				27CA0AC81D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodeld */,
 				27AFB3171D23604A00325894 /* CharacterNode.swift */,
 				27252A261D260C7B002CE361 /* CharactersScene.swift */,
 				27AFB31D1D2365A200325894 /* Posture.swift */,
@@ -136,14 +144,8 @@
 				27AFB3211D236B8A00325894 /* DanceMove.swift */,
 				27AFB3451D236DEC00325894 /* DanceScene.sks */,
 				27AFB31B1D2362CF00325894 /* DanceScene.swift */,
-				275ABBA51D224E4200BC3B8D /* AppDelegate.swift */,
-				2701F1411D243BF600C597E6 /* CGRect+.swift */,
-				2701F13F1D2428AA00C597E6 /* UInt32+.swift */,
-				271258621D22B7D000BD9C36 /* UIImage+.swift */,
-				27252A241D255A89002CE361 /* CGImage+.swift */,
-				275ABBAC1D224E4200BC3B8D /* Assets.xcassets */,
-				275ABBAE1D224E4200BC3B8D /* LaunchScreen.storyboard */,
-				275ABBB11D224E4200BC3B8D /* Info.plist */,
+				27CA0AF61D2A760300F4332C /* Supporting Files */,
+				27CA0AF51D2A75A900F4332C /* ExtensionUtils */,
 				275ABBBD1D226EF700BC3B8D /* SKTUtils */,
 			);
 			path = AniDraw;
@@ -181,6 +183,40 @@
 				27F6AD231D23A8D200BF3116 /* JointView.swift */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		27CA0AF41D2A758C00F4332C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				27CA0AC81D2A4F8E00F4332C /* Model.xcdatamodeld */,
+				27CA0AEC1D2A758700F4332C /* Character+CoreDataProperties.swift */,
+				27CA0AED1D2A758700F4332C /* Character.swift */,
+				27CA0AEE1D2A758700F4332C /* BodyPart+CoreDataProperties.swift */,
+				27CA0AEF1D2A758700F4332C /* BodyPart.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		27CA0AF51D2A75A900F4332C /* ExtensionUtils */ = {
+			isa = PBXGroup;
+			children = (
+				2701F1411D243BF600C597E6 /* CGRect+.swift */,
+				2701F13F1D2428AA00C597E6 /* UInt32+.swift */,
+				271258621D22B7D000BD9C36 /* UIImage+.swift */,
+				27252A241D255A89002CE361 /* CGImage+.swift */,
+			);
+			name = ExtensionUtils;
+			sourceTree = "<group>";
+		};
+		27CA0AF61D2A760300F4332C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				275ABBA51D224E4200BC3B8D /* AppDelegate.swift */,
+				275ABBAC1D224E4200BC3B8D /* Assets.xcassets */,
+				275ABBAE1D224E4200BC3B8D /* LaunchScreen.storyboard */,
+				275ABBB11D224E4200BC3B8D /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		67C1747C30EE5DAFBA87933E /* Pods */ = {
@@ -326,6 +362,7 @@
 			files = (
 				275ABBCB1D226EF700BC3B8D /* CGPoint+Extensions.swift in Sources */,
 				27AFB31C1D2362CF00325894 /* DanceScene.swift in Sources */,
+				27CA0AF11D2A758700F4332C /* Character.swift in Sources */,
 				27AFB31E1D2365A200325894 /* Posture.swift in Sources */,
 				275ABBD31D226EF700BC3B8D /* SKTEffects.swift in Sources */,
 				275ABBCE1D226EF700BC3B8D /* SKAction+Extensions.swift in Sources */,
@@ -334,7 +371,8 @@
 				275ABBB81D22549F00BC3B8D /* DrawController.swift in Sources */,
 				275ABBD11D226EF700BC3B8D /* SKNode+Extensions.swift in Sources */,
 				27AFB3181D23604A00325894 /* CharacterNode.swift in Sources */,
-				27CA0ACA1D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodeld in Sources */,
+				27CA0ACA1D2A4F8E00F4332C /* Model.xcdatamodeld in Sources */,
+				27CA0AF21D2A758700F4332C /* BodyPart+CoreDataProperties.swift in Sources */,
 				275ABBBC1D2261E200BC3B8D /* DrawView.swift in Sources */,
 				27AFB3221D236B8A00325894 /* DanceMove.swift in Sources */,
 				275ABBD41D226EF700BC3B8D /* SKTTimingFunctions.swift in Sources */,
@@ -343,10 +381,12 @@
 				27F6AD241D23A8D200BF3116 /* JointView.swift in Sources */,
 				275ABBD51D226EF700BC3B8D /* Vector3.swift in Sources */,
 				275ABBA81D224E4200BC3B8D /* CharactersController.swift in Sources */,
+				27CA0AF31D2A758700F4332C /* BodyPart.swift in Sources */,
 				275ABBD01D226EF700BC3B8D /* SKColor+Extensions.swift in Sources */,
 				27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */,
 				27AFB3151D235FCD00325894 /* BodyPartNode.swift in Sources */,
 				2701F1401D2428AA00C597E6 /* UInt32+.swift in Sources */,
+				27CA0AF01D2A758700F4332C /* Character+CoreDataProperties.swift in Sources */,
 				275ABBCC1D226EF700BC3B8D /* CGVector+Extensions.swift in Sources */,
 				2701F1441D24BDF700C597E6 /* Joints.swift in Sources */,
 				275ABBA61D224E4200BC3B8D /* AppDelegate.swift in Sources */,
@@ -519,13 +559,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		27CA0AC81D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodeld */ = {
+		27CA0AC81D2A4F8E00F4332C /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				27CA0AC91D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodel */,
+				27CA0AC91D2A4F8E00F4332C /* Model.xcdatamodel */,
 			);
-			currentVersion = 27CA0AC91D2A4F8E00F4332C /* CharacterStorageModel.xcdatamodel */;
-			path = CharacterStorageModel.xcdatamodeld;
+			currentVersion = 27CA0AC91D2A4F8E00F4332C /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

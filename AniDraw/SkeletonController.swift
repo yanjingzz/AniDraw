@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import JGProgressHUD
 
 class SkeletonController: UIViewController {
@@ -82,28 +83,70 @@ class SkeletonController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if let identifier = segue.identifier where identifier == Storyboard.DoneAddingCharacterIdentifier {
-            if let charactersVC = segue.destinationViewController as? CharactersController {
-                let character = CharacterNode(bodyPartImages: segmentedParts,imagesFrame: segmentedPartsFrame, jointsPosition: self.skeletonView.jointPositionInView)
-                charactersVC.characterNode = character
-                
-            }
         }
     }
     
+    // MARK: - Add Character
+    var characterName: String?
+    var segmentationDone = false
+    let HUD = JGProgressHUD(style: .Light)
     @IBAction private func doneAddingCharacter() {
-        let HUD = JGProgressHUD(style: .Light)
-        HUD.textLabel.text = "Saving"
-        HUD.showInView(view)
+        self.presentViewController(alertForNamePrompt, animated: true) {}
         segmentParts(){
-           
-            HUD.dismiss()
-            self.performSegueWithIdentifier(Storyboard.DoneAddingCharacterIdentifier, sender: nil)
-
+            self.segmentationDone = true
+            self.saveCharacter()
         }
+        
+    }
+    
+    func saveCharacter() {
+        guard segmentationDone == true && characterName != nil else  {
+            return
+        }
+        let character = CharacterNode(bodyPartImages: segmentedParts,imagesFrame: segmentedPartsFrame, jointsPosition: self.skeletonView.jointPositionInView)
+        Character.insertCharacter(characterName!, characterNode: character)
+        HUD.dismiss()
+        performSegueWithIdentifier(Storyboard.DoneAddingCharacterIdentifier, sender: nil)
+        
     }
     
     
-    // MARK: - Image Segmentation
+    
+    private var alertForNamePrompt: UIAlertController{
+        let alert = UIAlertController(title: "Name", message: "Give a name to the character you just created!", preferredStyle: .Alert)
+        let confirmAction = UIAlertAction(title: "Done", style: .Default) { action in
+            self.HUD.textLabel.text = "Saving"
+            self.HUD.showInView(self.view)
+            self.characterName = alert.textFields![0].text
+            self.saveCharacter()
+        }
+        
+        confirmAction.enabled = false
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        alert.preferredAction = confirmAction
+        alert.addTextFieldWithConfigurationHandler { textField in
+            textField.becomeFirstResponder()
+            textField.placeholder = "Name"
+            textField.clearButtonMode = .WhileEditing
+            textField.autocapitalizationType = .Words
+            textField.autocorrectionType = .No
+            textField.returnKeyType = .Done
+            textField.addTarget(self, action: #selector(self.textChangedForNamePrompt), forControlEvents: .EditingChanged)
+        }
+        return alert
+    }
+    
+    @objc private func textChangedForNamePrompt(sender: UITextField) {
+        var resp : UIResponder = sender
+        while !(resp is UIAlertController) { resp = resp.nextResponder()! }
+        let alert = resp as! UIAlertController
+        alert.actions[1].enabled = (sender.text != "")
+    }
+    
+    // MARK:  Image Segmentation
     
     
     var segmentedParts = [BodyPartName: CGImage]()

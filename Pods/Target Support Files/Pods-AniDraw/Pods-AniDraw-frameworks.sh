@@ -86,10 +86,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Beethoven/Beethoven.framework"
   install_framework "$BUILT_PRODUCTS_DIR/JGProgressHUD/JGProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MSColorPicker/MSColorPicker.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Pitchy/Pitchy.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Beethoven/Beethoven.framework"
   install_framework "$BUILT_PRODUCTS_DIR/JGProgressHUD/JGProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MSColorPicker/MSColorPicker.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Pitchy/Pitchy.framework"
 fi

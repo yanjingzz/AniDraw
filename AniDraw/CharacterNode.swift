@@ -61,4 +61,35 @@ class CharacterNode: SKNode {
         
         
     }
+    convenience init(character: Character) {
+        self.init()
+        guard let partsSet = character.parts else {
+            return
+        }
+        self.name = character.name
+        for element in partsSet {
+            let part = element as! BodyPart
+            guard let imageData = part.image, let image = UIImage(data: imageData) else {
+                continue
+            }
+            let name = BodyPartName(rawValue: Int(part.tag!))!
+            let node = BodyPartNode(bodyPartName: name, texture: SKTexture(image: image))
+            node.initialZRotation = CGFloat(part.initialRotation!)
+            node.position = CGPoint(x: CGFloat(part.positionX!),y: CGFloat(part.positionY!))
+            node.anchorPoint = CGPoint(x: CGFloat(part.anchorPointX!),y: CGFloat(part.anchorPointY!))
+            parts[name] = node
+        }
+        for (part, node) in parts {
+            for childPart in part.childPart {
+                if let childNode = parts[childPart] {
+                    node.addChild(childNode)
+                }
+            }
+            
+            if part.parentPart == nil {
+                self.addChild(node)
+            }
+        }
+        
+    }
 }

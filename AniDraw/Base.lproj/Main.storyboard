@@ -345,12 +345,6 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="CPz-0W-uxh"/>
-                                <exclude reference="Eh1-Mv-g5Q"/>
-                                <exclude reference="hNE-uz-D4n"/>
-                                <exclude reference="cTW-xe-X1S"/>
-                                <exclude reference="d1Y-Ab-4cR"/>
-                                <exclude reference="eTe-8g-nTR"/>
                                 <exclude reference="8nd-av-HVQ"/>
                                 <exclude reference="ASl-bA-mAd"/>
                                 <exclude reference="BLC-PA-3qX"/>
@@ -370,6 +364,12 @@
                                 <exclude reference="mMt-rR-Zyx"/>
                                 <exclude reference="oW0-dW-qeT"/>
                                 <exclude reference="pa6-vC-8Tc"/>
+                                <exclude reference="CPz-0W-uxh"/>
+                                <exclude reference="Eh1-Mv-g5Q"/>
+                                <exclude reference="hNE-uz-D4n"/>
+                                <exclude reference="cTW-xe-X1S"/>
+                                <exclude reference="d1Y-Ab-4cR"/>
+                                <exclude reference="eTe-8g-nTR"/>
                                 <exclude reference="TuA-iG-PsH"/>
                             </mask>
                         </variation>

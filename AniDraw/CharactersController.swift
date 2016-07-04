@@ -37,7 +37,14 @@ class CharactersController: UIViewController {
         scene.scaleMode = .AspectFill
         
         skView.presentScene(scene)
-        
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if let character = Character.allCharacters()?.first {
+            characterNode = CharacterNode(character: character)
+            print(character.name)
+            
+        }
         
     }
     override func prefersStatusBarHidden() -> Bool {
