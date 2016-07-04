@@ -52,6 +52,9 @@ class DrawController: UIViewController {
                 }
             }
         }
+        didSet {
+            drawView?.tool = selectedTool
+        }
     }
     
     

@@ -131,10 +131,12 @@
                         <subviews>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srw-1J-y9f" customClass="DrawView" customModule="AniDraw" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="r4S-7J-WIv" appends="YES" id="SK9-rd-UWv"/>
                                     <outletCollection property="gestureRecognizers" destination="6zC-UA-6vu" appends="YES" id="Dvu-fE-bVR"/>
+                                    <outletCollection property="gestureRecognizers" destination="C0k-ND-K1A" appends="YES" id="gfP-m0-VTl"/>
                                 </connections>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dock" translatesAutoresizingMaskIntoConstraints="NO" id="uKi-L4-Swr">
@@ -238,6 +240,11 @@
                         <action selector="drawStrokeForPanRecognizer:" destination="Srw-1J-y9f" id="L56-IV-q0J"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="C0k-ND-K1A">
+                    <connections>
+                        <action selector="drawDotforTapRecognizer:" destination="Srw-1J-y9f" id="vj5-Mc-Jlu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="289" y="339"/>
         </scene>

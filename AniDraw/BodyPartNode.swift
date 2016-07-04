@@ -10,6 +10,22 @@ import SpriteKit
 
 class BodyPartNode: SKSpriteNode {
     var bodyPartName: BodyPartName!
+    var initialZRotation: CGFloat = 0.0
+    convenience init(bodyPartName: BodyPartName, texture: SKTexture) {
+        
+        self.init(texture: texture, color: UIColor.whiteColor(), size: texture.size())
+        self.bodyPartName = bodyPartName
+        self.zPosition = bodyPartName.zPosition
+        
+    }
+    override var zRotation: CGFloat {
+        get {
+            return super.zRotation - initialZRotation
+        }
+        set {
+            super.zRotation = newValue + initialZRotation
+        }
+    }
 
 }
 
@@ -94,6 +110,34 @@ enum BodyPartName: Int {
         }
     }
     
+    var directionJoints: (JointName, JointName) {
+        switch self {
+        case Head: fallthrough
+        case UpperBody: fallthrough
+        case LowerBody:
+            return (.Neck, .Waist)
+        case LeftUpperArm:
+            return (.LeftShoulder, .LeftElbow)
+        case .LeftForearm:
+            return (.LeftElbow, .LeftWrist)
+        case LeftThigh:
+            return (.LeftHip, .LeftKnee)
+        case LeftShank: fallthrough
+        case .LeftFoot:
+            return (.LeftKnee, .LeftAnkle)
+            
+        case RightUpperArm:
+            return (.RightShoulder, .RightElbow)
+        case .RightForearm:
+            return (.RightElbow, .RightWrist)
+        case RightThigh:
+            return (.RightHip, .RightKnee)
+        case RightShank: fallthrough
+        case .RightFoot:
+            return (.RightKnee, .RightAnkle)
+        }
+    }
+    
     var parentPart: BodyPartName? {
         switch self {
         case Head:
@@ -123,6 +167,21 @@ enum BodyPartName: Int {
         case RightFoot:
             return .RightShank
         
+        }
+    }
+    
+    var zPosition: CGFloat{
+        switch self {
+        case LeftUpperArm:
+            return 9
+        case .LeftForearm:
+            return 10
+        case RightUpperArm:
+            return 9
+        case .RightForearm:
+            return 10
+        default:
+            return 0
         }
     }
 

@@ -215,8 +215,11 @@ class SkeletonController: UIViewController {
             for part in BodyPartName.allParts {
                 let image = CGBitmapContextCreateImage(data[part]?.context)
                 let newRect = CGRect(x: lowX[part]!, y: lowY[part]!, width: highX[part]!-lowX[part]!, height: highY[part]!-lowY[part]!)
-                let imageRef = CGImageCreateWithImageInRect(image, newRect)
-                self.segmentedParts[part] = imageRef!
+                if let imageRef = CGImageCreateWithImageInRect(image, newRect) {
+                    self.segmentedParts[part] = imageRef
+                } else {
+                    print("image not generated for \(part), rectangle is \(newRect)")
+                }
                 let convertedRect = CGRect(origin: self.characterImageView.convertPoint(newRect.origin, toView: self.skeletonView), size: newRect.size)
                 self.segmentedPartsFrame[part] = convertedRect
                 free(data[part]!.pixel)
