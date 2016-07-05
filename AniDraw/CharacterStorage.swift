@@ -1,8 +1,8 @@
 //
-//  Character.swift
+//  CharacterStorage.swift
 //  AniDraw
 //
-//  Created by Mike on 7/4/16.
+//  Created by Mike on 7/5/16.
 //  Copyright © 2016 yanjingzz. All rights reserved.
 //
 
@@ -10,12 +10,13 @@ import UIKit
 import CoreData
 
 
-class Character: NSManagedObject {
+class CharacterStorage: NSManagedObject {
+
 // Insert code here to add functionality to your managed object subclass
     class func insertCharacter(name: String, characterNode: CharacterNode) {
         let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         context.performBlock {
-            guard let character = NSEntityDescription.insertNewObjectForEntityForName("Character", inManagedObjectContext:context) as? Character else {
+            guard let character = NSEntityDescription.insertNewObjectForEntityForName("Character", inManagedObjectContext:context) as? CharacterStorage else {
                 return
             }
             character.name = name
@@ -37,21 +38,22 @@ class Character: NSManagedObject {
             do {
                 try context.save()
             } catch {
-                    print(error)
+                print(error)
             }
             
         }
     }
-    class func allCharacters() -> [Character]? {
+    class func allCharacters() -> [CharacterStorage]? {
         let request = NSFetchRequest(entityName: "Character")
         request.predicate = nil
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        var characters: [Character]?
+        var characters: [CharacterStorage]?
         context.performBlockAndWait {
             let array = try? context.executeFetchRequest(request)
-            characters = array as? [Character]
+            characters = array as? [CharacterStorage]
         }
         return characters
     }
+
 }

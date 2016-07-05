@@ -40,9 +40,9 @@
 		27AFB31E1D2365A200325894 /* Posture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31D1D2365A200325894 /* Posture.swift */; };
 		27AFB3221D236B8A00325894 /* DanceMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3211D236B8A00325894 /* DanceMove.swift */; };
 		27AFB3461D236DEC00325894 /* DanceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 27AFB3451D236DEC00325894 /* DanceScene.sks */; };
+		27C227491D2B553800B581C5 /* CharacterStorage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C227471D2B553800B581C5 /* CharacterStorage+CoreDataProperties.swift */; };
+		27C2274A1D2B553800B581C5 /* CharacterStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C227481D2B553800B581C5 /* CharacterStorage.swift */; };
 		27CA0ACA1D2A4F8E00F4332C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AC81D2A4F8E00F4332C /* Model.xcdatamodeld */; };
-		27CA0AF01D2A758700F4332C /* Character+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AEC1D2A758700F4332C /* Character+CoreDataProperties.swift */; };
-		27CA0AF11D2A758700F4332C /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AED1D2A758700F4332C /* Character.swift */; };
 		27CA0AF21D2A758700F4332C /* BodyPart+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AEE1D2A758700F4332C /* BodyPart+CoreDataProperties.swift */; };
 		27CA0AF31D2A758700F4332C /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AEF1D2A758700F4332C /* BodyPart.swift */; };
 		27CA0B6F1D2B527F00F4332C /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0B471D2B527F00F4332C /* Array.swift */; };
@@ -123,9 +123,9 @@
 		27AFB31F1D236A5000325894 /* Keyframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyframe.swift; sourceTree = "<group>"; };
 		27AFB3211D236B8A00325894 /* DanceMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceMove.swift; sourceTree = "<group>"; };
 		27AFB3451D236DEC00325894 /* DanceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DanceScene.sks; sourceTree = "<group>"; };
+		27C227471D2B553800B581C5 /* CharacterStorage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CharacterStorage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		27C227481D2B553800B581C5 /* CharacterStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterStorage.swift; sourceTree = "<group>"; };
 		27CA0AC91D2A4F8E00F4332C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		27CA0AEC1D2A758700F4332C /* Character+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		27CA0AED1D2A758700F4332C /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		27CA0AEE1D2A758700F4332C /* BodyPart+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BodyPart+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		27CA0AEF1D2A758700F4332C /* BodyPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
 		27CA0B461D2B527F00F4332C /* ActionSwift3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionSwift3.h; path = ActionSwift3/ActionSwift3.h; sourceTree = "<group>"; };
@@ -263,9 +263,9 @@
 		27CA0AF41D2A758C00F4332C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				27C227471D2B553800B581C5 /* CharacterStorage+CoreDataProperties.swift */,
+				27C227481D2B553800B581C5 /* CharacterStorage.swift */,
 				27CA0AC81D2A4F8E00F4332C /* Model.xcdatamodeld */,
-				27CA0AEC1D2A758700F4332C /* Character+CoreDataProperties.swift */,
-				27CA0AED1D2A758700F4332C /* Character.swift */,
 				27CA0AEE1D2A758700F4332C /* BodyPart+CoreDataProperties.swift */,
 				27CA0AEF1D2A758700F4332C /* BodyPart.swift */,
 			);
@@ -374,7 +374,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 275ABBB41D224E4200BC3B8D /* Build configuration list for PBXNativeTarget "AniDraw" */;
 			buildPhases = (
-				C1E2EBD967DC4090108101CF /* 📦 Check Pods Manifest.lock */,
+				C1E2EBD967DC4090108101CF /* [CP] Check Pods Manifest.lock */,
 				E68496A02640A3E8273DC5FC /* [CP] Check Pods Manifest.lock */,
 				275ABB9E1D224E4200BC3B8D /* Sources */,
 				275ABB9F1D224E4200BC3B8D /* Frameworks */,
@@ -490,14 +490,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C1E2EBD967DC4090108101CF /* 📦 Check Pods Manifest.lock */ = {
+		C1E2EBD967DC4090108101CF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,8 +546,8 @@
 				27CA0B741D2B527F00F4332C /* Event.swift in Sources */,
 				27CA0B821D2B527F00F4332C /* SKMultilineLabel.swift in Sources */,
 				27CA0B7D1D2B527F00F4332C /* LabelNode.swift in Sources */,
+				27C2274A1D2B553800B581C5 /* CharacterStorage.swift in Sources */,
 				27AFB31C1D2362CF00325894 /* DanceScene.swift in Sources */,
-				27CA0AF11D2A758700F4332C /* Character.swift in Sources */,
 				27CA0B791D2B527F00F4332C /* GraphicsNode.swift in Sources */,
 				27CA0B871D2B527F00F4332C /* Stage.swift in Sources */,
 				27CA0B811D2B527F00F4332C /* SKEase.swift in Sources */,
@@ -590,13 +590,13 @@
 				27AFB3151D235FCD00325894 /* BodyPartNode.swift in Sources */,
 				2701F1401D2428AA00C597E6 /* UInt32+.swift in Sources */,
 				27CA0B7E1D2B527F00F4332C /* MovieClip.swift in Sources */,
-				27CA0AF01D2A758700F4332C /* Character+CoreDataProperties.swift in Sources */,
 				275ABBCC1D226EF700BC3B8D /* CGVector+Extensions.swift in Sources */,
 				2701F1441D24BDF700C597E6 /* Joints.swift in Sources */,
 				27CA0B8B1D2B527F00F4332C /* TextFormat.swift in Sources */,
 				275ABBA61D224E4200BC3B8D /* AppDelegate.swift in Sources */,
 				27CA0B8A1D2B527F00F4332C /* TextField.swift in Sources */,
 				27CA0B711D2B527F00F4332C /* DisplayObjectContainer.swift in Sources */,
+				27C227491D2B553800B581C5 /* CharacterStorage+CoreDataProperties.swift in Sources */,
 				275ABBD21D226EF700BC3B8D /* SKTAudio.swift in Sources */,
 				271258631D22B7D000BD9C36 /* UIImage+.swift in Sources */,
 				27CA0B851D2B527F00F4332C /* Sprite.swift in Sources */,

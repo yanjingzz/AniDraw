@@ -61,7 +61,7 @@ class CharacterNode: SKNode {
         
         
     }
-    convenience init(character: Character) {
+    convenience init(character: CharacterStorage) {
         self.init()
         guard let partsSet = character.parts else {
             return

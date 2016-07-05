@@ -40,7 +40,7 @@ class CharactersController: UIViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if let character = Character.allCharacters()?.first {
+        if let character = CharacterStorage.allCharacters()?.first {
             characterNode = CharacterNode(character: character)
             print(character.name)
             

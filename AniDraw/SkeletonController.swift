@@ -104,7 +104,7 @@ class SkeletonController: UIViewController {
             return
         }
         let character = CharacterNode(bodyPartImages: segmentedParts,imagesFrame: segmentedPartsFrame, jointsPosition: self.skeletonView.jointPositionInView)
-        Character.insertCharacter(characterName!, characterNode: character)
+        CharacterStorage.insertCharacter(characterName!, characterNode: character)
         HUD.dismiss()
         performSegueWithIdentifier(Storyboard.DoneAddingCharacterIdentifier, sender: nil)
         

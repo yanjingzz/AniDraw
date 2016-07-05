@@ -1,8 +1,8 @@
 //
-//  Character+CoreDataProperties.swift
+//  CharacterStorage+CoreDataProperties.swift
 //  AniDraw
 //
-//  Created by Mike on 7/4/16.
+//  Created by Mike on 7/5/16.
 //  Copyright © 2016 yanjingzz. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -12,7 +12,7 @@
 import Foundation
 import CoreData
 
-extension Character {
+extension CharacterStorage {
 
     @NSManaged var name: String?
     @NSManaged var parts: NSSet?
