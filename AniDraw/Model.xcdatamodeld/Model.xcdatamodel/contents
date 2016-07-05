@@ -12,10 +12,11 @@
     </entity>
     <entity name="Character" representedClassName=".CharacterStorage" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wholeImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <relationship name="parts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BodyPart" inverseName="partOf" inverseEntity="BodyPart" syncable="YES"/>
     </entity>
     <elements>
         <element name="BodyPart" positionX="-54" positionY="9" width="128" height="165"/>
-        <element name="Character" positionX="-270" positionY="18" width="110" height="75"/>
+        <element name="Character" positionX="-270" positionY="18" width="110" height="90"/>
     </elements>
 </model>

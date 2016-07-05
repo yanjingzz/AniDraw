@@ -18,14 +18,17 @@ class CharactersScene: SKScene {
         }
         didSet {
             if let character = characterNode {
-                print("Character scene display character")
-                character.position = view?.bounds.center ?? CGPointMake(1024, 768)
+                character.position = CGPoint(x: size.width / 2, y: size.height / 2)
                 character.zPosition = 100
                 scene?.addChild(character)
             }
         }
     }
     override func didMoveToView(view: SKView) {
+        
+        characterNode?.position = view.bounds.center ?? CGPointMake(1024, 768)
+        print(view.bounds.center)
+        print("didMoveToView: character position \(characterNode?.position)")
     }
 
     
@@ -62,7 +65,6 @@ class CharactersScene: SKScene {
         let touchLocation = touch.locationInNode(self)
         lastTouchLocation = touchLocation
         touchedSprite = nodeAtPoint(touchLocation) as? BodyPartNode
-        print(touchedSprite)
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -75,7 +77,6 @@ class CharactersScene: SKScene {
             let p1 = self.convertPoint(node.position, fromNode: node.parent!)
             let p2 = touchLocation
             angleToRotate = (p2 - p1).angle + CGFloat(M_PI_2)
-            print("\(p1),\(p2), \(angleToRotate)")
         }
 
     }

@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Characters Controller-->
+        <!--Data Source-->
         <scene sceneID="sRP-1Q-Huq">
             <objects>
                 <viewController id="IKV-mr-pMN" customClass="CharactersController" customModule="AniDraw" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,10 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEf-5w-UKL" customClass="SKView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigation" translatesAutoresizingMaskIntoConstraints="NO" id="5IV-Wg-0Mk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="71"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="aFd-o7-sIn">
                                 <rect key="frame" x="201" y="523" width="198" height="57"/>
                                 <subviews>
@@ -47,15 +46,26 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Me-Rd-PAB" customClass="iCarousel">
+                                <rect key="frame" x="20" y="79" width="560" height="436"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="IKV-mr-pMN" id="XIp-O4-gTK"/>
+                                    <outlet property="delegate" destination="IKV-mr-pMN" id="sZL-g0-wz7"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fEf-5w-UKL" firstAttribute="leading" secondItem="fc1-cr-tpm" secondAttribute="leading" id="1su-jf-SIm"/>
-                            <constraint firstItem="fEf-5w-UKL" firstAttribute="top" secondItem="HFB-Qc-xvj" secondAttribute="bottom" id="2yz-x9-sqZ"/>
-                            <constraint firstItem="ewk-aZ-4hR" firstAttribute="top" secondItem="fEf-5w-UKL" secondAttribute="bottom" id="EUb-pv-xnX"/>
+                            <constraint firstItem="2Me-Rd-PAB" firstAttribute="top" secondItem="5IV-Wg-0Mk" secondAttribute="bottom" constant="8" symbolic="YES" id="GLq-SS-PS4"/>
+                            <constraint firstItem="2Me-Rd-PAB" firstAttribute="leading" secondItem="fc1-cr-tpm" secondAttribute="leadingMargin" id="GU2-7V-0kR"/>
+                            <constraint firstItem="2Me-Rd-PAB" firstAttribute="centerX" secondItem="aFd-o7-sIn" secondAttribute="centerX" id="OU7-WC-MOV"/>
+                            <constraint firstItem="5IV-Wg-0Mk" firstAttribute="top" secondItem="HFB-Qc-xvj" secondAttribute="bottom" id="Obo-5C-I4Z"/>
                             <constraint firstAttribute="bottom" secondItem="aFd-o7-sIn" secondAttribute="bottom" constant="20" symbolic="YES" id="QuP-h9-1QT"/>
                             <constraint firstItem="aFd-o7-sIn" firstAttribute="centerX" secondItem="fc1-cr-tpm" secondAttribute="centerX" id="WaZ-dw-DdT"/>
-                            <constraint firstAttribute="trailing" secondItem="fEf-5w-UKL" secondAttribute="trailing" id="dgQ-ud-WuG"/>
+                            <constraint firstItem="5IV-Wg-0Mk" firstAttribute="leading" secondItem="fc1-cr-tpm" secondAttribute="leading" id="sdi-Yv-Ju8"/>
+                            <constraint firstAttribute="trailing" secondItem="5IV-Wg-0Mk" secondAttribute="trailing" id="ssT-Q0-SYn"/>
+                            <constraint firstItem="aFd-o7-sIn" firstAttribute="top" secondItem="2Me-Rd-PAB" secondAttribute="bottom" constant="8" symbolic="YES" id="vD0-cs-JGZ"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -63,7 +73,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="skView" destination="fEf-5w-UKL" id="qAl-uJ-7L2"/>
+                        <outlet property="carousel" destination="2Me-Rd-PAB" id="Siy-m8-Iuv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oja-BE-jal" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -531,6 +541,7 @@
         <image name="crayon" width="218" height="37"/>
         <image name="dock" width="82" height="485"/>
         <image name="music" width="58" height="57"/>
+        <image name="navigation" width="1024" height="71"/>
         <image name="pen" width="225" height="40"/>
         <image name="pencil" width="213" height="29"/>
         <image name="play" width="58" height="57"/>

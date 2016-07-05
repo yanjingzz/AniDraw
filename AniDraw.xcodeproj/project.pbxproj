@@ -14,7 +14,7 @@
 		27252A251D255A89002CE361 /* CGImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27252A241D255A89002CE361 /* CGImage+.swift */; };
 		27252A271D260C7B002CE361 /* CharactersScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27252A261D260C7B002CE361 /* CharactersScene.swift */; };
 		275ABBA61D224E4200BC3B8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBA51D224E4200BC3B8D /* AppDelegate.swift */; };
-		275ABBA81D224E4200BC3B8D /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBA71D224E4200BC3B8D /* CharactersController.swift */; };
+		275ABBA81D224E4200BC3B8D /* EditMoveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBA71D224E4200BC3B8D /* EditMoveController.swift */; };
 		275ABBAB1D224E4200BC3B8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275ABBA91D224E4200BC3B8D /* Main.storyboard */; };
 		275ABBAD1D224E4200BC3B8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 275ABBAC1D224E4200BC3B8D /* Assets.xcassets */; };
 		275ABBB01D224E4200BC3B8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275ABBAE1D224E4200BC3B8D /* LaunchScreen.storyboard */; };
@@ -65,6 +65,7 @@
 		275BC6911D2B5F56004484DE /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BC6711D2B5F56004484DE /* TextField.swift */; };
 		275BC6921D2B5F56004484DE /* TextFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BC6721D2B5F56004484DE /* TextFormat.swift */; };
 		275BC6931D2B5F56004484DE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BC6731D2B5F56004484DE /* UIColor.swift */; };
+		279E62E41D2B92B200747411 /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E62E31D2B92B200747411 /* CharactersController.swift */; };
 		27AFB3151D235FCD00325894 /* BodyPartNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3141D235FCD00325894 /* BodyPartNode.swift */; };
 		27AFB3181D23604A00325894 /* CharacterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3171D23604A00325894 /* CharacterNode.swift */; };
 		27AFB31A1D23629E00325894 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3191D23629E00325894 /* AnimationController.swift */; };
@@ -77,6 +78,7 @@
 		27CA0ACA1D2A4F8E00F4332C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AC81D2A4F8E00F4332C /* Model.xcdatamodeld */; };
 		27CA0AF21D2A758700F4332C /* BodyPart+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AEE1D2A758700F4332C /* BodyPart+CoreDataProperties.swift */; };
 		27CA0AF31D2A758700F4332C /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AEF1D2A758700F4332C /* BodyPart.swift */; };
+		27D5F3301D2BE54E00EB314D /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D5F32F1D2BE54E00EB314D /* iCarousel.m */; };
 		27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31F1D236A5000325894 /* Keyframe.swift */; };
 		27F6AD221D23A89500BF3116 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6AD211D23A89500BF3116 /* SkeletonView.swift */; };
 		27F6AD241D23A8D200BF3116 /* JointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6AD231D23A8D200BF3116 /* JointView.swift */; };
@@ -92,7 +94,7 @@
 		27252A261D260C7B002CE361 /* CharactersScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersScene.swift; sourceTree = "<group>"; };
 		275ABBA21D224E4200BC3B8D /* AniDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		275ABBA51D224E4200BC3B8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		275ABBA71D224E4200BC3B8D /* CharactersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
+		275ABBA71D224E4200BC3B8D /* EditMoveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMoveController.swift; sourceTree = "<group>"; };
 		275ABBAA1D224E4200BC3B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		275ABBAC1D224E4200BC3B8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		275ABBAF1D224E4200BC3B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -145,6 +147,8 @@
 		275BC6711D2B5F56004484DE /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		275BC6721D2B5F56004484DE /* TextFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormat.swift; sourceTree = "<group>"; };
 		275BC6731D2B5F56004484DE /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		279E62E31D2B92B200747411 /* CharactersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
+		279E62F51D2BE13300747411 /* AniDraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AniDraw-Bridging-Header.h"; sourceTree = "<group>"; };
 		27AFB3141D235FCD00325894 /* BodyPartNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPartNode.swift; sourceTree = "<group>"; };
 		27AFB3171D23604A00325894 /* CharacterNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterNode.swift; sourceTree = "<group>"; };
 		27AFB3191D23629E00325894 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 		27CA0AC91D2A4F8E00F4332C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		27CA0AEE1D2A758700F4332C /* BodyPart+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BodyPart+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		27CA0AEF1D2A758700F4332C /* BodyPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
+		27D5F32E1D2BE54E00EB314D /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iCarousel.h; path = iCarousel/iCarousel.h; sourceTree = "<group>"; };
+		27D5F32F1D2BE54E00EB314D /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = iCarousel/iCarousel.m; sourceTree = "<group>"; };
 		27F6AD211D23A89500BF3116 /* SkeletonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		27F6AD231D23A8D200BF3116 /* JointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JointView.swift; sourceTree = "<group>"; };
 		58A56761E1255BDF6AE5EA5E /* Pods_AniDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AniDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,10 +215,12 @@
 				27AFB3211D236B8A00325894 /* DanceMove.swift */,
 				27AFB3451D236DEC00325894 /* DanceScene.sks */,
 				27AFB31B1D2362CF00325894 /* DanceScene.swift */,
+				27F8C2661D2BECDA001F3B26 /* iCarousel */,
 				275BC64C1D2B5F56004484DE /* ActionSwift3 */,
 				27CA0AF61D2A760300F4332C /* Supporting Files */,
 				27CA0AF51D2A75A900F4332C /* ExtensionUtils */,
 				275ABBBD1D226EF700BC3B8D /* SKTUtils */,
+				279E62F51D2BE13300747411 /* AniDraw-Bridging-Header.h */,
 			);
 			path = AniDraw;
 			sourceTree = "<group>";
@@ -329,9 +337,10 @@
 			children = (
 				275ABBA91D224E4200BC3B8D /* Main.storyboard */,
 				27AFB3191D23629E00325894 /* AnimationController.swift */,
-				275ABBA71D224E4200BC3B8D /* CharactersController.swift */,
+				279E62E31D2B92B200747411 /* CharactersController.swift */,
 				275ABBB71D22549F00BC3B8D /* DrawController.swift */,
 				275ABBBB1D2261E200BC3B8D /* DrawView.swift */,
+				275ABBA71D224E4200BC3B8D /* EditMoveController.swift */,
 				275ABBB91D2257BF00BC3B8D /* SkeletonController.swift */,
 				27F6AD211D23A89500BF3116 /* SkeletonView.swift */,
 				27F6AD231D23A8D200BF3116 /* JointView.swift */,
@@ -371,6 +380,15 @@
 				275ABBB11D224E4200BC3B8D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		27F8C2661D2BECDA001F3B26 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				27D5F32E1D2BE54E00EB314D /* iCarousel.h */,
+				27D5F32F1D2BE54E00EB314D /* iCarousel.m */,
+			);
+			name = iCarousel;
 			sourceTree = "<group>";
 		};
 		67C1747C30EE5DAFBA87933E /* Pods */ = {
@@ -580,6 +598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				275ABBCB1D226EF700BC3B8D /* CGPoint+Extensions.swift in Sources */,
+				279E62E41D2B92B200747411 /* CharactersController.swift in Sources */,
 				27C2274A1D2B553800B581C5 /* CharacterStorage.swift in Sources */,
 				27AFB31C1D2362CF00325894 /* DanceScene.swift in Sources */,
 				275BC68E1D2B5F56004484DE /* SKEase.swift in Sources */,
@@ -612,7 +631,7 @@
 				275BC68C1D2B5F56004484DE /* SoundChannel.swift in Sources */,
 				275BC6781D2B5F56004484DE /* Touch.swift in Sources */,
 				275ABBD51D226EF700BC3B8D /* Vector3.swift in Sources */,
-				275ABBA81D224E4200BC3B8D /* CharactersController.swift in Sources */,
+				275ABBA81D224E4200BC3B8D /* EditMoveController.swift in Sources */,
 				275BC6821D2B5F56004484DE /* SimpleButton.swift in Sources */,
 				275BC68F1D2B5F56004484DE /* SKMultilineLabel.swift in Sources */,
 				275BC6891D2B5F56004484DE /* Global.swift in Sources */,
@@ -639,6 +658,7 @@
 				275BC6931D2B5F56004484DE /* UIColor.swift in Sources */,
 				275BC6771D2B5F56004484DE /* EventHandler.swift in Sources */,
 				275BC6921D2B5F56004484DE /* TextFormat.swift in Sources */,
+				27D5F3301D2BE54E00EB314D /* iCarousel.m in Sources */,
 				27AFB31A1D23629E00325894 /* AnimationController.swift in Sources */,
 				275ABBCA1D226EF700BC3B8D /* CGFloat+Extensions.swift in Sources */,
 				275BC67D1D2B5F56004484DE /* GraphicsNode.swift in Sources */,
@@ -762,11 +782,15 @@
 			baseConfigurationReference = B82212FB773A5012C1FFF4B3 /* Pods-AniDraw.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AniDraw/AniDraw-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -776,11 +800,14 @@
 			baseConfigurationReference = EC73AE9467A5B672CE6A3650 /* Pods-AniDraw.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AniDraw/AniDraw-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
