@@ -18,10 +18,10 @@ public class DanceMove {
     var currentFrameEndTime : CFTimeInterval
     var previousPosture: Posture
 
-    var currentFrameINdex : Int
+    var currentFrameIndex : Int
     init(kfs:[Keyframe], pos:CGPoint, prPosture: Posture) {
         keyframes = kfs
-        currentFrameINdex = 0
+        currentFrameIndex = 0
         currentFrameEndTime = 0
         currentPassTime = 0
         totalTime = 0
@@ -40,63 +40,66 @@ public class DanceMove {
             return nil
         }
         if currentPassTime + dt > currentFrameEndTime {
-            currentFrameINdex += 1
+            currentFrameIndex += 1
             dt = currentPassTime + dt - currentFrameEndTime
-            currentFrameEndTime += keyframes[currentFrameINdex].time
+            currentFrameEndTime += keyframes[currentFrameIndex].time
         }
+        currentPassTime += dt
+        
         //prepare parameters
         var srcPosture : Posture
         var desPosture : Posture
-        let positionCurve = keyframes[currentFrameINdex].positionCurve
-        let angleCurve = keyframes[currentFrameINdex].angleCurve
-        
-        if currentFrameINdex == 0 {
+        let positionCurve = keyframes[currentFrameIndex].positionCurve
+        let angleCurve = keyframes[currentFrameIndex].angleCurve
+        let ratio = CGFloat((keyframes[currentFrameIndex].time + currentPassTime - currentFrameEndTime)
+            / keyframes[currentFrameIndex].time)
+        if currentFrameIndex == 0 {
             srcPosture = previousPosture
         } else {
-            srcPosture = keyframes[currentFrameINdex-1].posture
+            srcPosture = keyframes[currentFrameIndex-1].posture
         }
-        desPosture = keyframes[currentFrameINdex].posture
+        desPosture = keyframes[currentFrameIndex].posture
         
         //get gesture
         
-        return Posture(angles: calAngle(srcPosture.angles,dest: desPosture.angles, curve: angleCurve),
-            position: calPosition(srcPosture.position, dest: desPosture.position, curve: positionCurve))
+        return Posture(angles: calAngle(srcPosture.angles,dest: desPosture.angles, curve: angleCurve,ratio: ratio),
+            position: calPosition(srcPosture.position, dest: desPosture.position, curve: positionCurve,ratio: ratio))
     }
     
-    func calAngle(src:[BodyPartName: CGFloat],dest:[BodyPartName: CGFloat],curve:AngleCurve) -> [BodyPartName: CGFloat] {
+    func calAngle(src:[BodyPartName: CGFloat],dest:[BodyPartName: CGFloat],curve:Curve,ratio:CGFloat) -> [BodyPartName: CGFloat] {
         var angles = src
-        //TODO
-        switch curve {
-        case .EaseInOut:
-            angles = src
-        case .EaseIn:
-            angles = src
-        case .EaseOut:
-            angles = src
-        case .Linear:
-            angles = src
-        default:
-            angles = dest
+        let value = getCurveRatio(curve, ratio: ratio)
+        for part in BodyPartName.allParts {
+            if angles[part] != nil {
+                angles[part] = angles[part]! + (dest[part]! - src[part]!) * value
+            }
         }
         return angles
     }
     
-    func calPosition(src: CGPoint, dest: CGPoint, curve :PositionCurve) -> CGPoint {
+    func calPosition(src: CGPoint, dest: CGPoint, curve :Curve,ratio:CGFloat) -> CGPoint {
         var position = src
-        //TODO
+        let value = getCurveRatio(curve, ratio: ratio)
+        position = position + (dest - src) * value
+        return position
+    }
+    
+    func getCurveRatio(curve: Curve , ratio:CGFloat) -> CGFloat {
+        //need expanding?
+        var value : CGFloat = 0
         switch curve {
         case .EaseInOut:
-            position = src
+            value = (ratio < 0.5 ? 2 * ratio * ratio : (-2 * ratio * ratio) + (4 * ratio) - 1)
         case .EaseIn:
-            position = src
+            value = ratio * ratio
         case .EaseOut:
-            position = src
+            value = -(ratio * (ratio - 2))
         case .Linear:
-            position = src
-        default:
-            position = dest
+            value = ratio   // y = x, x in [0,1] , y in [0,1]
+//        default:
+//            break
         }
-        return position
+        return value
     }
 }
 
