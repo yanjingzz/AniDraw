@@ -34,7 +34,12 @@ class Character: NSManagedObject {
                     bodyPart.partOf = character
                 }
             }
-            try? context.save()
+            do {
+                try context.save()
+            } catch {
+                    print(error)
+            }
+            
         }
     }
     class func allCharacters() -> [Character]? {
