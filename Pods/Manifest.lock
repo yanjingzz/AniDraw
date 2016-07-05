@@ -1,4 +1,5 @@
 PODS:
+  - ActionSwift3 (1.701)
   - Beethoven (1.0.0):
     - Pitchy
   - JGProgressHUD (1.3.3)
@@ -6,16 +7,18 @@ PODS:
   - Pitchy (1.0.0)
 
 DEPENDENCIES:
+  - ActionSwift3
   - Beethoven
   - JGProgressHUD
   - MSColorPicker
 
 SPEC CHECKSUMS:
+  ActionSwift3: 113a0b5760634a1d45a6ed3373322ecaf8b7bc7c
   Beethoven: 33b9add13299ea95e84bce44900055ac3c232fe0
   JGProgressHUD: c89d1a8369a6253967a2c4194be06661033f83ed
   MSColorPicker: 1d11c8f6b74a811ac5a9dace4cc5211ef8002c5c
   Pitchy: 4e8302612409d07a27c5083f0bbc2a4bd376f1cc
 
-PODFILE CHECKSUM: 7aa95388375ef16f35a2457f2e3cf7e9188853f8
+PODFILE CHECKSUM: bb5115352d9184c2f363ee234c4a8c47cebf2e3a
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.0.0
