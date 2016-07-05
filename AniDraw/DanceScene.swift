@@ -46,12 +46,21 @@ class DanceScene: SKScene {
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        if lastUpdateTime > 0 {
-            dt = currentTime - lastUpdateTime
-        } else {
-            dt = 0
+        if let node = characterNode {
+            var posture = node.posture
+            posture.angles[.Head] = shakeAngle(maximumAngleInDegrees: 20, currentTime: currentTime, cycle: 1.5)
+            print(posture.angles[.Head])
+            node.posture = posture
+            
+            
+            print(node.parts[.Head]!.zRotation)
         }
-        lastUpdateTime = currentTime
+//        if lastUpdateTime > 0 {
+//            dt = currentTime - lastUpdateTime
+//        } else {
+//            dt = 0
+//        }
+//        lastUpdateTime = currentTime
         
         for part in BodyPartName.allParts {
             if posture.angles[part] != nil {
