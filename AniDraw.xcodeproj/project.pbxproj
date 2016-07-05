@@ -406,6 +406,7 @@
 				522927A73BCF4A04C8DB39F5 /* [CP] Copy Pods Resources */,
 				5AC7F607F9BD69E2309CC302 /* 📦 Embed Pods Frameworks */,
 				63284D1761139B63055E9AAB /* 📦 Copy Pods Resources */,
+				001F64D0D8619B955D834484 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -466,6 +467,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		001F64D0D8619B955D834484 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		522927A73BCF4A04C8DB39F5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
