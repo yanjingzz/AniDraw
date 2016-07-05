@@ -9,6 +9,22 @@
 import UIKit
 
 struct Posture {
-    var angle: [BodyPartName:Float]
+    var angles: [BodyPartName:CGFloat]
     var position: CGPoint
+    init? (angles: [BodyPartName:CGFloat], position: CGPoint) {
+        for part in BodyPartName.allParts {
+            if angles[part] != nil {
+                return nil
+            }
+        }
+        self.angles = angles
+        self.position = position
+    }
+    init(characterNode: CharacterNode) {
+        angles = [BodyPartName:CGFloat]()
+        for (name, node) in characterNode.parts {
+            angles[name] = node.zRotation
+        }
+        position = characterNode.position
+    }
 }

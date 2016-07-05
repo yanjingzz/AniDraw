@@ -19,7 +19,7 @@ class CharactersScene: SKScene {
         didSet {
             if let character = characterNode {
                 print("Character scene display character")
-                character.position = view?.bounds.center ?? CGPointZero
+                character.position = view?.bounds.center ?? CGPointMake(1024, 768)
                 character.zPosition = 100
                 scene?.addChild(character)
             }

@@ -11,7 +11,11 @@ import SpriteKit
 class CharacterNode: SKNode {
     var parts = [BodyPartName: BodyPartNode]()
 
-    func positionChildNodeForPosture(posture: Posture) {
+    func positionNodeForPosture(posture: Posture) {
+        for (name, angle) in posture.angles {
+            parts[name]?.zRotation = angle
+        }
+        position = posture.position
     }
     
     convenience init(bodyPartImages:[BodyPartName: CGImage],imagesFrame: [BodyPartName: CGRect], jointsPosition: [JointName: CGPoint]) {

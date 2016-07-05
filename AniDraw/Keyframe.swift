@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 struct Keyframe {
     var time: NSDate
     var posture: Posture
