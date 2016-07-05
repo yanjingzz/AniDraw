@@ -134,7 +134,7 @@ class SkeletonController: UIViewController {
             textField.autocapitalizationType = .Words
             textField.autocorrectionType = .No
             textField.returnKeyType = .Done
-            textField.addTarget(self, action: #selector(self.textChangedForNamePrompt), forControlEvents: .EditingChanged)
+            textField.addTarget(self, action: "textChangedForNamePrompt:", forControlEvents: .EditingChanged)
         }
         return alert
     }
