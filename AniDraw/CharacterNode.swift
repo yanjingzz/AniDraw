@@ -14,10 +14,20 @@ class CharacterNode: SKNode {
     func positionNodeForPosture(posture: Posture) {
         for (name, angle) in posture.angles {
             parts[name]?.zRotation = angle
+            if(name == .Head) {
+                print("positionNodeForPosture: angle: \(angle), zRotation: \(parts[name]?.zRotation)")
+            }
         }
         position = posture.position
     }
-    
+    var posture: Posture {
+        get {
+            return Posture(characterNode: self)
+        }
+        set {
+            positionNodeForPosture(newValue)
+        }
+    }
     convenience init(bodyPartImages:[BodyPartName: CGImage],imagesFrame: [BodyPartName: CGRect], jointsPosition: [JointName: CGPoint]) {
         self.init()
         var absolutePosition = [BodyPartName: CGPoint]()

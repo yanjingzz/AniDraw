@@ -17,10 +17,8 @@ class DanceScene: SKScene {
         }
         didSet {
             if let c = characterNode {
-                
-                if let v = view {
-                    c.position = v.bounds.center
-                }
+                c.position = CGPoint(x: size.width/2, y: size.height/2)
+                c.zPosition = 100
                 addChild(c)
             }
         }
@@ -29,9 +27,21 @@ class DanceScene: SKScene {
         /* Setup your scene here */
 
     }
+    func shakeAngle(maximumAngleInDegrees maxAngle: CGFloat, currentTime: CFTimeInterval, cycle: CGFloat) -> CGFloat {
+        let ret =  maxAngle.degreesToRadians() * sin(CGFloat(currentTime) / cycle * 2 * CGFloat(M_PI))
+        print(ret)
+        return ret
+    }
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        if let node = characterNode {
+            var posture = node.posture
+            posture.angles[.Head] = shakeAngle(maximumAngleInDegrees: 20, currentTime: currentTime, cycle: 1.5)
+            print(posture.angles[.Head])
+            node.posture = posture
+//            print(node.parts[.Head]!.zRotation)
+        }
     }
     
 

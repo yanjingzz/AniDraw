@@ -13,13 +13,14 @@ import CoreData
 class CharacterStorage: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
-    class func insertCharacter(name: String, characterNode: CharacterNode) {
+    class func insertCharacter(name: String, characterNode: CharacterNode, characterImage: UIImage) {
         let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         context.performBlock {
             guard let character = NSEntityDescription.insertNewObjectForEntityForName("Character", inManagedObjectContext:context) as? CharacterStorage else {
                 return
             }
             character.name = name
+            character.wholeImage = UIImagePNGRepresentation(characterImage)
             for (name, node) in characterNode.parts {
                 let tag = name.rawValue
                 if let bodyPart = NSEntityDescription.insertNewObjectForEntityForName("BodyPart", inManagedObjectContext:context) as? BodyPart {
