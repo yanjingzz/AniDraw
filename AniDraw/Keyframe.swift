@@ -11,12 +11,18 @@ import Foundation
 struct Keyframe {
     var time: NSDate
     var posture: Posture
-    var nextCurve: DanceMoveAnimationCurve
+//    var nextCurve: DanceMoveAnimationCurve
+    var angleCurve: CurveType
+    var angleEase: EaseType
+    var positionCurve : CurveType
+    var positionEase: EaseType
+    
 }
 
-enum DanceMoveAnimationCurve : Int {
-    case EaseInOut
-    case EaseIn
-    case EaseOut
-    case Linear
-}
+//enum DanceMoveAnimationCurve : Int {
+//    case EaseInOut
+//    case EaseIn
+//    case EaseOut
+//    case Linear
+//}
+
