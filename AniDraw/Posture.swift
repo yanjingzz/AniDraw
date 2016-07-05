@@ -27,4 +27,11 @@ struct Posture {
         }
         position = characterNode.position
     }
+    init(position: CGPoint) {
+        angles = [BodyPartName:CGFloat]()
+        for part in BodyPartName.allParts {
+            angles[part] = 0
+        }
+        self.position = position
+    }
 }
