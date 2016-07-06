@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BF052F31D2C07B800268947 /* DanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF052F21D2C07B800268947 /* DanceModel.swift */; };
 		2701F1401D2428AA00C597E6 /* UInt32+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F13F1D2428AA00C597E6 /* UInt32+.swift */; };
 		2701F1421D243BF600C597E6 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F1411D243BF600C597E6 /* CGRect+.swift */; };
 		2701F1441D24BDF700C597E6 /* Joints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F1431D24BDF700C597E6 /* Joints.swift */; };
@@ -86,6 +87,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BF052F21D2C07B800268947 /* DanceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceModel.swift; sourceTree = "<group>"; };
 		2701F13F1D2428AA00C597E6 /* UInt32+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt32+.swift"; sourceTree = "<group>"; };
 		2701F1411D243BF600C597E6 /* CGRect+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
 		2701F1431D24BDF700C597E6 /* Joints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joints.swift; sourceTree = "<group>"; };
@@ -210,6 +212,8 @@
 				27AFB3141D235FCD00325894 /* BodyPartNode.swift */,
 				27AFB3171D23604A00325894 /* CharacterNode.swift */,
 				27252A261D260C7B002CE361 /* EditMoveScene.swift */,
+				0BF052F21D2C07B800268947 /* DanceModel.swift */,
+				27252A261D260C7B002CE361 /* CharactersScene.swift */,
 				27AFB31D1D2365A200325894 /* Posture.swift */,
 				27AFB31F1D236A5000325894 /* Keyframe.swift */,
 				27AFB3211D236B8A00325894 /* DanceMove.swift */,
@@ -424,6 +428,7 @@
 				522927A73BCF4A04C8DB39F5 /* [CP] Copy Pods Resources */,
 				5AC7F607F9BD69E2309CC302 /* 📦 Embed Pods Frameworks */,
 				63284D1761139B63055E9AAB /* 📦 Copy Pods Resources */,
+				001F64D0D8619B955D834484 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -446,7 +451,7 @@
 				TargetAttributes = {
 					275ABBA11D224E4200BC3B8D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = TL45XG83G4;
+						DevelopmentTeam = KU9ZGHL9NX;
 					};
 				};
 			};
@@ -484,6 +489,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		001F64D0D8619B955D834484 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		522927A73BCF4A04C8DB39F5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -621,6 +641,7 @@
 				275BC6891D2B5F56004484DE /* Global.swift in Sources */,
 				275BC6851D2B5F56004484DE /* Stage.swift in Sources */,
 				27CA0AF31D2A758700F4332C /* BodyPart.swift in Sources */,
+				0BF052F31D2C07B800268947 /* DanceModel.swift in Sources */,
 				275ABBD01D226EF700BC3B8D /* SKColor+Extensions.swift in Sources */,
 				27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */,
 				275BC6751D2B5F56004484DE /* Event.swift in Sources */,
@@ -767,11 +788,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = younn.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AniDraw/AniDraw-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -785,11 +807,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = younn.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AniDraw/AniDraw-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 2;

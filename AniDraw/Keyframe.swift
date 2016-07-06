@@ -7,15 +7,33 @@
 //
 
 import Foundation
+import UIKit
+
+
 struct Keyframe {
-    var time: NSDate
+    var time: CFTimeInterval
     var posture: Posture
-    var nextCurve: DanceMoveAnimationCurve
+//    var nextCurve: DanceMoveAnimationCurve
+    var angleCurve: Curve
+    var positionCurve : Curve
+    init(pos : CGPoint) {
+        time = 0
+        posture = Posture(position: pos)
+        angleCurve = .Linear
+        positionCurve = .Linear
+    }
+    init(time:NSTimeInterval, pos:Posture, angleCurveIndex:Int, posCurveIndex:Int) {
+        self.time = time
+        self.posture = pos
+        self.angleCurve = Curve(rawValue: angleCurveIndex)!
+        self.positionCurve = Curve(rawValue: posCurveIndex)!
+    }
 }
 
-enum DanceMoveAnimationCurve : Int {
-    case EaseInOut
+
+enum Curve : Int {
+    case Linear
     case EaseIn
     case EaseOut
-    case Linear
+    case EaseInOut
 }
