@@ -18,8 +18,10 @@ public class DanceMove {
     var currentFrameEndTime : CFTimeInterval
     var previousPosture: Posture
 
+    var level : Int
+    
     var currentFrameIndex : Int
-    init(kfs:[Keyframe], pos:CGPoint, prPosture: Posture) {
+    init(kfs:[Keyframe], prPosture: Posture,lev:Int = 0) {
         keyframes = kfs
         currentFrameIndex = 0
         currentFrameEndTime = 0
@@ -30,10 +32,11 @@ public class DanceMove {
         }
         currentFrameEndTime = kfs[0].time
         previousPosture = prPosture
+        level = lev
     }
     
     
-    func getPostureByIntervalTime(dtime:CFTimeInterval, nextDanceMove: DanceMove) -> Posture? {
+    func getPostureByIntervalTime(dtime:CFTimeInterval) -> Posture? {
         //prehandle dt
         var dt = dtime
         if currentPassTime + dt > totalTime {

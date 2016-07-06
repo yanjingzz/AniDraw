@@ -32,8 +32,8 @@ struct Keyframe {
 
 
 enum Curve : Int {
-    case EaseInOut
+    case Linear
     case EaseIn
     case EaseOut
-    case Linear
+    case EaseInOut
 }
