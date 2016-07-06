@@ -29,7 +29,6 @@ class DanceScene: SKScene {
     }
     func shakeAngle(maximumAngleInDegrees maxAngle: CGFloat, currentTime: CFTimeInterval, cycle: CGFloat) -> CGFloat {
         let ret =  maxAngle.degreesToRadians() * sin(CGFloat(currentTime) / cycle * 2 * CGFloat(M_PI))
-        print(ret)
         return ret
     }
     
@@ -38,9 +37,7 @@ class DanceScene: SKScene {
         if let node = characterNode {
             var posture = node.posture
             posture.angles[.Head] = shakeAngle(maximumAngleInDegrees: 20, currentTime: currentTime, cycle: 1.5)
-            print(posture.angles[.Head])
             node.posture = posture
-//            print(node.parts[.Head]!.zRotation)
         }
     }
     

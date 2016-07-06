@@ -13,7 +13,7 @@ struct Posture {
     var position: CGPoint
     init? (angles: [BodyPartName:CGFloat], position: CGPoint) {
         for part in BodyPartName.allParts {
-            if angles[part] != nil {
+            if angles[part] == nil {
                 return nil
             }
         }

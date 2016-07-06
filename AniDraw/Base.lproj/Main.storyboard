@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Data Source-->
+        <!--Characters Controller-->
         <scene sceneID="sRP-1Q-Huq">
             <objects>
-                <viewController id="IKV-mr-pMN" customClass="CharactersController" customModule="AniDraw" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Characters" id="IKV-mr-pMN" userLabel="Characters Controller" customClass="CharactersController" customModule="AniDraw" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HFB-Qc-xvj"/>
                         <viewControllerLayoutGuide type="bottom" id="ewk-aZ-4hR"/>
@@ -17,6 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="dw0-9U-Dvn">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigation" translatesAutoresizingMaskIntoConstraints="NO" id="5IV-Wg-0Mk">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="71"/>
                             </imageView>
@@ -46,27 +49,70 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Me-Rd-PAB" customClass="iCarousel">
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Me-Rd-PAB" customClass="iCarousel">
                                 <rect key="frame" x="20" y="79" width="560" height="436"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="IKV-mr-pMN" id="XIp-O4-gTK"/>
                                     <outlet property="delegate" destination="IKV-mr-pMN" id="sZL-g0-wz7"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGP-1F-Ykx">
+                                <rect key="frame" x="265" y="19" width="70" height="33"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mad-r7-nPp">
+                                <rect key="frame" x="452" y="13" width="128" height="45"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="Edit Moves">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="aiW-TX-zfk" kind="show" identifier="editDanceMove" id="9LQ-Ji-Oz4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62e-BB-Jep">
+                                <rect key="frame" x="20" y="13" width="166" height="45"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="Edit Character">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editCharacter:" destination="IKV-mr-pMN" eventType="touchUpInside" id="Jzi-JB-UB4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ewk-aZ-4hR" firstAttribute="top" secondItem="dw0-9U-Dvn" secondAttribute="bottom" id="4oI-Vk-vXC"/>
+                            <constraint firstItem="dw0-9U-Dvn" firstAttribute="leading" secondItem="fc1-cr-tpm" secondAttribute="leading" id="7mg-bG-ahD"/>
+                            <constraint firstItem="Mad-r7-nPp" firstAttribute="centerY" secondItem="5IV-Wg-0Mk" secondAttribute="centerY" id="Eb7-iJ-bmo"/>
                             <constraint firstItem="2Me-Rd-PAB" firstAttribute="top" secondItem="5IV-Wg-0Mk" secondAttribute="bottom" constant="8" symbolic="YES" id="GLq-SS-PS4"/>
                             <constraint firstItem="2Me-Rd-PAB" firstAttribute="leading" secondItem="fc1-cr-tpm" secondAttribute="leadingMargin" id="GU2-7V-0kR"/>
+                            <constraint firstItem="hGP-1F-Ykx" firstAttribute="centerY" secondItem="5IV-Wg-0Mk" secondAttribute="centerY" id="LDn-uI-4TW"/>
+                            <constraint firstItem="dw0-9U-Dvn" firstAttribute="top" secondItem="5IV-Wg-0Mk" secondAttribute="bottom" id="NVY-BZ-Ghm"/>
                             <constraint firstItem="2Me-Rd-PAB" firstAttribute="centerX" secondItem="aFd-o7-sIn" secondAttribute="centerX" id="OU7-WC-MOV"/>
                             <constraint firstItem="5IV-Wg-0Mk" firstAttribute="top" secondItem="HFB-Qc-xvj" secondAttribute="bottom" id="Obo-5C-I4Z"/>
                             <constraint firstAttribute="bottom" secondItem="aFd-o7-sIn" secondAttribute="bottom" constant="20" symbolic="YES" id="QuP-h9-1QT"/>
                             <constraint firstItem="aFd-o7-sIn" firstAttribute="centerX" secondItem="fc1-cr-tpm" secondAttribute="centerX" id="WaZ-dw-DdT"/>
+                            <constraint firstItem="dw0-9U-Dvn" firstAttribute="top" secondItem="HFB-Qc-xvj" secondAttribute="bottom" id="Wdc-jv-Z3C"/>
+                            <constraint firstItem="62e-BB-Jep" firstAttribute="centerY" secondItem="5IV-Wg-0Mk" secondAttribute="centerY" id="YRi-fo-WQp"/>
+                            <constraint firstItem="aFd-o7-sIn" firstAttribute="top" secondItem="dw0-9U-Dvn" secondAttribute="bottom" id="Z7a-fp-FEb"/>
+                            <constraint firstAttribute="trailing" secondItem="dw0-9U-Dvn" secondAttribute="trailing" id="Z80-P1-Brb"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="62e-BB-Jep" secondAttribute="leading" id="h2n-hX-tXT"/>
                             <constraint firstItem="5IV-Wg-0Mk" firstAttribute="leading" secondItem="fc1-cr-tpm" secondAttribute="leading" id="sdi-Yv-Ju8"/>
                             <constraint firstAttribute="trailing" secondItem="5IV-Wg-0Mk" secondAttribute="trailing" id="ssT-Q0-SYn"/>
+                            <constraint firstItem="hGP-1F-Ykx" firstAttribute="centerX" secondItem="5IV-Wg-0Mk" secondAttribute="centerX" id="tfG-a1-3jh"/>
                             <constraint firstItem="aFd-o7-sIn" firstAttribute="top" secondItem="2Me-Rd-PAB" secondAttribute="bottom" constant="8" symbolic="YES" id="vD0-cs-JGZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mad-r7-nPp" secondAttribute="trailing" id="vkZ-Ee-uAR"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="NVY-BZ-Ghm"/>
+                                <exclude reference="Z7a-fp-FEb"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -74,11 +120,15 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="carousel" destination="2Me-Rd-PAB" id="Siy-m8-Iuv"/>
+                        <outlet property="nameLabel" destination="hGP-1F-Ykx" id="Dnp-Po-lPt"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="redrawCharacter" id="7N1-3H-qsw"/>
+                        <segue destination="9qp-jS-GwS" kind="show" identifier="repositionSkeleton" id="sl5-qN-DsT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oja-BE-jal" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cXF-0N-w4w" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-593" y="339"/>
+            <point key="canvasLocation" x="-542" y="261"/>
         </scene>
         <!--Animation Controller-->
         <scene sceneID="Agr-k0-dLc">
@@ -125,7 +175,72 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hy9-1f-qNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-593" y="1124"/>
+            <point key="canvasLocation" x="-542" y="1142"/>
+        </scene>
+        <!--Edit Move Controller-->
+        <scene sceneID="SfR-zf-qK6">
+            <objects>
+                <viewController id="aiW-TX-zfk" customClass="EditMoveController" customModule="AniDraw" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oNC-CE-ggl"/>
+                        <viewControllerLayoutGuide type="bottom" id="RUv-lZ-bGs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k3h-s7-rja">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhk-kt-FMi" customClass="SKView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="nGR-K1-L6Z" appends="YES" id="sNW-Rn-kkd"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQ4-On-vFY">
+                                <rect key="frame" x="20" y="8" width="59" height="45"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EDa-zz-vu9"/>
+                                    <action selector="goBack:" destination="JtF-Wr-vC4" eventType="touchUpInside" id="gRi-fS-ioQ"/>
+                                    <segue destination="cXF-0N-w4w" kind="unwind" unwindAction="unwindToCharactersController:" id="zcu-x7-FGE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9g-5J-t2k">
+                                <rect key="frame" x="522" y="523" width="58" height="57"/>
+                                <state key="normal" image="add"/>
+                                <connections>
+                                    <action selector="addPosture:" destination="aiW-TX-zfk" eventType="touchUpInside" id="WKn-f1-zYd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vhk-kt-FMi" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leading" id="0H5-Gs-OhD"/>
+                            <constraint firstAttribute="trailing" secondItem="vhk-kt-FMi" secondAttribute="trailing" id="JdX-wb-1N0"/>
+                            <constraint firstItem="vhk-kt-FMi" firstAttribute="top" secondItem="oNC-CE-ggl" secondAttribute="bottom" id="MUF-68-XI5"/>
+                            <constraint firstItem="gQ4-On-vFY" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leadingMargin" id="Yri-r0-5lG"/>
+                            <constraint firstItem="vhk-kt-FMi" firstAttribute="bottom" secondItem="RUv-lZ-bGs" secondAttribute="top" id="ZO9-TC-x7y"/>
+                            <constraint firstItem="gQ4-On-vFY" firstAttribute="top" secondItem="oNC-CE-ggl" secondAttribute="bottom" constant="8" symbolic="YES" id="raP-jn-du0"/>
+                            <constraint firstItem="d9g-5J-t2k" firstAttribute="trailing" secondItem="k3h-s7-rja" secondAttribute="trailingMargin" id="srT-jy-9BK"/>
+                            <constraint firstAttribute="bottom" secondItem="d9g-5J-t2k" secondAttribute="bottom" constant="20" symbolic="YES" id="zdZ-Gd-4tc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="skView" destination="vhk-kt-FMi" id="zQ6-ub-y20"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nCE-nC-XKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="2" id="nGR-K1-L6Z">
+                    <connections>
+                        <action selector="moveCharacterForPanRecognizer:" destination="aiW-TX-zfk" id="N92-Ml-nxd"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="289" y="-524"/>
         </scene>
         <!--Draw Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -413,7 +528,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="289" y="339"/>
+            <point key="canvasLocation" x="299" y="261"/>
         </scene>
         <!--Color Selection View Controller-->
         <scene sceneID="iQk-p6-ije">
@@ -432,7 +547,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mRq-gc-GFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1101" y="1174"/>
+            <point key="canvasLocation" x="1675" y="261"/>
         </scene>
         <!--Skeleton Controller-->
         <scene sceneID="qR0-71-J1q">
@@ -511,7 +626,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1129" y="339"/>
+            <point key="canvasLocation" x="299" y="1116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C4c-IJ-yIs">
@@ -529,12 +644,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1O-2i-moS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="289" y="1174"/>
+            <point key="canvasLocation" x="1003" y="261"/>
         </scene>
     </scenes>
     <resources>
         <image name="add" width="58" height="57"/>
         <image name="adddown" width="58" height="57"/>
+        <image name="back" width="1024" height="768"/>
         <image name="brush" width="220" height="26"/>
         <image name="character_eg2" width="1024" height="768"/>
         <image name="circle" width="27" height="27"/>
@@ -548,4 +664,8 @@
         <image name="playdown" width="58" height="57"/>
         <image name="texture" width="215" height="53"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="7N1-3H-qsw"/>
+        <segue reference="sl5-qN-DsT"/>
+    </inferredMetricsTieBreakers>
 </document>

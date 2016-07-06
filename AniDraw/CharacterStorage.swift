@@ -39,6 +39,35 @@ class CharacterStorage: NSManagedObject {
             do {
                 try context.save()
             } catch {
+                print("CharacterStorage save error!")
+                print(error)
+            }
+            
+        }
+    }
+    func edit(characterNode: CharacterNode, characterImage: UIImage) {
+        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        context.performBlock {
+            self.wholeImage = UIImagePNGRepresentation(characterImage)
+
+            for element in self.parts! {
+                let bodyPart = element as! BodyPart
+                let name = BodyPartName(rawValue: Int(bodyPart.tag!))!
+                if let node = characterNode.parts[name] {
+                    let image = UIImage(CGImage: node.texture!.CGImage())
+                    let imageData = UIImagePNGRepresentation(image)
+                    bodyPart.image = imageData
+                    bodyPart.anchorPointX = node.anchorPoint.x
+                    bodyPart.anchorPointY = node.anchorPoint.y
+                    bodyPart.positionX = node.position.x
+                    bodyPart.positionY = node.position.y
+                    bodyPart.initialRotation = node.initialZRotation
+                }
+            }
+            do {
+                try context.save()
+            } catch {
+                print("CharacterStorage save error!")
                 print(error)
             }
             

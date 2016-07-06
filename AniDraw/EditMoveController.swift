@@ -13,15 +13,25 @@ class EditMoveController: UIViewController {
     
     @IBOutlet weak var skView: SKView!
     
+    @IBAction func addPosture(sender: UIButton) {
+        if let c = characterNode {
+            print(c.posture)
+        }
+        
+    }
     var characterNode: CharacterNode? {
         didSet {
             updateCharacter()
         }
     }
     
-    let scene = CharactersScene(fileNamed:"DanceScene")!
+    let scene = EditMoveScene(fileNamed:"DanceScene")!
     
-   
+    @IBAction func moveCharacterForPanRecognizer(recognizer: UIPanGestureRecognizer) {
+
+        scene.moveCharacter(recognizer.translationInView(skView))
+        recognizer.setTranslation(CGPointZero, inView: skView)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +49,8 @@ class EditMoveController: UIViewController {
     
     
     func updateCharacter() {
-        print("Character controller update character.")
         scene.characterNode = characterNode
+        
     }
     
 

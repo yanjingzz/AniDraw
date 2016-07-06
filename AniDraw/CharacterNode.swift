@@ -11,21 +11,26 @@ import SpriteKit
 class CharacterNode: SKNode {
     var parts = [BodyPartName: BodyPartNode]()
 
-    func positionNodeForPosture(posture: Posture) {
+    private func positionNodeForPosture(posture: Posture) {
         for (name, angle) in posture.angles {
             parts[name]?.zRotation = angle
-            if(name == .Head) {
-                print("positionNodeForPosture: angle: \(angle), zRotation: \(parts[name]?.zRotation)")
-            }
         }
         position = posture.position
     }
     var posture: Posture {
         get {
-            return Posture(characterNode: self)
+            var posture = Posture(characterNode: self)
+            if let s = scene {
+                posture.position -= CGPoint(x: s.size.width / 2,y: s.size.height / 2)
+            }
+            return posture
         }
         set {
-            positionNodeForPosture(newValue)
+            var newPos = newValue
+            if let s = scene {
+                newPos.position += CGPoint(x: s.size.width / 2,y: s.size.height / 2)
+            }
+            positionNodeForPosture(newPos)
         }
     }
     convenience init(bodyPartImages:[BodyPartName: CGImage],imagesFrame: [BodyPartName: CGRect], jointsPosition: [JointName: CGPoint]) {
@@ -66,10 +71,8 @@ class CharacterNode: SKNode {
                 node.initialZRotation = absoluteRotation[part]!
             }
         }
-        for (part, node) in parts {
-            print("part: \(part), rotation: \(node.zRotation.radiansToDegrees())")
+        for (_, node) in parts {
             node.zRotation = 0
-            print("part: \(part), rotation: \(node.initialZRotation.radiansToDegrees())")
         }
         
         
