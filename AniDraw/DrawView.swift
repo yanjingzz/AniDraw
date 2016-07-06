@@ -30,6 +30,19 @@ class DrawView: UIView {
     
     private var paths = [UIBezierPath]()
     private var incrementalImage: UIImage?
+    var initialImage: UIImage?
+    
+    override func layoutSubviews() {
+        if let image = initialImage where incrementalImage == nil {
+            UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
+            let center = bounds.center
+            let origin = center - CGPoint(x: image.size.width / 2, y: image.size.height / 2)
+            image.drawAtPoint(origin)
+            incrementalImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+        }
+    }
     private let drawingQueue = dispatch_queue_create("drawingQueue", DISPATCH_QUEUE_SERIAL)
     
     private enum State {
@@ -75,6 +88,8 @@ class DrawView: UIView {
         paths.append(current.path)
         finishStroke()
     }
+    
+    
     
     @IBAction private func drawStrokeForPanRecognizer(recognizer: UIPanGestureRecognizer) {
         let p = recognizer.locationInView(self)
@@ -122,7 +137,7 @@ class DrawView: UIView {
                 path.addQuadCurveToPoint(m1EndPoints.0, controlPoint: controlEndPoints.0)
                 path.closePath()
                 if second.point == current.point {
-                    print("no")
+                    //TODO: deal with second == current
                 }
                 paths.append(path)
                 state = State.ThirdAndUp(first: second,second: current)
@@ -198,11 +213,7 @@ class DrawView: UIView {
     
     func drawBitmap() {
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
-//        if incrementalImage == nil {
-//            let rectPath = UIBezierPath(rect: bounds)
-//            UIColor.whiteColor().setFill()
-//            rectPath.fill()
-//        }
+        
         incrementalImage?.drawAtPoint(CGPoint.zero)
         
         for path in paths {

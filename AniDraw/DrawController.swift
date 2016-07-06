@@ -23,6 +23,7 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
     @IBOutlet var toolsButton: [UIButton]!
     @IBOutlet weak var selectedColorCircleView: UIImageView!
     @IBOutlet weak var firstColorButton: UIButton!
+    var editingCharacter: CharacterStorage?
     
     var selectedColorButton: UIButton? {
         didSet {
@@ -87,6 +88,11 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
         super.viewDidLoad()
         drawView.color = firstColorButton.backgroundColor!
         selectedColorButton = firstColorButton
+        if let character = editingCharacter,
+            let imageData = character.wholeImage,
+            let image = UIImage(data: imageData) {
+            drawView.initialImage = image
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -128,10 +134,16 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
         }
         switch identifier {
         case Storyborad.NextStepSegueIdentifier:
-            if let skeletonVC = segue.destinationViewController as? SkeletonController {
-                let image = drawView.image
-                skeletonVC.characterSkin = image
+            guard let skeletonVC = segue.destinationViewController as? SkeletonController else {
+                break
             }
+            let image = drawView.image
+            skeletonVC.characterSkin = image
+            if let character = editingCharacter {
+                skeletonVC.editingCharacter = character
+            }
+
+            
         case Storyborad.PopoverSegueIdentifier:
             guard let destNav = segue.destinationViewController as? UINavigationController, let colorVC = destNav.visibleViewController as? MSColorSelectionViewController else{
                 break

@@ -19,10 +19,11 @@ class SkeletonController: UIViewController {
         dismissViewControllerAnimated(true) { }
     }
     
+    var editingCharacter: CharacterStorage?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let characterImage = characterSkin {
             characterImageView.image = characterImage
         } else {
@@ -90,8 +91,16 @@ class SkeletonController: UIViewController {
     var characterName: String?
     var segmentationDone = false
     let HUD = JGProgressHUD(style: .Light)
+    
+    //TODO: clean up logic saving character
+    
     @IBAction private func doneAddingCharacter() {
-        self.presentViewController(alertForNamePrompt, animated: true) {}
+        if editingCharacter == nil {
+            self.presentViewController(alertForNamePrompt, animated: true) {}
+        } else {
+            HUD.textLabel.text = "Saving"
+            HUD.showInView(self.view)
+        }
         segmentParts(){
             self.segmentationDone = true
             self.saveCharacter()
@@ -100,11 +109,20 @@ class SkeletonController: UIViewController {
     }
     
     func saveCharacter() {
-        guard segmentationDone == true && characterName != nil else  {
+        guard segmentationDone == true else  {
             return
         }
-        let character = CharacterNode(bodyPartImages: segmentedParts,imagesFrame: segmentedPartsFrame, jointsPosition: self.skeletonView.jointPositionInView)
-        CharacterStorage.insertCharacter(characterName!, characterNode: character, characterImage: characterSkin)
+        let node = CharacterNode(bodyPartImages: segmentedParts,imagesFrame: segmentedPartsFrame, jointsPosition: self.skeletonView.jointPositionInView)
+        if let character = editingCharacter {
+            character.edit(node, characterImage: characterSkin)
+        } else {
+            if characterName != nil {
+                CharacterStorage.insertCharacter(characterName!, characterNode: node, characterImage: characterSkin)
+            } else {
+                return
+            }
+
+        }
         HUD.dismiss()
         performSegueWithIdentifier(Storyboard.DoneAddingCharacterIdentifier, sender: nil)
         
@@ -134,7 +152,11 @@ class SkeletonController: UIViewController {
             textField.autocapitalizationType = .Words
             textField.autocorrectionType = .No
             textField.returnKeyType = .Done
+            #if swift(>=2.2)
+                textField.addTarget(self, action: #selector(self.textChangedForNamePrompt), forControlEvents: .EditingChanged)
+            #else
             textField.addTarget(self, action: "textChangedForNamePrompt:", forControlEvents: .EditingChanged)
+            #endif
         }
         return alert
     }
@@ -206,7 +228,7 @@ class SkeletonController: UIViewController {
     
     func segmentParts(completion: () -> Void){
         for joint in JointName.allJoints {
-            print(".\(joint): CGPoint(x: \(jointPoint(joint).x), y: \(jointPoint(joint).y))")
+            print("segmentParts: .\(joint): CGPoint(x: \(jointPoint(joint).x), y: \(jointPoint(joint).y))")
         }
         let image = characterSkin.CGImage!
         let inBodyPart = belongsToBodyPart()

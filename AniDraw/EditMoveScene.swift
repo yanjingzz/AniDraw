@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class CharactersScene: SKScene {
+class EditMoveScene: SKScene {
     var characterNode: CharacterNode? {
         willSet {
             if let character = characterNode {
@@ -26,9 +26,7 @@ class CharactersScene: SKScene {
     }
     override func didMoveToView(view: SKView) {
         
-        characterNode?.position = view.bounds.center ?? CGPointMake(1024, 768)
-        print(view.bounds.center)
-        print("didMoveToView: character position \(characterNode?.position)")
+        characterNode?.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
 
     
@@ -87,6 +85,11 @@ class CharactersScene: SKScene {
         touchedSprite = nil
     }
     
+    func moveCharacter(translationInView: CGPoint) {
+        let translation = CGPoint(x: translationInView.x, y: -translationInView.y)
+
+        characterNode?.position += translation
+    }
 
         
 }
