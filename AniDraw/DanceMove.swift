@@ -22,6 +22,13 @@ public class DanceMove {
     
     var currentFrameIndex : Int
     
+    func reset() {
+        currentPassTime = 0
+        currentFrameEndTime = keyframes[0].time
+        currentFrameIndex = 0
+        
+    }
+    
     init(keyframes kfs:[Keyframe],previousPosture prPosture: Posture,levelOfIntensity lev:Int = 0) {
         keyframes = kfs
         currentFrameIndex = 0
@@ -113,7 +120,11 @@ public class DanceMove {
         let value = getCurveRatio(curve, ratio: ratio)
         for part in BodyPartName.allParts {
             if angles[part] != nil {
-                angles[part] = angles[part]! + (dest[part]! - src[part]!) * value
+                var delta = dest[part]! - src[part]!
+                delta = delta % (2 * CGFloat.pi)
+                delta = delta > CGFloat.pi ? delta - 2 * CGFloat.pi : delta
+                delta = delta < -CGFloat.pi ? delta + 2 * CGFloat.pi : delta
+                angles[part] = angles[part]! + delta * value
             }
         }
         return angles

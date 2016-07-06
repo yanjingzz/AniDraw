@@ -26,6 +26,7 @@ import CoreGraphics
 let π = CGFloat(M_PI)
 
 public extension CGFloat {
+  public static let pi = CGFloat(M_PI)
   /**
    * Converts an angle in degrees to radians.
    */
@@ -91,7 +92,7 @@ public extension CGFloat {
  * Returns the shortest angle between two angles. The result is always between
  * -π and π.
  */
-public func shortestAngleBetween(angle1: CGFloat, angle2: CGFloat) -> CGFloat {
+public func shortestAngleBetween(angle1: CGFloat,_ angle2: CGFloat) -> CGFloat {
     let twoπ = π * 2.0
     var angle = (angle2 - angle1) % twoπ
     if (angle >= π) {

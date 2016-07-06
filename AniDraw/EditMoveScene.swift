@@ -49,6 +49,7 @@ class EditMoveScene: SKScene {
     var lastUpdateTime: NSTimeInterval = 0
     var dt: NSTimeInterval = 0
     var touchedSprite: BodyPartNode?
+    var touchedLocation: CGPoint?
     var angleToRotate: CGFloat?
 
     
@@ -56,8 +57,9 @@ class EditMoveScene: SKScene {
         guard let touch = touches.first else {
             return
         }
-        let touchLocation = touch.locationInNode(self)
-        touchedSprite = nodeAtPoint(touchLocation) as? BodyPartNode
+        touchedLocation = touch.locationInNode(self)
+        touchedSprite = nodeAtPoint(touchedLocation!) as? BodyPartNode
+        
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -82,6 +84,11 @@ class EditMoveScene: SKScene {
             node.zRotation -= delta
             characterNode?.parts[.LowerBody]?.zRotation += delta
             break
+        case .LeftForearm:
+            let l1 = node.position.length()
+            let l2 = touchedLength
+            let l3 = p2 -
+            let (p2 - p1).angle + CGFloat(M_PI_2) - node.parent!.zRotation
         default:
             node.zRotation = (p2 - p1).angle + CGFloat(M_PI_2) - node.parent!.zRotation
         }
@@ -104,6 +111,8 @@ class EditMoveScene: SKScene {
     
     func playAnimation(dance: DanceMove) {
         danceMove = dance
+        print(danceMove?.previousPosture)
+        danceMove?.reset()
         playing = true
     }
 

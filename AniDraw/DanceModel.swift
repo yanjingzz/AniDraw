@@ -66,9 +66,7 @@ public class DanceModel {
     
     func pickNextDanceMove() {
         //reset currentDanceMove
-        currentDanceMove.currentPassTime = 0
-        currentDanceMove.currentFrameEndTime = currentDanceMove.keyframes[0].time
-        currentDanceMove.currentFrameIndex = 0
+        currentDanceMove.reset()
         
         let index = chooseMethod()
         if index < 0 {
