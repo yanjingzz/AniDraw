@@ -209,6 +209,10 @@
                                     <segue destination="cXF-0N-w4w" kind="unwind" unwindAction="unwindToCharactersController:" id="zcu-x7-FGE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eT-Hf-3Xc">
+                                <rect key="frame" x="20" y="523" width="58" height="57"/>
+                                <state key="normal" image="play"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9g-5J-t2k">
                                 <rect key="frame" x="522" y="523" width="58" height="57"/>
                                 <state key="normal" image="add"/>
@@ -220,14 +224,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vhk-kt-FMi" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leading" id="0H5-Gs-OhD"/>
+                            <constraint firstItem="RUv-lZ-bGs" firstAttribute="top" secondItem="6eT-Hf-3Xc" secondAttribute="bottom" constant="8" symbolic="YES" id="9Cx-S3-kfB"/>
                             <constraint firstAttribute="trailing" secondItem="vhk-kt-FMi" secondAttribute="trailing" id="JdX-wb-1N0"/>
                             <constraint firstItem="vhk-kt-FMi" firstAttribute="top" secondItem="oNC-CE-ggl" secondAttribute="bottom" id="MUF-68-XI5"/>
+                            <constraint firstItem="6eT-Hf-3Xc" firstAttribute="centerY" secondItem="d9g-5J-t2k" secondAttribute="centerY" id="R8d-Pz-soC"/>
                             <constraint firstItem="gQ4-On-vFY" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leadingMargin" id="Yri-r0-5lG"/>
                             <constraint firstItem="vhk-kt-FMi" firstAttribute="bottom" secondItem="RUv-lZ-bGs" secondAttribute="top" id="ZO9-TC-x7y"/>
+                            <constraint firstItem="6eT-Hf-3Xc" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leadingMargin" id="eBz-F6-e08"/>
                             <constraint firstItem="gQ4-On-vFY" firstAttribute="top" secondItem="oNC-CE-ggl" secondAttribute="bottom" constant="8" symbolic="YES" id="raP-jn-du0"/>
                             <constraint firstItem="d9g-5J-t2k" firstAttribute="trailing" secondItem="k3h-s7-rja" secondAttribute="trailingMargin" id="srT-jy-9BK"/>
                             <constraint firstAttribute="bottom" secondItem="d9g-5J-t2k" secondAttribute="bottom" constant="20" symbolic="YES" id="zdZ-Gd-4tc"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9Cx-S3-kfB"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="skView" destination="vhk-kt-FMi" id="zQ6-ub-y20"/>

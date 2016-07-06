@@ -17,7 +17,6 @@ class EditMoveController: UIViewController {
         if let c = characterNode {
             print(c.posture)
         }
-        
     }
     var characterNode: CharacterNode? {
         didSet {

@@ -40,17 +40,9 @@ class EditMoveScene: SKScene {
         
         lastUpdateTime = currentTime
         
-        if let node = touchedSprite, let angle = angleToRotate {
-            node.zRotation = angle - node.parent!.zRotation
-            
-            
-
-        }
-        
     }
     
     var lastUpdateTime: NSTimeInterval = 0
-    var lastTouchLocation: CGPoint?
     var dt: NSTimeInterval = 0
     var touchedSprite: BodyPartNode?
     var angleToRotate: CGFloat?
@@ -61,7 +53,6 @@ class EditMoveScene: SKScene {
             return
         }
         let touchLocation = touch.locationInNode(self)
-        lastTouchLocation = touchLocation
         touchedSprite = nodeAtPoint(touchLocation) as? BodyPartNode
     }
     
@@ -69,14 +60,26 @@ class EditMoveScene: SKScene {
         guard let touch = touches.first else {
             return
         }
-        let touchLocation = touch.locationInNode(self)
-        lastTouchLocation = touchLocation
-        if let node = touchedSprite {
-            let p1 = self.convertPoint(node.position, fromNode: node.parent!)
-            let p2 = touchLocation
-            angleToRotate = (p2 - p1).angle + CGFloat(M_PI_2)
-        }
+        rotatePart(towards: touch.locationInNode(self))
 
+    }
+    func rotatePart(towards location: CGPoint) {
+        guard let node = touchedSprite else {
+            return
+        }
+        let p1 = self.convertPoint(node.position, fromNode: node.parent!)
+        let p2 = location
+        switch node.bodyPartName! {
+        case .Head:
+            node.zRotation = (p2 - p1).angle - CGFloat(M_PI_2) - node.parent!.zRotation
+        case .UpperBody:
+            let delta = node.zRotation - (p2 - p1).angle + CGFloat(M_PI_2)
+            node.zRotation -= delta
+            characterNode?.parts[.LowerBody]?.zRotation += delta
+            break
+        default:
+            node.zRotation = (p2 - p1).angle + CGFloat(M_PI_2) - node.parent!.zRotation
+        }
     }
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         touchedSprite = nil
