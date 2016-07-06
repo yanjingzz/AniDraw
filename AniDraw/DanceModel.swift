@@ -123,7 +123,9 @@ public class DanceModel : PitchEngineDelegate{
         currentDanceMove.currentFrameIndex = 0
         
         let changePosture = currentDanceMove.keyframes[currentDanceMove.keyframes.count-1].posture
-        
+        audioRecorder.updateMeters()
+        amplitude = CGFloat(audioRecorder.peakPowerForChannel(0))
+
         print("pitch:\(pitch)")
         print("amplitude:\(amplitude)")
         
@@ -172,8 +174,6 @@ public class DanceModel : PitchEngineDelegate{
     
     public func pitchEngineDidRecievePitch(pitchEngine: PitchEngine, pitch: Pitch) {
         self.pitch = CGFloat(pitch.frequency)
-        audioRecorder.updateMeters()
-        amplitude = CGFloat(audioRecorder.peakPowerForChannel(0))
     }
     
     public func pitchEngineDidRecieveError(pitchEngine: PitchEngine, error: ErrorType) {
