@@ -47,7 +47,11 @@ public class DanceModel {
 //        dataSet.append(DanceMoveData5)
         
         loadDanceMove(dataSet)
-        
+        print("idleDanceMove")
+        print(idleDanceMove.currentFrameIndex)
+        print(idleDanceMove.currentPassTime)
+        print(idleDanceMove.currentFrameEndTime)
+        print(idleDanceMove.totalTime)
     }
     
     func getPostureByIntervalTime(dtime:CFTimeInterval) -> Posture {
@@ -61,6 +65,11 @@ public class DanceModel {
     }
     
     func pickNextDanceMove() {
+        //reset currentDanceMove
+        currentDanceMove.currentPassTime = 0
+        currentDanceMove.currentFrameEndTime = currentDanceMove.keyframes[0].time
+        currentDanceMove.currentFrameIndex = 0
+        
         let index = chooseMethod()
         if index < 0 {
             currentDanceMove = idleDanceMove
@@ -83,8 +92,6 @@ public class DanceModel {
                     angles[part] = data[base + subIndex]
                     subIndex++
                 }
-                print("position:")
-                print(CGPoint(x: data[base+3], y: data[base+4]))
                 let posture = Posture(angles: angles, position:CGPoint(x: data[base+3], y: data[base+4]))
                 
                 let kf = Keyframe(time: CFTimeInterval(data[base]), pos: posture!, angleCurveIndex: Int(data[base+1]), posCurveIndex: Int(data[base+2]))
@@ -103,8 +110,7 @@ public class DanceModel {
     }
     
     func chooseMethod() -> Int {
-        //TODO set module
-        
+        //TODO set module        
         let value = UInt32(DanceMoveList.count + 1)
         let result = Int(arc4random_uniform(value)) - 1
         print("choose result: \(result)")

@@ -211,6 +211,7 @@
 				2701F1431D24BDF700C597E6 /* Joints.swift */,
 				27AFB3141D235FCD00325894 /* BodyPartNode.swift */,
 				27AFB3171D23604A00325894 /* CharacterNode.swift */,
+				27252A261D260C7B002CE361 /* EditMoveScene.swift */,
 				0BF052F21D2C07B800268947 /* DanceModel.swift */,
 				27252A261D260C7B002CE361 /* CharactersScene.swift */,
 				27AFB31D1D2365A200325894 /* Posture.swift */,

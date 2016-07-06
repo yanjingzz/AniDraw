@@ -31,7 +31,8 @@ class DanceScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        danceModel = DanceModel(center: CGPoint(x: size.width/2, y: size.height/2))
+        danceModel = DanceModel(center: CGPoint(x: 0, y: 0))
+        print(characterNode?.posture)
     }
 
 //    func shakeAngle(maximumAngleInDegrees maxAngle: CGFloat, currentTime: CFTimeInterval, cycle: CGFloat) -> CGFloat {
@@ -56,7 +57,6 @@ class DanceScene: SKScene {
             dt = 0
         }
         lastUpdateTime = currentTime
-        
         if let node = characterNode {
             node.posture = danceModel.getPostureByIntervalTime(dt)
             print("shake!")
