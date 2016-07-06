@@ -59,8 +59,8 @@ class DanceScene: SKScene {
         lastUpdateTime = currentTime
         if let node = characterNode {
             node.posture = danceModel.getPostureByIntervalTime(dt)
-            print("shake!")
-            print(node.parts[.Head]!.zRotation)
+//            print("shake!")
+//            print(node.parts[.Head]!.zRotation)
         }
 
 //        for part in BodyPartName.allParts {

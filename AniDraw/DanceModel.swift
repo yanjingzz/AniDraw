@@ -8,21 +8,43 @@
 
 import Foundation
 import Darwin
+import Beethoven
+import Pitchy
+import AVFoundation
 
-public class DanceModel {
+public class DanceModel : PitchEngineDelegate{
     var DanceMoveList : [DanceMove] = []
     
     var currentDanceMove : DanceMove
     var idleDanceMove : DanceMove
     var currentAbsolutePosition : CGPoint
     var dataSet : [[CGFloat]] = []
-    
 
+    var pitch : CGFloat = 0
+    var amplitude : CGFloat = 0
+    lazy var pitchEngine: PitchEngine = { [unowned self] in
+        let pitchEngine = PitchEngine(delegate: self)
+        return pitchEngine
+        }()
+    
+    var recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
+        AVFormatIDKey : NSNumber(int: Int32(kAudioFormatMPEG4AAC)),
+        AVNumberOfChannelsKey : NSNumber(int: 1),
+        AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Medium.rawValue))]
+    
+    
+    var audioRecorder:AVAudioRecorder!
+
+    
     //TODO
     var DanceMoveData1 : [CGFloat] =
-    [1,1,
+    [1,3,
+    0.4,0,0,0,0,
+        0.4,0,0,0,0,0,0,0,0,0,0,0,0,
     0.8,0,0,0,0,
-        0.6,0,0,0,0,0,0,0,0,0,0,0,0]
+        -0.4,0,0,0,0,0,0,0,0,0,0,0,0,
+    0.4,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0]
     
     var DanceMoveData2 : [CGFloat] = []
     var DanceMoveData3 : [CGFloat] = []
@@ -33,7 +55,7 @@ public class DanceModel {
     init(center: CGPoint) {
         //init idleDanceMove
         var kfs : [Keyframe] = []
-        let idleKeyFrame = Keyframe(time: 1, posture: Posture.idle, angleCurve: .Linear, postureCurve: .Linear)
+        let idleKeyFrame = Keyframe(time: 0.5, posture: Posture.idle, angleCurve: .Linear, postureCurve: .Linear)
         kfs.append(idleKeyFrame)
         idleDanceMove = DanceMove(keyframes: kfs, previousPosture: Posture.idle)
         currentDanceMove = idleDanceMove
@@ -52,7 +74,37 @@ public class DanceModel {
         print(idleDanceMove.currentPassTime)
         print(idleDanceMove.currentFrameEndTime)
         print(idleDanceMove.totalTime)
+        
+        pitchEngine.start()
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try audioRecorder = AVAudioRecorder(URL: self.directoryURL()!,
+                settings: recordSettings)
+            audioRecorder.prepareToRecord()
+        } catch {
+        }
+        
+        if !audioRecorder.recording {
+            let audioSession = AVAudioSession.sharedInstance()
+            do {
+                try audioSession.setActive(true)
+                audioRecorder.meteringEnabled = true
+                audioRecorder.record()
+            } catch {
+            }
+        }
     }
+    
+    func directoryURL() -> NSURL? {
+        let fileManager = NSFileManager.defaultManager()
+        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let documentDirectory = urls[0] as NSURL
+        let soundURL = documentDirectory.URLByAppendingPathComponent("sound.m4a")
+        return soundURL
+    }
+
     
     func getPostureByIntervalTime(dtime:CFTimeInterval) -> Posture {
         var nextposture = currentDanceMove.getPostureByIntervalTime(dtime)
@@ -70,12 +122,21 @@ public class DanceModel {
         currentDanceMove.currentFrameEndTime = currentDanceMove.keyframes[0].time
         currentDanceMove.currentFrameIndex = 0
         
+        let changePosture = currentDanceMove.keyframes[currentDanceMove.keyframes.count-1].posture
+        
+        print("pitch:\(pitch)")
+        print("amplitude:\(amplitude)")
+        
         let index = chooseMethod()
         if index < 0 {
             currentDanceMove = idleDanceMove
         } else {
             currentDanceMove = DanceMoveList[index]
         }
+        currentDanceMove.previousPosture = changePosture
+        
+        print("change to \(index)")
+        
     }
     
     func loadDanceMove(dataSet : [[CGFloat]]){
@@ -109,12 +170,27 @@ public class DanceModel {
         }
     }
     
+    public func pitchEngineDidRecievePitch(pitchEngine: PitchEngine, pitch: Pitch) {
+        self.pitch = CGFloat(pitch.frequency)
+        audioRecorder.updateMeters()
+        amplitude = CGFloat(audioRecorder.peakPowerForChannel(0))
+    }
+    
+    public func pitchEngineDidRecieveError(pitchEngine: PitchEngine, error: ErrorType) {
+        print(error)
+    }
+    
     func chooseMethod() -> Int {
-        //TODO set module        
-        let value = UInt32(DanceMoveList.count + 1)
-        let result = Int(arc4random_uniform(value)) - 1
-        print("choose result: \(result)")
-        return result
+        //TODO set module
+//        let value = UInt32(DanceMoveList.count + 1)
+//        let result = Int(arc4random_uniform(value)) - 1
+//        //        print("choose result: \(result)")
+//        return result
+        if(amplitude > -10) {
+            return 0
+        } else {
+            return -1
+        }
     }
 }
 
@@ -143,4 +219,5 @@ public class DanceModel {
 //    angles.RightShank
 //    angles.RightFoot
 //}
+
 
