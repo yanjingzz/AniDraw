@@ -64,12 +64,22 @@ class DrawView: UIView {
     override func drawRect(rect: CGRect) {
         incrementalImage?.drawInRect(rect)
         for path in paths {
-            if tool == .Some(.Eraser) {
+            switch tool ?? .Pencil {
+            case .Eraser:
                 UIColor.whiteColor().setFill()
                 UIColor.whiteColor().setStroke()
                 path.fill()
                 path.stroke()
-            } else {
+
+            case .Brush:
+                color.setFill()
+                color.setStroke()
+                path.fillWithBlendMode(CGBlendMode.Multiply, alpha: 0.2)
+            case .Crayon:
+                color.setFill()
+                color.setStroke()
+                path.fillWithBlendMode(CGBlendMode.Darken, alpha: 0.8)
+            default:
                 color.setFill()
                 color.setStroke()
                 path.fill()
@@ -199,30 +209,38 @@ class DrawView: UIView {
             return (100 / speed).clamped(1.0, 3.0)
         case .Eraser:
             return (speed / 50).clamped(10.0, 100.0)
+        case .Brush:
+            return (speed / 1000).clamped(20.0, 30.0)
         default:
             return (speed / 1000).clamped(7.0, 10.0)
         }
     }
     
-    func finishStroke() {
+    private func finishStroke() {
         drawBitmap()
         setNeedsDisplay()
         paths.removeAll()
         state = nil
     }
     
-    func drawBitmap() {
+    private func drawBitmap() {
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
         
         incrementalImage?.drawAtPoint(CGPoint.zero)
-        
         for path in paths {
-            
-            if tool == .Some(.Eraser) {
-                
+            switch tool ?? .Pencil {
+            case .Eraser:
                 path.fillWithBlendMode(CGBlendMode.Clear, alpha: 1.0)
                 path.strokeWithBlendMode(CGBlendMode.Clear, alpha: 1.0)
-            } else {
+            case .Brush:
+                color.setFill()
+                color.setStroke()
+                path.fillWithBlendMode(CGBlendMode.Multiply, alpha: 0.2)
+            case .Crayon:
+                color.setFill()
+                color.setStroke()
+                path.fillWithBlendMode(CGBlendMode.Darken, alpha: 1.0)
+            default:
                 color.setFill()
                 color.setStroke()
                 path.fill()
@@ -234,6 +252,7 @@ class DrawView: UIView {
         
         
     }
+
  
 
 }

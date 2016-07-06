@@ -66,6 +66,7 @@
 		275BC6911D2B5F56004484DE /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BC6711D2B5F56004484DE /* TextField.swift */; };
 		275BC6921D2B5F56004484DE /* TextFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BC6721D2B5F56004484DE /* TextFormat.swift */; };
 		275BC6931D2B5F56004484DE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BC6731D2B5F56004484DE /* UIColor.swift */; };
+		2774FF2A1D2D063A00C79564 /* Moves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2774FF291D2D063A00C79564 /* Moves.swift */; };
 		279E62E41D2B92B200747411 /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E62E31D2B92B200747411 /* CharactersController.swift */; };
 		27AFB3151D235FCD00325894 /* BodyPartNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3141D235FCD00325894 /* BodyPartNode.swift */; };
 		27AFB3181D23604A00325894 /* CharacterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3171D23604A00325894 /* CharacterNode.swift */; };
@@ -149,6 +150,7 @@
 		275BC6711D2B5F56004484DE /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		275BC6721D2B5F56004484DE /* TextFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormat.swift; sourceTree = "<group>"; };
 		275BC6731D2B5F56004484DE /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		2774FF291D2D063A00C79564 /* Moves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moves.swift; sourceTree = "<group>"; };
 		279E62E31D2B92B200747411 /* CharactersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
 		279E62F51D2BE13300747411 /* AniDraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AniDraw-Bridging-Header.h"; sourceTree = "<group>"; };
 		27AFB3141D235FCD00325894 /* BodyPartNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPartNode.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				27252A261D260C7B002CE361 /* EditMoveScene.swift */,
 				27AFB31D1D2365A200325894 /* Posture.swift */,
 				27AFB31F1D236A5000325894 /* Keyframe.swift */,
+				2774FF291D2D063A00C79564 /* Moves.swift */,
 				27AFB3211D236B8A00325894 /* DanceMove.swift */,
 				0BF052F21D2C07B800268947 /* DanceModel.swift */,
 				27AFB3451D236DEC00325894 /* DanceScene.sks */,
@@ -632,6 +635,7 @@
 				275ABBCD1D226EF700BC3B8D /* Int+Extensions.swift in Sources */,
 				27F6AD241D23A8D200BF3116 /* JointView.swift in Sources */,
 				275BC68C1D2B5F56004484DE /* SoundChannel.swift in Sources */,
+				2774FF2A1D2D063A00C79564 /* Moves.swift in Sources */,
 				275BC6781D2B5F56004484DE /* Touch.swift in Sources */,
 				275ABBD51D226EF700BC3B8D /* Vector3.swift in Sources */,
 				275ABBA81D224E4200BC3B8D /* EditMoveController.swift in Sources */,
