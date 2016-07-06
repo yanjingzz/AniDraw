@@ -84,11 +84,11 @@ class EditMoveScene: SKScene {
             node.zRotation -= delta
             characterNode?.parts[.LowerBody]?.zRotation += delta
             break
-        case .LeftForearm:
-            let l1 = node.position.length()
-            let l2 = touchedLength
-            let l3 = p2 -
-            let (p2 - p1).angle + CGFloat(M_PI_2) - node.parent!.zRotation
+//        case .LeftForearm:
+////            let l1 = node.position.length()
+////            let l2 = touchedLength
+////            let l3 = p2 -
+////            let (p2 - p1).angle + CGFloat(M_PI_2) - node.parent!.zRotation
         default:
             node.zRotation = (p2 - p1).angle + CGFloat(M_PI_2) - node.parent!.zRotation
         }
