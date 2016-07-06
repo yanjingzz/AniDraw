@@ -34,4 +34,5 @@ struct Posture {
         }
         self.position = position
     }
+    static let idle = Posture(position: CGPoint(x: 0, y: 0))
 }

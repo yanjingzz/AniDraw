@@ -212,11 +212,10 @@
 				27AFB3141D235FCD00325894 /* BodyPartNode.swift */,
 				27AFB3171D23604A00325894 /* CharacterNode.swift */,
 				27252A261D260C7B002CE361 /* EditMoveScene.swift */,
-				0BF052F21D2C07B800268947 /* DanceModel.swift */,
-				27252A261D260C7B002CE361 /* CharactersScene.swift */,
 				27AFB31D1D2365A200325894 /* Posture.swift */,
 				27AFB31F1D236A5000325894 /* Keyframe.swift */,
 				27AFB3211D236B8A00325894 /* DanceMove.swift */,
+				0BF052F21D2C07B800268947 /* DanceModel.swift */,
 				27AFB3451D236DEC00325894 /* DanceScene.sks */,
 				27AFB31B1D2362CF00325894 /* DanceScene.swift */,
 				27F8C2661D2BECDA001F3B26 /* iCarousel */,
@@ -451,7 +450,7 @@
 				TargetAttributes = {
 					275ABBA11D224E4200BC3B8D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = KU9ZGHL9NX;
+						DevelopmentTeam = TL45XG83G4;
 					};
 				};
 			};
@@ -789,12 +788,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = younn.AniDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AniDraw/AniDraw-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 2;
@@ -808,12 +809,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = younn.AniDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AniDraw/AniDraw-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 2;
 			};

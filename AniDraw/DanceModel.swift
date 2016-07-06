@@ -16,7 +16,7 @@ public class DanceModel {
     var idleDanceMove : DanceMove
     var currentAbsolutePosition : CGPoint
     var dataSet : [[CGFloat]] = []
-    let idlePosture = Posture(position: CGPoint(x: 0, y: 0))
+    
 
     //TODO
     var DanceMoveData1 : [CGFloat] =
@@ -33,9 +33,9 @@ public class DanceModel {
     init(center: CGPoint) {
         //init idleDanceMove
         var kfs : [Keyframe] = []
-        let idleKeyFrame = Keyframe(time: 1, pos: idlePosture, angleCurveIndex: 0, posCurveIndex: 0)
+        let idleKeyFrame = Keyframe(time: 1, posture: Posture.idle, angleCurve: .Linear, postureCurve: .Linear)
         kfs.append(idleKeyFrame)
-        idleDanceMove = DanceMove(kfs: kfs, prPosture: idlePosture)
+        idleDanceMove = DanceMove(keyframes: kfs, previousPosture: Posture.idle)
         currentDanceMove = idleDanceMove
         currentAbsolutePosition = center
         
@@ -90,21 +90,21 @@ public class DanceModel {
                 var subIndex = 5
                 for part in BodyPartName.allParts {
                     angles[part] = data[base + subIndex]
-                    subIndex++
+                    subIndex += 1
                 }
                 let posture = Posture(angles: angles, position:CGPoint(x: data[base+3], y: data[base+4]))
                 
-                let kf = Keyframe(time: CFTimeInterval(data[base]), pos: posture!, angleCurveIndex: Int(data[base+1]), posCurveIndex: Int(data[base+2]))
+                let kf = Keyframe(time: CFTimeInterval(data[base]), posture: posture!, angleCurve: Keyframe.Curve(rawValue: Int(data[base+1]))!, postureCurve: Keyframe.Curve(rawValue: Int(data[base+2]))!)
                 kfs.append(kf)
             }
             
             let danceMove : DanceMove
             if count == 0 {
-                danceMove = DanceMove(kfs: kfs, prPosture: idlePosture,lev:Int(data[0]))
+                danceMove = DanceMove(keyframes: kfs, previousPosture: Posture.idle,levelOfIntensity:Int(data[0]))
             } else {
-                danceMove = DanceMove(kfs: kfs, prPosture: DanceMoveList[count-1].keyframes[0].posture, lev:Int(data[0]))
+                danceMove = DanceMove(keyframes: kfs, previousPosture: DanceMoveList[count-1].keyframes[0].posture, levelOfIntensity:Int(data[0]))
             }
-            count++
+            count += 1
             DanceMoveList.append(danceMove)
         }
     }

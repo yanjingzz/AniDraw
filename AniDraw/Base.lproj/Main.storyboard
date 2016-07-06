@@ -212,6 +212,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eT-Hf-3Xc">
                                 <rect key="frame" x="20" y="523" width="58" height="57"/>
                                 <state key="normal" image="play"/>
+                                <connections>
+                                    <action selector="playAnimation:" destination="aiW-TX-zfk" eventType="touchUpInside" id="TmP-Vd-QkB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9g-5J-t2k">
                                 <rect key="frame" x="522" y="523" width="58" height="57"/>

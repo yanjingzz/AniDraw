@@ -22,18 +22,22 @@ struct Keyframe {
         angleCurve = .Linear
         positionCurve = .Linear
     }
-    init(time:NSTimeInterval, pos:Posture, angleCurveIndex:Int, posCurveIndex:Int) {
+    init(time:NSTimeInterval, posture:Posture, angleCurve: Curve, postureCurve: Curve) {
         self.time = time
-        self.posture = pos
-        self.angleCurve = Curve(rawValue: angleCurveIndex)!
-        self.positionCurve = Curve(rawValue: posCurveIndex)!
+        self.posture = posture
+        self.angleCurve = angleCurve
+        self.positionCurve = postureCurve
+    }
+    init (time:NSTimeInterval, posture:Posture) {
+        self.init(time:time, posture: posture, angleCurve: .EaseInOut, postureCurve: .EaseInOut)
+    }
+    enum Curve : Int {
+        case Linear
+        case EaseIn
+        case EaseOut
+        case EaseInOut
     }
 }
 
 
-enum Curve : Int {
-    case Linear
-    case EaseIn
-    case EaseOut
-    case EaseInOut
-}
+

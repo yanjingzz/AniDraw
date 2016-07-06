@@ -12,12 +12,21 @@ import SpriteKit
 class EditMoveController: UIViewController {
     
     @IBOutlet weak var skView: SKView!
+    var postures = [Posture]()
     
     @IBAction func addPosture(sender: UIButton) {
         if let c = characterNode {
             print(c.posture)
+            postures.append(c.posture)
         }
+       
     }
+    
+    @IBAction func playAnimation(sender: UIButton) {
+        let danceMove = DanceMove(withSeriesOfPostures: postures, ofEqualInterval: 0.5)
+        scene.playAnimation(danceMove)
+    }
+    
     var characterNode: CharacterNode? {
         didSet {
             updateCharacter()

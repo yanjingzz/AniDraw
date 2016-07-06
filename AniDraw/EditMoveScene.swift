@@ -39,7 +39,11 @@ class EditMoveScene: SKScene {
         }
         
         lastUpdateTime = currentTime
-        
+        if playing {
+            if let posture = danceMove?.getPostureByIntervalTime(dt) {
+                characterNode?.posture = posture
+            }
+        }
     }
     
     var lastUpdateTime: NSTimeInterval = 0
@@ -63,6 +67,7 @@ class EditMoveScene: SKScene {
         rotatePart(towards: touch.locationInNode(self))
 
     }
+    
     func rotatePart(towards location: CGPoint) {
         guard let node = touchedSprite else {
             return
@@ -81,17 +86,25 @@ class EditMoveScene: SKScene {
             node.zRotation = (p2 - p1).angle + CGFloat(M_PI_2) - node.parent!.zRotation
         }
     }
+    
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         touchedSprite = nil
     }
+    
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         touchedSprite = nil
     }
     
     func moveCharacter(translationInView: CGPoint) {
         let translation = CGPoint(x: translationInView.x, y: -translationInView.y)
-
         characterNode?.position += translation
+    }
+    private var playing = false
+    private var danceMove: DanceMove?
+    
+    func playAnimation(dance: DanceMove) {
+        danceMove = dance
+        playing = true
     }
 
         
