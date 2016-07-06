@@ -11,12 +11,7 @@ import UIKit
 struct Posture {
     var angles: [BodyPartName:CGFloat]
     var position: CGPoint
-    init? (angles: [BodyPartName:CGFloat], position: CGPoint) {
-        for part in BodyPartName.allParts {
-            if angles[part] == nil {
-                return nil
-            }
-        }
+    init (angles: [BodyPartName:CGFloat], position: CGPoint) {
         self.angles = angles
         self.position = position
     }
@@ -35,4 +30,16 @@ struct Posture {
         self.position = position
     }
     static let idle = Posture(position: CGPoint(x: 0, y: 0))
+    func printConstructor() {
+        print("Posture( ")
+        print("    angles: [")
+        for (i,(name, angle)) in angles.enumerate() {
+            if i != angles.count - 1 {
+                print("    .\(name): \(angle), ")
+            } else {
+                print("    .\(name): \(angle)], ")
+            }
+        }
+        print("    position: CGPoint(x: \(position.x), y: \(position.y))), ")
+    }
 }

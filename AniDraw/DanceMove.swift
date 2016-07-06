@@ -42,10 +42,35 @@ public class DanceMove {
     convenience init(withSeriesOfPostures postures: [Posture], ofEqualInterval dt: NSTimeInterval) {
         var kfs = [Keyframe]()
         for (i, pos) in postures.enumerate() {
-            kfs.append(Keyframe(time: Double(i) * dt, posture: pos))
+            kfs.append(Keyframe(time: Double(i + 1) * dt, posture: pos))
+        }
+        self.init(keyframes: kfs,levelOfIntensity: 0)
+    }
+    
+    convenience init?(times: [NSTimeInterval], postures: [Posture], angleCurves: [Keyframe.Curve], postureCurves: [Keyframe.Curve], levelOfIntensity intensity: Int) {
+        guard times.length == postures.length
+            && times.length == angleCurves.length
+            && postureCurves.length == times.length else {
+            return nil
+        }
+        var kfs = [Keyframe]()
+        for i in 0..<times.length {
+            kfs.append(Keyframe(time: times[i], posture: postures[i], angleCurve: angleCurves[i],postureCurve: postureCurves[i]))
         }
         
-        self.init(keyframes: kfs,levelOfIntensity: 0)
+        self.init(keyframes: kfs,levelOfIntensity: intensity)
+    }
+    
+    convenience init?(times: [NSTimeInterval], postures: [Posture], levelOfIntensity intensity: Int) {
+        guard times.length == postures.length else {
+                return nil
+        }
+        var kfs = [Keyframe]()
+        for i in 0..<times.length {
+            kfs.append(Keyframe(time: times[i], posture: postures[i], angleCurve: .EaseInOut ,postureCurve: .EaseInOut))
+        }
+        
+        self.init(keyframes: kfs,levelOfIntensity: intensity)
     }
     
     

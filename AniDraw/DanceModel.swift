@@ -94,7 +94,7 @@ public class DanceModel {
                 }
                 let posture = Posture(angles: angles, position:CGPoint(x: data[base+3], y: data[base+4]))
                 
-                let kf = Keyframe(time: CFTimeInterval(data[base]), posture: posture!, angleCurve: Keyframe.Curve(rawValue: Int(data[base+1]))!, postureCurve: Keyframe.Curve(rawValue: Int(data[base+2]))!)
+                let kf = Keyframe(time: CFTimeInterval(data[base]), posture: posture, angleCurve: Keyframe.Curve(rawValue: Int(data[base+1]))!, postureCurve: Keyframe.Curve(rawValue: Int(data[base+2]))!)
                 kfs.append(kf)
             }
             

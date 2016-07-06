@@ -16,15 +16,23 @@ class EditMoveController: UIViewController {
     
     @IBAction func addPosture(sender: UIButton) {
         if let c = characterNode {
-            print(c.posture)
-            postures.append(c.posture)
+            let p = c.posture
+            postures.append(p)
         }
        
+    }
+    @IBAction func restorePosture(sender: UIButton) {
+        characterNode?.posture = Posture.idle
     }
     
     @IBAction func playAnimation(sender: UIButton) {
         let danceMove = DanceMove(withSeriesOfPostures: postures, ofEqualInterval: 0.5)
         scene.playAnimation(danceMove)
+        print("[")
+        for posture in postures {
+            posture.printConstructor()
+        }
+        print("]")
     }
     
     var characterNode: CharacterNode? {
@@ -57,6 +65,7 @@ class EditMoveController: UIViewController {
     
     
     func updateCharacter() {
+        characterNode?.posture = Posture.idle
         scene.characterNode = characterNode
         
     }
