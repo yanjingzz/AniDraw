@@ -48,8 +48,8 @@ public class DanceMove {
     
     convenience init(withSeriesOfPostures postures: [Posture], ofEqualInterval dt: NSTimeInterval) {
         var kfs = [Keyframe]()
-        for (i, pos) in postures.enumerate() {
-            kfs.append(Keyframe(time: Double(i + 1) * dt, posture: pos))
+        for pos in postures {
+            kfs.append(Keyframe(time: dt, posture: pos))
         }
         self.init(keyframes: kfs,levelOfIntensity: 0)
     }

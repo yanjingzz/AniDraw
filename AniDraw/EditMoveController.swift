@@ -69,13 +69,16 @@ class EditMoveController: UIViewController {
     }
     
     @IBAction func playAnimation(sender: UIButton) {
-//        let danceMove = DanceMove(withSeriesOfPostures: postures, ofEqualInterval: 0.5)
-        scene.playAnimation(MovesStorage.rollMove)
-        print("[")
-        for posture in postures {
-            posture.printConstructor()
+        if !postures.isEmpty {
+            let danceMove = DanceMove(withSeriesOfPostures: postures, ofEqualInterval: 0.5)
+            scene.playAnimation(danceMove)
+            print("[")
+            for posture in postures {
+                posture.printConstructor()
+            }
+            print("]")
         }
-        print("]")
+        scene.playAnimation(MovesStorage.jumpMove)
     }
     
     var characterNode: CharacterNode? {
