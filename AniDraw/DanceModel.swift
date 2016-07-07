@@ -13,7 +13,7 @@ import Pitchy
 import AVFoundation
 
 public class DanceModel : PitchEngineDelegate{
-    var DanceMoveList : [DanceMove] = []
+    var DanceMoveList = [Int:[DanceMove]]()
     
     var currentDanceMove : DanceMove
     var idleDanceMove : DanceMove
@@ -125,15 +125,18 @@ public class DanceModel : PitchEngineDelegate{
 //        print("pitch:\(pitch)")
 //        print("amplitude:\(amplitude)")
         
-        let index = chooseMethod()
-        if index < 0 {
+        let level = chooseMethod()
+        if level == 0 {
             currentDanceMove = idleDanceMove
         } else {
-            currentDanceMove = DanceMoveList[index]
+            let suitDanceMoveArray = DanceMoveList[level]
+            let value = UInt32(suitDanceMoveArray!.count)
+            let result = Int(arc4random_uniform(value))
+            currentDanceMove = suitDanceMoveArray![result]
+            print("change to \(level):\(result)")
         }
         currentDanceMove.previousPosture = changePosture
         
-        print("change to \(index)")
         
     }
     
@@ -167,7 +170,7 @@ public class DanceModel : PitchEngineDelegate{
 //            count += 1
 //            DanceMoveList.append(danceMove)
 //        }
-        
+        DanceMoveList = MovesStorage.allMoves
 
     }
     
@@ -187,12 +190,11 @@ public class DanceModel : PitchEngineDelegate{
 //        return result
         
         if(amplitude < -10) {
-            return -1
+            return 0
         } else {
             
-            
-            
-            return 0
+            let level = 5 - Int(amplitude / 2)
+            return level
         }
     }
 }

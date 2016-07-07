@@ -367,9 +367,9 @@ class MovesStorage {
     private static let jumpEase: [Keyframe.Curve] = [.EaseInOut, .EaseOut, .EaseIn, .Linear]
     static let jumpMove: DanceMove = DanceMove(times: jumpTime, postures: jumpPostures, angleCurves: jumpEase, postureCurves: jumpEase, levelOfIntensity: 2)!
     static let allMoves: [Int: [DanceMove]] = [1: [gentalWave],
-                                               
+                                               2: [stepMove],
                                                3: [stepMove],
-                                               3: [jumpMove],
+                                               4: [jumpMove],
                                                5: [rollMove]]
     
 }
