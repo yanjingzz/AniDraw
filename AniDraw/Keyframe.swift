@@ -36,6 +36,7 @@ struct Keyframe {
         case EaseIn
         case EaseOut
         case EaseInOut
+        case None
     }
 }
 

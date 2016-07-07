@@ -157,11 +157,91 @@ class MovesStorage {
                 .RightUpperArm: 7.68211, 
                 .UpperBody: -0.0542945, 
                 .RightThigh: 0.115178, 
-                .LeftForearm: 0.180584], 
-            position: CGPoint(x: 617.5, y: 8.5)), 
+                .LeftForearm: -1.0584],
+            position: CGPoint(x: 617.5, y: 8.5)),
+        Posture(
+            angles: [
+                .LeftUpperArm: 4.824,
+                .LeftShank: 0.0,
+                .RightFoot: 0.0,
+                .LeftThigh: -0.0885419,
+                .RightShank: 0.0,
+                .LowerBody: 0.460051,
+                .Head: 0.0,
+                .RightForearm: 0.0,
+                .LeftFoot: 0.0,
+                .RightUpperArm: 1.98897,
+                .UpperBody: -0.979197,
+                .RightThigh: 0.595014,
+                .LeftForearm: 0.0],
+            position: CGPoint(x: -700+19.0, y: 13.0)),
+        Posture(
+            angles: [
+                .LeftUpperArm: 3.95,
+                .LeftShank: 0.0,
+                .RightFoot: 0.0,
+                .LeftThigh: -0.0885419,
+                .RightShank: 0.0,
+                .LowerBody: 0.434172,
+                .Head: 0.0,
+                .RightForearm: 0.0,
+                .LeftFoot: 0.0,
+                .RightUpperArm: 2.6774,
+                .UpperBody: -1.92183,
+                .RightThigh: 1.26473,
+                .LeftForearm: -6.13617],
+            position: CGPoint(x: -700+102.5, y: -45.0)),
+        Posture(
+            angles: [
+                .LeftUpperArm: 2.96369,
+                .LeftShank: 0.0,
+                .RightFoot: 0.0,
+                .LeftThigh: -6.99841,
+                .RightShank: 6.21658,
+                .LowerBody: 6.1415,
+                .Head: -0.336324,
+                .RightForearm: 0.0,
+                .LeftFoot: 0.0,
+                .RightUpperArm: 2.9452,
+                .UpperBody: -2.93382,
+                .RightThigh: -6.13282,
+                .LeftForearm: 0.234694],
+            position: CGPoint(x: -700+365.5, y: 44.0)),
+        Posture(
+            angles: [
+                .LeftUpperArm: 3.92459,
+                .LeftShank: 0.0,
+                .RightFoot: 0.0,
+                .LeftThigh: -6.99841,
+                .RightShank: 0.0,
+                .LowerBody: 6.09366,
+                .Head: -0.700056,
+                .RightForearm: 0.0,
+                .LeftFoot: 0.0,
+                .RightUpperArm: 7.68211,
+                .UpperBody: -4.26692,
+                .RightThigh: -6.71431,
+                .LeftForearm: 0.180584],
+            position: CGPoint(x: -700+521.0, y: 28.0)),
+        Posture(
+            angles: [
+                .LeftUpperArm: 3.92459,
+                .LeftShank: 0.0,
+                .RightFoot: 0.0,
+                .LeftThigh: -0.0107188,
+                .RightShank: 6.16769,
+                .LowerBody: -0.000948787,
+                .Head: 0.112772,
+                .RightForearm: 0.0,
+                .LeftFoot: 0.0,
+                .RightUpperArm: 7.68211,
+                .UpperBody: -0.0542945,
+                .RightThigh: 0.115178,
+                .LeftForearm: -1.0584],
+            position: CGPoint(x: -700+617.5, y: 8.5)),
         ]
-    private static let rollTime:[Double] = [0.5,0.5, 0.3,0.5,0.5]
-    private static let rollEase: [Keyframe.Curve] = [.EaseIn,.Linear,.Linear,.Linear,.Linear]
+    private static let rollTime:[Double] = [0.5,0.5, 0.3,0.5,0.5, 0.3, 0.5, 0.3,0.5,0.5]
+    private static let rollEase: [Keyframe.Curve] = [.EaseIn,.Linear,.Linear,.Linear,.Linear, .None,.Linear,.Linear,.Linear,.Linear]
     static let rollMove = DanceMove(times: rollTime, postures: rollPosture, angleCurves: rollEase, postureCurves: rollEase, levelOfIntensity: 5)!
     
     private static let stepPostures: [Posture] = [
