@@ -78,7 +78,7 @@ class DrawView: UIView {
             case .Crayon:
                 color.setFill()
                 color.setStroke()
-                path.fillWithBlendMode(CGBlendMode.Darken, alpha: 0.8)
+                path.fillWithBlendMode(CGBlendMode.Darken, alpha: 1)
             default:
                 color.setFill()
                 color.setStroke()
@@ -109,7 +109,7 @@ class DrawView: UIView {
     
         switch recognizer.state {
         case .Began:
-            paths.append(current.path)
+
             state = State.FirstPoint(prev: current)
             
         case .Changed:
@@ -123,11 +123,13 @@ class DrawView: UIView {
                 let prevEndPoints = endPoints(atPositionWithWidth: prev, perpendicularTo: dir)
                 let currentEndPoints = endPoints(atPositionWithWidth: middlePoint, perpendicularTo: dir)
                 let path = UIBezierPath()
-                path.moveToPoint(prevEndPoints.0)
-                path.addLineToPoint(prevEndPoints.1)
+                path.moveToPoint(prevEndPoints.1)
                 path.addLineToPoint(currentEndPoints.1)
                 path.addLineToPoint(currentEndPoints.0)
                 path.addLineToPoint(prevEndPoints.0)
+                let bezierCircleConstant = width*(2/3)*CGFloat(tan(M_PI_4))
+                path.addCurveToPoint(prevEndPoints.1, controlPoint1: prevEndPoints.0 - dir.normalized() * bezierCircleConstant, controlPoint2: prevEndPoints.1 - dir.normalized() * bezierCircleConstant)
+                path.closePath()
                 paths.append(path)
                 state = State.SecondAndUp(first: prev, second: current)
                 
@@ -176,10 +178,11 @@ class DrawView: UIView {
             path.moveToPoint(prevEndPoints.0)
             path.addLineToPoint(prevEndPoints.1)
             path.addLineToPoint(currentEndPoints.1)
-            path.addLineToPoint(currentEndPoints.0)
+            let bezierCircleConstant = width*(2/3)*CGFloat(tan(M_PI_4))
+            path.addCurveToPoint(currentEndPoints.0, controlPoint1: currentEndPoints.1 + dir.normalized() * bezierCircleConstant, controlPoint2: currentEndPoints.0 + dir.normalized() * bezierCircleConstant)
             path.addLineToPoint(prevEndPoints.0)
             paths.append(path)
-            paths.append(current.path)
+
             fallthrough
         case .Cancelled:
             finishStroke()
@@ -234,11 +237,9 @@ class DrawView: UIView {
                 path.strokeWithBlendMode(CGBlendMode.Clear, alpha: 1.0)
             case .Brush:
                 color.setFill()
-                color.setStroke()
                 path.fillWithBlendMode(CGBlendMode.Multiply, alpha: 0.2)
             case .Crayon:
                 color.setFill()
-                color.setStroke()
                 path.fillWithBlendMode(CGBlendMode.Darken, alpha: 1.0)
             default:
                 color.setFill()

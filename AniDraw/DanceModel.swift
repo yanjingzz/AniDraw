@@ -118,9 +118,7 @@ public class DanceModel : PitchEngineDelegate{
     
     func pickNextDanceMove() {
         //reset currentDanceMove
-        currentDanceMove.currentPassTime = 0
-        currentDanceMove.currentFrameEndTime = currentDanceMove.keyframes[0].time
-        currentDanceMove.currentFrameIndex = 0
+        currentDanceMove.reset()
         
         let changePosture = currentDanceMove.keyframes[currentDanceMove.keyframes.count-1].posture
 

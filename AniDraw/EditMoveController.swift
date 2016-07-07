@@ -12,31 +12,78 @@ import SpriteKit
 class EditMoveController: UIViewController {
     
     @IBOutlet weak var skView: SKView!
-    var postures = [Posture]()
+    @IBOutlet weak var slider: UISlider!
+    
+    var postures = [Posture]() {
+        didSet {
+            slider.setValue(Float(currentIndex) / Float(postures.count), animated: false)
+        }
+    }
+    var tempPosture: Posture?
+    var currentIndex: Int = 0 {
+        willSet {
+            if currentIndex == postures.count {
+                tempPosture = characterNode?.posture
+            }
+        }
+        didSet {
+            currentIndex.clamp(0, postures.count)
+            if currentIndex < postures.count {
+                
+                characterNode?.posture = postures[currentIndex]
+            } else if let posture = tempPosture {
+                characterNode?.posture = posture
+            }
+            slider.setValue(Float(currentIndex) / Float(postures.count), animated: false)
+        }
+    }
+    
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        
+        if postures.isEmpty {
+            currentIndex = 0
+            slider.setValue(1,animated: false)
+            return
+        }
+        let index = Int(round(slider.value * Float(postures.count)))
+        currentIndex = index
+        
+        
+    }
     
     @IBAction func addPosture(sender: UIButton) {
         if let c = characterNode {
             let p = c.posture
-            postures.append(p)
+                postures.insert(p, atIndex: currentIndex)
         }
        
     }
+    @IBAction func deletePosture(sender: AnyObject) {
+        if currentIndex < postures.count {
+            postures.removeAtIndex(currentIndex)
+        }
+    }
+    
     @IBAction func restorePosture(sender: UIButton) {
         characterNode?.posture = Posture.idle
     }
     
     @IBAction func playAnimation(sender: UIButton) {
-        let danceMove = DanceMove(withSeriesOfPostures: postures, ofEqualInterval: 0.5)
-        scene.playAnimation(danceMove)
-        print("[")
-        for posture in postures {
-            posture.printConstructor()
+        if !postures.isEmpty {
+            let danceMove = DanceMove(withSeriesOfPostures: postures, ofEqualInterval: 0.5)
+            scene.playAnimation(danceMove)
+            print("[")
+            for posture in postures {
+                posture.printConstructor()
+            }
+            print("]")
         }
-        print("]")
+        scene.playAnimation(MovesStorage.jumpMove)
     }
     
     var characterNode: CharacterNode? {
         didSet {
+            print(characterNode)
             updateCharacter()
         }
     }

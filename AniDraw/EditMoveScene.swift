@@ -49,6 +49,7 @@ class EditMoveScene: SKScene {
     var lastUpdateTime: NSTimeInterval = 0
     var dt: NSTimeInterval = 0
     var touchedSprite: BodyPartNode?
+    var touchedLocation: CGPoint?
     var angleToRotate: CGFloat?
 
     
@@ -56,8 +57,12 @@ class EditMoveScene: SKScene {
         guard let touch = touches.first else {
             return
         }
-        let touchLocation = touch.locationInNode(self)
-        touchedSprite = nodeAtPoint(touchLocation) as? BodyPartNode
+        let touchedLocationInScene = touch.locationInNode(self)
+        touchedSprite = nodeAtPoint(touchedLocationInScene) as? BodyPartNode
+        if touchedSprite != nil {
+            touchedLocation = touch.locationInNode(touchedSprite!)
+        }
+        
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -82,6 +87,30 @@ class EditMoveScene: SKScene {
             node.zRotation -= delta
             characterNode?.parts[.LowerBody]?.zRotation += delta
             break
+        case .LeftForearm, .RightForearm, .LeftShank, .RightShank:
+            let l1 = node.position.length()
+            let l2 = touchedLocation!.length()
+            let l3 = node.parent!.convertPoint(p2, fromNode: self).length()
+            let p0 = node.parent!.convertPoint(CGPoint.zero, toNode: self)
+            if l3 > l1 + l2 {
+                node.parent!.zRotation = (p2 - p0).angle + CGFloat(M_PI_2) - node.parent!.parent!.zRotation
+                node.zRotation = 0
+            } else if l3 < abs(l1 - l2) {
+                node.zRotation = CGFloat.pi
+                node.parent!.zRotation = -(p2 - p0).angle + CGFloat(M_PI_2) + node.parent!.parent!.zRotation
+                
+            } else {
+                
+                if (shortestAngleBetween((p1 - p0).angle,(p2 - p0).angle) > 0) {
+                    node.zRotation = CGFloat.pi - acos((l2*l2 + l1*l1 - l3*l3) / (2*l1*l2))
+                    node.parent!.zRotation = CGFloat.pi - acos((l3*l3 + l1*l1 - l2*l2) / (2*l1*l3)) + (p2 - p0).angle - CGFloat(M_PI_2) - node.parent!.parent!.zRotation
+                } else {
+                    node.zRotation = CGFloat.pi + acos((l2*l2 + l1*l1 - l3*l3) / (2*l1*l2))
+                    node.parent!.zRotation = CGFloat.pi + acos((l3*l3 + l1*l1 - l2*l2) / (2*l1*l3)) + (p2 - p0).angle - CGFloat(M_PI_2) - node.parent!.parent!.zRotation
+                }
+            }
+        
+            
         default:
             node.zRotation = (p2 - p1).angle + CGFloat(M_PI_2) - node.parent!.zRotation
         }
@@ -104,6 +133,8 @@ class EditMoveScene: SKScene {
     
     func playAnimation(dance: DanceMove) {
         danceMove = dance
+        print(danceMove?.previousPosture)
+        danceMove?.reset()
         playing = true
     }
 

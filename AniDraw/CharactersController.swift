@@ -110,7 +110,9 @@ class CharactersController: UIViewController {
                 let character = currentCharacter else {
                 break
             }
+            
             destVC.characterNode = CharacterNode(character: character)
+            print(destVC.characterNode)
 
         case Storyboard.RedrawCharacterIdentifier:
             guard let destVC = segue.destinationViewController as? DrawController,

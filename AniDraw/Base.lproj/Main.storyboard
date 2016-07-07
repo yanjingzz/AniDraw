@@ -209,6 +209,16 @@
                                     <segue destination="cXF-0N-w4w" kind="unwind" unwindAction="unwindToCharactersController:" id="zcu-x7-FGE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eq1-nz-aPE">
+                                <rect key="frame" x="484" y="58" width="96" height="29"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <state key="normal" title="Delete Posture">
+                                    <color key="titleColor" red="1" green="0.14222420299999999" blue="0.17895343960000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deletePosture:" destination="aiW-TX-zfk" eventType="touchUpInside" id="MWh-3Y-66V"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eT-Hf-3Xc">
                                 <rect key="frame" x="20" y="523" width="58" height="57"/>
                                 <state key="normal" image="play"/>
@@ -224,8 +234,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fby-GP-GMU">
-                                <rect key="frame" x="396" y="8" width="184" height="45"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <rect key="frame" x="477" y="21" width="103" height="29"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <state key="normal" title="Restore Posture">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -233,19 +243,32 @@
                                     <action selector="restorePosture:" destination="aiW-TX-zfk" eventType="touchUpInside" id="xL2-Ij-snO"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hdh-Qg-CQl">
+                                <rect key="frame" x="84" y="537" width="432" height="31"/>
+                                <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="aiW-TX-zfk" eventType="valueChanged" id="R5z-UC-R1u"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vhk-kt-FMi" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leading" id="0H5-Gs-OhD"/>
                             <constraint firstItem="RUv-lZ-bGs" firstAttribute="top" secondItem="6eT-Hf-3Xc" secondAttribute="bottom" constant="8" symbolic="YES" id="9Cx-S3-kfB"/>
+                            <constraint firstItem="eq1-nz-aPE" firstAttribute="top" secondItem="fby-GP-GMU" secondAttribute="bottom" constant="8" symbolic="YES" id="CrC-ja-NTa"/>
                             <constraint firstItem="fby-GP-GMU" firstAttribute="baseline" secondItem="gQ4-On-vFY" secondAttribute="baseline" id="ER0-QU-dfF"/>
                             <constraint firstAttribute="trailing" secondItem="vhk-kt-FMi" secondAttribute="trailing" id="JdX-wb-1N0"/>
                             <constraint firstItem="vhk-kt-FMi" firstAttribute="top" secondItem="oNC-CE-ggl" secondAttribute="bottom" id="MUF-68-XI5"/>
+                            <constraint firstItem="hdh-Qg-CQl" firstAttribute="centerY" secondItem="6eT-Hf-3Xc" secondAttribute="centerY" id="PPk-3o-UPL"/>
                             <constraint firstItem="6eT-Hf-3Xc" firstAttribute="centerY" secondItem="d9g-5J-t2k" secondAttribute="centerY" id="R8d-Pz-soC"/>
                             <constraint firstItem="fby-GP-GMU" firstAttribute="trailing" secondItem="d9g-5J-t2k" secondAttribute="trailing" id="U8H-Fs-5sI"/>
                             <constraint firstItem="gQ4-On-vFY" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leadingMargin" id="Yri-r0-5lG"/>
                             <constraint firstItem="vhk-kt-FMi" firstAttribute="bottom" secondItem="RUv-lZ-bGs" secondAttribute="top" id="ZO9-TC-x7y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eq1-nz-aPE" secondAttribute="trailing" id="ceq-8F-Fh9"/>
+                            <constraint firstItem="d9g-5J-t2k" firstAttribute="leading" secondItem="hdh-Qg-CQl" secondAttribute="trailing" constant="8" symbolic="YES" id="dmk-Qs-Xvi"/>
                             <constraint firstItem="6eT-Hf-3Xc" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leadingMargin" id="eBz-F6-e08"/>
+                            <constraint firstItem="hdh-Qg-CQl" firstAttribute="leading" secondItem="6eT-Hf-3Xc" secondAttribute="trailing" constant="8" symbolic="YES" id="nXD-eJ-HQZ"/>
                             <constraint firstItem="gQ4-On-vFY" firstAttribute="top" secondItem="oNC-CE-ggl" secondAttribute="bottom" constant="8" symbolic="YES" id="raP-jn-du0"/>
                             <constraint firstItem="d9g-5J-t2k" firstAttribute="trailing" secondItem="k3h-s7-rja" secondAttribute="trailingMargin" id="srT-jy-9BK"/>
                             <constraint firstAttribute="bottom" secondItem="d9g-5J-t2k" secondAttribute="bottom" constant="20" symbolic="YES" id="zdZ-Gd-4tc"/>
@@ -258,6 +281,7 @@
                     </view>
                     <connections>
                         <outlet property="skView" destination="vhk-kt-FMi" id="zQ6-ub-y20"/>
+                        <outlet property="slider" destination="hdh-Qg-CQl" id="vyc-yP-FjJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCE-nC-XKb" userLabel="First Responder" sceneMemberID="firstResponder"/>

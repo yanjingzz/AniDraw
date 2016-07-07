@@ -173,5 +173,6 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
             return
         }
         button.backgroundColor = c
+        drawView.color = c
     }
 }
