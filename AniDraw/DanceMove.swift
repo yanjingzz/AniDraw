@@ -149,6 +149,8 @@ public class DanceMove {
             value = -(ratio * (ratio - 2))
         case .Linear:
             value = ratio   // y = x, x in [0,1] , y in [0,1]
+        case .None:
+            value = 0
 //        default:
 //            break
         }
