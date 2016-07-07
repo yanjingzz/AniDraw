@@ -69,11 +69,11 @@ public class DanceModel : PitchEngineDelegate{
 //        dataSet.append(DanceMoveData5)
         
         loadDanceMove(dataSet)
-        print("idleDanceMove")
-        print(idleDanceMove.currentFrameIndex)
-        print(idleDanceMove.currentPassTime)
-        print(idleDanceMove.currentFrameEndTime)
-        print(idleDanceMove.totalTime)
+//        print("idleDanceMove")
+//        print(idleDanceMove.currentFrameIndex)
+//        print(idleDanceMove.currentPassTime)
+//        print(idleDanceMove.currentFrameEndTime)
+//        print(idleDanceMove.totalTime)
         
         pitchEngine.start()
         
@@ -91,7 +91,7 @@ public class DanceModel : PitchEngineDelegate{
             do {
                 try audioSession.setActive(true)
                 audioRecorder.meteringEnabled = true
-                audioRecorder.record()
+//                audioRecorder.record()
             } catch {
             }
         }
@@ -124,7 +124,7 @@ public class DanceModel : PitchEngineDelegate{
         
         let changePosture = currentDanceMove.keyframes[currentDanceMove.keyframes.count-1].posture
         audioRecorder.updateMeters()
-        amplitude = CGFloat(audioRecorder.peakPowerForChannel(0))
+        amplitude = CGFloat(audioRecorder.averagePowerForChannel(0))
 
         print("pitch:\(pitch)")
         print("amplitude:\(amplitude)")
@@ -186,7 +186,7 @@ public class DanceModel : PitchEngineDelegate{
 //        let result = Int(arc4random_uniform(value)) - 1
 //        //        print("choose result: \(result)")
 //        return result
-        if(amplitude > -10) {
+        if(amplitude > -20) {
             return 0
         } else {
             return -1
