@@ -551,9 +551,9 @@ class MovesStorage {
     static let hopMove = DanceMove(times: hopTime, postures: hopPostures, angleCurves: hopEase, postureCurves: hopEase, levelOfIntensity: 2)!
     
     static let allMoves: [Int: [DanceMove]] = [1: [gentalWave],
-                                               2: [stepMove],
-                                               3: [stepMove],
-                                               4: [jumpMove],
+                                               2: [hopMove],
+                                               3: [jumpMove],
+                                               4: [stepMove],
                                                5: [rollMove]]
     
 }

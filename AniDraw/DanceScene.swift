@@ -31,6 +31,9 @@ class DanceScene: SKScene {
     
     var amplitudeLabel = SKLabelNode()
     var pitchLabel = SKLabelNode()
+    var amplitudeConvertLabel = SKLabelNode()
+    var levelLabel = SKLabelNode()
+    var amplitudeAverageLabel = SKLabelNode()
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -39,8 +42,14 @@ class DanceScene: SKScene {
         
         amplitudeLabel.position = CGPoint(x: size.width - 150 , y: size.height - 40)
         pitchLabel.position = CGPoint(x: size.width - 110 , y: size.height - 100)
+        amplitudeConvertLabel.position = CGPoint(x: size.width - 150 , y: size.height - 160)
+        levelLabel.position = CGPoint(x: size.width - 110 , y: size.height - 220)
+        amplitudeAverageLabel.position = CGPoint(x: size.width - 150 , y: size.height - 280)
         addChild(amplitudeLabel)
         addChild(pitchLabel)
+        addChild(amplitudeConvertLabel)
+        addChild(levelLabel)
+        addChild(amplitudeAverageLabel)
     }
 
 //    func shakeAngle(maximumAngleInDegrees maxAngle: CGFloat, currentTime: CFTimeInterval, cycle: CGFloat) -> CGFloat {
@@ -73,9 +82,13 @@ class DanceScene: SKScene {
         
         danceModel.audioRecorder.updateMeters()
         danceModel.amplitude = CGFloat(danceModel.audioRecorder.peakPowerForChannel(0))
-        
+        let average = CGFloat(danceModel.audioRecorder.averagePowerForChannel(0))
+
         amplitudeLabel.text = "Amplitude: " + String(danceModel.amplitude)
         pitchLabel.text = "Pitch: " + String(danceModel.pitch)
+        amplitudeConvertLabel.text = "Convert: " + String(pow(10,danceModel.amplitude/20))
+        levelLabel.text = "Level: " + String(danceModel.chooseMethod())
+        amplitudeAverageLabel.text = "Average: " + String(average)
     }
     
 
