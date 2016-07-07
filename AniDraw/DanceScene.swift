@@ -29,10 +29,18 @@ class DanceScene: SKScene {
         }
     }
     
+    var amplitudeLabel = SKLabelNode()
+    var pitchLabel = SKLabelNode()
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         danceModel = DanceModel(center: CGPoint(x: 0, y: 0))
         print(characterNode?.posture)
+        
+        amplitudeLabel.position = CGPoint(x: size.width - 150 , y: size.height - 40)
+        pitchLabel.position = CGPoint(x: size.width - 110 , y: size.height - 100)
+        addChild(amplitudeLabel)
+        addChild(pitchLabel)
     }
 
 //    func shakeAngle(maximumAngleInDegrees maxAngle: CGFloat, currentTime: CFTimeInterval, cycle: CGFloat) -> CGFloat {
@@ -62,14 +70,12 @@ class DanceScene: SKScene {
 //            print("shake!")
 //            print(node.parts[.Head]!.zRotation)
         }
-
-//        for part in BodyPartName.allParts {
-//            print("\(part): \(characterNode?.parts[part]?.zRotation)")
-//
-//        }
         
-//        var posture = getPostureByIntervalTime(dt)
-//        characterNode?.positionNodeForPosture(posture)
+        danceModel.audioRecorder.updateMeters()
+        danceModel.amplitude = CGFloat(danceModel.audioRecorder.peakPowerForChannel(0))
+        
+        amplitudeLabel.text = "Amplitude: " + String(danceModel.amplitude)
+        pitchLabel.text = "Pitch: " + String(danceModel.pitch)
     }
     
 

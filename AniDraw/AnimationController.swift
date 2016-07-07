@@ -18,6 +18,7 @@ class AnimationController: UIViewController {
             scene.characterNode = characterNode
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         skView.showsFPS = true

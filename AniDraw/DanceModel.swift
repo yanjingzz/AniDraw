@@ -91,7 +91,7 @@ public class DanceModel : PitchEngineDelegate{
             do {
                 try audioSession.setActive(true)
                 audioRecorder.meteringEnabled = true
-//                audioRecorder.record()
+                audioRecorder.record()
             } catch {
             }
         }
@@ -123,11 +123,9 @@ public class DanceModel : PitchEngineDelegate{
         currentDanceMove.currentFrameIndex = 0
         
         let changePosture = currentDanceMove.keyframes[currentDanceMove.keyframes.count-1].posture
-        audioRecorder.updateMeters()
-        amplitude = CGFloat(audioRecorder.averagePowerForChannel(0))
 
-        print("pitch:\(pitch)")
-        print("amplitude:\(amplitude)")
+//        print("pitch:\(pitch)")
+//        print("amplitude:\(amplitude)")
         
         let index = chooseMethod()
         if index < 0 {
@@ -142,34 +140,37 @@ public class DanceModel : PitchEngineDelegate{
     }
     
     func loadDanceMove(dataSet : [[CGFloat]]){
-        var count = 0
-        for data in dataSet{
-            var kfs : [Keyframe] = []
-            let kfNumber = Int(data[1])
+//[for 2D array]
+//        var count = 0
+//        for data in dataSet{
+//            var kfs : [Keyframe] = []
+//            let kfNumber = Int(data[1])
+//
+//            for index in 0..<kfNumber {
+//                let base = 2 + index * 18
+//                var angles = [BodyPartName : CGFloat]()
+//                var subIndex = 5
+//                for part in BodyPartName.allParts {
+//                    angles[part] = data[base + subIndex]
+//                    subIndex += 1
+//                }
+//                let posture = Posture(angles: angles, position:CGPoint(x: data[base+3], y: data[base+4]))
+//                
+//                let kf = Keyframe(time: CFTimeInterval(data[base]), posture: posture, angleCurve: Keyframe.Curve(rawValue: Int(data[base+1]))!, postureCurve: Keyframe.Curve(rawValue: Int(data[base+2]))!)
+//                kfs.append(kf)
+//            }
+//            
+//            let danceMove : DanceMove
+//            if count == 0 {
+//                danceMove = DanceMove(keyframes: kfs, previousPosture: Posture.idle,levelOfIntensity:Int(data[0]))
+//            } else {
+//                danceMove = DanceMove(keyframes: kfs, previousPosture: DanceMoveList[count-1].keyframes[0].posture, levelOfIntensity:Int(data[0]))
+//            }
+//            count += 1
+//            DanceMoveList.append(danceMove)
+//        }
+        
 
-            for index in 0..<kfNumber {
-                let base = 2 + index * 18
-                var angles = [BodyPartName : CGFloat]()
-                var subIndex = 5
-                for part in BodyPartName.allParts {
-                    angles[part] = data[base + subIndex]
-                    subIndex += 1
-                }
-                let posture = Posture(angles: angles, position:CGPoint(x: data[base+3], y: data[base+4]))
-                
-                let kf = Keyframe(time: CFTimeInterval(data[base]), posture: posture, angleCurve: Keyframe.Curve(rawValue: Int(data[base+1]))!, postureCurve: Keyframe.Curve(rawValue: Int(data[base+2]))!)
-                kfs.append(kf)
-            }
-            
-            let danceMove : DanceMove
-            if count == 0 {
-                danceMove = DanceMove(keyframes: kfs, previousPosture: Posture.idle,levelOfIntensity:Int(data[0]))
-            } else {
-                danceMove = DanceMove(keyframes: kfs, previousPosture: DanceMoveList[count-1].keyframes[0].posture, levelOfIntensity:Int(data[0]))
-            }
-            count += 1
-            DanceMoveList.append(danceMove)
-        }
     }
     
     public func pitchEngineDidRecievePitch(pitchEngine: PitchEngine, pitch: Pitch) {
@@ -186,10 +187,14 @@ public class DanceModel : PitchEngineDelegate{
 //        let result = Int(arc4random_uniform(value)) - 1
 //        //        print("choose result: \(result)")
 //        return result
-        if(amplitude > -20) {
-            return 0
-        } else {
+        
+        if(amplitude < -10) {
             return -1
+        } else {
+            
+            
+            
+            return 0
         }
     }
 }
