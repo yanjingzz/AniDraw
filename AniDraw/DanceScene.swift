@@ -29,27 +29,43 @@ class DanceScene: SKScene {
         }
     }
     
-    var amplitudeLabel = SKLabelNode()
-    var pitchLabel = SKLabelNode()
-    var amplitudeConvertLabel = SKLabelNode()
-    var levelLabel = SKLabelNode()
+    var amplitudePeakLabel = SKLabelNode()
     var amplitudeAverageLabel = SKLabelNode()
+    var pitchLabel = SKLabelNode()
+    var tempoLabel = SKLabelNode()
+    var levelLabel = SKLabelNode()
+    var durationLabel = SKLabelNode()
+    var singStatusLabel = SKLabelNode()
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         danceModel = DanceModel(center: CGPoint(x: 0, y: 0))
         print(characterNode?.posture)
         
-        amplitudeLabel.position = CGPoint(x: size.width - 150 , y: size.height - 40)
-        pitchLabel.position = CGPoint(x: size.width - 110 , y: size.height - 100)
-        amplitudeConvertLabel.position = CGPoint(x: size.width - 150 , y: size.height - 160)
-        levelLabel.position = CGPoint(x: size.width - 110 , y: size.height - 220)
-        amplitudeAverageLabel.position = CGPoint(x: size.width - 150 , y: size.height - 280)
-        addChild(amplitudeLabel)
-        addChild(pitchLabel)
-        addChild(amplitudeConvertLabel)
-        addChild(levelLabel)
+        amplitudePeakLabel.fontSize = 20
+        amplitudeAverageLabel.fontSize = 20
+        
+        pitchLabel.fontSize = 20
+        tempoLabel.fontSize = 20
+        durationLabel.fontSize = 20
+        levelLabel.fontSize = 20
+        singStatusLabel.fontSize = 20
+        
+        amplitudePeakLabel.position = CGPoint(x: size.width - 180 , y: size.height - 40)
+        amplitudeAverageLabel.position = CGPoint(x: size.width - 180 , y: size.height - 70)
+        pitchLabel.position = CGPoint(x: size.width - 150 , y: size.height - 100)
+        tempoLabel.position = CGPoint(x: size.width - 150 , y: size.height - 130)
+        durationLabel.position = CGPoint(x: size.width - 160, y: size.height - 160)
+        levelLabel.position = CGPoint(x: size.width - 150 , y: size.height - 190)
+        singStatusLabel.position = CGPoint(x: size.width - 150, y: size.height - 220)
+        
+        addChild(amplitudePeakLabel)
         addChild(amplitudeAverageLabel)
+        addChild(pitchLabel)
+        addChild(tempoLabel)
+        addChild(durationLabel)
+        addChild(levelLabel)
+        addChild(singStatusLabel)
     }
 
 //    func shakeAngle(maximumAngleInDegrees maxAngle: CGFloat, currentTime: CFTimeInterval, cycle: CGFloat) -> CGFloat {
@@ -74,21 +90,32 @@ class DanceScene: SKScene {
             dt = 0
         }
         lastUpdateTime = currentTime
+        
+        danceModel.updateStatic(dt)
+        
+        let peak = danceModel.peakAmplitude
+        let average = danceModel.averageAmplitude
+        let singStatus = danceModel.isSing == true ? "Singing" : "Waiting"
+        
+        amplitudePeakLabel.text = "Peak: \(peak) (\(pow(10,peak/20)))"
+        amplitudeAverageLabel.text = "Average: \(average) (\(pow(10,average/20)))"
+        pitchLabel.text = "Pitch: \(danceModel.pitch)"
+        tempoLabel.text = "Tempo: \(danceModel.tempo)"
+        durationLabel.text = "Duration: \(danceModel.duration)"
+        levelLabel.text = "Level: " + String(danceModel.chooseMethod())
+        singStatusLabel.text = singStatus
+        
         if let node = characterNode {
+            if danceModel.needIdle == true {
+                danceModel.abortDanceMove()
+                danceModel.needIdle = false
+            }
             node.posture = danceModel.getPostureByIntervalTime(dt)
 //            print("shake!")
 //            print(node.parts[.Head]!.zRotation)
         }
         
-        danceModel.audioRecorder.updateMeters()
-        danceModel.amplitude = CGFloat(danceModel.audioRecorder.peakPowerForChannel(0))
-        let average = CGFloat(danceModel.audioRecorder.averagePowerForChannel(0))
 
-        amplitudeLabel.text = "Amplitude: " + String(danceModel.amplitude)
-        pitchLabel.text = "Pitch: " + String(danceModel.pitch)
-        amplitudeConvertLabel.text = "Convert: " + String(pow(10,danceModel.amplitude/20))
-        levelLabel.text = "Level: " + String(danceModel.chooseMethod())
-        amplitudeAverageLabel.text = "Average: " + String(average)
     }
     
 

@@ -37,6 +37,33 @@ struct Keyframe {
         case EaseOut
         case EaseInOut
         case None
+        case CubicEaseIn
+        case CubicEaseOut
+        case CubicEaseInOut
+        case QuarticEaseIn
+        case QuarticEaseOut
+        case QuarticEaseInOut
+        case QuinticEaseIn
+        case QuinticEaseOut
+        case QuinticEaseInOut
+        case SineEaseIn
+        case SineEaseOut
+        case SineEaseInOut
+        case CircularEaseIn
+        case CircularEaseOut
+        case CircularEaseInOut
+        case ExponentialEaseIn
+        case ExponentialEaseOut
+        case ExponentialEaseInOut
+        case ElasticEaseIn
+        case ElasticEaseOut
+        case ElasticEaseInOut
+        case BackEaseIn
+        case BackEaseOut
+        case BackEaseInOut
+        case BounceEaseIn
+        case BounceEaseOut
+        case BounceEaseInOut
     }
 }
 

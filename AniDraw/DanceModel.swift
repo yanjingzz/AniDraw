@@ -20,8 +20,16 @@ public class DanceModel : PitchEngineDelegate{
     var currentAbsolutePosition : CGPoint
     var dataSet : [[CGFloat]] = []
 
+    var timerPitch : CGFloat = 0
     var pitch : CGFloat = 0
-    var amplitude : CGFloat = 0
+    var peakAmplitude : CGFloat = 0
+    var averageAmplitude : CGFloat = 0
+    var duration : CFTimeInterval = 0
+    var tempo : CFTimeInterval = 0
+    
+    var needIdle : Boolean = false
+    var isSing : Boolean = false
+    
     lazy var pitchEngine: PitchEngine = { [unowned self] in
         let pitchEngine = PitchEngine(delegate: self)
         return pitchEngine
@@ -35,29 +43,31 @@ public class DanceModel : PitchEngineDelegate{
     
     var audioRecorder:AVAudioRecorder!
 
+    private struct Constants {
+        static let peakAmplitudeThreshold : CGFloat = -25
+        static let averageAmplitudeThreshold : CGFloat = -30
+        static let durationThreshold : CFTimeInterval = 0.8
+        static let pitchScope : CGFloat = 5
+    }
     
     //TODO
     var DanceMoveData1 : [CGFloat] =
     [1,3,
     0.4,0,0,0,0,
-        0.4,0,0,0,0,0,0,0,0,0,0,0,0,
+        0.2,0,0,0,0,0,0,0,0,0,0,0,0,
     0.8,0,0,0,0,
-        -0.4,0,0,0,0,0,0,0,0,0,0,0,0,
+        -0.2,0,0,0,0,0,0,0,0,0,0,0,0,
     0.4,0,0,0,0,
         0,0,0,0,0,0,0,0,0,0,0,0,0]
-    
-    var DanceMoveData2 : [CGFloat] = []
-    var DanceMoveData3 : [CGFloat] = []
-    var DanceMoveData4 : [CGFloat] = []
-    var DanceMoveData5 : [CGFloat] = []
-
     
     init(center: CGPoint) {
         //init idleDanceMove
         var kfs : [Keyframe] = []
         let idleKeyFrame = Keyframe(time: 0.5, posture: Posture.idle, angleCurve: .Linear, postureCurve: .Linear)
+
         kfs.append(idleKeyFrame)
         idleDanceMove = DanceMove(keyframes: kfs, previousPosture: Posture.idle)
+        
         currentDanceMove = idleDanceMove
         currentAbsolutePosition = center
         
@@ -125,78 +135,110 @@ public class DanceModel : PitchEngineDelegate{
 //        print("pitch:\(pitch)")
 //        print("amplitude:\(amplitude)")
         
-        let level = chooseMethod()
+        let (level,index) = chooseMethod()
         if level == 0 {
             currentDanceMove = idleDanceMove
         } else {
-            let suitDanceMoveArray = danceMoveList[level]
-            let value = UInt32(suitDanceMoveArray!.count)
-            let result = Int(arc4random_uniform(value))
-            currentDanceMove = suitDanceMoveArray![result]
-            print("change to \(level):\(result)")
+            currentDanceMove = danceMoveList[level]![index]
         }
         currentDanceMove.previousPosture = changePosture
         
+    }
+    
+    func abortDanceMove() {
+        let currentPosture = currentDanceMove.getPostureByIntervalTime(0)
+        currentDanceMove.reset()
+        currentDanceMove = idleDanceMove
+        currentDanceMove.previousPosture = currentPosture!
+        print("Abortion!")
+    }
+    
+    func convertDataToDanceMove(data : [CGFloat]) -> DanceMove {
+        var kfs : [Keyframe] = []
+        let kfNumber = Int(data[1])
         
+        for index in 0..<kfNumber {
+            let base = 2 + index * 18
+            var angles = [BodyPartName : CGFloat]()
+            var subIndex = 5
+            for part in BodyPartName.allParts {
+                angles[part] = data[base + subIndex]
+                subIndex += 1
+            }
+            let posture = Posture(angles: angles, position:CGPoint(x: data[base+3], y: data[base+4]))
+            
+            let kf = Keyframe(time: CFTimeInterval(data[base]), posture: posture, angleCurve: Keyframe.Curve(rawValue: Int(data[base+1]))!, postureCurve: Keyframe.Curve(rawValue: Int(data[base+2]))!)
+            kfs.append(kf)
+        }
+        
+        return DanceMove(keyframes: kfs, previousPosture: Posture.idle, levelOfIntensity: Int(data[0]))
     }
     
     func loadDanceMove(dataSet : [[CGFloat]]){
-//[for 2D array]
-//        var count = 0
-//        for data in dataSet{
-//            var kfs : [Keyframe] = []
-//            let kfNumber = Int(data[1])
-//
-//            for index in 0..<kfNumber {
-//                let base = 2 + index * 18
-//                var angles = [BodyPartName : CGFloat]()
-//                var subIndex = 5
-//                for part in BodyPartName.allParts {
-//                    angles[part] = data[base + subIndex]
-//                    subIndex += 1
-//                }
-//                let posture = Posture(angles: angles, position:CGPoint(x: data[base+3], y: data[base+4]))
-//                
-//                let kf = Keyframe(time: CFTimeInterval(data[base]), posture: posture, angleCurve: Keyframe.Curve(rawValue: Int(data[base+1]))!, postureCurve: Keyframe.Curve(rawValue: Int(data[base+2]))!)
-//                kfs.append(kf)
-//            }
-//            
-//            let danceMove : DanceMove
-//            if count == 0 {
-//                danceMove = DanceMove(keyframes: kfs, previousPosture: Posture.idle,levelOfIntensity:Int(data[0]))
-//            } else {
-//                danceMove = DanceMove(keyframes: kfs, previousPosture: DanceMoveList[count-1].keyframes[0].posture, levelOfIntensity:Int(data[0]))
-//            }
-//            count += 1
-//            DanceMoveList.append(danceMove)
-//        }
+
         danceMoveList = MovesStorage.allMoves
         print("danceMoveList:\(danceMoveList.count)")
 
     }
     
     public func pitchEngineDidRecievePitch(pitchEngine: PitchEngine, pitch: Pitch) {
-        self.pitch = CGFloat(pitch.frequency)
+        self.timerPitch = CGFloat(pitch.frequency)
     }
     
     public func pitchEngineDidRecieveError(pitchEngine: PitchEngine, error: ErrorType) {
         print(error)
     }
     
-    func chooseMethod() -> Int {
+    //update Amplitude(Peak,Average), pitch , tempo , needIdle, isSing
+    func updateStatic(dt: CFTimeInterval) {
+        
+        audioRecorder.updateMeters()
+        peakAmplitude = CGFloat(audioRecorder.peakPowerForChannel(0))
+        averageAmplitude = CGFloat(audioRecorder.averagePowerForChannel(0))
+        
+        if peakAmplitude < Constants.peakAmplitudeThreshold && averageAmplitude < Constants.averageAmplitudeThreshold {
+            if currentDanceMove.level != 0 {
+                needIdle = true
+            }
+            tempo = 0
+            duration = 0
+        } else {
+            duration = duration + dt
+            if abs(pitch - timerPitch) < Constants.pitchScope {
+                tempo = tempo + dt
+            } else {
+                tempo = 0
+            }
+        }
+        if duration < Constants.durationThreshold {
+            isSing = false
+        } else {
+            isSing = true
+        }
+        pitch = timerPitch
+    }
+    
+    func chooseMethod() -> (Int,Int) {
         //TODO set module
 //        let value = UInt32(DanceMoveList.count + 1)
 //        let result = Int(arc4random_uniform(value)) - 1
 //        //        print("choose result: \(result)")
 //        return result
-        
-        if(amplitude < -20) {
-            return 0
+        if isSing == false {
+            return (0,0)
         } else {
             
-            let level = 5 - Int(-amplitude / 4)
-//            print("level:\(level)")
-            return level
+            if duration > 0 {
+                //TODO
+            }
+            
+            let level = 5 - Int(-peakAmplitude / 5)
+            let suitDanceMoveArray = danceMoveList[level]
+            let value = UInt32(suitDanceMoveArray!.count)
+            let index = Int(arc4random_uniform(value))
+
+            print("method result: level:\(level) index:\(index)")
+            return (level,index)
         }
     }
 }
