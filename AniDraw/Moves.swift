@@ -550,8 +550,225 @@ class MovesStorage {
     private static let hopEase: [Keyframe.Curve] = [.EaseInOut, .EaseOut, .EaseIn, .EaseInOut, .EaseOut, .EaseIn]
     static let hopMove = DanceMove(times: hopTime, postures: hopPostures, angleCurves: hopEase, postureCurves: hopEase, levelOfIntensity: 2)!
     
-    static let allMoves: [Int: [DanceMove]] = [1: [gentalWave],
-                                               2: [hopMove],
+    private static let cheerWavePostures : [Posture] = [
+        Posture(
+            angles: [
+                .LeftUpperArm: 2.07887,
+                .LeftShank: 0.602443,
+                .RightFoot: 0.129851,
+                .LeftThigh: -0.388878,
+                .LowerBody: 0.0,
+                .RightShank: 5.42809,
+                .Head: 0.0,
+                .RightForearm: 1.24402,
+                .LeftFoot: -0.248976,
+                .RightUpperArm: 1.54063,
+                .UpperBody: 0.0,
+                .RightThigh: 0.391459,
+                .LeftForearm: 1.065],
+            position: CGPoint(x: 0.0, y: -18.0)),
+        Posture(
+            angles: [
+                .LeftUpperArm: 2.17019,
+                .LeftShank: 0.0,
+                .RightFoot: -5.94116,
+                .LeftThigh: 0.00724173,
+                .LowerBody: 0.0,
+                .RightShank: 0.0,
+                .Head: 0.0,
+                .RightForearm: 0.0,
+                .LeftFoot: -0.248976,
+                .RightUpperArm: 1.84369,
+                .UpperBody: 0.0,
+                .RightThigh: -0.109601,
+                .LeftForearm: 0.0],
+            position: CGPoint(x: -1.5, y: -7.5)),
+        Posture(
+            angles: [
+                .LeftUpperArm: -0.192614,
+                .LeftShank: 0.0,
+                .RightFoot: 0.129851,
+                .LeftThigh: -0.00815463,
+                .LowerBody: 0.0,
+                .RightShank: 0.0,
+                .Head: 0.0,
+                .RightForearm: 0.0,
+                .LeftFoot: -0.248976,
+                .RightUpperArm: 0.20631,
+                .UpperBody: 0.0,
+                .RightThigh: -0.00120103,
+                .LeftForearm: 0.0],
+            position: CGPoint(x: 0.0, y: -18.0)),
+        Posture(
+            angles: [
+                .LeftUpperArm: 4.75452,
+                .LeftShank: 0.85329,
+                .RightFoot: 0.129851,
+                .LeftThigh: -0.593348,
+                .LowerBody: 0.0,
+                .RightShank: 5.91768,
+                .Head: 0.0,
+                .RightForearm: 4.22848,
+                .LeftFoot: -0.248976,
+                .RightUpperArm: 5.64553,
+                .UpperBody: 0.0,
+                .RightThigh: 0.260791,
+                .LeftForearm: 4.85075],
+            position: CGPoint(x: 0.0, y: -18.0)),
+        Posture(
+            angles: [
+                .LeftUpperArm: 4.358,
+                .LeftShank: 0.0, 
+                .RightFoot: 0.129851, 
+                .LeftThigh: -0.0818013, 
+                .LowerBody: -0.00552475, 
+                .RightShank: 0.0, 
+                .Head: 0.0, 
+                .RightForearm: 0.0, 
+                .LeftFoot: -0.248976, 
+                .RightUpperArm: -1.35173, 
+                .UpperBody: 0.0, 
+                .RightThigh: 0.0375671, 
+                .LeftForearm: 0.0], 
+            position: CGPoint(x: 16.5, y: -26.5)), 
+        Posture( 
+            angles: [
+                .LeftUpperArm: 0.0, 
+                .LeftShank: 0.0, 
+                .RightFoot: 0.0, 
+                .LeftThigh: 0.0, 
+                .LowerBody: 0.0, 
+                .RightShank: 0.0, 
+                .Head: 0.0, 
+                .RightForearm: 0.0, 
+                .LeftFoot: 0.0, 
+                .RightUpperArm: 0.0, 
+                .UpperBody: 0.0, 
+                .RightThigh: 0.0, 
+                .LeftForearm: 0.0], 
+            position: CGPoint(x: 0.0, y: 0.0)),
+    ]
+    private static let cheerWaveTime: [Double] = [0.5, 0.2, 0.5, 0.5, 0.2, 0.5]
+    private static let cheerWaveEase: [Keyframe.Curve] = [.EaseInOut, .EaseOut, .EaseOut, .EaseInOut, .EaseOut, .EaseOut]
+    static let cheerWaveMove = DanceMove(times: cheerWaveTime, postures: cheerWavePostures, angleCurves: cheerWaveEase, postureCurves: cheerWaveEase, levelOfIntensity: 2)!
+    
+    private static let stretch1Posture : [Posture] = [
+        Posture(
+            angles: [
+                .LeftUpperArm: 3.54321,
+                .LeftShank: 0.0,
+                .RightFoot: 0.0,
+                .RightShank: 0.0,
+                .LeftThigh: 0.0,
+                .LowerBody: 0.0,
+                .Head: -0.149733,
+                .RightForearm: 0.0,
+                .LeftFoot: 0.0,
+                .RightUpperArm: 2.71422,
+                .UpperBody: 0.0,
+                .RightThigh: 0.0,
+                .LeftForearm: 0.0],
+            position: CGPoint(x: 0.0, y: 0.0)),
+        Posture(
+            angles: [
+                .LeftUpperArm: -0.275524,
+                .LeftShank: 0.0,
+                .RightFoot: 0.0,
+                .RightShank: 0.0,
+                .LeftThigh: 0.0,
+                .LowerBody: 0.0, 
+                .Head: 0.0287356, 
+                .RightForearm: 0.0, 
+                .LeftFoot: 0.0, 
+                .RightUpperArm: 0.233239, 
+                .UpperBody: 0.0, 
+                .RightThigh: 0.0, 
+                .LeftForearm: 0.0], 
+            position: CGPoint(x: 0.0, y: 0.0)),
+    ]
+    private static let stretch1Time: [Double] = [1.2,0.4]
+    private static let stretch1Ease: [Keyframe.Curve] = [.QuarticEaseInOut, .EaseInOut]
+    static let stretch1Move = DanceMove(times: stretch1Time, postures: stretch1Posture, angleCurves: stretch1Ease, postureCurves: stretch1Ease, levelOfIntensity: 1)!
+
+    private static let shakeHeadPosture : [Posture] = [
+        Posture(
+            angles: [
+                .LeftUpperArm: -0.332896,
+                .LeftShank: 0.0,
+                .RightFoot: 0.0,
+                .RightShank: 0.0,
+                .LeftThigh: 0.0,
+                .LowerBody: 0.0,
+                .Head: -0.276972,
+                .RightForearm: 0.0,
+                .LeftFoot: 0.0,
+                .RightUpperArm: 0.316924,
+                .UpperBody: 0.0,
+                .RightThigh: 0.0,
+                .LeftForearm: 0.0],
+            position: CGPoint(x: 0.0, y: 0.0)),
+        Posture(
+            angles: [
+                .LeftUpperArm: -0.526192,
+                .LeftShank: 0.0,
+                .RightFoot: 0.0,
+                .RightShank: 0.0,
+                .LeftThigh: 0.0,
+                .LowerBody: 0.0,
+                .Head: 0.030341,
+                .RightForearm: 0.0,
+                .LeftFoot: 0.0,
+                .RightUpperArm: 0.507631,
+                .UpperBody: 0.0,
+                .RightThigh: 0.0,
+                .LeftForearm: 0.0],
+            position: CGPoint(x: 0.0, y: 0.0)),
+        Posture(
+            angles: [
+                .LeftUpperArm: -0.301585,
+                .LeftShank: 0.0,
+                .RightFoot: 0.0,
+                .RightShank: 0.0,
+                .LeftThigh: 0.0,
+                .LowerBody: 0.0,
+                .Head: 0.348284,
+                .RightForearm: 0.0,
+                .LeftFoot: 0.0,
+                .RightUpperArm: 0.316924,
+                .UpperBody: 0.0,
+                .RightThigh: 0.0, 
+                .LeftForearm: 0.0], 
+            position: CGPoint(x: 0.0, y: 0.0)), 
+        Posture( 
+            angles: [
+                .LeftUpperArm: 0.0, 
+                .LeftShank: 0.0, 
+                .RightFoot: 0.0, 
+                .RightShank: 0.0, 
+                .LeftThigh: 0.0, 
+                .LowerBody: 0.0, 
+                .Head: 0.0, 
+                .RightForearm: 0.0, 
+                .LeftFoot: 0.0, 
+                .RightUpperArm: 0.0, 
+                .UpperBody: 0.0, 
+                .RightThigh: 0.0, 
+                .LeftForearm: 0.0], 
+            position: CGPoint(x: 0.0, y: 0.0)),
+    ]
+    
+    private static let shakeHeadTime: [Double] = [0.3,0.3,0.3,0.3]
+    private static let shakeHeadEase: [Keyframe.Curve] = [.EaseInOut, .EaseIn, .EaseOut, .EaseIn]
+    static let shakeHeadMove = DanceMove(times: shakeHeadTime, postures: shakeHeadPosture, angleCurves: shakeHeadEase, postureCurves: shakeHeadEase, levelOfIntensity: 1)!
+
+//    private static let XXPosture : [Posture] = [
+//    ]
+//    private static let XXTime: [Double] = []
+//    private static let XXEase: [Keyframe.Curve] = [.EaseInOut, .EaseIn, .EaseOut, .EaseIn]
+//    static let XXMove = DanceMove(times: XXTime, postures: XXPosture, angleCurves: XXEase, postureCurves: XXEase, levelOfIntensity: XX)!
+
+    static let allMoves: [Int: [DanceMove]] = [1: [gentalWave, stretch1Move, shakeHeadMove],
+                                               2: [hopMove,cheerWaveMove],
                                                3: [jumpMove],
                                                4: [stepMove],
                                                5: [rollMove]]

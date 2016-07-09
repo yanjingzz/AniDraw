@@ -51,7 +51,7 @@ public class DanceModel : PitchEngineDelegate{
     }
     
     //TODO
-    var DanceMoveData1 : [CGFloat] =
+    var DanceMoveData : [CGFloat] =
     [1,3,
     0.4,0,0,0,0,
         0.2,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -72,18 +72,9 @@ public class DanceModel : PitchEngineDelegate{
         currentAbsolutePosition = center
         
         //for naive test
-        dataSet.append(DanceMoveData1)
-//        dataSet.append(DanceMoveData2)
-//        dataSet.append(DanceMoveData3)
-//        dataSet.append(DanceMoveData4)
-//        dataSet.append(DanceMoveData5)
+        dataSet.append(DanceMoveData)
         
         loadDanceMove(dataSet)
-//        print("idleDanceMove")
-//        print(idleDanceMove.currentFrameIndex)
-//        print(idleDanceMove.currentPassTime)
-//        print(idleDanceMove.currentFrameEndTime)
-//        print(idleDanceMove.totalTime)
         
         pitchEngine.start()
         
