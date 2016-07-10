@@ -12,6 +12,7 @@ import UIKit
 class AnimationController: UIViewController {
 
     @IBOutlet weak var skView: SKView!
+    
     let scene = DanceScene(fileNamed:"DanceScene")!
     var characterNode: CharacterNode? {
         didSet {
@@ -21,24 +22,17 @@ class AnimationController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        skView.showsPhysics = true
-        
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        
-        /* Sprite Kit applies additional optimizations to improve rendering performance */
-        skView.ignoresSiblingOrder = true
-        
-        /* Set the scale mode to scale to fit the window */
-        scene.scaleMode = .AspectFill
-        
-        skView.presentScene(scene)
-        
+        setUpScene()
 
     }
-    
+    private func setUpScene() {
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.showsPhysics = false
+        skView.ignoresSiblingOrder = true
+        scene.scaleMode = .AspectFill
+        skView.presentScene(scene)
+    }
     
     @IBAction func goBack(sender: AnyObject) {
         characterNode?.removeFromParent()

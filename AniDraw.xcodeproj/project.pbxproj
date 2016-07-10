@@ -14,6 +14,9 @@
 		271258631D22B7D000BD9C36 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271258621D22B7D000BD9C36 /* UIImage+.swift */; };
 		27252A251D255A89002CE361 /* CGImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27252A241D255A89002CE361 /* CGImage+.swift */; };
 		27252A271D260C7B002CE361 /* EditMoveScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27252A261D260C7B002CE361 /* EditMoveScene.swift */; };
+		2754484E1D2F81EC000B2C34 /* AudioInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754484D1D2F81EC000B2C34 /* AudioInput.swift */; };
+		275448501D2F820A000B2C34 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2754484F1D2F820A000B2C34 /* AudioKit.framework */; };
+		275448521D2F821D000B2C34 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2754484F1D2F820A000B2C34 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		275ABBA61D224E4200BC3B8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBA51D224E4200BC3B8D /* AppDelegate.swift */; };
 		275ABBA81D224E4200BC3B8D /* EditMoveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBA71D224E4200BC3B8D /* EditMoveController.swift */; };
 		275ABBAB1D224E4200BC3B8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275ABBA91D224E4200BC3B8D /* Main.storyboard */; };
@@ -87,6 +90,20 @@
 		280B5F0A342D36ADE844D5B2 /* Pods_AniDraw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A56761E1255BDF6AE5EA5E /* Pods_AniDraw.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		275448531D2F821D000B2C34 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				275448521D2F821D000B2C34 /* AudioKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0BF052F21D2C07B800268947 /* DanceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceModel.swift; sourceTree = "<group>"; };
 		2701F13F1D2428AA00C597E6 /* UInt32+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt32+.swift"; sourceTree = "<group>"; };
@@ -95,6 +112,8 @@
 		271258621D22B7D000BD9C36 /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		27252A241D255A89002CE361 /* CGImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+.swift"; sourceTree = "<group>"; };
 		27252A261D260C7B002CE361 /* EditMoveScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditMoveScene.swift; sourceTree = "<group>"; };
+		2754484D1D2F81EC000B2C34 /* AudioInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioInput.swift; sourceTree = "<group>"; };
+		2754484F1D2F820A000B2C34 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		275ABBA21D224E4200BC3B8D /* AniDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		275ABBA51D224E4200BC3B8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		275ABBA71D224E4200BC3B8D /* EditMoveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMoveController.swift; sourceTree = "<group>"; };
@@ -180,6 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				275448501D2F820A000B2C34 /* AudioKit.framework in Frameworks */,
 				280B5F0A342D36ADE844D5B2 /* Pods_AniDraw.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +239,7 @@
 				2774FF291D2D063A00C79564 /* Moves.swift */,
 				27AFB3211D236B8A00325894 /* DanceMove.swift */,
 				0BF052F21D2C07B800268947 /* DanceModel.swift */,
+				2754484D1D2F81EC000B2C34 /* AudioInput.swift */,
 				27AFB3451D236DEC00325894 /* DanceScene.sks */,
 				27AFB31B1D2362CF00325894 /* DanceScene.swift */,
 				27F8C2661D2BECDA001F3B26 /* iCarousel */,
@@ -409,6 +430,7 @@
 		E707276443EA5C9BE3FB16BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2754484F1D2F820A000B2C34 /* AudioKit.framework */,
 				58A56761E1255BDF6AE5EA5E /* Pods_AniDraw.framework */,
 			);
 			name = Frameworks;
@@ -431,6 +453,7 @@
 				5AC7F607F9BD69E2309CC302 /* 📦 Embed Pods Frameworks */,
 				63284D1761139B63055E9AAB /* 📦 Copy Pods Resources */,
 				001F64D0D8619B955D834484 /* Embed Pods Frameworks */,
+				275448531D2F821D000B2C34 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -453,7 +476,7 @@
 				TargetAttributes = {
 					275ABBA11D224E4200BC3B8D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = KU9ZGHL9NX;
+						DevelopmentTeam = TL45XG83G4;
 					};
 				};
 			};
@@ -635,6 +658,7 @@
 				275ABBCD1D226EF700BC3B8D /* Int+Extensions.swift in Sources */,
 				27F6AD241D23A8D200BF3116 /* JointView.swift in Sources */,
 				275BC68C1D2B5F56004484DE /* SoundChannel.swift in Sources */,
+				2754484E1D2F81EC000B2C34 /* AudioInput.swift in Sources */,
 				2774FF2A1D2D063A00C79564 /* Moves.swift in Sources */,
 				275BC6781D2B5F56004484DE /* Touch.swift in Sources */,
 				275ABBD51D226EF700BC3B8D /* Vector3.swift in Sources */,
@@ -794,10 +818,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = younn.AniDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AniDraw/AniDraw-Bridging-Header.h";
@@ -815,10 +843,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = younn.AniDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AniDraw/AniDraw-Bridging-Header.h";

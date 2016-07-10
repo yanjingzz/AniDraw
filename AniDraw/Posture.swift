@@ -42,4 +42,22 @@ struct Posture {
         }
         print("    position: CGPoint(x: \(position.x), y: \(position.y))), ")
     }
+    
+    var flipped: Posture {
+        let newPosition = CGPoint(x: -position.x, y: position.y)
+        var newAngles = [BodyPartName:CGFloat]()
+        for (name, angle) in angles {
+            switch name {
+            case name where name.rawValue >= 8:
+                let newName = BodyPartName(rawValue: name.rawValue - 5)!
+                newAngles[newName] = -angle
+            case name where name.rawValue >= 3:
+                let newName = BodyPartName(rawValue: name.rawValue + 5)!
+                newAngles[newName] = -angle
+            default:
+                newAngles[name] = -angle
+            }
+        }
+        return Posture(angles: newAngles, position: newPosition)
+    }
 }

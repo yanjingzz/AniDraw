@@ -78,8 +78,7 @@ class EditMoveController: UIViewController {
             }
             print("]")
         }
-        let random = Int.random(min: 1, max: 5)
-        scene.playAnimation(MovesStorage.rollMove)
+//        scene.playAnimation(danceMove)
     }
     
     var characterNode: CharacterNode? {
