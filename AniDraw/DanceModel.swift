@@ -12,36 +12,47 @@ import Beethoven
 import Pitchy
 import AVFoundation
 
-public class DanceModel : PitchEngineDelegate{
-    var danceMoveList = [Int:[DanceMove]]()
+public class DanceModel :  AudioInputChangedDelegate {
+//    PitchEngineDelegate,
+    let danceMoveList = MovesStorage.allMoves
     
     var currentDanceMove : DanceMove
     var idleDanceMove : DanceMove
     var currentAbsolutePosition : CGPoint
     var dataSet : [[CGFloat]] = []
 
-    var timerPitch : CGFloat = 0
-    var pitch : CGFloat = 0
-    var peakAmplitude : CGFloat = 0
-    var averageAmplitude : CGFloat = 0
-    var duration : CFTimeInterval = 0
-    var tempo : CFTimeInterval = 0
+//    var timerPitch : CGFloat = 0
+//    var pitch : CGFloat = 0
+    var amplitude : CGFloat = 0
+//    var averageAmplitude : CGFloat = 0
+//    var startSingingTime: CFTimeInterval?
+//    var duration : CFTimeInterval = 0
+//    var tempo : CFTimeInterval = 0
     
-    var needIdle : Boolean = false
-    var isSing : Boolean = false
+//    var needIdle : Boolean = false
+    var isSinging : Boolean = false
     
-    lazy var pitchEngine: PitchEngine = { [unowned self] in
-        let pitchEngine = PitchEngine(delegate: self)
-        return pitchEngine
-        }()
+    func audioInputChanged(audioInput: AudioInput) {
+        isSinging = audioInput.isSinging
+        if !isSinging {
+            abortDanceMove()
+        } else {
+            amplitude = CGFloat(audioInput.tracker.amplitude)
+        }
+    }
     
-    var recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
-        AVFormatIDKey : NSNumber(int: Int32(kAudioFormatMPEG4AAC)),
-        AVNumberOfChannelsKey : NSNumber(int: 1),
-        AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Medium.rawValue))]
-    
-    
-    var audioRecorder:AVAudioRecorder!
+//    lazy var pitchEngine: PitchEngine = { [unowned self] in
+//        let pitchEngine = PitchEngine(delegate: self)
+//        return pitchEngine
+//        }()
+//    
+//    var recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
+//        AVFormatIDKey : NSNumber(int: Int32(kAudioFormatMPEG4AAC)),
+//        AVNumberOfChannelsKey : NSNumber(int: 1),
+//        AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Medium.rawValue))]
+//    
+//    
+//    var audioRecorder:AVAudioRecorder!
 
     private struct Constants {
         static let peakAmplitudeThreshold : CGFloat = -25
@@ -98,13 +109,13 @@ public class DanceModel : PitchEngineDelegate{
         }
     }
     
-    func directoryURL() -> NSURL? {
-        let fileManager = NSFileManager.defaultManager()
-        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        let documentDirectory = urls[0] as NSURL
-        let soundURL = documentDirectory.URLByAppendingPathComponent("sound.m4a")
-        return soundURL
-    }
+//    func directoryURL() -> NSURL? {
+//        let fileManager = NSFileManager.defaultManager()
+//        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+//        let documentDirectory = urls[0] as NSURL
+//        let soundURL = documentDirectory.URLByAppendingPathComponent("sound.m4a")
+//        return soundURL
+//    }
 
     
     func getPostureByIntervalTime(dtime:CFTimeInterval) -> Posture {
@@ -141,7 +152,7 @@ public class DanceModel : PitchEngineDelegate{
         currentDanceMove.reset()
         currentDanceMove = idleDanceMove
         currentDanceMove.previousPosture = currentPosture!
-        print("Abortion!")
+//        print("Abortion!")
     }
     
     func convertDataToDanceMove(data : [CGFloat]) -> DanceMove {
@@ -165,70 +176,69 @@ public class DanceModel : PitchEngineDelegate{
         return DanceMove(keyframes: kfs, previousPosture: Posture.idle, levelOfIntensity: Int(data[0]))
     }
     
-    func loadDanceMove(dataSet : [[CGFloat]]){
-
-        danceMoveList = MovesStorage.allMoves
-        print("danceMoveList:\(danceMoveList.count)")
-
-    }
-    
-    public func pitchEngineDidRecievePitch(pitchEngine: PitchEngine, pitch: Pitch) {
-        self.timerPitch = CGFloat(pitch.frequency)
-    }
-    
-    public func pitchEngineDidRecieveError(pitchEngine: PitchEngine, error: ErrorType) {
-        print(error)
-    }
-    
-    //update Amplitude(Peak,Average), pitch , tempo , needIdle, isSing
-    func updateStatic(dt: CFTimeInterval) {
-        
-        audioRecorder.updateMeters()
-        peakAmplitude = CGFloat(audioRecorder.peakPowerForChannel(0))
-        averageAmplitude = CGFloat(audioRecorder.averagePowerForChannel(0))
-        
-        if peakAmplitude < Constants.peakAmplitudeThreshold && averageAmplitude < Constants.averageAmplitudeThreshold {
-            if currentDanceMove.level != 0 {
-                needIdle = true
-            }
-            tempo = 0
-            duration = 0
-        } else {
-            duration = duration + dt
-            if abs(pitch - timerPitch) < Constants.pitchScope {
-                tempo = tempo + dt
-            } else {
-                tempo = 0
-            }
-        }
-        if duration < Constants.durationThreshold {
-            isSing = false
-        } else {
-            isSing = true
-        }
-        pitch = timerPitch
-    }
-    
+//    func loadDanceMove(dataSet : [[CGFloat]]){
+//        danceMoveList = MovesStorage.allMoves
+//        print("danceMoveList:\(danceMoveList.count)")
+//
+//    }
+//    
+//    public func pitchEngineDidRecievePitch(pitchEngine: PitchEngine, pitch: Pitch) {
+//        self.timerPitch = CGFloat(pitch.frequency)
+//    }
+//    
+//    public func pitchEngineDidRecieveError(pitchEngine: PitchEngine, error: ErrorType) {
+//        print(error)
+//    }
+//    
+//    //update Amplitude(Peak,Average), pitch , tempo , needIdle, isSing
+//    func updateStatic(dt: CFTimeInterval) {
+//        
+////        audioRecorder.updateMeters()
+////        peakAmplitude = CGFloat(audioRecorder.peakPowerForChannel(0))
+////        averageAmplitude = CGFloat(audioRecorder.averagePowerForChannel(0))
+//        
+//        if peakAmplitude < Constants.peakAmplitudeThreshold && averageAmplitude < Constants.averageAmplitudeThreshold {
+//            if currentDanceMove.level != 0 {
+//                needIdle = true
+//            }
+//            tempo = 0
+//            duration = 0
+//        } else {
+//            duration = duration + dt
+//            if abs(pitch - timerPitch) < Constants.pitchScope {
+//                tempo = tempo + dt
+//            } else {
+//                tempo = 0
+//            }
+//        }
+//        if duration < Constants.durationThreshold {
+//            isSing = false
+//        } else {
+//            isSing = true
+//        }
+//        pitch = timerPitch
+//    }
+//    
     func chooseMethod() -> (Int,Int) {
         //TODO set module
 //        let value = UInt32(DanceMoveList.count + 1)
 //        let result = Int(arc4random_uniform(value)) - 1
 //        //        print("choose result: \(result)")
 //        return result
-        if isSing == false {
+        if isSinging == false {
             return (0,0)
         } else {
             
-            if duration > 0 {
-                //TODO
-            }
+//            if duration > 0 {
+//                //TODO
+//            }
             
-            let level = 5 - Int(-peakAmplitude / 5)
+            let level = Int(round((log(amplitude)) + 5) * 1.2).clamped(1, 5)
             let suitDanceMoveArray = danceMoveList[level]
             let value = UInt32(suitDanceMoveArray!.count)
             let index = Int(arc4random_uniform(value))
 
-            print("method result: level:\(level) index:\(index)")
+//            print("method result: level:\(level) index:\(index)")
             return (level,index)
         }
     }

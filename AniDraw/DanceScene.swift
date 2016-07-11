@@ -11,7 +11,9 @@ import UIKit
 
 class DanceScene: SKScene {
     
-    var danceModel : DanceModel!
+    let danceModel = DanceModel(center: CGPoint(x: 0, y: 0))
+    private let audioInput = AudioInput()
+    
     var lastUpdateTime : CFTimeInterval = 0
     var dt : CFTimeInterval = 0
     var characterNode: CharacterNode? {
@@ -39,7 +41,7 @@ class DanceScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        danceModel = DanceModel(center: CGPoint(x: 0, y: 0))
+        
         print(characterNode?.posture)
         
         amplitudePeakLabel.fontSize = 20
@@ -66,6 +68,13 @@ class DanceScene: SKScene {
         addChild(durationLabel)
         addChild(levelLabel)
         addChild(singStatusLabel)
+        
+        audioInput.start()
+        audioInput.delegate = danceModel
+    }
+    
+    override func willMoveFromView(view: SKView) {
+        audioInput.stop()
     }
 
 //    func shakeAngle(maximumAngleInDegrees maxAngle: CGFloat, currentTime: CFTimeInterval, cycle: CGFloat) -> CGFloat {
@@ -91,25 +100,31 @@ class DanceScene: SKScene {
         }
         lastUpdateTime = currentTime
         
-        danceModel.updateStatic(dt)
+//        danceModel.updateStatic(dt)
         
-        let peak = danceModel.peakAmplitude
-        let average = danceModel.averageAmplitude
-        let singStatus = danceModel.isSing == true ? "Singing" : "Waiting"
+//        let peak = danceModel.peakAmplitude
+//        let average = danceModel.averageAmplitude
+//        let singStatus = danceModel.isSing == true ? "Singing" : "Waiting"
+        audioInput.update()
+        amplitudePeakLabel.text = "Peak: \(audioInput.amplitude)"
+//        amplitudeAverageLabel.text = "Average: \(average) (\(pow(10,average/20)))"
+        pitchLabel.text = "Frenquency: \(audioInput.tracker.frequency)"
+//        tempoLabel.text = "Tempo: \(danceModel.tempo)"
+        if audioInput.isSinging {
+            durationLabel.text = "Duration: \(audioInput.singingDuration!)"
+        } else {
+            durationLabel.text = ""
+        }
+        singStatusLabel.text = "IsSinging: \(audioInput.isSinging)"
         
-        amplitudePeakLabel.text = "Peak: \(peak) (\(pow(10,peak/20)))"
-        amplitudeAverageLabel.text = "Average: \(average) (\(pow(10,average/20)))"
-        pitchLabel.text = "Pitch: \(danceModel.pitch)"
-        tempoLabel.text = "Tempo: \(danceModel.tempo)"
-        durationLabel.text = "Duration: \(danceModel.duration)"
         levelLabel.text = "Level: " + String(danceModel.chooseMethod())
-        singStatusLabel.text = singStatus
+        
         
         if let node = characterNode {
-            if danceModel.needIdle == true {
-                danceModel.abortDanceMove()
-                danceModel.needIdle = false
-            }
+//            if danceModel.needIdle == true {
+//                danceModel.abortDanceMove()
+//                danceModel.needIdle = false
+//            }
             node.posture = danceModel.getPostureByIntervalTime(dt)
 //            print("shake!")
 //            print(node.parts[.Head]!.zRotation)
