@@ -99,16 +99,8 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
     }
     
     @IBAction func playAnimation(sender: UIButton) {
-        if !postures.isEmpty {
-            let danceMove = DanceMove(withSeriesOfPostures: postures, ofEqualInterval: 0.5)
-            scene.playAnimation(danceMove)
-            print("[")
-            for posture in postures {
-                posture.printConstructor()
-            }
-            print("]")
-        }
-//        let random = Int.random(min: 1, max: 5)
+        scene.playAnimation(danceMove)
+        print(danceMove.keyframes)
 //        scene.playAnimation(danceMove)
     }
     

@@ -19,6 +19,18 @@ enum DrawingTool: Int {
 
 class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, UIPopoverPresentationControllerDelegate {
     
+
+    @IBAction func undoAction(sender: UISwipeGestureRecognizer) {
+        print("left")
+        drawView.undo()
+    }
+    
+    
+    @IBAction func redoAction(sender: UISwipeGestureRecognizer) {
+        print("right")
+        drawView.redo()
+    }
+    
     @IBOutlet private weak var drawView: DrawView!
     @IBOutlet var toolsButton: [UIButton]!
     @IBOutlet weak var selectedColorCircleView: UIImageView!

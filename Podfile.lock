@@ -1,5 +1,4 @@
 PODS:
-  - AudioKit (3.1.3)
   - Beethoven (1.0.0):
     - Pitchy
   - JGProgressHUD (1.3.5)

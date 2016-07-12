@@ -10,6 +10,8 @@ import UIKit
 
 class DrawView: UIView {
     
+    var undoImages : [UIImage] = []
+    var redoImages : [UIImage] = []
     var tool: DrawingTool?
     var color: UIColor = UIColor.blackColor()
     private struct PointWithWidth {
@@ -220,6 +222,7 @@ class DrawView: UIView {
     }
     
     private func finishStroke() {
+        print("finish:\(paths.count)")
         drawBitmap()
         setNeedsDisplay()
         paths.removeAll()
@@ -249,11 +252,41 @@ class DrawView: UIView {
             }
         }
         incrementalImage = UIGraphicsGetImageFromCurrentImageContext()
+        
         UIGraphicsEndImageContext()
+
+        if undoImages.count >= 21 {
+            undoImages.removeFirst()
+        }
+        if undoImages.count == 0 {
+            UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
+            undoImages.push(UIGraphicsGetImageFromCurrentImageContext())
+            UIGraphicsEndImageContext()
+        }
         
-        
+        undoImages.push(incrementalImage!)
+        redoImages.removeAll()
+        print("undoStack:\(undoImages.count)")
+        print("redoStack:\(redoImages.count)")
     }
-
+    
+    func undo() {
+        if undoImages.count > 1 {
+            print("undo")
+            let temporaryImage = undoImages.pop()
+            redoImages.push(temporaryImage!)
+            incrementalImage = undoImages.get(undoImages.endIndex-1)
+            setNeedsDisplay()
+        }
+    }
  
-
+    func redo() {
+        if redoImages.isEmpty == false {
+            print("redo")
+            incrementalImage = redoImages.get(redoImages.endIndex-1)
+            let temporaryImage = redoImages.pop()
+            undoImages.push(temporaryImage!)
+            setNeedsDisplay()
+        }
+    }
 }
