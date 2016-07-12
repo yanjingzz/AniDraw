@@ -12,7 +12,7 @@ import UIKit
 class DanceScene: SKScene {
     
     let danceModel = DanceModel(center: CGPoint(x: 0, y: 0))
-    private let audioInput = AudioInput()
+    private let audioInput = AudioInput.sharedInstance
     
     var lastUpdateTime : CFTimeInterval = 0
     var dt : CFTimeInterval = 0

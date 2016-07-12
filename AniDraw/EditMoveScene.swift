@@ -42,6 +42,8 @@ class EditMoveScene: SKScene {
         if playing {
             if let posture = danceMove?.getPostureByIntervalTime(dt) {
                 characterNode?.posture = posture
+            } else {
+                playing = false
             }
         }
     }

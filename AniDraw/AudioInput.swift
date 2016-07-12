@@ -17,10 +17,11 @@ class AudioInput {
     let tracker: AKFrequencyTracker
     var delegate: AudioInputChangedDelegate?
     
-    init() {
+    private init() {
         AKSettings.audioInputEnabled = true
         tracker = AKFrequencyTracker(mic, minimumFrequency: 200, maximumFrequency: 2000)
         silence = AKBooster(tracker, gain: 0)
+        AudioKit.output = silence
         
         
     }
@@ -44,7 +45,6 @@ class AudioInput {
     }
     let amplitudeThreshold = 0.005
     func start() {
-        AudioKit.output = silence
         AudioKit.start()
     }
     func stop() {
@@ -52,7 +52,6 @@ class AudioInput {
     }
     func update() {
         tracker.frequency
-        print (tracker.amplitude)
         if isSinging == false && tracker.amplitude > amplitudeThreshold {
             isSinging = true
             startSingingTime = NSDate()
@@ -66,6 +65,7 @@ class AudioInput {
         lastFrequency = tracker.frequency
         delegate?.audioInputChanged(self)
     }
+    static let sharedInstance = AudioInput()
 }
 protocol AudioInputChangedDelegate {
     func audioInputChanged(audioInput: AudioInput)

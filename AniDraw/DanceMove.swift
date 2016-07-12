@@ -11,23 +11,43 @@ import UIKit
 
 public class DanceMove {
     
-    var keyframes: [Keyframe]
+    var keyframes: [Keyframe] {
+        didSet {
+            totalTime = 0
+            for kf in keyframes  {
+                totalTime += kf.time
+            }
+            if !keyframes.isEmpty {
+                currentFrameEndTime = keyframes[0].time
+            } else {
+                currentFrameEndTime = 0
+            }
+        }
+    }
     
     var totalTime: CFTimeInterval
     var currentPassTime : CFTimeInterval
     var currentFrameEndTime : CFTimeInterval
     var previousPosture: Posture
-
+    var count:Int {
+        return keyframes.count
+    }
     var level : Int
     
     var currentFrameIndex : Int
     
     func reset() {
         currentPassTime = 0
-        currentFrameEndTime = keyframes[0].time
+        if !keyframes.isEmpty {
+            currentFrameEndTime = keyframes[0].time
+        } else {
+            currentFrameEndTime = 0
+        }
+
         currentFrameIndex = 0
         previousPosture = Posture.idle
     }
+
     
     init(keyframes kfs:[Keyframe],previousPosture prPosture: Posture,levelOfIntensity lev:Int = 0) {
         keyframes = kfs
@@ -38,10 +58,26 @@ public class DanceMove {
         for kf in kfs  {
             totalTime += kf.time
         }
-        currentFrameEndTime = kfs[0].time
+        if !keyframes.isEmpty {
+            currentFrameEndTime = keyframes[0].time
+        } else {
+            currentFrameEndTime = 0
+        }
         previousPosture = prPosture
         level = lev
     }
+    
+    init() {
+        keyframes = [Keyframe]()
+        currentFrameIndex = 0
+        currentFrameEndTime = 0
+        currentPassTime = 0
+        totalTime = 0
+        currentFrameEndTime = 0
+        previousPosture = Posture.idle
+        level = 0
+    }
+    
     convenience init(keyframes kfs:[Keyframe], levelOfIntensity lev:Int = 0) {
         self.init(keyframes: kfs,previousPosture: Posture.idle,levelOfIntensity: lev)
     }

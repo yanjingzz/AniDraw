@@ -11,6 +11,7 @@
 		2701F1401D2428AA00C597E6 /* UInt32+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F13F1D2428AA00C597E6 /* UInt32+.swift */; };
 		2701F1421D243BF600C597E6 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F1411D243BF600C597E6 /* CGRect+.swift */; };
 		2701F1441D24BDF700C597E6 /* Joints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F1431D24BDF700C597E6 /* Joints.swift */; };
+		270641EA1D33D9CC007195AB /* KeyframesEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270641E91D33D9CC007195AB /* KeyframesEditorView.swift */; };
 		271258631D22B7D000BD9C36 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271258621D22B7D000BD9C36 /* UIImage+.swift */; };
 		27252A251D255A89002CE361 /* CGImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27252A241D255A89002CE361 /* CGImage+.swift */; };
 		27252A271D260C7B002CE361 /* EditMoveScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27252A261D260C7B002CE361 /* EditMoveScene.swift */; };
@@ -71,6 +72,7 @@
 		275BC6931D2B5F56004484DE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BC6731D2B5F56004484DE /* UIColor.swift */; };
 		2774FF2A1D2D063A00C79564 /* Moves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2774FF291D2D063A00C79564 /* Moves.swift */; };
 		279E62E41D2B92B200747411 /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E62E31D2B92B200747411 /* CharactersController.swift */; };
+		27ABA2161D340C09007D945F /* KeyframeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABA2151D340C09007D945F /* KeyframeDetailController.swift */; };
 		27AFB3151D235FCD00325894 /* BodyPartNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3141D235FCD00325894 /* BodyPartNode.swift */; };
 		27AFB3181D23604A00325894 /* CharacterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3171D23604A00325894 /* CharacterNode.swift */; };
 		27AFB31A1D23629E00325894 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3191D23629E00325894 /* AnimationController.swift */; };
@@ -109,6 +111,7 @@
 		2701F13F1D2428AA00C597E6 /* UInt32+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt32+.swift"; sourceTree = "<group>"; };
 		2701F1411D243BF600C597E6 /* CGRect+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
 		2701F1431D24BDF700C597E6 /* Joints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joints.swift; sourceTree = "<group>"; };
+		270641E91D33D9CC007195AB /* KeyframesEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyframesEditorView.swift; sourceTree = "<group>"; };
 		271258621D22B7D000BD9C36 /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		27252A241D255A89002CE361 /* CGImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+.swift"; sourceTree = "<group>"; };
 		27252A261D260C7B002CE361 /* EditMoveScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditMoveScene.swift; sourceTree = "<group>"; };
@@ -172,6 +175,7 @@
 		2774FF291D2D063A00C79564 /* Moves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moves.swift; sourceTree = "<group>"; };
 		279E62E31D2B92B200747411 /* CharactersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
 		279E62F51D2BE13300747411 /* AniDraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AniDraw-Bridging-Header.h"; sourceTree = "<group>"; };
+		27ABA2151D340C09007D945F /* KeyframeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyframeDetailController.swift; sourceTree = "<group>"; };
 		27AFB3141D235FCD00325894 /* BodyPartNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPartNode.swift; sourceTree = "<group>"; };
 		27AFB3171D23604A00325894 /* CharacterNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterNode.swift; sourceTree = "<group>"; };
 		27AFB3191D23629E00325894 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
@@ -368,6 +372,8 @@
 				275ABBB71D22549F00BC3B8D /* DrawController.swift */,
 				275ABBBB1D2261E200BC3B8D /* DrawView.swift */,
 				275ABBA71D224E4200BC3B8D /* EditMoveController.swift */,
+				270641E91D33D9CC007195AB /* KeyframesEditorView.swift */,
+				27ABA2151D340C09007D945F /* KeyframeDetailController.swift */,
 				275ABBB91D2257BF00BC3B8D /* SkeletonController.swift */,
 				27F6AD211D23A89500BF3116 /* SkeletonView.swift */,
 				27F6AD231D23A8D200BF3116 /* JointView.swift */,
@@ -663,6 +669,7 @@
 				275BC6781D2B5F56004484DE /* Touch.swift in Sources */,
 				275ABBD51D226EF700BC3B8D /* Vector3.swift in Sources */,
 				275ABBA81D224E4200BC3B8D /* EditMoveController.swift in Sources */,
+				270641EA1D33D9CC007195AB /* KeyframesEditorView.swift in Sources */,
 				275BC6821D2B5F56004484DE /* SimpleButton.swift in Sources */,
 				275BC68F1D2B5F56004484DE /* SKMultilineLabel.swift in Sources */,
 				275BC6891D2B5F56004484DE /* Global.swift in Sources */,
@@ -697,6 +704,7 @@
 				275BC68B1D2B5F56004484DE /* Sound.swift in Sources */,
 				275BC67F1D2B5F56004484DE /* InteractiveObject.swift in Sources */,
 				275BC6881D2B5F56004484DE /* EasingDeclarations.swift in Sources */,
+				27ABA2161D340C09007D945F /* KeyframeDetailController.swift in Sources */,
 				27252A271D260C7B002CE361 /* EditMoveScene.swift in Sources */,
 				275ABBBA1D2257BF00BC3B8D /* SkeletonController.swift in Sources */,
 			);
