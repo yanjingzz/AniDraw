@@ -22,7 +22,7 @@ public class DanceModel :  AudioInputChangedDelegate {
     var dataSet : [[CGFloat]] = []
 
 //    var timerPitch : CGFloat = 0
-//    var pitch : CGFloat = 0
+    var pitch : CGFloat = 0
     var amplitude : CGFloat = 0
 //    var averageAmplitude : CGFloat = 0
 //    var startSingingTime: CFTimeInterval?
@@ -38,6 +38,7 @@ public class DanceModel :  AudioInputChangedDelegate {
             abortDanceMove()
         } else {
             amplitude = CGFloat(audioInput.tracker.amplitude)
+            pitch = CGFloat(audioInput.tracker.frequency)
         }
     }
     
@@ -147,6 +148,7 @@ public class DanceModel :  AudioInputChangedDelegate {
 //        print("amplitude:\(amplitude)")
         
         let (level,index) = chooseMethod()
+        print("\(amplitude) \(pitch) \(level)")
         if level == 0 {
             currentDanceMove = idleDanceMove
         } else {

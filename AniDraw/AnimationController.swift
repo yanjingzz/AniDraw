@@ -13,10 +13,13 @@ class AnimationController: UIViewController {
 
     @IBOutlet weak var skView: SKView!
     
-    let scene = DanceScene(fileNamed:"DanceScene")!
+    var scene: DanceScene!
     var characterNode: CharacterNode? {
         didSet {
-            scene.characterNode = characterNode
+            guard let scene = scene, let character = characterNode else {
+                return
+            }
+            scene.characterNode = character
         }
     }
     
@@ -26,6 +29,8 @@ class AnimationController: UIViewController {
 
     }
     private func setUpScene() {
+        scene = DanceScene(fileNamed:"DanceScene")
+        scene.characterNode = characterNode
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.showsPhysics = false
@@ -49,15 +54,5 @@ class AnimationController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

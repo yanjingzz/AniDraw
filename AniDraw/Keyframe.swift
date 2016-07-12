@@ -16,6 +16,7 @@ struct Keyframe {
 //    var nextCurve: DanceMoveAnimationCurve
     var angleCurve: Curve
     var positionCurve : Curve
+
     init(pos : CGPoint) {
         time = 0
         posture = Posture(position: pos)
@@ -32,7 +33,7 @@ struct Keyframe {
         self.init(time:time, posture: posture, angleCurve: .EaseInOut, postureCurve: .EaseInOut)
     }
     enum Curve : Int {
-        case Linear
+        case Linear = 0
         case EaseIn
         case EaseOut
         case EaseInOut
@@ -64,6 +65,45 @@ struct Keyframe {
         case BounceEaseIn
         case BounceEaseOut
         case BounceEaseInOut
+        
+        static var count: Int { return BounceEaseInOut.rawValue + 1 }
+        
+        var description: String {
+            switch self {
+            case Linear: return "Linear"
+            case EaseIn: return "Ease In"
+            case EaseOut: return "Ease Out"
+            case EaseInOut: return "Ease In Ease Out"
+            case None: return "None"
+            case CubicEaseIn: return "Cubic Ease In"
+            case CubicEaseOut: return "Cubic Ease Out"
+            case CubicEaseInOut: return "Cubic Ease In Out"
+            case QuarticEaseIn: return "Quartic Ease In"
+            case QuarticEaseOut: return "Quartic Ease Out"
+            case QuarticEaseInOut: return "Quartic Ease In Ease Out"
+            case QuinticEaseIn: return "Quintic Ease In"
+            case QuinticEaseOut: return "Quintic Ease Out"
+            case QuinticEaseInOut: return "Quintic Ease In Ease Out"
+            case SineEaseIn: return "Sine Ease In"
+            case SineEaseOut: return "Sine Ease Out"
+            case SineEaseInOut: return "Sine Ease In Ease Out"
+            case CircularEaseIn: return "Circular Ease In"
+            case CircularEaseOut: return "Circular Ease Out"
+            case CircularEaseInOut: return "Circular Ease In Ease Out"
+            case ExponentialEaseIn: return "Exponential Ease In"
+            case ExponentialEaseOut: return "Exponential Ease Out"
+            case ExponentialEaseInOut: return "Exponential Ease In Ease Out"
+            case ElasticEaseIn: return "Elastic Ease In"
+            case ElasticEaseOut: return "Elastic Ease Out"
+            case ElasticEaseInOut: return "Elastic Ease In Ease Out"
+            case BackEaseIn: return "Back Ease In"
+            case BackEaseOut: return "Back Ease Out"
+            case BackEaseInOut: return "Back Ease In Ease Out"
+            case BounceEaseIn: return "Bounce Ease In"
+            case BounceEaseOut: return "Bounce Ease Out"
+            case BounceEaseInOut: return "Bounce Ease In Out"
+            }
+        }
     }
 }
 
