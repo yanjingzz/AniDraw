@@ -62,14 +62,14 @@ public class DanceModel :  AudioInputChangedDelegate {
     }
     
     //TODO
-    var DanceMoveData : [CGFloat] =
-    [1,3,
-    0.4,0,0,0,0,
-        0.2,0,0,0,0,0,0,0,0,0,0,0,0,
-    0.8,0,0,0,0,
-        -0.2,0,0,0,0,0,0,0,0,0,0,0,0,
-    0.4,0,0,0,0,
-        0,0,0,0,0,0,0,0,0,0,0,0,0]
+//    var DanceMoveData1 : [CGFloat] =
+//    [1,3,
+//    0.4,0,0,0,0,
+//        0.2,0,0,0,0,0,0,0,0,0,0,0,0,
+//    0.8,0,0,0,0,
+//        -0.2,0,0,0,0,0,0,0,0,0,0,0,0,
+//    0.4,0,0,0,0,
+//        0,0,0,0,0,0,0,0,0,0,0,0,0]
     
     init(center: CGPoint) {
         //init idleDanceMove
@@ -83,30 +83,39 @@ public class DanceModel :  AudioInputChangedDelegate {
         currentAbsolutePosition = center
         
         //for naive test
-        dataSet.append(DanceMoveData)
+//        dataSet.append(DanceMoveData1)
+//        dataSet.append(DanceMoveData2)
+//        dataSet.append(DanceMoveData3)
+//        dataSet.append(DanceMoveData4)
+//        dataSet.append(DanceMoveData5)
         
-        loadDanceMove(dataSet)
-        
-        pitchEngine.start()
-        
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try audioRecorder = AVAudioRecorder(URL: self.directoryURL()!,
-                settings: recordSettings)
-            audioRecorder.prepareToRecord()
-        } catch {
-        }
-        
-        if !audioRecorder.recording {
-            let audioSession = AVAudioSession.sharedInstance()
-            do {
-                try audioSession.setActive(true)
-                audioRecorder.meteringEnabled = true
-                audioRecorder.record()
-            } catch {
-            }
-        }
+//        loadDanceMove(dataSet)
+//        print("idleDanceMove")
+//        print(idleDanceMove.currentFrameIndex)
+//        print(idleDanceMove.currentPassTime)
+//        print(idleDanceMove.currentFrameEndTime)
+//        print(idleDanceMove.totalTime)
+//        
+//        pitchEngine.start()
+//        
+//        let audioSession = AVAudioSession.sharedInstance()
+//        do {
+//            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+//            try audioRecorder = AVAudioRecorder(URL: self.directoryURL()!,
+//                settings: recordSettings)
+//            audioRecorder.prepareToRecord()
+//        } catch {
+//        }
+//        
+//        if !audioRecorder.recording {
+//            let audioSession = AVAudioSession.sharedInstance()
+//            do {
+//                try audioSession.setActive(true)
+//                audioRecorder.meteringEnabled = true
+//                audioRecorder.record()
+//            } catch {
+//            }
+//        }
     }
     
 //    func directoryURL() -> NSURL? {

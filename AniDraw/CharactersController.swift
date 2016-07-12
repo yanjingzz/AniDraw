@@ -12,6 +12,9 @@ class CharactersController: UIViewController {
 
     var characters: [CharacterStorage]?
     private var currentCharacter: CharacterStorage? {
+        if carousel.currentItemIndex < 0 {
+            return nil
+        }
         return characters?[carousel.currentItemIndex]
     }
     private var currentCharacterImage: UIImage? {
@@ -167,7 +170,10 @@ extension CharactersController: iCarouselDataSource, iCarouselDelegate {
         return itemView
     }
     func carouselCurrentItemIndexDidChange(carousel: iCarousel) {
-        nameLabel.text = characters?[carousel.currentItemIndex].name ?? ""
-
+        if carousel.currentItemIndex < 0 {
+            nameLabel.text = ""
+        } else {
+            nameLabel.text = characters?[carousel.currentItemIndex].name ?? ""
+        }
     }
 }
