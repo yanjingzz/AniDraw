@@ -73,6 +73,7 @@
 		2774FF2A1D2D063A00C79564 /* Moves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2774FF291D2D063A00C79564 /* Moves.swift */; };
 		279E62E41D2B92B200747411 /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E62E31D2B92B200747411 /* CharactersController.swift */; };
 		27ABA2161D340C09007D945F /* KeyframeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABA2151D340C09007D945F /* KeyframeDetailController.swift */; };
+		27ABA2181D3492B3007D945F /* String+WriteToURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABA2171D3492B3007D945F /* String+WriteToURL.swift */; };
 		27AFB3151D235FCD00325894 /* BodyPartNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3141D235FCD00325894 /* BodyPartNode.swift */; };
 		27AFB3181D23604A00325894 /* CharacterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3171D23604A00325894 /* CharacterNode.swift */; };
 		27AFB31A1D23629E00325894 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3191D23629E00325894 /* AnimationController.swift */; };
@@ -176,6 +177,7 @@
 		279E62E31D2B92B200747411 /* CharactersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
 		279E62F51D2BE13300747411 /* AniDraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AniDraw-Bridging-Header.h"; sourceTree = "<group>"; };
 		27ABA2151D340C09007D945F /* KeyframeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyframeDetailController.swift; sourceTree = "<group>"; };
+		27ABA2171D3492B3007D945F /* String+WriteToURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+WriteToURL.swift"; sourceTree = "<group>"; };
 		27AFB3141D235FCD00325894 /* BodyPartNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPartNode.swift; sourceTree = "<group>"; };
 		27AFB3171D23604A00325894 /* CharacterNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterNode.swift; sourceTree = "<group>"; };
 		27AFB3191D23629E00325894 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				27AFB3141D235FCD00325894 /* BodyPartNode.swift */,
 				27AFB3171D23604A00325894 /* CharacterNode.swift */,
 				27252A261D260C7B002CE361 /* EditMoveScene.swift */,
+				27ABA2171D3492B3007D945F /* String+WriteToURL.swift */,
 				27AFB31D1D2365A200325894 /* Posture.swift */,
 				27AFB31F1D236A5000325894 /* Keyframe.swift */,
 				2774FF291D2D063A00C79564 /* Moves.swift */,
@@ -633,6 +636,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				275ABBCB1D226EF700BC3B8D /* CGPoint+Extensions.swift in Sources */,
+				27ABA2181D3492B3007D945F /* String+WriteToURL.swift in Sources */,
 				279E62E41D2B92B200747411 /* CharactersController.swift in Sources */,
 				27C2274A1D2B553800B581C5 /* CharacterStorage.swift in Sources */,
 				27AFB31C1D2362CF00325894 /* DanceScene.swift in Sources */,

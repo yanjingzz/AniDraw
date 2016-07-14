@@ -261,6 +261,13 @@
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEI-e3-Z3u" customClass="KeyframesEditorView" customModule="AniDraw" customModuleProvider="target">
                                 <rect key="frame" x="86" y="561" width="428" height="19"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYD-Sq-Jss">
+                                <rect key="frame" x="458" y="95" width="122" height="30"/>
+                                <state key="normal" title="Save Dance Move"/>
+                                <connections>
+                                    <action selector="saveDanceMove:" destination="aiW-TX-zfk" eventType="touchUpInside" id="pHC-pw-o3A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -282,9 +289,11 @@
                             <constraint firstItem="d9g-5J-t2k" firstAttribute="leading" secondItem="5D5-tB-1Lz" secondAttribute="trailing" constant="8" symbolic="YES" id="cIW-J0-xhZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eq1-nz-aPE" secondAttribute="trailing" id="ceq-8F-Fh9"/>
                             <constraint firstItem="6eT-Hf-3Xc" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leadingMargin" id="eBz-F6-e08"/>
+                            <constraint firstItem="KYD-Sq-Jss" firstAttribute="trailing" secondItem="eq1-nz-aPE" secondAttribute="trailing" id="izY-Ww-fNG"/>
                             <constraint firstItem="gQ4-On-vFY" firstAttribute="top" secondItem="oNC-CE-ggl" secondAttribute="bottom" constant="8" symbolic="YES" id="raP-jn-du0"/>
                             <constraint firstItem="d9g-5J-t2k" firstAttribute="leading" secondItem="xEI-e3-Z3u" secondAttribute="trailing" constant="8" symbolic="YES" id="sX0-zz-XRR"/>
                             <constraint firstItem="d9g-5J-t2k" firstAttribute="trailing" secondItem="k3h-s7-rja" secondAttribute="trailingMargin" id="srT-jy-9BK"/>
+                            <constraint firstItem="KYD-Sq-Jss" firstAttribute="top" secondItem="eq1-nz-aPE" secondAttribute="bottom" constant="8" symbolic="YES" id="wbi-sm-ExB"/>
                             <constraint firstAttribute="bottom" secondItem="d9g-5J-t2k" secondAttribute="bottom" constant="20" symbolic="YES" id="zdZ-Gd-4tc"/>
                         </constraints>
                         <variation key="default">

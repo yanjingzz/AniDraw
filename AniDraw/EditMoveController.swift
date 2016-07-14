@@ -38,6 +38,29 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
     
     @IBOutlet weak var slider: UISlider!
     
+    @IBAction func saveDanceMove(sender: AnyObject) {
+        presentViewController(alertForNamePrompt, animated: true, completion: nil)
+        
+    }
+    func writeToFileAndUpdate(name: String?) {
+        let fileName = "danceMove.txt"
+        let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last! as NSURL
+        let fileurl =  dir.URLByAppendingPathComponent(fileName)
+        
+        do {
+            if let name = name {
+                try "\n\nlet \(name) = ".appendLineToURL(fileurl)
+            }
+            try "\(danceMove.keyframes)".appendLineToURL(fileurl)
+            print("\(fileurl)")
+            
+        }
+        catch {
+            print("Could not write to file")
+        }
+        danceMove = DanceMove()
+        updateEditView()
+    }
     @IBAction func sliderValueChanged(sender: UISlider) {
         if danceMove.keyframes.isEmpty {
             currentIndex = -1
@@ -64,6 +87,41 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         }
         
     }
+    
+    private var alertForNamePrompt: UIAlertController {
+        let alert = UIAlertController(title: "Name", message: "Give a name to dance move you just created!", preferredStyle: .Alert)
+        let confirmAction = UIAlertAction(title: "Done", style: .Default) { action in
+            self.writeToFileAndUpdate(alert.textFields![0].text)
+        }
+        
+        confirmAction.enabled = false
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        alert.preferredAction = confirmAction
+        alert.addTextFieldWithConfigurationHandler { textField in
+            textField.becomeFirstResponder()
+            textField.placeholder = "Name"
+            textField.clearButtonMode = .WhileEditing
+            textField.autocapitalizationType = .Words
+            textField.autocorrectionType = .No
+            textField.returnKeyType = .Done
+            
+            textField.addTarget(self, action: #selector(self.textChangedForNamePrompt), forControlEvents: .EditingChanged)
+            
+        }
+        return alert
+    }
+    
+    @objc private func textChangedForNamePrompt(sender: UITextField) {
+        var resp : UIResponder = sender
+        while !(resp is UIAlertController) { resp = resp.nextResponder()! }
+        let alert = resp as! UIAlertController
+        alert.actions[1].enabled = (sender.text != "")
+    }
+    
+    
     func updateEditView() {
         var lengths = [CGFloat]()
         var currentLength: CGFloat = 0.0
@@ -97,11 +155,10 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
     @IBAction func restorePosture(sender: UIButton) {
         characterNode?.posture = Posture.idle
     }
-    
     @IBAction func playAnimation(sender: UIButton) {
-        scene.playAnimation(danceMove)
+
         print(danceMove.keyframes)
-//        scene.playAnimation(danceMove)
+        scene.playAnimation(danceMove)
     }
     
     var characterNode: CharacterNode? {

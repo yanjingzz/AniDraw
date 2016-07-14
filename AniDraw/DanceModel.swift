@@ -75,7 +75,7 @@ public class DanceModel :  AudioInputChangedDelegate {
     init(center: CGPoint) {
         //init idleDanceMove
         var kfs : [Keyframe] = []
-        let idleKeyFrame = Keyframe(time: 0.5, posture: Posture.idle, angleCurve: .Linear, postureCurve: .Linear)
+        let idleKeyFrame = Keyframe(time: 0.5, posture: Posture.idle, angleCurve: .Linear, positionCurve: .Linear)
 
         kfs.append(idleKeyFrame)
         idleDanceMove = DanceMove(keyframes: kfs, previousPosture: Posture.idle)
@@ -180,7 +180,7 @@ public class DanceModel :  AudioInputChangedDelegate {
             }
             let posture = Posture(angles: angles, position:CGPoint(x: data[base+3], y: data[base+4]))
             
-            let kf = Keyframe(time: CFTimeInterval(data[base]), posture: posture, angleCurve: Keyframe.Curve(rawValue: Int(data[base+1]))!, postureCurve: Keyframe.Curve(rawValue: Int(data[base+2]))!)
+            let kf = Keyframe(time: CFTimeInterval(data[base]), posture: posture, angleCurve: Keyframe.Curve(rawValue: Int(data[base+1]))!, positionCurve: Keyframe.Curve(rawValue: Int(data[base+2]))!)
             kfs.append(kf)
         }
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Posture {
+struct Posture: CustomStringConvertible {
     var angles: [BodyPartName:CGFloat]
     var position: CGPoint
     init (angles: [BodyPartName:CGFloat], position: CGPoint) {
@@ -30,17 +30,18 @@ struct Posture {
         self.position = position
     }
     static let idle = Posture(position: CGPoint(x: 0, y: 0))
-    func printConstructor() {
-        print("Posture( ")
-        print("    angles: [")
+    var description: String {
+        var string = "Posture( \n"
+        string += "    angles: [\n"
         for (i,(name, angle)) in angles.enumerate() {
             if i != angles.count - 1 {
-                print("    .\(name): \(angle), ")
+                string += "    .\(name): \(angle), \n"
             } else {
-                print("    .\(name): \(angle)], ")
+                string += "    .\(name): \(angle)], \n"
             }
         }
-        print("    position: CGPoint(x: \(position.x), y: \(position.y))), ")
+        string += "    position: CGPoint(x: \(position.x), y: \(position.y)))"
+        return string
     }
     
     var flipped: Posture {

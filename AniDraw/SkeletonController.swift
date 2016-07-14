@@ -153,7 +153,7 @@ class SkeletonController: UIViewController {
             textField.autocorrectionType = .No
             textField.returnKeyType = .Done
 
-            textField.addTarget(self, action: "textChangedForNamePrompt:", forControlEvents: .EditingChanged)
+            textField.addTarget(self, action: #selector(SkeletonController.textChangedForNamePrompt), forControlEvents: .EditingChanged)
 
         }
         return alert

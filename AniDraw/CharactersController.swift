@@ -12,6 +12,9 @@ class CharactersController: UIViewController {
 
     var characters: [CharacterStorage]?
     private var currentCharacter: CharacterStorage? {
+        if carousel.currentItemIndex == -1 {
+            return nil
+        }
         return characters?[carousel.currentItemIndex]
     }
     private var currentCharacterImage: UIImage? {
