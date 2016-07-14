@@ -6,16 +6,16 @@ PODS:
   - Pitchy (1.0.0)
 
 DEPENDENCIES:
+  - AudioKit (~> 3.1)
   - Beethoven
   - JGProgressHUD
   - MSColorPicker
 
 SPEC CHECKSUMS:
+  AudioKit: 7b7a16383c9ec8721d26a25a46c7326420ca1041
   Beethoven: 33b9add13299ea95e84bce44900055ac3c232fe0
   JGProgressHUD: 5b202636fa103db63e6f001888d11ea628133129
   MSColorPicker: 1d11c8f6b74a811ac5a9dace4cc5211ef8002c5c
   Pitchy: 4e8302612409d07a27c5083f0bbc2a4bd376f1cc
 
-PODFILE CHECKSUM: cb0883ae69059a1f057edce3588bf38148e1cb73
-
-COCOAPODS: 1.0.1
+COCOAPODS: 0.39.0

@@ -8,8 +8,10 @@
 
 import UIKit
 
-class DrawView: UIView {
-    
+class DrawView: UIView{
+
+    var undoImages : [UIImage] = []
+    var redoImages : [UIImage] = []
     var tool: DrawingTool?
     var color: UIColor = UIColor.blackColor()
     private struct PointWithWidth {
@@ -70,7 +72,7 @@ class DrawView: UIView {
                 UIColor.whiteColor().setStroke()
                 path.fill()
                 path.stroke()
-
+                
             case .Brush:
                 color.setFill()
                 color.setStroke()
@@ -91,6 +93,7 @@ class DrawView: UIView {
     private struct Constants {
         
     }
+    
     @IBAction private func drawDotforTapRecognizer(recognizer: UITapGestureRecognizer) {
         let p = recognizer.locationInView(self)
         let width:CGFloat = 5.0
@@ -106,10 +109,10 @@ class DrawView: UIView {
         let v = recognizer.velocityInView(self)
         let width = strokeWidthFromSpeed(v.length())
         let current = PointWithWidth(point: p, width: width)
-    
+        
         switch recognizer.state {
         case .Began:
-
+            
             state = State.FirstPoint(prev: current)
             
         case .Changed:
@@ -155,7 +158,7 @@ class DrawView: UIView {
                 state = State.ThirdAndUp(first: second,second: current)
             }
             setNeedsDisplay()
-
+            
         case .Ended:
             guard let s = state else {
                 break
@@ -182,7 +185,7 @@ class DrawView: UIView {
             path.addCurveToPoint(currentEndPoints.0, controlPoint1: currentEndPoints.1 + dir.normalized() * bezierCircleConstant, controlPoint2: currentEndPoints.0 + dir.normalized() * bezierCircleConstant)
             path.addLineToPoint(prevEndPoints.0)
             paths.append(path)
-
+            
             fallthrough
         case .Cancelled:
             finishStroke()
@@ -192,8 +195,8 @@ class DrawView: UIView {
             break
         }
     }
-
-
+    
+    
     private func endPoints(atPositionWithWidth pw: PointWithWidth, perpendicularTo direction: CGPoint)  -> (CGPoint, CGPoint) {
         let p = pw.point
         let width = pw.width
@@ -220,6 +223,7 @@ class DrawView: UIView {
     }
     
     private func finishStroke() {
+        print("finish:\(paths.count)")
         drawBitmap()
         setNeedsDisplay()
         paths.removeAll()
@@ -227,6 +231,7 @@ class DrawView: UIView {
     }
     
     private func drawBitmap() {
+        //        let newboundSize = CGSize(width: bounds.width * scaleRatio, height: bounds.height * scaleRatio)
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
         
         incrementalImage?.drawAtPoint(CGPoint.zero)
@@ -249,11 +254,43 @@ class DrawView: UIView {
             }
         }
         incrementalImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        
         UIGraphicsEndImageContext()
         
+        if undoImages.count >= 21 {
+            undoImages.removeFirst()
+        }
+        if undoImages.count == 0 {
+            UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
+            undoImages.push(UIGraphicsGetImageFromCurrentImageContext())
+            UIGraphicsEndImageContext()
+        }
+        
+        undoImages.push(incrementalImage!)
+        redoImages.removeAll()
         
     }
-
- 
-
+    
+    func undo() {
+        if undoImages.count > 1 {
+            print("undo")
+            let temporaryImage = undoImages.pop()
+            redoImages.push(temporaryImage!)
+            incrementalImage = undoImages.get(undoImages.endIndex-1)
+            setNeedsDisplay()
+        }
+    }
+    
+    func redo() {
+        if redoImages.isEmpty == false {
+            print("redo")
+            incrementalImage = redoImages.get(redoImages.endIndex-1)
+            let temporaryImage = redoImages.pop()
+            undoImages.push(temporaryImage!)
+            setNeedsDisplay()
+        }
+    }
+    
 }
+

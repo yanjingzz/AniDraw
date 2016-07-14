@@ -180,7 +180,7 @@ class SkeletonController: UIViewController {
     
     
     
-    func updateImage() {
+    func updateImage() {  //preview
         let image = characterSkin.CGImage!
         let inBodyPart = belongsToBodyPart()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)) {
@@ -224,7 +224,7 @@ class SkeletonController: UIViewController {
         
     }
     
-    func segmentParts(completion: () -> Void){
+    func segmentParts(completion: () -> Void){ //save image
         for joint in JointName.allJoints {
             print("segmentParts: .\(joint): CGPoint(x: \(jointPoint(joint).x), y: \(jointPoint(joint).y))")
         }

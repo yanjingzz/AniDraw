@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B9999021D37714300BED178 /* SkeletonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9999011D37714300BED178 /* SkeletonModel.swift */; };
 		0BF052F31D2C07B800268947 /* DanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF052F21D2C07B800268947 /* DanceModel.swift */; };
 		2701F1401D2428AA00C597E6 /* UInt32+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F13F1D2428AA00C597E6 /* UInt32+.swift */; };
 		2701F1421D243BF600C597E6 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F1411D243BF600C597E6 /* CGRect+.swift */; };
@@ -108,6 +109,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B9999011D37714300BED178 /* SkeletonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkeletonModel.swift; sourceTree = "<group>"; };
 		0BF052F21D2C07B800268947 /* DanceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceModel.swift; sourceTree = "<group>"; };
 		2701F13F1D2428AA00C597E6 /* UInt32+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt32+.swift"; sourceTree = "<group>"; };
 		2701F1411D243BF600C597E6 /* CGRect+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				27CA0AF41D2A758C00F4332C /* CoreData */,
 				2701F1431D24BDF700C597E6 /* Joints.swift */,
 				27AFB3141D235FCD00325894 /* BodyPartNode.swift */,
+				0B9999011D37714300BED178 /* SkeletonModel.swift */,
 				27AFB3171D23604A00325894 /* CharacterNode.swift */,
 				27252A261D260C7B002CE361 /* EditMoveScene.swift */,
 				27ABA2171D3492B3007D945F /* String+WriteToURL.swift */,
@@ -485,7 +488,7 @@
 				TargetAttributes = {
 					275ABBA11D224E4200BC3B8D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = TL45XG83G4;
+						DevelopmentTeam = KU9ZGHL9NX;
 					};
 				};
 			};
@@ -672,6 +675,7 @@
 				2774FF2A1D2D063A00C79564 /* Moves.swift in Sources */,
 				275BC6781D2B5F56004484DE /* Touch.swift in Sources */,
 				275ABBD51D226EF700BC3B8D /* Vector3.swift in Sources */,
+				0B9999021D37714300BED178 /* SkeletonModel.swift in Sources */,
 				275ABBA81D224E4200BC3B8D /* EditMoveController.swift in Sources */,
 				270641EA1D33D9CC007195AB /* KeyframesEditorView.swift in Sources */,
 				275BC6821D2B5F56004484DE /* SimpleButton.swift in Sources */,
@@ -837,7 +841,7 @@
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = younn.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AniDraw/AniDraw-Bridging-Header.h";
@@ -862,7 +866,7 @@
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = younn.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AniDraw/AniDraw-Bridging-Header.h";

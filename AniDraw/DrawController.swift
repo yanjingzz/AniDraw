@@ -17,7 +17,19 @@ enum DrawingTool: Int {
     case Eraser
 }
 
-class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, UIPopoverPresentationControllerDelegate {
+class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, UIPopoverPresentationControllerDelegate, UIScrollViewDelegate {
+    
+    @IBOutlet weak var imageScrollView: UIScrollView!
+
+    @IBAction func undoAction(sender: UISwipeGestureRecognizer) {
+        print("left")
+        drawView.undo()
+    }
+        
+    @IBAction func redoAction(sender: UISwipeGestureRecognizer) {
+        print("right")
+        drawView.redo()
+    }
     
     @IBOutlet private weak var drawView: DrawView!
     @IBOutlet var toolsButton: [UIButton]!
@@ -93,6 +105,12 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
             let image = UIImage(data: imageData) {
             drawView.initialImage = image
         }
+        
+        imageScrollView.minimumZoomScale = 1.0;
+        imageScrollView.maximumZoomScale = 6.0;
+        imageScrollView.contentSize = CGSize(width: 1024, height: 768)
+        imageScrollView.panGestureRecognizer.minimumNumberOfTouches = 2
+        imageScrollView.panGestureRecognizer.maximumNumberOfTouches = 2
     }
 
     override func viewDidLayoutSubviews() {
@@ -105,6 +123,7 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
                 button.frame.origin = CGPoint(x: -100, y: button.frame.minY)
             }
         }
+        
         
     }
     override func didReceiveMemoryWarning() {
@@ -175,4 +194,10 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
         button.backgroundColor = c
         drawView.color = c
     }
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+    {
+        return self.drawView
+    }
+    
 }

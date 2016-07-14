@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CharactersController: UIViewController {
+class CharactersController: UIViewController, UIScrollViewDelegate{
 
     var characters: [CharacterStorage]?
     private var currentCharacter: CharacterStorage? {
@@ -170,7 +170,10 @@ extension CharactersController: iCarouselDataSource, iCarouselDelegate {
         return itemView
     }
     func carouselCurrentItemIndexDidChange(carousel: iCarousel) {
-        nameLabel.text = characters?[carousel.currentItemIndex].name ?? ""
-
+        if carousel.currentItemIndex < 0 {
+            nameLabel.text = ""
+        } else {
+            nameLabel.text = characters?[carousel.currentItemIndex].name ?? ""
+        }
     }
 }

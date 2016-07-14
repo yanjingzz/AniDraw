@@ -7,123 +7,116 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01CFE72603C22865312BCD6DD54D4DA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32444F82DFAC984B7EDD1408F5E33CCC /* QuartzCore.framework */; };
-		028A48D558BB468E503F431727286796 /* Pods-AniDraw-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A241CBD5BAAEA8E7946BA8B489CE8E /* Pods-AniDraw-dummy.m */; };
-		09435816567501D89698B5F88A4E44B9 /* JGProgressHUDSuccessIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D71ED1DB29D22950E75F2747A60259 /* JGProgressHUDSuccessIndicatorView.m */; };
-		0AF03BEB17B21617DAE72E1DB2AA6239 /* JGProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A25EC0844CB5C0F3467FE1C6C2BB4E9A /* JGProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0D0F309DC3A69EE1B12FC3327839C85C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AB83A40837644AD90090FA385C08A8 /* Config.swift */; };
-		0D6294F75EF712E12213A1E3529B1DB5 /* MSColorSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0160BC867ECAFCC2868938E05AFD2F50 /* MSColorSelectionView.m */; };
+		01E5B687E198E69CF0A3CF6D80837046 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE0159CAD14F9295F2C59417D858110 /* Foundation.framework */; };
+		04EDB24BBF37218355321DFD146DB3B3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2EB8385CEAEDCDD20E9432317A032A /* QuartzCore.framework */; };
+		09435816567501D89698B5F88A4E44B9 /* JGProgressHUDSuccessIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCCD0CFAFBA3EB60AF2E90BEAE84789 /* JGProgressHUDSuccessIndicatorView.m */; };
+		0AF03BEB17B21617DAE72E1DB2AA6239 /* JGProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CD2CA144B44841D6C1AB22CBB1EFC5 /* JGProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D0F309DC3A69EE1B12FC3327839C85C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8FF9A990E7A52B705FC3318F72A7D /* Config.swift */; };
+		0D6294F75EF712E12213A1E3529B1DB5 /* MSColorSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB534E4FFBD0F6AE01376E410C94184 /* MSColorSelectionView.m */; };
 		0DF682557E4E56CF2E6204A510B39EAA /* Pitchy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B30FCEA41EED8B5F8C0B95A47CC7923 /* Pitchy.framework */; };
-		112F63A968D2B1E3103BE1D0957DF597 /* JGProgressHUD Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B389CAB2A06913450908DB0C57FCE09C /* JGProgressHUD Resources.bundle */; };
-		13F5432D9AE3A511EA76506B27B07500 /* MSColorSelectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = CFCC39510571211FE78C4B6E3EC0A6F4 /* MSColorSelectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		17EEAADCF13E184CAC4B48CF8B52B8A5 /* MSColorPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 954F053824AF45C2A9C1F8425F46CD79 /* MSColorPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		197E8602976643CB9329010568986AFC /* PitchCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E8040CFEDCA0F28750A1622877257B /* PitchCalculator.swift */; };
-		1ACCAD57CE934B6110C14CF4A53F7745 /* NoteCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E35CF0A31EE52142316A979DC8FAC9A /* NoteCalculator.swift */; };
-		251018738E93FDD329D3CDC028CBFB4C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 856C37C6B1B6797CB1E2602E5D0B1956 /* AVFoundation.framework */; };
-		251773F056BA41A68BDD9C62633EB279 /* JGProgressHUDRingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F816AD781DCD5AD0B18FEB2479C0AB46 /* JGProgressHUDRingIndicatorView.m */; };
-		2A4030FDDC08174CBC4105CE5A550B5F /* MSColorWheelView.h in Headers */ = {isa = PBXBuildFile; fileRef = AB41D8DB79C8E76C3AAA8D5350B587E1 /* MSColorWheelView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2C5854EDCC54A5074C4FACFA645411E0 /* MSColorComponentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E15649DF942801C386BBF7E4E264CFB /* MSColorComponentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2DF89AC7D23F7B8C2360B001472B16C5 /* MSHSBView.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F1F0AABE90FBA0573A1B383241B8FA /* MSHSBView.m */; };
-		2E4FE147AE34E3F2155B66A91E389FDF /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5549E979B3291B547F7767B50BC9DB92 /* Array+Extensions.swift */; };
-		2FC2B94F8965DB44B4F1A2552BC70511 /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68CB3DFD239009B2B6CB1EABF4990C2 /* Buffer.swift */; };
-		3210552EE14BF09797714D00F55D075B /* JGProgressHUD-Defines.h in Headers */ = {isa = PBXBuildFile; fileRef = 41F6CF37A98765E711599E993E11656B /* JGProgressHUD-Defines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		33C6B2006FA8CC268C70BF0B44231421 /* MSColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FD11B2E0B6AAE09498EFAD23960CB19D /* MSColorUtils.m */; };
-		37D7598C4598060384560906F1A0B6C7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CAA9E142209E0D24BE9B1723AF6F43 /* Note.swift */; };
-		3BB2534DCF13A506F1BEA2FFB530BA65 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72192E273B1A1491D1F20B5701E4893 /* Error.swift */; };
-		3DE6FA0BBBAD04435534B55D04B64E55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */; };
-		3E2E09E45D3E8C651AE4C6F6B4418D16 /* Pitchy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 983734B77FA962423EDF01EB4B68BF00 /* Pitchy-dummy.m */; };
-		3EA3D6FE284197163A75940BB41BB1BC /* TransformStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FBD16F61C5834D1C0D9681392E724F /* TransformStrategy.swift */; };
-		3EBA98EEF1A580EC8BF2CE2E7903ECC4 /* JGProgressHUDRingIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = D7C38548082E60299DF7226DC4BE2133 /* JGProgressHUDRingIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F6A29B571A4D5FB8792CBCF4C92BD56 /* OutputSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76D35049BE92A33BAC7E204758B5CBB /* OutputSignalTracker.swift */; };
-		43573F03D53511D1412B71AFF07AC07A /* HPSEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F773FBA6F6FBE565F73F2306C231E6B8 /* HPSEstimator.swift */; };
-		44F7DF4EBA12C2E9D12B03D4C78D9418 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBDF51BCFF7B12905A80C4763741A354 /* Accelerate.framework */; };
-		4534DB58B44B2A5B0A877395EECDE26A /* WaveCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B4A09FCAA531BB8B044E9A35F736 /* WaveCalculator.swift */; };
-		476E30A7475DCC20F88BE4982A8E4924 /* JGProgressHUDErrorIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A076201F8FA2FE3585B7AB0F7DD7594 /* JGProgressHUDErrorIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49870BA1A2353BDFF6400084B84982F6 /* Pods-AniDraw-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4CF476A90CDEA859150A4BEBE35B99A /* Pods-AniDraw-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		50EA2AD3CB6A4AA84E69D4B8745B7205 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E777C52B5634683EBF56EBC34422885 /* UIKit.framework */; };
-		559DFCBE5D8C7A43125930F08E125094 /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52033BF77648B7D22FC7A83DFA99E0 /* Transformer.swift */; };
-		56BE2E91871CB441CADCB53B2C77B398 /* Beethoven-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FCF24E1F127AAD9A07EB5CEEF2916F /* Beethoven-dummy.m */; };
-		58B32E4E41DCD355573FD78404A4C899 /* MSRGBView.h in Headers */ = {isa = PBXBuildFile; fileRef = 593C8C4E5713AE8ADF23BAD4B97FFCB3 /* MSRGBView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5BA96791D2E14ABF9334ADD4E8894D30 /* MSColorComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370585426A8420E4E8C5A5712FE6FC07 /* MSColorComponentView.m */; };
-		6378051D71EA27AF7724DC783FAD0702 /* QuinnsFirstEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F998BB2476FDF4D6E4DC3B6A481511A /* QuinnsFirstEstimator.swift */; };
-		63997D8F0F4649CB330965E3AC466DDC /* SignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A43727F64422681AF128B4EBB4B60 /* SignalTracker.swift */; };
-		66D284FD4C72EEC21B6B365B4B5C1475 /* JGProgressHUDFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 14039C6FF2030B9E9CCAC14B0DD662F1 /* JGProgressHUDFadeAnimation.m */; };
-		696877E890292E13A59AB7AF614B494F /* MSColorUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1800933901CE785B87F8C1E058306458 /* MSColorUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6B6486F666F86C0DF9A50AE06747FED5 /* MSColorSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7E2A9A4B2A97442FB54493932EE2F /* MSColorSelectionViewController.m */; };
-		6C0A8E721107BEB86C3F40EE27A86245 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267CDA6999FB17380000C178211B7CD6 /* Config.swift */; };
-		6E11BBCB62AF8722C16B2D84EB2C12FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */; };
-		6F49484E7A394DBFCA5AF2C6ABFB3D91 /* QuadradicEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C190B0C5ED611A2D982EC27C4C22B22E /* QuadradicEstimator.swift */; };
-		6F90BD17C9A552F3579230348DC130E0 /* EstimationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E8BC3344C9B8E8BB2C4797E8F02B9A /* EstimationError.swift */; };
-		70B92815323E77F69937824CA239B6AB /* EstimationStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA591B7A6E68ECC280DBCF51AA7BBC /* EstimationStrategy.swift */; };
-		72E250C04949942C751C0B61CA3CFFD1 /* JGProgressHUDIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A87FA105F722484972E218D535D8242 /* JGProgressHUDIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7807E4544CE620CD6AB2561ADC0425EC /* JGProgressHUDSuccessIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = CE40F277676BCF3EE95D0B4796D93D41 /* JGProgressHUDSuccessIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		782C5582613189572A50B43E49DB71B1 /* JGProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8561D4ED802B842D4AACA0304DB05F3C /* JGProgressHUD.m */; };
-		7845BE0FF876B96E5FF8D9513E928CAF /* JGProgressHUDFadeZoomAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 548A11056EB694AD898FE15FDCE5C3A3 /* JGProgressHUDFadeZoomAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7953BC2441CC6CDDCA4F70F763BD5D24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */; };
-		79CC6B4A54228B48F0C783BB7F499A56 /* MSHSBView.h in Headers */ = {isa = PBXBuildFile; fileRef = 75D9238C850C4F4446E5D9DAA41D1210 /* MSHSBView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7B2496FC2CAC29495D0A09946EFD16CE /* AcousticWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9202B674987D958C7C094AAB1A2CF01E /* AcousticWave.swift */; };
-		7BF22F8C68C121C202A94B1883134CA4 /* MSSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E3FAEBF55957B0E2328034AEC6957 /* MSSliderView.m */; };
-		7CD913E68D464F91CF9594ECFE49F771 /* Pitchy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F583B25302D309EF4F9A10479C842A1F /* Pitchy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		879A30A98BD109C1D4A6E79EC3F92697 /* JGProgressHUDErrorIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F8D2123FA86FE6274B77ED03E4DF90 /* JGProgressHUDErrorIndicatorView.m */; };
-		89564C6D85AE2A4DF13AF536497AD603 /* JGProgressHUDPieIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = B815947CB4BD5DB8929C45BA7CE77F2E /* JGProgressHUDPieIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8AB97551B3EC56D58DB1B40042D6A441 /* JGProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 127840F4A599CAAA2300E1189AA4341A /* JGProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8CE70F0B66135405769A23C14D96AA15 /* JGProgressHUDPieIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF98A623B8B5F6013EED529D3220914 /* JGProgressHUDPieIndicatorView.m */; };
-		8D410872C0A2200E60497AB8395F59C7 /* Estimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B53E6905D89E6937228B0816BD8FE7 /* Estimator.swift */; };
-		8F2A7C3469E600FFBC6056F79B322EC1 /* InputSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003A02BBEB155A92E74C43E1AFF37804 /* InputSignalTracker.swift */; };
-		9D818CC379B5B18946157208A0A499AF /* LocationEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74830CF1C00FB4D1EE6751E29A781B /* LocationEstimator.swift */; };
-		9EBA127F90CA19F3F427C10900E5DB5C /* JGProgressHUDFadeAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A0376A6219612BFA24CB1D59CAE09209 /* JGProgressHUDFadeAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A02FA725368B9F5067246B16D22B805F /* EstimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492995B4FC9748C1DF25705FDE5159E /* EstimationFactory.swift */; };
-		A86AADDD78E4FB9A5C003F9DBD66B98E /* PitchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9026E6A22E5E6281580AFF77E922B8 /* PitchEngine.swift */; };
-		AC9FD0B289F1E676E2BEDCCB8D7DFF70 /* MSColorPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D8389DF477495CA5A78509CF0930F19B /* MSColorPicker-dummy.m */; };
-		BBD6F99671A69ED02C70D69293FC7D51 /* MSSliderView.h in Headers */ = {isa = PBXBuildFile; fileRef = AE99E0228D4F0C01C42C1B77CA71756E /* MSSliderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C13C7C3B7A47BA1A7AFA11CB4E71AE6D /* JGProgressHUDFadeZoomAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAE6F6F423FAF3F378735CB4435C9C1 /* JGProgressHUDFadeZoomAnimation.m */; };
-		C210855722BA44E4FDE24BAC79A7B44C /* FFTTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E319273127553E1B757B90B936762058 /* FFTTransformer.swift */; };
-		C2EC4B13DC0F85298B2B85AE871DBD35 /* BarycentricEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C80B4FC4F605ADBFCC70E98631726 /* BarycentricEstimator.swift */; };
-		C48DB1A4001B5B8B8B50A7C453163AD0 /* JGProgressHUDAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 483372D6067723625B6F1A91E4D302D6 /* JGProgressHUDAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CDB5976F897591D6C6A8E18747ABB9FC /* TransformFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F8B52FF28709B1AA186FBD03F7986F /* TransformFactory.swift */; };
-		CE8BB509084C32EDE102CE03D6D83753 /* MSColorPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A7DE3A45B23A83CF1F1A37809155F71B /* MSColorPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF6EC2DD2E16B730DDF73C88506952CA /* Beethoven-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A0B46DCAC7B00021D96243DA6003363F /* Beethoven-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D7498158B940FA0C972641DAAF82471E /* Pitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09D28846F8B44106B5CB47F001B3B6 /* Pitch.swift */; };
-		D7E7FF42203A23B1F087B9B2E6887238 /* JGProgressHUDImageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47339FEB78E03A5145005BE9E174CC54 /* JGProgressHUDImageIndicatorView.m */; };
-		D8928D93897D5410F8BD5A598C0193B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */; };
-		DBD3C3DC62CE6BCE5197DB76AEC3BA93 /* JGProgressHUDIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 900920522403BB212BDF37F03DBE11ED /* JGProgressHUDIndicatorView.m */; };
-		E2C1EEE841F2BC2754792E48DC249C2B /* MSColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 11DD38759CC3D004E4A568E506374439 /* MSColorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E3DC7D543BCAC3F74B67BCD77CD979C3 /* MSColorSelectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B06386C5B56D956686AA35E5ED77E22 /* MSColorSelectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED854B70B070D7FDDA5911CA815043C2 /* JGProgressHUDImageIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 053BACB7C851B274BC5778E4E450E932 /* JGProgressHUDImageIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED9870C1FC8F3CDE6BF5C4A9D312D09F /* JGProgressHUDIndeterminateIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DD9D31783A9D78C555CCC680B190C /* JGProgressHUDIndeterminateIndicatorView.m */; };
-		F61E47D3CA2A60E12AF2DC908ECB6321 /* JGProgressHUDAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0B9D07B7BEA29A573FD05728E7AD66 /* JGProgressHUDAnimation.m */; };
-		F62CE5BE0F614AA64FAF792D6DDF282D /* JainsEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24092DB71C7B5CAAA177AC0790CE7BC /* JainsEstimator.swift */; };
-		FC524D4413AEA6B4C37ECC07AE66962C /* JGProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E61968FABD09D18255CCD2AB9814382 /* JGProgressHUD-dummy.m */; };
-		FC9EDC8175C71637AAE282A0B66A6E11 /* QuinnsSecondEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF24B6C973E26BC02DB81FF7D7DF6EF0 /* QuinnsSecondEstimator.swift */; };
-		FD8AF364A38CA22F7A6A5984EC5753C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */; };
-		FE1278517CF18A25FDD8488772A6FDA5 /* SimpleTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE7F3A1FA329A36225E576EAD01643 /* SimpleTransformer.swift */; };
-		FE240E21621DDFEF1A15F62DF12E6751 /* MSRGBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B9230C0413F1EFBCF7E0F94635C1CC /* MSRGBView.m */; };
-		FE311FF60CB15F414C956FD6FA75C785 /* MSColorWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2191D6C87BA710E50DEFDF42557062D1 /* MSColorWheelView.m */; };
-		FEA21DBE90FFFA123BD5B1B18F356A60 /* JGProgressHUDIndeterminateIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 59AB95046C1266DF72E568ACF30DAB1A /* JGProgressHUDIndeterminateIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF313B4F21C8A80D417A41F5850D346B /* MaxValueEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB271E38B09EFE163D6DCB30988A7C5 /* MaxValueEstimator.swift */; };
+		112F63A968D2B1E3103BE1D0957DF597 /* JGProgressHUD Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A3551886A62F8B645D54D1FC3AA8DB36 /* JGProgressHUD Resources.bundle */; };
+		13F5432D9AE3A511EA76506B27B07500 /* MSColorSelectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8565B006B3CAB0011D49B1C174E71038 /* MSColorSelectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17EEAADCF13E184CAC4B48CF8B52B8A5 /* MSColorPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DF63CC4251A3126A9BD0C665541237E /* MSColorPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		197E8602976643CB9329010568986AFC /* PitchCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1F248C47E2FAB323768C20A0579039 /* PitchCalculator.swift */; };
+		1ACCAD57CE934B6110C14CF4A53F7745 /* NoteCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44FE87AD223D279B2D432FC9967E093 /* NoteCalculator.swift */; };
+		251773F056BA41A68BDD9C62633EB279 /* JGProgressHUDRingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2D417D99E44F06EF6FE3EEB66E251F /* JGProgressHUDRingIndicatorView.m */; };
+		2A4030FDDC08174CBC4105CE5A550B5F /* MSColorWheelView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E7CFF4D06482C514A190AD2FDC7B396 /* MSColorWheelView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C5854EDCC54A5074C4FACFA645411E0 /* MSColorComponentView.h in Headers */ = {isa = PBXBuildFile; fileRef = AF76D2A702268FB5F67CEA18A215D842 /* MSColorComponentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DF89AC7D23F7B8C2360B001472B16C5 /* MSHSBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FED7214C480B98B466BF91E940DA1C /* MSHSBView.m */; };
+		2E4FE147AE34E3F2155B66A91E389FDF /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0558A7E94E05C8A99E32274B1289A /* Array+Extensions.swift */; };
+		2FC2B94F8965DB44B4F1A2552BC70511 /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7645C8125A7448E9303723C105A8FD /* Buffer.swift */; };
+		3210552EE14BF09797714D00F55D075B /* JGProgressHUD-Defines.h in Headers */ = {isa = PBXBuildFile; fileRef = F8DE8D24182236265166D5E112B56AA9 /* JGProgressHUD-Defines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33C6B2006FA8CC268C70BF0B44231421 /* MSColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D6C6B44E23E30B3B8E767A9646393E /* MSColorUtils.m */; };
+		361C6E06E85D345E80C25423476B6236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE0159CAD14F9295F2C59417D858110 /* Foundation.framework */; };
+		37D7598C4598060384560906F1A0B6C7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FD848A6C739632DE0702CC32848DC6 /* Note.swift */; };
+		3BB2534DCF13A506F1BEA2FFB530BA65 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737AE5DF038A28EF89FF95DE3184096B /* Error.swift */; };
+		3E2E09E45D3E8C651AE4C6F6B4418D16 /* Pitchy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D59B3CC00E08F3E4F714540AF7F5F38 /* Pitchy-dummy.m */; };
+		3EA3D6FE284197163A75940BB41BB1BC /* TransformStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF24BFDD3F9BB833113B12E311484D4 /* TransformStrategy.swift */; };
+		3EBA98EEF1A580EC8BF2CE2E7903ECC4 /* JGProgressHUDRingIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E6788A5A58665C032D563811279954 /* JGProgressHUDRingIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F6A29B571A4D5FB8792CBCF4C92BD56 /* OutputSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C2F3A0D417B1F3516CC036525ABFD4 /* OutputSignalTracker.swift */; };
+		43573F03D53511D1412B71AFF07AC07A /* HPSEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE03BE0A0D4882AC59093FDA528B4BD /* HPSEstimator.swift */; };
+		4534DB58B44B2A5B0A877395EECDE26A /* WaveCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B47747BF1D34BCE32257F4DDF25FDA /* WaveCalculator.swift */; };
+		476E30A7475DCC20F88BE4982A8E4924 /* JGProgressHUDErrorIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F10D6503C9E172C1A2D426BDF3F16F1 /* JGProgressHUDErrorIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		553DCDAA9B39F17C00B376C62EBD6272 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE0159CAD14F9295F2C59417D858110 /* Foundation.framework */; };
+		559DFCBE5D8C7A43125930F08E125094 /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB779BCC7A9D3A17B0F344CA32B0A258 /* Transformer.swift */; };
+		56BE2E91871CB441CADCB53B2C77B398 /* Beethoven-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B164297480A321E30F8D39F29A7AD1 /* Beethoven-dummy.m */; };
+		58B32E4E41DCD355573FD78404A4C899 /* MSRGBView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBBE048FC510451D17BBFBC792C7E72 /* MSRGBView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BA96791D2E14ABF9334ADD4E8894D30 /* MSColorComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD651ED0460D2083E571DD58DB659350 /* MSColorComponentView.m */; };
+		6378051D71EA27AF7724DC783FAD0702 /* QuinnsFirstEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F7F413BB6DEA4F5462D42470C60547 /* QuinnsFirstEstimator.swift */; };
+		63997D8F0F4649CB330965E3AC466DDC /* SignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35105F324FF787B4878C748F941B355E /* SignalTracker.swift */; };
+		66D284FD4C72EEC21B6B365B4B5C1475 /* JGProgressHUDFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C1989DFE26C242D687315051B4AC78 /* JGProgressHUDFadeAnimation.m */; };
+		696877E890292E13A59AB7AF614B494F /* MSColorUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B017220ADE38E73F5F83F68330A3233 /* MSColorUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B6486F666F86C0DF9A50AE06747FED5 /* MSColorSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1893181D200E88D33179B17088CD50 /* MSColorSelectionViewController.m */; };
+		6C0A8E721107BEB86C3F40EE27A86245 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63928AAA4D5E1F9C9EB49D713BE4EF /* Config.swift */; };
+		6F49484E7A394DBFCA5AF2C6ABFB3D91 /* QuadradicEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E2802C5E9845137563459B435A9EE4 /* QuadradicEstimator.swift */; };
+		6F90BD17C9A552F3579230348DC130E0 /* EstimationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65701AA958B08205070ECEC87E14A6 /* EstimationError.swift */; };
+		70B92815323E77F69937824CA239B6AB /* EstimationStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157F0B56F20A2AADE0010654E2FABC0 /* EstimationStrategy.swift */; };
+		72E250C04949942C751C0B61CA3CFFD1 /* JGProgressHUDIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 69C1171533076C7916CCD6E77CE6AB16 /* JGProgressHUDIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		745345412C681E05E90F89BAB69B568F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7054737C0714C4DA3329770B5F7C3142 /* AVFoundation.framework */; };
+		7807E4544CE620CD6AB2561ADC0425EC /* JGProgressHUDSuccessIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = A0210B70C6203539E0C14276B0DF417C /* JGProgressHUDSuccessIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		782C5582613189572A50B43E49DB71B1 /* JGProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C5376C319D22E143154EC972C701F196 /* JGProgressHUD.m */; };
+		7845BE0FF876B96E5FF8D9513E928CAF /* JGProgressHUDFadeZoomAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = B9D7EEF24C0AB389AFB62536DBA07808 /* JGProgressHUDFadeZoomAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79CC6B4A54228B48F0C783BB7F499A56 /* MSHSBView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D713E636355780A759D92B028F5D0A1 /* MSHSBView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B2496FC2CAC29495D0A09946EFD16CE /* AcousticWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F9FA391F70DB578D5376D557695146 /* AcousticWave.swift */; };
+		7BF22F8C68C121C202A94B1883134CA4 /* MSSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE1282A8F4F0ABEFAFE37B185F4EF1 /* MSSliderView.m */; };
+		7CD913E68D464F91CF9594ECFE49F771 /* Pitchy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F3BA5A10470233FBF82205F242EDE0EA /* Pitchy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83CA2BE74436FC56FE8B7F1877AC274E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A573B00F89952A67067882A94AA63B6 /* Accelerate.framework */; };
+		879A30A98BD109C1D4A6E79EC3F92697 /* JGProgressHUDErrorIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EAF56F218317130CE8827CF16D14B3 /* JGProgressHUDErrorIndicatorView.m */; };
+		89564C6D85AE2A4DF13AF536497AD603 /* JGProgressHUDPieIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C04C15AD97B7816A82CFFA6773C5162 /* JGProgressHUDPieIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8AB97551B3EC56D58DB1B40042D6A441 /* JGProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D438239FD6B3EAC33ABA2D17C989F676 /* JGProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8CE70F0B66135405769A23C14D96AA15 /* JGProgressHUDPieIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 865374D78353076C36C7B235E61CD3F1 /* JGProgressHUDPieIndicatorView.m */; };
+		8D410872C0A2200E60497AB8395F59C7 /* Estimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA986005E8C6D3C709C7BD43F16D42D9 /* Estimator.swift */; };
+		8F2A7C3469E600FFBC6056F79B322EC1 /* InputSignalTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5AD7F1427A0CE18D059C7D0FB6129E /* InputSignalTracker.swift */; };
+		9D818CC379B5B18946157208A0A499AF /* LocationEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7002CC3648583BF885CDBF0494917C9 /* LocationEstimator.swift */; };
+		9EBA127F90CA19F3F427C10900E5DB5C /* JGProgressHUDFadeAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = B5A98FCF28983F6740719AFFE92D4CFA /* JGProgressHUDFadeAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A02FA725368B9F5067246B16D22B805F /* EstimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE298CA9F6D177C8BA0A3B10F148984 /* EstimationFactory.swift */; };
+		A86AADDD78E4FB9A5C003F9DBD66B98E /* PitchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E436404D5F2520D7A18BBB23B26FC31 /* PitchEngine.swift */; };
+		AA8E48DCFBBE2626D07F079317FD8A91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9592B2FE9403FA3EFBAF34737EE04F4 /* UIKit.framework */; };
+		AC9FD0B289F1E676E2BEDCCB8D7DFF70 /* MSColorPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE96FA11C885922317BA91B14C7FF08 /* MSColorPicker-dummy.m */; };
+		BBD6F99671A69ED02C70D69293FC7D51 /* MSSliderView.h in Headers */ = {isa = PBXBuildFile; fileRef = CE23F4DA1AC8C48943581EF2F666DE10 /* MSSliderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C13C7C3B7A47BA1A7AFA11CB4E71AE6D /* JGProgressHUDFadeZoomAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2392F384E146A7A88B52249462A687D3 /* JGProgressHUDFadeZoomAnimation.m */; };
+		C210855722BA44E4FDE24BAC79A7B44C /* FFTTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800D463A5BC079B6663D8A568C5EE507 /* FFTTransformer.swift */; };
+		C2C5B4F871F6D0D9D309BE19975DB0D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE0159CAD14F9295F2C59417D858110 /* Foundation.framework */; };
+		C2EC4B13DC0F85298B2B85AE871DBD35 /* BarycentricEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD5CEA260E3D2B46CEB9FEFF1295970 /* BarycentricEstimator.swift */; };
+		C48DB1A4001B5B8B8B50A7C453163AD0 /* JGProgressHUDAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E48CEA538F845A3EE3FA32923EE7487 /* JGProgressHUDAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDB5976F897591D6C6A8E18747ABB9FC /* TransformFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1BBD8A846DB0CC6D03E18A4EFEF34 /* TransformFactory.swift */; };
+		CE8BB509084C32EDE102CE03D6D83753 /* MSColorPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 927DDA774CD904B4D42ED0E19E00D051 /* MSColorPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF1FAD6F87988B46939598A7B5068899 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE0159CAD14F9295F2C59417D858110 /* Foundation.framework */; };
+		CF6EC2DD2E16B730DDF73C88506952CA /* Beethoven-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA222ABD9F2DBE5C758E0A53543830D /* Beethoven-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7498158B940FA0C972641DAAF82471E /* Pitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB61382A712A780B06DD0F97D8E86C /* Pitch.swift */; };
+		D7E7FF42203A23B1F087B9B2E6887238 /* JGProgressHUDImageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2233CA8828D41B39C0977C98EB45B6C3 /* JGProgressHUDImageIndicatorView.m */; };
+		DBD3C3DC62CE6BCE5197DB76AEC3BA93 /* JGProgressHUDIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9951E17FFBEF6B3736D688966E6FBB4 /* JGProgressHUDIndicatorView.m */; };
+		E2C1EEE841F2BC2754792E48DC249C2B /* MSColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = D7303613FD6BE539518B431632E018C6 /* MSColorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E3DC7D543BCAC3F74B67BCD77CD979C3 /* MSColorSelectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C8649D7D7DCBA00CA7D82DAC7A9A1C4A /* MSColorSelectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED854B70B070D7FDDA5911CA815043C2 /* JGProgressHUDImageIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = D723D8B4F7A7AA469081CD2B14785477 /* JGProgressHUDImageIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9870C1FC8F3CDE6BF5C4A9D312D09F /* JGProgressHUDIndeterminateIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6433169F76324C00CFF54B1A0A259877 /* JGProgressHUDIndeterminateIndicatorView.m */; };
+		F05A7E800F18EDB59942D15B13983A6E /* Pods-AniDraw-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4CF476A90CDEA859150A4BEBE35B99A /* Pods-AniDraw-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F25BA0EC360C069AA782B0F37CC24D96 /* Pods-AniDraw-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A241CBD5BAAEA8E7946BA8B489CE8E /* Pods-AniDraw-dummy.m */; };
+		F61E47D3CA2A60E12AF2DC908ECB6321 /* JGProgressHUDAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC28CA4BA0F59E36EEA80066C5BFA27 /* JGProgressHUDAnimation.m */; };
+		F62CE5BE0F614AA64FAF792D6DDF282D /* JainsEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151C2ACFA7BF99228AEF2A170AC48415 /* JainsEstimator.swift */; };
+		FC524D4413AEA6B4C37ECC07AE66962C /* JGProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7817457D02393E521C98F4A81853A0 /* JGProgressHUD-dummy.m */; };
+		FC9EDC8175C71637AAE282A0B66A6E11 /* QuinnsSecondEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2355735BB60073E4BBF55669B6E6C /* QuinnsSecondEstimator.swift */; };
+		FE1278517CF18A25FDD8488772A6FDA5 /* SimpleTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1207402E36259C3379189CF32340E8E /* SimpleTransformer.swift */; };
+		FE240E21621DDFEF1A15F62DF12E6751 /* MSRGBView.m in Sources */ = {isa = PBXBuildFile; fileRef = A238278E134CBFB6CC7E9A9A2D7C9C2B /* MSRGBView.m */; };
+		FE311FF60CB15F414C956FD6FA75C785 /* MSColorWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E318E5538C246B24191B7A3B9EB169D /* MSColorWheelView.m */; };
+		FEA21DBE90FFFA123BD5B1B18F356A60 /* JGProgressHUDIndeterminateIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3400E39A4325348807D9CE91E3D324A /* JGProgressHUDIndeterminateIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF313B4F21C8A80D417A41F5850D346B /* MaxValueEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7863F267DF8A527037BEBA3F2168D3 /* MaxValueEstimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2C53FB7130F4C53E9F71F57C44C6E531 /* PBXContainerItemProxy */ = {
+		0C7AEB5887A1B2E83C4E3208C5A4DF66 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 617B0FC57CCB604D47A24E6198763D04;
-			remoteInfo = JGProgressHUD;
+			remoteGlobalIDString = D547ECBAFD0BAC79D81AE36137B80925;
+			remoteInfo = Pitchy;
 		};
-		320ED5BA8D0F2AFE4202710C35238432 /* PBXContainerItemProxy */ = {
+		3B490E24E0847B0451728D9CB816B57D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4935D7F909FA1FA4819E2F69EC75829F;
 			remoteInfo = MSColorPicker;
-		};
-		475614327E883B0866B16A6CF467DC86 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3F2148881B422F7499162ACACC37D143;
-			remoteInfo = Beethoven;
 		};
 		6017C46D344F982C1CE0038EB73CA894 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -132,136 +125,144 @@
 			remoteGlobalIDString = D547ECBAFD0BAC79D81AE36137B80925;
 			remoteInfo = Pitchy;
 		};
-		BD0D1A281AEBA47D0D559375D3B5C9E3 /* PBXContainerItemProxy */ = {
+		85BE0C388C84208F921B92004DAD7A8E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D547ECBAFD0BAC79D81AE36137B80925;
-			remoteInfo = Pitchy;
+			remoteGlobalIDString = 3F2148881B422F7499162ACACC37D143;
+			remoteInfo = Beethoven;
+		};
+		FFCA95419E62C5E592209ED66A972237 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 617B0FC57CCB604D47A24E6198763D04;
+			remoteInfo = JGProgressHUD;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		003A02BBEB155A92E74C43E1AFF37804 /* InputSignalTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputSignalTracker.swift; path = Source/SignalTracking/Units/InputSignalTracker.swift; sourceTree = "<group>"; };
-		0160BC867ECAFCC2868938E05AFD2F50 /* MSColorSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorSelectionView.m; path = MSColorPicker/MSColorSelectionView.m; sourceTree = "<group>"; };
-		01F8B52FF28709B1AA186FBD03F7986F /* TransformFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformFactory.swift; path = Source/Transform/TransformFactory.swift; sourceTree = "<group>"; };
-		0532339512798C9660B30CC277D226CD /* MSColorPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSColorPicker.xcconfig; sourceTree = "<group>"; };
-		053BACB7C851B274BC5778E4E450E932 /* JGProgressHUDImageIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDImageIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDImageIndicatorView.h; sourceTree = "<group>"; };
-		057F5ADB0FB7FC61EC0F5FE191CA2D9E /* Pods_AniDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AniDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0AB27942C16FD655C165DCB2D6B74E24 /* JGProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JGProgressHUD-prefix.pch"; sourceTree = "<group>"; };
-		0C0B9D07B7BEA29A573FD05728E7AD66 /* JGProgressHUDAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDAnimation.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDAnimation.m; sourceTree = "<group>"; };
-		11DD38759CC3D004E4A568E506374439 /* MSColorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorView.h; path = MSColorPicker/MSColorView.h; sourceTree = "<group>"; };
-		127840F4A599CAAA2300E1189AA4341A /* JGProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUD.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUD.h; sourceTree = "<group>"; };
-		13F7E2A9A4B2A97442FB54493932EE2F /* MSColorSelectionViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorSelectionViewController.m; path = MSColorPicker/MSColorSelectionViewController.m; sourceTree = "<group>"; };
-		14039C6FF2030B9E9CCAC14B0DD662F1 /* JGProgressHUDFadeAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDFadeAnimation.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeAnimation.m; sourceTree = "<group>"; };
-		1800933901CE785B87F8C1E058306458 /* MSColorUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorUtils.h; path = MSColorPicker/MSColorUtils.h; sourceTree = "<group>"; };
-		18F57D0F2A68740BDF39E10CD7BA79BA /* Beethoven.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Beethoven.xcconfig; sourceTree = "<group>"; };
-		1DC456A724E3A87F340D0C35BEE3A93F /* Pitchy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pitchy.xcconfig; sourceTree = "<group>"; };
-		1E61968FABD09D18255CCD2AB9814382 /* JGProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JGProgressHUD-dummy.m"; sourceTree = "<group>"; };
-		1E777C52B5634683EBF56EBC34422885 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		20B9230C0413F1EFBCF7E0F94635C1CC /* MSRGBView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSRGBView.m; path = MSColorPicker/MSRGBView.m; sourceTree = "<group>"; };
-		2191D6C87BA710E50DEFDF42557062D1 /* MSColorWheelView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorWheelView.m; path = MSColorPicker/MSColorWheelView.m; sourceTree = "<group>"; };
-		23FBD16F61C5834D1C0D9681392E724F /* TransformStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformStrategy.swift; path = Source/Transform/TransformStrategy.swift; sourceTree = "<group>"; };
-		267CDA6999FB17380000C178211B7CD6 /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Source/Config.swift; sourceTree = "<group>"; };
-		26E8BC3344C9B8E8BB2C4797E8F02B9A /* EstimationError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EstimationError.swift; path = Source/Estimation/EstimationError.swift; sourceTree = "<group>"; };
-		2C0651368731A50B4CEB1C228F6C968B /* MSColorPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MSColorPicker.modulemap; sourceTree = "<group>"; };
-		2C4C80B4FC4F605ADBFCC70E98631726 /* BarycentricEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarycentricEstimator.swift; path = Source/Estimation/Strategies/BarycentricEstimator.swift; sourceTree = "<group>"; };
-		2CDE7F3A1FA329A36225E576EAD01643 /* SimpleTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SimpleTransformer.swift; path = Source/Transform/Strategies/SimpleTransformer.swift; sourceTree = "<group>"; };
-		2F4E3FAEBF55957B0E2328034AEC6957 /* MSSliderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSliderView.m; path = MSColorPicker/MSSliderView.m; sourceTree = "<group>"; };
-		2FA51726A826134B0E8028E028543B96 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32444F82DFAC984B7EDD1408F5E33CCC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		36286CB44C63C21CB32894CAFC390CD0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		366F2F7625884ECBEB950E08A0CC4006 /* Pitchy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pitchy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		370585426A8420E4E8C5A5712FE6FC07 /* MSColorComponentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorComponentView.m; path = MSColorPicker/MSColorComponentView.m; sourceTree = "<group>"; };
-		39E2AF8F690B5B6851363EEAD2E1AEF3 /* MSColorPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSColorPicker-prefix.pch"; sourceTree = "<group>"; };
-		3D56686A748D049544449DCA273FF60C /* JGProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JGProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		40F8D2123FA86FE6274B77ED03E4DF90 /* JGProgressHUDErrorIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDErrorIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDErrorIndicatorView.m; sourceTree = "<group>"; };
-		41F6CF37A98765E711599E993E11656B /* JGProgressHUD-Defines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "JGProgressHUD-Defines.h"; path = "JGProgressHUD/JGProgressHUD/JGProgressHUD-Defines.h"; sourceTree = "<group>"; };
+		00BF9717C4BCDF6C2855F23779A24B29 /* MSColorPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MSColorPicker.modulemap; sourceTree = "<group>"; };
+		0178E6E0CEA10A54DF842E7A11C12831 /* Pitchy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pitchy.xcconfig; sourceTree = "<group>"; };
+		08C1BBD8A846DB0CC6D03E18A4EFEF34 /* TransformFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformFactory.swift; path = Source/Transform/TransformFactory.swift; sourceTree = "<group>"; };
+		0AA222ABD9F2DBE5C758E0A53543830D /* Beethoven-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Beethoven-umbrella.h"; sourceTree = "<group>"; };
+		0EBB61382A712A780B06DD0F97D8E86C /* Pitch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pitch.swift; path = Source/Data/Pitch.swift; sourceTree = "<group>"; };
+		0EE96FA11C885922317BA91B14C7FF08 /* MSColorPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MSColorPicker-dummy.m"; sourceTree = "<group>"; };
+		1157F0B56F20A2AADE0010654E2FABC0 /* EstimationStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EstimationStrategy.swift; path = Source/Estimation/EstimationStrategy.swift; sourceTree = "<group>"; };
+		151C2ACFA7BF99228AEF2A170AC48415 /* JainsEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JainsEstimator.swift; path = Source/Estimation/Strategies/JainsEstimator.swift; sourceTree = "<group>"; };
+		16E6788A5A58665C032D563811279954 /* JGProgressHUDRingIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDRingIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDRingIndicatorView.h; sourceTree = "<group>"; };
+		1C928B43084C9E30C38ED25EEF429DB4 /* JGProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JGProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		2130B32CE4BC50A753FC563AE099EBD1 /* JGProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JGProgressHUD.modulemap; sourceTree = "<group>"; };
+		2233CA8828D41B39C0977C98EB45B6C3 /* JGProgressHUDImageIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDImageIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDImageIndicatorView.m; sourceTree = "<group>"; };
+		2274C366BAD53DB0DEEF03DA748986B6 /* JGProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JGProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2392F384E146A7A88B52249462A687D3 /* JGProgressHUDFadeZoomAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDFadeZoomAnimation.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeZoomAnimation.m; sourceTree = "<group>"; };
+		28994BE7E57193B189A8D606F638FF57 /* Beethoven.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Beethoven.modulemap; sourceTree = "<group>"; };
+		2A65701AA958B08205070ECEC87E14A6 /* EstimationError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EstimationError.swift; path = Source/Estimation/EstimationError.swift; sourceTree = "<group>"; };
+		2ABE1282A8F4F0ABEFAFE37B185F4EF1 /* MSSliderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSliderView.m; path = MSColorPicker/MSSliderView.m; sourceTree = "<group>"; };
+		2B017220ADE38E73F5F83F68330A3233 /* MSColorUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorUtils.h; path = MSColorPicker/MSColorUtils.h; sourceTree = "<group>"; };
+		2DD5CEA260E3D2B46CEB9FEFF1295970 /* BarycentricEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarycentricEstimator.swift; path = Source/Estimation/Strategies/BarycentricEstimator.swift; sourceTree = "<group>"; };
+		2ED3A0B9CAB8E31294ADAC0CA16661F2 /* Pods_AniDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AniDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3129F00FB0A279C5B01AB4A3D0DA0363 /* MSColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		343A7271C9CB18B060A0C0D30BE0173E /* MSColorPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSColorPicker-prefix.pch"; sourceTree = "<group>"; };
+		34B47747BF1D34BCE32257F4DDF25FDA /* WaveCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WaveCalculator.swift; path = Source/Calculators/WaveCalculator.swift; sourceTree = "<group>"; };
+		34F7F413BB6DEA4F5462D42470C60547 /* QuinnsFirstEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuinnsFirstEstimator.swift; path = Source/Estimation/Strategies/QuinnsFirstEstimator.swift; sourceTree = "<group>"; };
+		35105F324FF787B4878C748F941B355E /* SignalTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SignalTracker.swift; path = Source/SignalTracking/SignalTracker.swift; sourceTree = "<group>"; };
+		3AECF4487E5C60D8B4209CC77CD2F7C6 /* Pitchy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pitchy-prefix.pch"; sourceTree = "<group>"; };
+		3BF24BFDD3F9BB833113B12E311484D4 /* TransformStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformStrategy.swift; path = Source/Transform/TransformStrategy.swift; sourceTree = "<group>"; };
+		3D63928AAA4D5E1F9C9EB49D713BE4EF /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Source/Config.swift; sourceTree = "<group>"; };
+		41C2F3A0D417B1F3516CC036525ABFD4 /* OutputSignalTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OutputSignalTracker.swift; path = Source/SignalTracking/Units/OutputSignalTracker.swift; sourceTree = "<group>"; };
 		42F0269B9F919CB0C96D5EBC286F4D50 /* Pods-AniDraw.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AniDraw.modulemap"; sourceTree = "<group>"; };
-		4363CB0075753FCA9DD460BACD68885C /* Pitchy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pitchy.modulemap; sourceTree = "<group>"; };
-		47339FEB78E03A5145005BE9E174CC54 /* JGProgressHUDImageIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDImageIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDImageIndicatorView.m; sourceTree = "<group>"; };
-		483372D6067723625B6F1A91E4D302D6 /* JGProgressHUDAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDAnimation.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDAnimation.h; sourceTree = "<group>"; };
-		49D0F51F91484F966D5EB7FAA352CEB3 /* Beethoven.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Beethoven.modulemap; sourceTree = "<group>"; };
-		4C74830CF1C00FB4D1EE6751E29A781B /* LocationEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationEstimator.swift; path = Source/Estimation/LocationEstimator.swift; sourceTree = "<group>"; };
-		4DA35B39985E2AAE221BA9CA4C4C2635 /* MSColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F1747F90A69C82FCAAC5BCB41362B78 /* Beethoven-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Beethoven-prefix.pch"; sourceTree = "<group>"; };
-		548A11056EB694AD898FE15FDCE5C3A3 /* JGProgressHUDFadeZoomAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDFadeZoomAnimation.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeZoomAnimation.h; sourceTree = "<group>"; };
-		5549E979B3291B547F7767B50BC9DB92 /* Array+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Extensions.swift"; path = "Source/Extensions/Array+Extensions.swift"; sourceTree = "<group>"; };
+		43E8FF9A990E7A52B705FC3318F72A7D /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Source/Config.swift; sourceTree = "<group>"; };
+		4A4C822089FCEF82864489B74C97DD8A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A573B00F89952A67067882A94AA63B6 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
+		4AB534E4FFBD0F6AE01376E410C94184 /* MSColorSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorSelectionView.m; path = MSColorPicker/MSColorSelectionView.m; sourceTree = "<group>"; };
+		4CB0558A7E94E05C8A99E32274B1289A /* Array+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Extensions.swift"; path = "Source/Extensions/Array+Extensions.swift"; sourceTree = "<group>"; };
+		4E318E5538C246B24191B7A3B9EB169D /* MSColorWheelView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorWheelView.m; path = MSColorPicker/MSColorWheelView.m; sourceTree = "<group>"; };
+		4F10D6503C9E172C1A2D426BDF3F16F1 /* JGProgressHUDErrorIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDErrorIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDErrorIndicatorView.h; sourceTree = "<group>"; };
+		54E2802C5E9845137563459B435A9EE4 /* QuadradicEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuadradicEstimator.swift; path = Source/Estimation/Strategies/QuadradicEstimator.swift; sourceTree = "<group>"; };
 		56A241CBD5BAAEA8E7946BA8B489CE8E /* Pods-AniDraw-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AniDraw-dummy.m"; sourceTree = "<group>"; };
-		593C8C4E5713AE8ADF23BAD4B97FFCB3 /* MSRGBView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSRGBView.h; path = MSColorPicker/MSRGBView.h; sourceTree = "<group>"; };
-		59AB95046C1266DF72E568ACF30DAB1A /* JGProgressHUDIndeterminateIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDIndeterminateIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndeterminateIndicatorView.h; sourceTree = "<group>"; };
-		5CAE6F6F423FAF3F378735CB4435C9C1 /* JGProgressHUDFadeZoomAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDFadeZoomAnimation.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeZoomAnimation.m; sourceTree = "<group>"; };
-		5F998BB2476FDF4D6E4DC3B6A481511A /* QuinnsFirstEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuinnsFirstEstimator.swift; path = Source/Estimation/Strategies/QuinnsFirstEstimator.swift; sourceTree = "<group>"; };
-		632BBE3F47ECC2A249DF3878BFA9680A /* JGProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JGProgressHUD.xcconfig; sourceTree = "<group>"; };
-		6A3DD9D31783A9D78C555CCC680B190C /* JGProgressHUDIndeterminateIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDIndeterminateIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndeterminateIndicatorView.m; sourceTree = "<group>"; };
-		6B06386C5B56D956686AA35E5ED77E22 /* MSColorSelectionViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorSelectionViewController.h; path = MSColorPicker/MSColorSelectionViewController.h; sourceTree = "<group>"; };
+		577F4708D37985199B91B0F5BCE2F7D0 /* JGProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JGProgressHUD.xcconfig; sourceTree = "<group>"; };
+		5A2D417D99E44F06EF6FE3EEB66E251F /* JGProgressHUDRingIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDRingIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDRingIndicatorView.m; sourceTree = "<group>"; };
+		5D59B3CC00E08F3E4F714540AF7F5F38 /* Pitchy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pitchy-dummy.m"; sourceTree = "<group>"; };
+		5E436404D5F2520D7A18BBB23B26FC31 /* PitchEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PitchEngine.swift; path = Source/PitchEngine.swift; sourceTree = "<group>"; };
+		5E48CEA538F845A3EE3FA32923EE7487 /* JGProgressHUDAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDAnimation.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDAnimation.h; sourceTree = "<group>"; };
+		61D2355735BB60073E4BBF55669B6E6C /* QuinnsSecondEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuinnsSecondEstimator.swift; path = Source/Estimation/Strategies/QuinnsSecondEstimator.swift; sourceTree = "<group>"; };
+		63CD2CA144B44841D6C1AB22CBB1EFC5 /* JGProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JGProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		6433169F76324C00CFF54B1A0A259877 /* JGProgressHUDIndeterminateIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDIndeterminateIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndeterminateIndicatorView.m; sourceTree = "<group>"; };
+		66138006E6599B2DC1D2995A950DDA23 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69C1171533076C7916CCD6E77CE6AB16 /* JGProgressHUDIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndicatorView.h; sourceTree = "<group>"; };
 		6B30FCEA41EED8B5F8C0B95A47CC7923 /* Pitchy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pitchy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6CC38D2C7689146B36DA6CD7F592C08D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D1BC64C949C4147D5709ADFBC2B0294 /* Beethoven.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Beethoven.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DF98A623B8B5F6013EED529D3220914 /* JGProgressHUDPieIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDPieIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDPieIndicatorView.m; sourceTree = "<group>"; };
-		73B53E6905D89E6937228B0816BD8FE7 /* Estimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Estimator.swift; path = Source/Estimation/Estimator.swift; sourceTree = "<group>"; };
-		75D9238C850C4F4446E5D9DAA41D1210 /* MSHSBView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSHSBView.h; path = MSColorPicker/MSHSBView.h; sourceTree = "<group>"; };
-		7E15649DF942801C386BBF7E4E264CFB /* MSColorComponentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorComponentView.h; path = MSColorPicker/MSColorComponentView.h; sourceTree = "<group>"; };
-		7E35CF0A31EE52142316A979DC8FAC9A /* NoteCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NoteCalculator.swift; path = Source/Calculators/NoteCalculator.swift; sourceTree = "<group>"; };
-		81D71ED1DB29D22950E75F2747A60259 /* JGProgressHUDSuccessIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDSuccessIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDSuccessIndicatorView.m; sourceTree = "<group>"; };
-		8561D4ED802B842D4AACA0304DB05F3C /* JGProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUD.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUD.m; sourceTree = "<group>"; };
-		856C37C6B1B6797CB1E2602E5D0B1956 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		6F1F248C47E2FAB323768C20A0579039 /* PitchCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PitchCalculator.swift; path = Source/Calculators/PitchCalculator.swift; sourceTree = "<group>"; };
+		6FE03BE0A0D4882AC59093FDA528B4BD /* HPSEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HPSEstimator.swift; path = Source/Estimation/Strategies/HPSEstimator.swift; sourceTree = "<group>"; };
+		7054737C0714C4DA3329770B5F7C3142 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		737AE5DF038A28EF89FF95DE3184096B /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Source/Error.swift; sourceTree = "<group>"; };
+		7BC28CA4BA0F59E36EEA80066C5BFA27 /* JGProgressHUDAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDAnimation.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDAnimation.m; sourceTree = "<group>"; };
+		7C04C15AD97B7816A82CFFA6773C5162 /* JGProgressHUDPieIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDPieIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDPieIndicatorView.h; sourceTree = "<group>"; };
+		7D713E636355780A759D92B028F5D0A1 /* MSHSBView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSHSBView.h; path = MSColorPicker/MSHSBView.h; sourceTree = "<group>"; };
+		7D7645C8125A7448E9303723C105A8FD /* Buffer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Buffer.swift; path = Source/Data/Buffer.swift; sourceTree = "<group>"; };
+		7DBBE048FC510451D17BBFBC792C7E72 /* MSRGBView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSRGBView.h; path = MSColorPicker/MSRGBView.h; sourceTree = "<group>"; };
+		800D463A5BC079B6663D8A568C5EE507 /* FFTTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FFTTransformer.swift; path = Source/Transform/Strategies/FFTTransformer.swift; sourceTree = "<group>"; };
+		82F8D9E37E4D691A0374BBE38D138C40 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8565B006B3CAB0011D49B1C174E71038 /* MSColorSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorSelectionView.h; path = MSColorPicker/MSColorSelectionView.h; sourceTree = "<group>"; };
+		865374D78353076C36C7B235E61CD3F1 /* JGProgressHUDPieIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDPieIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDPieIndicatorView.m; sourceTree = "<group>"; };
 		89B9B4F9A5DFB5795A97BC858E41A080 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B52033BF77648B7D22FC7A83DFA99E0 /* Transformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transformer.swift; path = Source/Transform/Transformer.swift; sourceTree = "<group>"; };
-		900920522403BB212BDF37F03DBE11ED /* JGProgressHUDIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndicatorView.m; sourceTree = "<group>"; };
-		9202B674987D958C7C094AAB1A2CF01E /* AcousticWave.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcousticWave.swift; path = Source/Data/AcousticWave.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		93FA591B7A6E68ECC280DBCF51AA7BBC /* EstimationStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EstimationStrategy.swift; path = Source/Estimation/EstimationStrategy.swift; sourceTree = "<group>"; };
-		954F053824AF45C2A9C1F8425F46CD79 /* MSColorPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorPicker.h; path = MSColorPicker/MSColorPicker.h; sourceTree = "<group>"; };
-		95AB83A40837644AD90090FA385C08A8 /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Source/Config.swift; sourceTree = "<group>"; };
-		983734B77FA962423EDF01EB4B68BF00 /* Pitchy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pitchy-dummy.m"; sourceTree = "<group>"; };
-		9A076201F8FA2FE3585B7AB0F7DD7594 /* JGProgressHUDErrorIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDErrorIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDErrorIndicatorView.h; sourceTree = "<group>"; };
-		9A87FA105F722484972E218D535D8242 /* JGProgressHUDIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndicatorView.h; sourceTree = "<group>"; };
-		9EB271E38B09EFE163D6DCB30988A7C5 /* MaxValueEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MaxValueEstimator.swift; path = Source/Estimation/Strategies/MaxValueEstimator.swift; sourceTree = "<group>"; };
-		9FC944ECD3DB2E0C732E5CEA4ACA0D60 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0376A6219612BFA24CB1D59CAE09209 /* JGProgressHUDFadeAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDFadeAnimation.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeAnimation.h; sourceTree = "<group>"; };
-		A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A0B46DCAC7B00021D96243DA6003363F /* Beethoven-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Beethoven-umbrella.h"; sourceTree = "<group>"; };
-		A25EC0844CB5C0F3467FE1C6C2BB4E9A /* JGProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JGProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		8A2EB8385CEAEDCDD20E9432317A032A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		8C82957FC4E1B798EBA97672D3DCF044 /* Pitchy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pitchy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DF63CC4251A3126A9BD0C665541237E /* MSColorPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorPicker.h; path = MSColorPicker/MSColorPicker.h; sourceTree = "<group>"; };
+		8E7CFF4D06482C514A190AD2FDC7B396 /* MSColorWheelView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorWheelView.h; path = MSColorPicker/MSColorWheelView.h; sourceTree = "<group>"; };
+		927DDA774CD904B4D42ED0E19E00D051 /* MSColorPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSColorPicker-umbrella.h"; sourceTree = "<group>"; };
+		96FED7214C480B98B466BF91E940DA1C /* MSHSBView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSHSBView.m; path = MSColorPicker/MSHSBView.m; sourceTree = "<group>"; };
+		9927A877B838F7E69EE8689F539BB122 /* Beethoven.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Beethoven.xcconfig; sourceTree = "<group>"; };
+		9E7817457D02393E521C98F4A81853A0 /* JGProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JGProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		9F1893181D200E88D33179B17088CD50 /* MSColorSelectionViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorSelectionViewController.m; path = MSColorPicker/MSColorSelectionViewController.m; sourceTree = "<group>"; };
+		A0210B70C6203539E0C14276B0DF417C /* JGProgressHUDSuccessIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDSuccessIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDSuccessIndicatorView.h; sourceTree = "<group>"; };
+		A0D6C6B44E23E30B3B8E767A9646393E /* MSColorUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorUtils.m; path = MSColorPicker/MSColorUtils.m; sourceTree = "<group>"; };
+		A1C1989DFE26C242D687315051B4AC78 /* JGProgressHUDFadeAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDFadeAnimation.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeAnimation.m; sourceTree = "<group>"; };
+		A238278E134CBFB6CC7E9A9A2D7C9C2B /* MSRGBView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSRGBView.m; path = MSColorPicker/MSRGBView.m; sourceTree = "<group>"; };
+		A3400E39A4325348807D9CE91E3D324A /* JGProgressHUDIndeterminateIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDIndeterminateIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndeterminateIndicatorView.h; sourceTree = "<group>"; };
+		A3551886A62F8B645D54D1FC3AA8DB36 /* JGProgressHUD Resources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = "JGProgressHUD Resources.bundle"; path = "JGProgressHUD/JGProgressHUD/JGProgressHUD Resources.bundle"; sourceTree = "<group>"; };
 		A3BE6590B992827E4B105A4925058AC6 /* Pods-AniDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AniDraw.release.xcconfig"; sourceTree = "<group>"; };
-		A43B1F3740EEB2B551C38762639DE0A6 /* JGProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JGProgressHUD.modulemap; sourceTree = "<group>"; };
-		A7DE3A45B23A83CF1F1A37809155F71B /* MSColorPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSColorPicker-umbrella.h"; sourceTree = "<group>"; };
+		A44FE87AD223D279B2D432FC9967E093 /* NoteCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NoteCalculator.swift; path = Source/Calculators/NoteCalculator.swift; sourceTree = "<group>"; };
 		A8E36AEAE4ABF41B47A40E125E2FE992 /* Pods-AniDraw-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AniDraw-acknowledgements.plist"; sourceTree = "<group>"; };
-		AB41D8DB79C8E76C3AAA8D5350B587E1 /* MSColorWheelView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorWheelView.h; path = MSColorPicker/MSColorWheelView.h; sourceTree = "<group>"; };
-		AE99E0228D4F0C01C42C1B77CA71756E /* MSSliderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSliderView.h; path = MSColorPicker/MSSliderView.h; sourceTree = "<group>"; };
-		AF9026E6A22E5E6281580AFF77E922B8 /* PitchEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PitchEngine.swift; path = Source/PitchEngine.swift; sourceTree = "<group>"; };
-		B2E8040CFEDCA0F28750A1622877257B /* PitchCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PitchCalculator.swift; path = Source/Calculators/PitchCalculator.swift; sourceTree = "<group>"; };
-		B389CAB2A06913450908DB0C57FCE09C /* JGProgressHUD Resources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = "JGProgressHUD Resources.bundle"; path = "JGProgressHUD/JGProgressHUD/JGProgressHUD Resources.bundle"; sourceTree = "<group>"; };
-		B492995B4FC9748C1DF25705FDE5159E /* EstimationFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EstimationFactory.swift; path = Source/Estimation/EstimationFactory.swift; sourceTree = "<group>"; };
-		B7F1F0AABE90FBA0573A1B383241B8FA /* MSHSBView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSHSBView.m; path = MSColorPicker/MSHSBView.m; sourceTree = "<group>"; };
-		B815947CB4BD5DB8929C45BA7CE77F2E /* JGProgressHUDPieIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDPieIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDPieIndicatorView.h; sourceTree = "<group>"; };
+		AC2427399BCE1A0B8F2B68053DB1CFEB /* Beethoven.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Beethoven.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD651ED0460D2083E571DD58DB659350 /* MSColorComponentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorComponentView.m; path = MSColorPicker/MSColorComponentView.m; sourceTree = "<group>"; };
+		AF76D2A702268FB5F67CEA18A215D842 /* MSColorComponentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorComponentView.h; path = MSColorPicker/MSColorComponentView.h; sourceTree = "<group>"; };
+		B0B092956EC0375A1B8F0B77F1ACB2AE /* Beethoven-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Beethoven-prefix.pch"; sourceTree = "<group>"; };
+		B1207402E36259C3379189CF32340E8E /* SimpleTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SimpleTransformer.swift; path = Source/Transform/Strategies/SimpleTransformer.swift; sourceTree = "<group>"; };
+		B5A98FCF28983F6740719AFFE92D4CFA /* JGProgressHUDFadeAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDFadeAnimation.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeAnimation.h; sourceTree = "<group>"; };
 		B99CB8A01376657B7E412EA179A0B20C /* Pods-AniDraw-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AniDraw-resources.sh"; sourceTree = "<group>"; };
-		C190B0C5ED611A2D982EC27C4C22B22E /* QuadradicEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuadradicEstimator.swift; path = Source/Estimation/Strategies/QuadradicEstimator.swift; sourceTree = "<group>"; };
+		B9D7EEF24C0AB389AFB62536DBA07808 /* JGProgressHUDFadeZoomAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDFadeZoomAnimation.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDFadeZoomAnimation.h; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BCE0159CAD14F9295F2C59417D858110 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		BE9410D9532380203440BE435D600355 /* Pitchy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pitchy.modulemap; sourceTree = "<group>"; };
+		C3F9FA391F70DB578D5376D557695146 /* AcousticWave.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcousticWave.swift; path = Source/Data/AcousticWave.swift; sourceTree = "<group>"; };
 		C5365E7753FFCE94440B94A1FDD9DC50 /* Pods-AniDraw-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AniDraw-acknowledgements.markdown"; sourceTree = "<group>"; };
-		C5CAA9E142209E0D24BE9B1723AF6F43 /* Note.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Source/Data/Note.swift; sourceTree = "<group>"; };
-		C68CB3DFD239009B2B6CB1EABF4990C2 /* Buffer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Buffer.swift; path = Source/Data/Buffer.swift; sourceTree = "<group>"; };
-		C76D35049BE92A33BAC7E204758B5CBB /* OutputSignalTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OutputSignalTracker.swift; path = Source/SignalTracking/Units/OutputSignalTracker.swift; sourceTree = "<group>"; };
-		C83A43727F64422681AF128B4EBB4B60 /* SignalTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SignalTracker.swift; path = Source/SignalTracking/SignalTracker.swift; sourceTree = "<group>"; };
+		C5376C319D22E143154EC972C701F196 /* JGProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUD.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUD.m; sourceTree = "<group>"; };
+		C7002CC3648583BF885CDBF0494917C9 /* LocationEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationEstimator.swift; path = Source/Estimation/LocationEstimator.swift; sourceTree = "<group>"; };
+		C8649D7D7DCBA00CA7D82DAC7A9A1C4A /* MSColorSelectionViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorSelectionViewController.h; path = MSColorPicker/MSColorSelectionViewController.h; sourceTree = "<group>"; };
 		CB8FD617BE1FD9FB739C0454FD391BFB /* Pods-AniDraw-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AniDraw-frameworks.sh"; sourceTree = "<group>"; };
-		CBDF51BCFF7B12905A80C4763741A354 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
-		CE40F277676BCF3EE95D0B4796D93D41 /* JGProgressHUDSuccessIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDSuccessIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDSuccessIndicatorView.h; sourceTree = "<group>"; };
-		CFCC39510571211FE78C4B6E3EC0A6F4 /* MSColorSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorSelectionView.h; path = MSColorPicker/MSColorSelectionView.h; sourceTree = "<group>"; };
-		D72192E273B1A1491D1F20B5701E4893 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Source/Error.swift; sourceTree = "<group>"; };
-		D7C38548082E60299DF7226DC4BE2133 /* JGProgressHUDRingIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDRingIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDRingIndicatorView.h; sourceTree = "<group>"; };
-		D8389DF477495CA5A78509CF0930F19B /* MSColorPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MSColorPicker-dummy.m"; sourceTree = "<group>"; };
-		DF24B6C973E26BC02DB81FF7D7DF6EF0 /* QuinnsSecondEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuinnsSecondEstimator.swift; path = Source/Estimation/Strategies/QuinnsSecondEstimator.swift; sourceTree = "<group>"; };
-		E319273127553E1B757B90B936762058 /* FFTTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FFTTransformer.swift; path = Source/Transform/Strategies/FFTTransformer.swift; sourceTree = "<group>"; };
+		CBE298CA9F6D177C8BA0A3B10F148984 /* EstimationFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EstimationFactory.swift; path = Source/Estimation/EstimationFactory.swift; sourceTree = "<group>"; };
+		CE23F4DA1AC8C48943581EF2F666DE10 /* MSSliderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSliderView.h; path = MSColorPicker/MSSliderView.h; sourceTree = "<group>"; };
+		D16A149D7890445B59BDB68732B1DA97 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = iOS/AudioKit.framework; sourceTree = "<group>"; };
+		D438239FD6B3EAC33ABA2D17C989F676 /* JGProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUD.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUD.h; sourceTree = "<group>"; };
+		D723D8B4F7A7AA469081CD2B14785477 /* JGProgressHUDImageIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDImageIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDImageIndicatorView.h; sourceTree = "<group>"; };
+		D7303613FD6BE539518B431632E018C6 /* MSColorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSColorView.h; path = MSColorPicker/MSColorView.h; sourceTree = "<group>"; };
+		D8A974E943B832B1B82681F1B1C6B89C /* MSColorPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSColorPicker.xcconfig; sourceTree = "<group>"; };
+		D93D6419B0685C8538FD51A02B144258 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA7863F267DF8A527037BEBA3F2168D3 /* MaxValueEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MaxValueEstimator.swift; path = Source/Estimation/Strategies/MaxValueEstimator.swift; sourceTree = "<group>"; };
+		DA986005E8C6D3C709C7BD43F16D42D9 /* Estimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Estimator.swift; path = Source/Estimation/Estimator.swift; sourceTree = "<group>"; };
+		DDCCD0CFAFBA3EB60AF2E90BEAE84789 /* JGProgressHUDSuccessIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDSuccessIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDSuccessIndicatorView.m; sourceTree = "<group>"; };
+		E1FD848A6C739632DE0702CC32848DC6 /* Note.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Source/Data/Note.swift; sourceTree = "<group>"; };
 		E4CF476A90CDEA859150A4BEBE35B99A /* Pods-AniDraw-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AniDraw-umbrella.h"; sourceTree = "<group>"; };
-		E6C22B24F1439943EF8C5FCF1EDE043F /* Pitchy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pitchy-prefix.pch"; sourceTree = "<group>"; };
-		E6FCF24E1F127AAD9A07EB5CEEF2916F /* Beethoven-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Beethoven-dummy.m"; sourceTree = "<group>"; };
-		EB09D28846F8B44106B5CB47F001B3B6 /* Pitch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pitch.swift; path = Source/Data/Pitch.swift; sourceTree = "<group>"; };
+		E4EAF56F218317130CE8827CF16D14B3 /* JGProgressHUDErrorIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDErrorIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDErrorIndicatorView.m; sourceTree = "<group>"; };
+		E9951E17FFBEF6B3736D688966E6FBB4 /* JGProgressHUDIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndicatorView.m; sourceTree = "<group>"; };
+		EB779BCC7A9D3A17B0F344CA32B0A258 /* Transformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transformer.swift; path = Source/Transform/Transformer.swift; sourceTree = "<group>"; };
 		ED85E7CDF81B16104C8B8572CE2A8251 /* Pods-AniDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AniDraw.debug.xcconfig"; sourceTree = "<group>"; };
-		F1B5B4A09FCAA531BB8B044E9A35F736 /* WaveCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WaveCalculator.swift; path = Source/Calculators/WaveCalculator.swift; sourceTree = "<group>"; };
-		F24092DB71C7B5CAAA177AC0790CE7BC /* JainsEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JainsEstimator.swift; path = Source/Estimation/Strategies/JainsEstimator.swift; sourceTree = "<group>"; };
-		F583B25302D309EF4F9A10479C842A1F /* Pitchy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pitchy-umbrella.h"; sourceTree = "<group>"; };
-		F773FBA6F6FBE565F73F2306C231E6B8 /* HPSEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HPSEstimator.swift; path = Source/Estimation/Strategies/HPSEstimator.swift; sourceTree = "<group>"; };
-		F816AD781DCD5AD0B18FEB2479C0AB46 /* JGProgressHUDRingIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDRingIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDRingIndicatorView.m; sourceTree = "<group>"; };
-		FD11B2E0B6AAE09498EFAD23960CB19D /* MSColorUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSColorUtils.m; path = MSColorPicker/MSColorUtils.m; sourceTree = "<group>"; };
+		EE5AD7F1427A0CE18D059C7D0FB6129E /* InputSignalTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputSignalTracker.swift; path = Source/SignalTracking/Units/InputSignalTracker.swift; sourceTree = "<group>"; };
+		F3B164297480A321E30F8D39F29A7AD1 /* Beethoven-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Beethoven-dummy.m"; sourceTree = "<group>"; };
+		F3BA5A10470233FBF82205F242EDE0EA /* Pitchy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pitchy-umbrella.h"; sourceTree = "<group>"; };
+		F8DE8D24182236265166D5E112B56AA9 /* JGProgressHUD-Defines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "JGProgressHUD-Defines.h"; path = "JGProgressHUD/JGProgressHUD/JGProgressHUD-Defines.h"; sourceTree = "<group>"; };
+		F9592B2FE9403FA3EFBAF34737EE04F4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,9 +270,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44F7DF4EBA12C2E9D12B03D4C78D9418 /* Accelerate.framework in Frameworks */,
-				251018738E93FDD329D3CDC028CBFB4C /* AVFoundation.framework in Frameworks */,
-				FD8AF364A38CA22F7A6A5984EC5753C5 /* Foundation.framework in Frameworks */,
+				83CA2BE74436FC56FE8B7F1877AC274E /* Accelerate.framework in Frameworks */,
+				745345412C681E05E90F89BAB69B568F /* AVFoundation.framework in Frameworks */,
+				553DCDAA9B39F17C00B376C62EBD6272 /* Foundation.framework in Frameworks */,
 				0DF682557E4E56CF2E6204A510B39EAA /* Pitchy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +281,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8928D93897D5410F8BD5A598C0193B3 /* Foundation.framework in Frameworks */,
+				01E5B687E198E69CF0A3CF6D80837046 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BC141AA41210E33D08C3E048C93229B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				361C6E06E85D345E80C25423476B6236 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,15 +297,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DE6FA0BBBAD04435534B55D04B64E55 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A2287FCFFF19B88BAFE6B89068095FD5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6E11BBCB62AF8722C16B2D84EB2C12FB /* Foundation.framework in Frameworks */,
+				CF1FAD6F87988B46939598A7B5068899 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,53 +305,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7953BC2441CC6CDDCA4F70F763BD5D24 /* Foundation.framework in Frameworks */,
-				01CFE72603C22865312BCD6DD54D4DA8 /* QuartzCore.framework in Frameworks */,
-				50EA2AD3CB6A4AA84E69D4B8745B7205 /* UIKit.framework in Frameworks */,
+				C2C5B4F871F6D0D9D309BE19975DB0D3 /* Foundation.framework in Frameworks */,
+				04EDB24BBF37218355321DFD146DB3B3 /* QuartzCore.framework in Frameworks */,
+				AA8E48DCFBBE2626D07F079317FD8A91 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C96459B3A65ED9280C906381ADB09AA /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				CBDF51BCFF7B12905A80C4763741A354 /* Accelerate.framework */,
-				856C37C6B1B6797CB1E2602E5D0B1956 /* AVFoundation.framework */,
-				A07BEA5C33E50FE8783F000CBD319CD6 /* Foundation.framework */,
-				32444F82DFAC984B7EDD1408F5E33CCC /* QuartzCore.framework */,
-				1E777C52B5634683EBF56EBC34422885 /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		12FB41DCF6FF96255AA90EC9BC4067FC /* MSColorPicker */ = {
-			isa = PBXGroup;
-			children = (
-				7E15649DF942801C386BBF7E4E264CFB /* MSColorComponentView.h */,
-				370585426A8420E4E8C5A5712FE6FC07 /* MSColorComponentView.m */,
-				954F053824AF45C2A9C1F8425F46CD79 /* MSColorPicker.h */,
-				CFCC39510571211FE78C4B6E3EC0A6F4 /* MSColorSelectionView.h */,
-				0160BC867ECAFCC2868938E05AFD2F50 /* MSColorSelectionView.m */,
-				6B06386C5B56D956686AA35E5ED77E22 /* MSColorSelectionViewController.h */,
-				13F7E2A9A4B2A97442FB54493932EE2F /* MSColorSelectionViewController.m */,
-				1800933901CE785B87F8C1E058306458 /* MSColorUtils.h */,
-				FD11B2E0B6AAE09498EFAD23960CB19D /* MSColorUtils.m */,
-				11DD38759CC3D004E4A568E506374439 /* MSColorView.h */,
-				AB41D8DB79C8E76C3AAA8D5350B587E1 /* MSColorWheelView.h */,
-				2191D6C87BA710E50DEFDF42557062D1 /* MSColorWheelView.m */,
-				75D9238C850C4F4446E5D9DAA41D1210 /* MSHSBView.h */,
-				B7F1F0AABE90FBA0573A1B383241B8FA /* MSHSBView.m */,
-				593C8C4E5713AE8ADF23BAD4B97FFCB3 /* MSRGBView.h */,
-				20B9230C0413F1EFBCF7E0F94635C1CC /* MSRGBView.m */,
-				AE99E0228D4F0C01C42C1B77CA71756E /* MSSliderView.h */,
-				2F4E3FAEBF55957B0E2328034AEC6957 /* MSSliderView.m */,
-				BC4A22DA995EA7EC772C3C3A674241C6 /* Support Files */,
-			);
-			path = MSColorPicker;
-			sourceTree = "<group>";
-		};
 		141FFF272EB1CFAE08EDF620C30BA561 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,18 +322,50 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		1743B0F55650E3D9CE5E4070E259BCD4 /* Pitchy */ = {
+		1E802E30AAFF3512A624A81AD4B41B35 /* Beethoven */ = {
 			isa = PBXGroup;
 			children = (
-				9202B674987D958C7C094AAB1A2CF01E /* AcousticWave.swift */,
-				95AB83A40837644AD90090FA385C08A8 /* Config.swift */,
-				D72192E273B1A1491D1F20B5701E4893 /* Error.swift */,
-				C5CAA9E142209E0D24BE9B1723AF6F43 /* Note.swift */,
-				7E35CF0A31EE52142316A979DC8FAC9A /* NoteCalculator.swift */,
-				EB09D28846F8B44106B5CB47F001B3B6 /* Pitch.swift */,
-				B2E8040CFEDCA0F28750A1622877257B /* PitchCalculator.swift */,
-				F1B5B4A09FCAA531BB8B044E9A35F736 /* WaveCalculator.swift */,
-				EEF9C9F4F24C121D064B54C2C764344A /* Support Files */,
+				4CB0558A7E94E05C8A99E32274B1289A /* Array+Extensions.swift */,
+				2DD5CEA260E3D2B46CEB9FEFF1295970 /* BarycentricEstimator.swift */,
+				7D7645C8125A7448E9303723C105A8FD /* Buffer.swift */,
+				3D63928AAA4D5E1F9C9EB49D713BE4EF /* Config.swift */,
+				2A65701AA958B08205070ECEC87E14A6 /* EstimationError.swift */,
+				CBE298CA9F6D177C8BA0A3B10F148984 /* EstimationFactory.swift */,
+				1157F0B56F20A2AADE0010654E2FABC0 /* EstimationStrategy.swift */,
+				DA986005E8C6D3C709C7BD43F16D42D9 /* Estimator.swift */,
+				800D463A5BC079B6663D8A568C5EE507 /* FFTTransformer.swift */,
+				6FE03BE0A0D4882AC59093FDA528B4BD /* HPSEstimator.swift */,
+				EE5AD7F1427A0CE18D059C7D0FB6129E /* InputSignalTracker.swift */,
+				151C2ACFA7BF99228AEF2A170AC48415 /* JainsEstimator.swift */,
+				C7002CC3648583BF885CDBF0494917C9 /* LocationEstimator.swift */,
+				DA7863F267DF8A527037BEBA3F2168D3 /* MaxValueEstimator.swift */,
+				41C2F3A0D417B1F3516CC036525ABFD4 /* OutputSignalTracker.swift */,
+				5E436404D5F2520D7A18BBB23B26FC31 /* PitchEngine.swift */,
+				54E2802C5E9845137563459B435A9EE4 /* QuadradicEstimator.swift */,
+				34F7F413BB6DEA4F5462D42470C60547 /* QuinnsFirstEstimator.swift */,
+				61D2355735BB60073E4BBF55669B6E6C /* QuinnsSecondEstimator.swift */,
+				35105F324FF787B4878C748F941B355E /* SignalTracker.swift */,
+				B1207402E36259C3379189CF32340E8E /* SimpleTransformer.swift */,
+				EB779BCC7A9D3A17B0F344CA32B0A258 /* Transformer.swift */,
+				08C1BBD8A846DB0CC6D03E18A4EFEF34 /* TransformFactory.swift */,
+				3BF24BFDD3F9BB833113B12E311484D4 /* TransformStrategy.swift */,
+				5DA98F57C671B9C780A07902E0C2636C /* Support Files */,
+			);
+			path = Beethoven;
+			sourceTree = "<group>";
+		};
+		250A127F1C88A214C9F6A026E497595A /* Pitchy */ = {
+			isa = PBXGroup;
+			children = (
+				C3F9FA391F70DB578D5376D557695146 /* AcousticWave.swift */,
+				43E8FF9A990E7A52B705FC3318F72A7D /* Config.swift */,
+				737AE5DF038A28EF89FF95DE3184096B /* Error.swift */,
+				E1FD848A6C739632DE0702CC32848DC6 /* Note.swift */,
+				A44FE87AD223D279B2D432FC9967E093 /* NoteCalculator.swift */,
+				0EBB61382A712A780B06DD0F97D8E86C /* Pitch.swift */,
+				6F1F248C47E2FAB323768C20A0579039 /* PitchCalculator.swift */,
+				34B47747BF1D34BCE32257F4DDF25FDA /* WaveCalculator.swift */,
+				C676520A09E03E4B6BE6FDA6EC970ECE /* Support Files */,
 			);
 			path = Pitchy;
 			sourceTree = "<group>";
@@ -379,57 +374,76 @@
 			isa = PBXGroup;
 			children = (
 				6B30FCEA41EED8B5F8C0B95A47CC7923 /* Pitchy.framework */,
-				0C96459B3A65ED9280C906381ADB09AA /* iOS */,
+				E07502CFD0271362B884955517F01347 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		732EF90EACB9F461B118646ED1CAF0F5 /* Pods */ = {
+		5DA98F57C671B9C780A07902E0C2636C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D453668D4CF7F43039D624ABBB19544F /* Beethoven */,
-				BBEDD78C0BAF994E900415EE4164632E /* JGProgressHUD */,
-				12FB41DCF6FF96255AA90EC9BC4067FC /* MSColorPicker */,
-				1743B0F55650E3D9CE5E4070E259BCD4 /* Pitchy */,
+				28994BE7E57193B189A8D606F638FF57 /* Beethoven.modulemap */,
+				9927A877B838F7E69EE8689F539BB122 /* Beethoven.xcconfig */,
+				F3B164297480A321E30F8D39F29A7AD1 /* Beethoven-dummy.m */,
+				B0B092956EC0375A1B8F0B77F1ACB2AE /* Beethoven-prefix.pch */,
+				0AA222ABD9F2DBE5C758E0A53543830D /* Beethoven-umbrella.h */,
+				66138006E6599B2DC1D2995A950DDA23 /* Info.plist */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/Beethoven";
+			sourceTree = "<group>";
+		};
+		68E933C1E55C37F7001759AB3470A881 /* AudioKit */ = {
+			isa = PBXGroup;
+			children = (
+				7C5ABF9F3BF6A91A521A4383E7E23AEA /* Frameworks */,
+			);
+			path = AudioKit;
+			sourceTree = "<group>";
+		};
+		772875E2D38D5C668A9C20F5E0B9AA30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC2427399BCE1A0B8F2B68053DB1CFEB /* Beethoven.framework */,
+				2274C366BAD53DB0DEEF03DA748986B6 /* JGProgressHUD.framework */,
+				3129F00FB0A279C5B01AB4A3D0DA0363 /* MSColorPicker.framework */,
+				8C82957FC4E1B798EBA97672D3DCF044 /* Pitchy.framework */,
+				2ED3A0B9CAB8E31294ADAC0CA16661F2 /* Pods_AniDraw.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7C5ABF9F3BF6A91A521A4383E7E23AEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D16A149D7890445B59BDB68732B1DA97 /* AudioKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				28D3053821BAF8F77485FE03E47CDBD2 /* Frameworks */,
-				732EF90EACB9F461B118646ED1CAF0F5 /* Pods */,
-				87078F57F9E396CBC9B0CEF9DEF73210 /* Products */,
+				F3F79FBDC72C880D3D67F17A63ABB2DB /* Pods */,
+				772875E2D38D5C668A9C20F5E0B9AA30 /* Products */,
 				141FFF272EB1CFAE08EDF620C30BA561 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		7F5F4389EE58F01AED6107DE8B73396E /* Support Files */ = {
+		7E3F510CFD87CBA920FCAEE969D65773 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9FC944ECD3DB2E0C732E5CEA4ACA0D60 /* Info.plist */,
-				A43B1F3740EEB2B551C38762639DE0A6 /* JGProgressHUD.modulemap */,
-				632BBE3F47ECC2A249DF3878BFA9680A /* JGProgressHUD.xcconfig */,
-				1E61968FABD09D18255CCD2AB9814382 /* JGProgressHUD-dummy.m */,
-				0AB27942C16FD655C165DCB2D6B74E24 /* JGProgressHUD-prefix.pch */,
-				A25EC0844CB5C0F3467FE1C6C2BB4E9A /* JGProgressHUD-umbrella.h */,
+				82F8D9E37E4D691A0374BBE38D138C40 /* Info.plist */,
+				2130B32CE4BC50A753FC563AE099EBD1 /* JGProgressHUD.modulemap */,
+				577F4708D37985199B91B0F5BCE2F7D0 /* JGProgressHUD.xcconfig */,
+				9E7817457D02393E521C98F4A81853A0 /* JGProgressHUD-dummy.m */,
+				1C928B43084C9E30C38ED25EEF429DB4 /* JGProgressHUD-prefix.pch */,
+				63CD2CA144B44841D6C1AB22CBB1EFC5 /* JGProgressHUD-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/JGProgressHUD";
-			sourceTree = "<group>";
-		};
-		87078F57F9E396CBC9B0CEF9DEF73210 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6D1BC64C949C4147D5709ADFBC2B0294 /* Beethoven.framework */,
-				3D56686A748D049544449DCA273FF60C /* JGProgressHUD.framework */,
-				4DA35B39985E2AAE221BA9CA4C4C2635 /* MSColorPicker.framework */,
-				366F2F7625884ECBEB950E08A0CC4006 /* Pitchy.framework */,
-				057F5ADB0FB7FC61EC0F5FE191CA2D9E /* Pods_AniDraw.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		8FC18D81F291205FF327376F9AE0078A /* Pods-AniDraw */ = {
@@ -450,118 +464,122 @@
 			path = "Target Support Files/Pods-AniDraw";
 			sourceTree = "<group>";
 		};
-		B41B252358D4997F23317164ED5F7DCB /* Support Files */ = {
+		9FA2E9D3B853BC9AB86A0A42D973D715 /* JGProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				49D0F51F91484F966D5EB7FAA352CEB3 /* Beethoven.modulemap */,
-				18F57D0F2A68740BDF39E10CD7BA79BA /* Beethoven.xcconfig */,
-				E6FCF24E1F127AAD9A07EB5CEEF2916F /* Beethoven-dummy.m */,
-				4F1747F90A69C82FCAAC5BCB41362B78 /* Beethoven-prefix.pch */,
-				A0B46DCAC7B00021D96243DA6003363F /* Beethoven-umbrella.h */,
-				6CC38D2C7689146B36DA6CD7F592C08D /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Beethoven";
-			sourceTree = "<group>";
-		};
-		BBEDD78C0BAF994E900415EE4164632E /* JGProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				127840F4A599CAAA2300E1189AA4341A /* JGProgressHUD.h */,
-				8561D4ED802B842D4AACA0304DB05F3C /* JGProgressHUD.m */,
-				41F6CF37A98765E711599E993E11656B /* JGProgressHUD-Defines.h */,
-				483372D6067723625B6F1A91E4D302D6 /* JGProgressHUDAnimation.h */,
-				0C0B9D07B7BEA29A573FD05728E7AD66 /* JGProgressHUDAnimation.m */,
-				9A076201F8FA2FE3585B7AB0F7DD7594 /* JGProgressHUDErrorIndicatorView.h */,
-				40F8D2123FA86FE6274B77ED03E4DF90 /* JGProgressHUDErrorIndicatorView.m */,
-				A0376A6219612BFA24CB1D59CAE09209 /* JGProgressHUDFadeAnimation.h */,
-				14039C6FF2030B9E9CCAC14B0DD662F1 /* JGProgressHUDFadeAnimation.m */,
-				548A11056EB694AD898FE15FDCE5C3A3 /* JGProgressHUDFadeZoomAnimation.h */,
-				5CAE6F6F423FAF3F378735CB4435C9C1 /* JGProgressHUDFadeZoomAnimation.m */,
-				053BACB7C851B274BC5778E4E450E932 /* JGProgressHUDImageIndicatorView.h */,
-				47339FEB78E03A5145005BE9E174CC54 /* JGProgressHUDImageIndicatorView.m */,
-				59AB95046C1266DF72E568ACF30DAB1A /* JGProgressHUDIndeterminateIndicatorView.h */,
-				6A3DD9D31783A9D78C555CCC680B190C /* JGProgressHUDIndeterminateIndicatorView.m */,
-				9A87FA105F722484972E218D535D8242 /* JGProgressHUDIndicatorView.h */,
-				900920522403BB212BDF37F03DBE11ED /* JGProgressHUDIndicatorView.m */,
-				B815947CB4BD5DB8929C45BA7CE77F2E /* JGProgressHUDPieIndicatorView.h */,
-				6DF98A623B8B5F6013EED529D3220914 /* JGProgressHUDPieIndicatorView.m */,
-				D7C38548082E60299DF7226DC4BE2133 /* JGProgressHUDRingIndicatorView.h */,
-				F816AD781DCD5AD0B18FEB2479C0AB46 /* JGProgressHUDRingIndicatorView.m */,
-				CE40F277676BCF3EE95D0B4796D93D41 /* JGProgressHUDSuccessIndicatorView.h */,
-				81D71ED1DB29D22950E75F2747A60259 /* JGProgressHUDSuccessIndicatorView.m */,
-				FE04B41143A43AC3698034B23E5357DD /* Resources */,
-				7F5F4389EE58F01AED6107DE8B73396E /* Support Files */,
+				D438239FD6B3EAC33ABA2D17C989F676 /* JGProgressHUD.h */,
+				C5376C319D22E143154EC972C701F196 /* JGProgressHUD.m */,
+				F8DE8D24182236265166D5E112B56AA9 /* JGProgressHUD-Defines.h */,
+				5E48CEA538F845A3EE3FA32923EE7487 /* JGProgressHUDAnimation.h */,
+				7BC28CA4BA0F59E36EEA80066C5BFA27 /* JGProgressHUDAnimation.m */,
+				4F10D6503C9E172C1A2D426BDF3F16F1 /* JGProgressHUDErrorIndicatorView.h */,
+				E4EAF56F218317130CE8827CF16D14B3 /* JGProgressHUDErrorIndicatorView.m */,
+				B5A98FCF28983F6740719AFFE92D4CFA /* JGProgressHUDFadeAnimation.h */,
+				A1C1989DFE26C242D687315051B4AC78 /* JGProgressHUDFadeAnimation.m */,
+				B9D7EEF24C0AB389AFB62536DBA07808 /* JGProgressHUDFadeZoomAnimation.h */,
+				2392F384E146A7A88B52249462A687D3 /* JGProgressHUDFadeZoomAnimation.m */,
+				D723D8B4F7A7AA469081CD2B14785477 /* JGProgressHUDImageIndicatorView.h */,
+				2233CA8828D41B39C0977C98EB45B6C3 /* JGProgressHUDImageIndicatorView.m */,
+				A3400E39A4325348807D9CE91E3D324A /* JGProgressHUDIndeterminateIndicatorView.h */,
+				6433169F76324C00CFF54B1A0A259877 /* JGProgressHUDIndeterminateIndicatorView.m */,
+				69C1171533076C7916CCD6E77CE6AB16 /* JGProgressHUDIndicatorView.h */,
+				E9951E17FFBEF6B3736D688966E6FBB4 /* JGProgressHUDIndicatorView.m */,
+				7C04C15AD97B7816A82CFFA6773C5162 /* JGProgressHUDPieIndicatorView.h */,
+				865374D78353076C36C7B235E61CD3F1 /* JGProgressHUDPieIndicatorView.m */,
+				16E6788A5A58665C032D563811279954 /* JGProgressHUDRingIndicatorView.h */,
+				5A2D417D99E44F06EF6FE3EEB66E251F /* JGProgressHUDRingIndicatorView.m */,
+				A0210B70C6203539E0C14276B0DF417C /* JGProgressHUDSuccessIndicatorView.h */,
+				DDCCD0CFAFBA3EB60AF2E90BEAE84789 /* JGProgressHUDSuccessIndicatorView.m */,
+				E7409257D48314D20A448EA42DE11A25 /* Resources */,
+				7E3F510CFD87CBA920FCAEE969D65773 /* Support Files */,
 			);
 			path = JGProgressHUD;
 			sourceTree = "<group>";
 		};
-		BC4A22DA995EA7EC772C3C3A674241C6 /* Support Files */ = {
+		B912D906F12E2971AFF2F0BFE5362DA4 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2FA51726A826134B0E8028E028543B96 /* Info.plist */,
-				2C0651368731A50B4CEB1C228F6C968B /* MSColorPicker.modulemap */,
-				0532339512798C9660B30CC277D226CD /* MSColorPicker.xcconfig */,
-				D8389DF477495CA5A78509CF0930F19B /* MSColorPicker-dummy.m */,
-				39E2AF8F690B5B6851363EEAD2E1AEF3 /* MSColorPicker-prefix.pch */,
-				A7DE3A45B23A83CF1F1A37809155F71B /* MSColorPicker-umbrella.h */,
+				4A4C822089FCEF82864489B74C97DD8A /* Info.plist */,
+				00BF9717C4BCDF6C2855F23779A24B29 /* MSColorPicker.modulemap */,
+				D8A974E943B832B1B82681F1B1C6B89C /* MSColorPicker.xcconfig */,
+				0EE96FA11C885922317BA91B14C7FF08 /* MSColorPicker-dummy.m */,
+				343A7271C9CB18B060A0C0D30BE0173E /* MSColorPicker-prefix.pch */,
+				927DDA774CD904B4D42ED0E19E00D051 /* MSColorPicker-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MSColorPicker";
 			sourceTree = "<group>";
 		};
-		D453668D4CF7F43039D624ABBB19544F /* Beethoven */ = {
+		C676520A09E03E4B6BE6FDA6EC970ECE /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				5549E979B3291B547F7767B50BC9DB92 /* Array+Extensions.swift */,
-				2C4C80B4FC4F605ADBFCC70E98631726 /* BarycentricEstimator.swift */,
-				C68CB3DFD239009B2B6CB1EABF4990C2 /* Buffer.swift */,
-				267CDA6999FB17380000C178211B7CD6 /* Config.swift */,
-				26E8BC3344C9B8E8BB2C4797E8F02B9A /* EstimationError.swift */,
-				B492995B4FC9748C1DF25705FDE5159E /* EstimationFactory.swift */,
-				93FA591B7A6E68ECC280DBCF51AA7BBC /* EstimationStrategy.swift */,
-				73B53E6905D89E6937228B0816BD8FE7 /* Estimator.swift */,
-				E319273127553E1B757B90B936762058 /* FFTTransformer.swift */,
-				F773FBA6F6FBE565F73F2306C231E6B8 /* HPSEstimator.swift */,
-				003A02BBEB155A92E74C43E1AFF37804 /* InputSignalTracker.swift */,
-				F24092DB71C7B5CAAA177AC0790CE7BC /* JainsEstimator.swift */,
-				4C74830CF1C00FB4D1EE6751E29A781B /* LocationEstimator.swift */,
-				9EB271E38B09EFE163D6DCB30988A7C5 /* MaxValueEstimator.swift */,
-				C76D35049BE92A33BAC7E204758B5CBB /* OutputSignalTracker.swift */,
-				AF9026E6A22E5E6281580AFF77E922B8 /* PitchEngine.swift */,
-				C190B0C5ED611A2D982EC27C4C22B22E /* QuadradicEstimator.swift */,
-				5F998BB2476FDF4D6E4DC3B6A481511A /* QuinnsFirstEstimator.swift */,
-				DF24B6C973E26BC02DB81FF7D7DF6EF0 /* QuinnsSecondEstimator.swift */,
-				C83A43727F64422681AF128B4EBB4B60 /* SignalTracker.swift */,
-				2CDE7F3A1FA329A36225E576EAD01643 /* SimpleTransformer.swift */,
-				8B52033BF77648B7D22FC7A83DFA99E0 /* Transformer.swift */,
-				01F8B52FF28709B1AA186FBD03F7986F /* TransformFactory.swift */,
-				23FBD16F61C5834D1C0D9681392E724F /* TransformStrategy.swift */,
-				B41B252358D4997F23317164ED5F7DCB /* Support Files */,
-			);
-			path = Beethoven;
-			sourceTree = "<group>";
-		};
-		EEF9C9F4F24C121D064B54C2C764344A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				36286CB44C63C21CB32894CAFC390CD0 /* Info.plist */,
-				4363CB0075753FCA9DD460BACD68885C /* Pitchy.modulemap */,
-				1DC456A724E3A87F340D0C35BEE3A93F /* Pitchy.xcconfig */,
-				983734B77FA962423EDF01EB4B68BF00 /* Pitchy-dummy.m */,
-				E6C22B24F1439943EF8C5FCF1EDE043F /* Pitchy-prefix.pch */,
-				F583B25302D309EF4F9A10479C842A1F /* Pitchy-umbrella.h */,
+				D93D6419B0685C8538FD51A02B144258 /* Info.plist */,
+				BE9410D9532380203440BE435D600355 /* Pitchy.modulemap */,
+				0178E6E0CEA10A54DF842E7A11C12831 /* Pitchy.xcconfig */,
+				5D59B3CC00E08F3E4F714540AF7F5F38 /* Pitchy-dummy.m */,
+				3AECF4487E5C60D8B4209CC77CD2F7C6 /* Pitchy-prefix.pch */,
+				F3BA5A10470233FBF82205F242EDE0EA /* Pitchy-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pitchy";
 			sourceTree = "<group>";
 		};
-		FE04B41143A43AC3698034B23E5357DD /* Resources */ = {
+		C9331130BFCFDF0D37DF9A0B9DBDAA13 /* MSColorPicker */ = {
 			isa = PBXGroup;
 			children = (
-				B389CAB2A06913450908DB0C57FCE09C /* JGProgressHUD Resources.bundle */,
+				AF76D2A702268FB5F67CEA18A215D842 /* MSColorComponentView.h */,
+				AD651ED0460D2083E571DD58DB659350 /* MSColorComponentView.m */,
+				8DF63CC4251A3126A9BD0C665541237E /* MSColorPicker.h */,
+				8565B006B3CAB0011D49B1C174E71038 /* MSColorSelectionView.h */,
+				4AB534E4FFBD0F6AE01376E410C94184 /* MSColorSelectionView.m */,
+				C8649D7D7DCBA00CA7D82DAC7A9A1C4A /* MSColorSelectionViewController.h */,
+				9F1893181D200E88D33179B17088CD50 /* MSColorSelectionViewController.m */,
+				2B017220ADE38E73F5F83F68330A3233 /* MSColorUtils.h */,
+				A0D6C6B44E23E30B3B8E767A9646393E /* MSColorUtils.m */,
+				D7303613FD6BE539518B431632E018C6 /* MSColorView.h */,
+				8E7CFF4D06482C514A190AD2FDC7B396 /* MSColorWheelView.h */,
+				4E318E5538C246B24191B7A3B9EB169D /* MSColorWheelView.m */,
+				7D713E636355780A759D92B028F5D0A1 /* MSHSBView.h */,
+				96FED7214C480B98B466BF91E940DA1C /* MSHSBView.m */,
+				7DBBE048FC510451D17BBFBC792C7E72 /* MSRGBView.h */,
+				A238278E134CBFB6CC7E9A9A2D7C9C2B /* MSRGBView.m */,
+				CE23F4DA1AC8C48943581EF2F666DE10 /* MSSliderView.h */,
+				2ABE1282A8F4F0ABEFAFE37B185F4EF1 /* MSSliderView.m */,
+				B912D906F12E2971AFF2F0BFE5362DA4 /* Support Files */,
+			);
+			path = MSColorPicker;
+			sourceTree = "<group>";
+		};
+		E07502CFD0271362B884955517F01347 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4A573B00F89952A67067882A94AA63B6 /* Accelerate.framework */,
+				7054737C0714C4DA3329770B5F7C3142 /* AVFoundation.framework */,
+				BCE0159CAD14F9295F2C59417D858110 /* Foundation.framework */,
+				8A2EB8385CEAEDCDD20E9432317A032A /* QuartzCore.framework */,
+				F9592B2FE9403FA3EFBAF34737EE04F4 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E7409257D48314D20A448EA42DE11A25 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A3551886A62F8B645D54D1FC3AA8DB36 /* JGProgressHUD Resources.bundle */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		F3F79FBDC72C880D3D67F17A63ABB2DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				68E933C1E55C37F7001759AB3470A881 /* AudioKit */,
+				1E802E30AAFF3512A624A81AD4B41B35 /* Beethoven */,
+				9FA2E9D3B853BC9AB86A0A42D973D715 /* JGProgressHUD */,
+				C9331130BFCFDF0D37DF9A0B9DBDAA13 /* MSColorPicker */,
+				250A127F1C88A214C9F6A026E497595A /* Pitchy */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -572,6 +590,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CD913E68D464F91CF9594ECFE49F771 /* Pitchy-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		924B8C6757899405CE03E1910C0051E7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F05A7E800F18EDB59942D15B13983A6E /* Pods-AniDraw-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,14 +616,6 @@
 				79CC6B4A54228B48F0C783BB7F499A56 /* MSHSBView.h in Headers */,
 				58B32E4E41DCD355573FD78404A4C899 /* MSRGBView.h in Headers */,
 				BBD6F99671A69ED02C70D69293FC7D51 /* MSSliderView.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AE4299B3019DC43BCF102A1F0E84F521 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				49870BA1A2353BDFF6400084B84982F6 /* Pods-AniDraw-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +650,27 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3D0EC8044C8CD3B321A47E05E9741939 /* Pods-AniDraw */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABB7CB1EF90EEFD9AE397C6D0BD9DE2E /* Build configuration list for PBXNativeTarget "Pods-AniDraw" */;
+			buildPhases = (
+				EDBC2F6F95D55D2EF927BEDC3E5D2259 /* Sources */,
+				4BC141AA41210E33D08C3E048C93229B /* Frameworks */,
+				924B8C6757899405CE03E1910C0051E7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E8A04C25120B24641C714DB7F6B8902A /* PBXTargetDependency */,
+				6500DCC006650435F2F56991E41400CA /* PBXTargetDependency */,
+				61BCCFC32EC3173AB070AB31A3E95C90 /* PBXTargetDependency */,
+				99610FED3BDFF9CBCA054AB501089599 /* PBXTargetDependency */,
+			);
+			name = "Pods-AniDraw";
+			productName = "Pods-AniDraw";
+			productReference = 2ED3A0B9CAB8E31294ADAC0CA16661F2 /* Pods_AniDraw.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		3F2148881B422F7499162ACACC37D143 /* Beethoven */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52F6BE376842FEF13375FC52668A7AFE /* Build configuration list for PBXNativeTarget "Beethoven" */;
@@ -647,7 +686,7 @@
 			);
 			name = Beethoven;
 			productName = Beethoven;
-			productReference = 6D1BC64C949C4147D5709ADFBC2B0294 /* Beethoven.framework */;
+			productReference = AC2427399BCE1A0B8F2B68053DB1CFEB /* Beethoven.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		4935D7F909FA1FA4819E2F69EC75829F /* MSColorPicker */ = {
@@ -664,7 +703,7 @@
 			);
 			name = MSColorPicker;
 			productName = MSColorPicker;
-			productReference = 4DA35B39985E2AAE221BA9CA4C4C2635 /* MSColorPicker.framework */;
+			productReference = 3129F00FB0A279C5B01AB4A3D0DA0363 /* MSColorPicker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		617B0FC57CCB604D47A24E6198763D04 /* JGProgressHUD */ = {
@@ -682,7 +721,7 @@
 			);
 			name = JGProgressHUD;
 			productName = JGProgressHUD;
-			productReference = 3D56686A748D049544449DCA273FF60C /* JGProgressHUD.framework */;
+			productReference = 2274C366BAD53DB0DEEF03DA748986B6 /* JGProgressHUD.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D547ECBAFD0BAC79D81AE36137B80925 /* Pitchy */ = {
@@ -699,28 +738,7 @@
 			);
 			name = Pitchy;
 			productName = Pitchy;
-			productReference = 366F2F7625884ECBEB950E08A0CC4006 /* Pitchy.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		F10B6881934BD72D6E9E8121A81262FD /* Pods-AniDraw */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1AF5D3BEDF0B0E494C731EB55A14EBED /* Build configuration list for PBXNativeTarget "Pods-AniDraw" */;
-			buildPhases = (
-				FD4C473CA141BA36E69C52AEE0676053 /* Sources */,
-				A2287FCFFF19B88BAFE6B89068095FD5 /* Frameworks */,
-				AE4299B3019DC43BCF102A1F0E84F521 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F945C92F3878A7C9B8A4847898F2AB70 /* PBXTargetDependency */,
-				87E737796886AAED2316C6321E539FD6 /* PBXTargetDependency */,
-				9D21BF9B561B3A8FFD18FC8ED1E87A59 /* PBXTargetDependency */,
-				A207AC5E3F1A31C951FC091D95506981 /* PBXTargetDependency */,
-			);
-			name = "Pods-AniDraw";
-			productName = "Pods-AniDraw";
-			productReference = 057F5ADB0FB7FC61EC0F5FE191CA2D9E /* Pods_AniDraw.framework */;
+			productReference = 8C82957FC4E1B798EBA97672D3DCF044 /* Pitchy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -729,7 +747,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -740,7 +758,7 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 87078F57F9E396CBC9B0CEF9DEF73210 /* Products */;
+			productRefGroup = 772875E2D38D5C668A9C20F5E0B9AA30 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -748,7 +766,7 @@
 				617B0FC57CCB604D47A24E6198763D04 /* JGProgressHUD */,
 				4935D7F909FA1FA4819E2F69EC75829F /* MSColorPicker */,
 				D547ECBAFD0BAC79D81AE36137B80925 /* Pitchy */,
-				F10B6881934BD72D6E9E8121A81262FD /* Pods-AniDraw */,
+				3D0EC8044C8CD3B321A47E05E9741939 /* Pods-AniDraw */,
 			);
 		};
 /* End PBXProject section */
@@ -848,34 +866,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD4C473CA141BA36E69C52AEE0676053 /* Sources */ = {
+		EDBC2F6F95D55D2EF927BEDC3E5D2259 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				028A48D558BB468E503F431727286796 /* Pods-AniDraw-dummy.m in Sources */,
+				F25BA0EC360C069AA782B0F37CC24D96 /* Pods-AniDraw-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		87E737796886AAED2316C6321E539FD6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JGProgressHUD;
-			target = 617B0FC57CCB604D47A24E6198763D04 /* JGProgressHUD */;
-			targetProxy = 2C53FB7130F4C53E9F71F57C44C6E531 /* PBXContainerItemProxy */;
-		};
-		9D21BF9B561B3A8FFD18FC8ED1E87A59 /* PBXTargetDependency */ = {
+		61BCCFC32EC3173AB070AB31A3E95C90 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MSColorPicker;
 			target = 4935D7F909FA1FA4819E2F69EC75829F /* MSColorPicker */;
-			targetProxy = 320ED5BA8D0F2AFE4202710C35238432 /* PBXContainerItemProxy */;
+			targetProxy = 3B490E24E0847B0451728D9CB816B57D /* PBXContainerItemProxy */;
 		};
-		A207AC5E3F1A31C951FC091D95506981 /* PBXTargetDependency */ = {
+		6500DCC006650435F2F56991E41400CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JGProgressHUD;
+			target = 617B0FC57CCB604D47A24E6198763D04 /* JGProgressHUD */;
+			targetProxy = FFCA95419E62C5E592209ED66A972237 /* PBXContainerItemProxy */;
+		};
+		99610FED3BDFF9CBCA054AB501089599 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Pitchy;
 			target = D547ECBAFD0BAC79D81AE36137B80925 /* Pitchy */;
-			targetProxy = BD0D1A281AEBA47D0D559375D3B5C9E3 /* PBXContainerItemProxy */;
+			targetProxy = 0C7AEB5887A1B2E83C4E3208C5A4DF66 /* PBXContainerItemProxy */;
 		};
 		D20AD56E7E59F57691A9BF29187E0403 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -883,20 +901,103 @@
 			target = D547ECBAFD0BAC79D81AE36137B80925 /* Pitchy */;
 			targetProxy = 6017C46D344F982C1CE0038EB73CA894 /* PBXContainerItemProxy */;
 		};
-		F945C92F3878A7C9B8A4847898F2AB70 /* PBXTargetDependency */ = {
+		E8A04C25120B24641C714DB7F6B8902A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Beethoven;
 			target = 3F2148881B422F7499162ACACC37D143 /* Beethoven */;
-			targetProxy = 475614327E883B0866B16A6CF467DC86 /* PBXContainerItemProxy */;
+			targetProxy = 85BE0C388C84208F921B92004DAD7A8E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		034014829C1E4434983CF3A690C12017 /* Debug */ = {
+		323C0E4ADD4CBBCEB0B0BC2FA2B88770 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3BE6590B992827E4B105A4925058AC6 /* Pods-AniDraw.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AniDraw/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AniDraw/Pods-AniDraw.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_AniDraw;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4BD9C77649CFE2CAAC5D4538193F26B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 577F4708D37985199B91B0F5BCE2F7D0 /* JGProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/JGProgressHUD/JGProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JGProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JGProgressHUD/JGProgressHUD.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = JGProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4C23D4DA2D50CA2FC606C0B4199D3A98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 577F4708D37985199B91B0F5BCE2F7D0 /* JGProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/JGProgressHUD/JGProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JGProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JGProgressHUD/JGProgressHUD.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = JGProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -911,12 +1012,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
@@ -934,77 +1033,17 @@
 			};
 			name = Debug;
 		};
-		0828242C20BC8E3FB53B31451AA4F4FC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18F57D0F2A68740BDF39E10CD7BA79BA /* Beethoven.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Beethoven/Beethoven-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Beethoven/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Beethoven/Beethoven.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Beethoven;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		0D26D340A512BED4A866D3DF01F76510 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0532339512798C9660B30CC277D226CD /* MSColorPicker.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MSColorPicker/MSColorPicker-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MSColorPicker/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MSColorPicker/MSColorPicker.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = MSColorPicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		5407FF1D6EB06A8D865BC8A8FB39A8B7 /* Debug */ = {
+		71156F75F069225FF1EA131C95D5E6F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED85E7CDF81B16104C8B8572CE2A8251 /* Pods-AniDraw.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-AniDraw/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1015,7 +1054,6 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_AniDraw;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1026,161 +1064,10 @@
 			};
 			name = Debug;
 		};
-		56E0DF90F7F82F96A0B3869E28840A64 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DC456A724E3A87F340D0C35BEE3A93F /* Pitchy.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pitchy/Pitchy-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pitchy/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pitchy/Pitchy.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Pitchy;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		59C61AC59F1850E4AF8D0FE358FB3172 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3BE6590B992827E4B105A4925058AC6 /* Pods-AniDraw.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-AniDraw/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AniDraw/Pods-AniDraw.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_AniDraw;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		702286EBD2D4B3727208F14F5BF1E087 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0532339512798C9660B30CC277D226CD /* MSColorPicker.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MSColorPicker/MSColorPicker-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MSColorPicker/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MSColorPicker/MSColorPicker.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = MSColorPicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		7448A4A285AAF5FCEFDA76FCBDC472D6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 632BBE3F47ECC2A249DF3878BFA9680A /* JGProgressHUD.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/JGProgressHUD/JGProgressHUD-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JGProgressHUD/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/JGProgressHUD/JGProgressHUD.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = JGProgressHUD;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8B7104833300D0894979914A86FA4566 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18F57D0F2A68740BDF39E10CD7BA79BA /* Beethoven.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Beethoven/Beethoven-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Beethoven/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Beethoven/Beethoven.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Beethoven;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		C7E474A03CAE21F1CB6046E7344C59BD /* Release */ = {
+		74857149DC1E0D599B8A01A78349A926 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1197,10 +1084,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1214,52 +1098,21 @@
 			};
 			name = Release;
 		};
-		E11C8FFD84A425228F5BF0349780756A /* Release */ = {
+		84BBFC42899E942B6D3E90D2C557DCEF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 632BBE3F47ECC2A249DF3878BFA9680A /* JGProgressHUD.xcconfig */;
+			baseConfigurationReference = 0178E6E0CEA10A54DF842E7A11C12831 /* Pitchy.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/JGProgressHUD/JGProgressHUD-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JGProgressHUD/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/JGProgressHUD/JGProgressHUD.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = JGProgressHUD;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		FDF9CDDB5CBEACFC2C78BF27768EC862 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DC456A724E3A87F340D0C35BEE3A93F /* Pitchy.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pitchy/Pitchy-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Pitchy/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pitchy/Pitchy.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1273,23 +1126,150 @@
 			};
 			name = Debug;
 		};
+		8A241A9B4C57066598ABBB90A8774B1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9927A877B838F7E69EE8689F539BB122 /* Beethoven.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Beethoven/Beethoven-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Beethoven/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Beethoven/Beethoven.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Beethoven;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8BC39DF500D2C0CF0C7C4F5DF1400AC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8A974E943B832B1B82681F1B1C6B89C /* MSColorPicker.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MSColorPicker/MSColorPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MSColorPicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MSColorPicker/MSColorPicker.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MSColorPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		972839DB87B6B31D369643D66977AAD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8A974E943B832B1B82681F1B1C6B89C /* MSColorPicker.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MSColorPicker/MSColorPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MSColorPicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MSColorPicker/MSColorPicker.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = MSColorPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BD6694B43F1EFC2B7548473ACF48C292 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0178E6E0CEA10A54DF842E7A11C12831 /* Pitchy.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pitchy/Pitchy-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pitchy/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pitchy/Pitchy.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Pitchy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F02E65AA548F8BC6199C254713A3303B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9927A877B838F7E69EE8689F539BB122 /* Beethoven.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Beethoven/Beethoven-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Beethoven/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Beethoven/Beethoven.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Beethoven;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1AF5D3BEDF0B0E494C731EB55A14EBED /* Build configuration list for PBXNativeTarget "Pods-AniDraw" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5407FF1D6EB06A8D865BC8A8FB39A8B7 /* Debug */,
-				59C61AC59F1850E4AF8D0FE358FB3172 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2C6F5C5F68E50C95546C0E96A43E9C95 /* Build configuration list for PBXNativeTarget "MSColorPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				702286EBD2D4B3727208F14F5BF1E087 /* Debug */,
-				0D26D340A512BED4A866D3DF01F76510 /* Release */,
+				972839DB87B6B31D369643D66977AAD5 /* Debug */,
+				8BC39DF500D2C0CF0C7C4F5DF1400AC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1297,8 +1277,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				034014829C1E4434983CF3A690C12017 /* Debug */,
-				C7E474A03CAE21F1CB6046E7344C59BD /* Release */,
+				5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */,
+				74857149DC1E0D599B8A01A78349A926 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1306,8 +1286,8 @@
 		52F6BE376842FEF13375FC52668A7AFE /* Build configuration list for PBXNativeTarget "Beethoven" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8B7104833300D0894979914A86FA4566 /* Debug */,
-				0828242C20BC8E3FB53B31451AA4F4FC /* Release */,
+				8A241A9B4C57066598ABBB90A8774B1B /* Debug */,
+				F02E65AA548F8BC6199C254713A3303B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1315,8 +1295,17 @@
 		553FF007902EB31FE63DA914BDDD351B /* Build configuration list for PBXNativeTarget "Pitchy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FDF9CDDB5CBEACFC2C78BF27768EC862 /* Debug */,
-				56E0DF90F7F82F96A0B3869E28840A64 /* Release */,
+				84BBFC42899E942B6D3E90D2C557DCEF /* Debug */,
+				BD6694B43F1EFC2B7548473ACF48C292 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABB7CB1EF90EEFD9AE397C6D0BD9DE2E /* Build configuration list for PBXNativeTarget "Pods-AniDraw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71156F75F069225FF1EA131C95D5E6F4 /* Debug */,
+				323C0E4ADD4CBBCEB0B0BC2FA2B88770 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1324,8 +1313,8 @@
 		DC9E5B9863A4B1806E2877DEC3DCC3CC /* Build configuration list for PBXNativeTarget "JGProgressHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7448A4A285AAF5FCEFDA76FCBDC472D6 /* Debug */,
-				E11C8FFD84A425228F5BF0349780756A /* Release */,
+				4C23D4DA2D50CA2FC606C0B4199D3A98 /* Debug */,
+				4BD9C77649CFE2CAAC5D4538193F26B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
