@@ -502,10 +502,8 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="6zC-UA-6vu" appends="YES" id="Dvu-fE-bVR"/>
-                                            <outletCollection property="gestureRecognizers" destination="els-Qb-pgO" appends="YES" id="p45-D9-BtB"/>
                                             <outletCollection property="gestureRecognizers" destination="C0k-ND-K1A" appends="YES" id="gfP-m0-VTl"/>
                                             <outletCollection property="gestureRecognizers" destination="SMk-H4-YGC" appends="YES" id="EVM-ej-1Ny"/>
-                                            <outletCollection property="gestureRecognizers" destination="u14-L7-qWd" appends="YES" id="Du9-oU-mvQ"/>
                                             <outletCollection property="gestureRecognizers" destination="DvJ-k4-jQs" appends="YES" id="4FH-nO-kO3"/>
                                         </connections>
                                     </view>
@@ -739,16 +737,6 @@
                         <action selector="redoAction:" destination="BYZ-38-t0r" id="7MO-kV-InI"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" numberOfTouchesRequired="2" id="u14-L7-qWd">
-                    <connections>
-                        <action selector="resetScrollScale:" destination="BYZ-38-t0r" id="ugQ-Da-03p"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <pinchGestureRecognizer id="els-Qb-pgO">
-                    <connections>
-                        <action selector="changeZoom:" destination="BYZ-38-t0r" id="I6G-6q-3UE"/>
-                    </connections>
-                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="299" y="261"/>
         </scene>

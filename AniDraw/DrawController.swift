@@ -25,28 +25,11 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
         print("left")
         drawView.undo()
     }
-    
-
-    @IBAction func resetScrollScale(sender: UITapGestureRecognizer) {
-        print("double tapped")
-    }
-    
+        
     @IBAction func redoAction(sender: UISwipeGestureRecognizer) {
         print("right")
         drawView.redo()
     }
-    
-    @IBAction func changeZoom(sender: UIPinchGestureRecognizer) {
-//        if sender.state == UIGestureRecognizerState.Ended {
-//            print("pinch:\(sender.scale)")
-//            drawView.changeImageZoom(sender.scale)
-//        }
-//        print(imageScrollView.contentSize)
-        imageScrollView.setZoomScale(sender.scale, animated: true)
-//        print(imageScrollView.zoomScale)
-        print("zooming:\(imageScrollView.zooming)")
-    }
-    
     
     @IBOutlet private weak var drawView: DrawView!
     @IBOutlet var toolsButton: [UIButton]!
@@ -214,7 +197,6 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
     {
-        print("zooming?")
         return self.drawView
     }
     

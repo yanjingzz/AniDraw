@@ -301,50 +301,5 @@ class DrawView: UIView{
         }
     }
     
-    func  changeImageZoom(scale: CGFloat) {
-        if incrementalImage == nil {
-            return
-        }
-        if isScaleChanged == false {
-            isScaleChanged = true
-            resetBoundsSize = bounds.size
-            scaleImage = incrementalImage
-        }
-        var temporalScaleRatio = (CGFloat(Int(scale * 10)) / 10 - 1) / 5 + 1
-        let minimunScaleRatio = resetBoundsSize.height / bounds.height
-        let maxmunScaleRatio = resetBoundsSize.height * 1.5 / bounds.height
-        if temporalScaleRatio > maxmunScaleRatio {
-            temporalScaleRatio = maxmunScaleRatio
-        }
-        if temporalScaleRatio < minimunScaleRatio {
-            temporalScaleRatio = minimunScaleRatio
-        }
-        var scaleChanged = false
-        if temporalScaleRatio != scaleRatio {
-            scaleChanged = true
-            scaleRatio = temporalScaleRatio
-        }
-        if scaleChanged == true {
-            print("scale:\(scaleRatio)")
-            
-//            let newframe = CGRect(x: 0.0, y: 0.0, width: bounds.width * scaleRatio , height: bounds.height * scaleRatio)
-//            zoomToRect(newframe, animated: true)
-            
-//            let newHeight = (self.incrementalImage?.size.height)! * scaleRatio
-//            let newWidth = (self.incrementalImage?.size.width)! * scaleRatio
-//            UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
-//            scaleImage?.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
-//            self.incrementalImage? = UIGraphicsGetImageFromCurrentImageContext()
-//            UIGraphicsEndImageContext()
-            print("zoom changed")
-            print("scaleRatio:\(scaleRatio)")
-            print("image:\(self.incrementalImage?.size)")
-            print("boundRatio:\(minimunScaleRatio)")
-        }
-        setNeedsDisplay()
-    }
-    
-    func  resetImageZoom() {
-    }
 }
 
