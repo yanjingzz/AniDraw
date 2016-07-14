@@ -17,14 +17,19 @@ enum DrawingTool: Int {
     case Eraser
 }
 
-class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, UIPopoverPresentationControllerDelegate {
+class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, UIPopoverPresentationControllerDelegate, UIScrollViewDelegate {
     
+    @IBOutlet weak var imageScrollView: UIScrollView!
 
     @IBAction func undoAction(sender: UISwipeGestureRecognizer) {
         print("left")
         drawView.undo()
     }
     
+
+    @IBAction func resetScrollScale(sender: UITapGestureRecognizer) {
+        print("double tapped")
+    }
     
     @IBAction func redoAction(sender: UISwipeGestureRecognizer) {
         print("right")
@@ -34,8 +39,12 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
     @IBAction func changeZoom(sender: UIPinchGestureRecognizer) {
 //        if sender.state == UIGestureRecognizerState.Ended {
 //            print("pinch:\(sender.scale)")
-            drawView.changeImageZoom(sender.scale)
+//            drawView.changeImageZoom(sender.scale)
 //        }
+//        print(imageScrollView.contentSize)
+        imageScrollView.setZoomScale(sender.scale, animated: true)
+//        print(imageScrollView.zoomScale)
+        print("zooming:\(imageScrollView.zooming)")
     }
     
     
@@ -113,6 +122,12 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
             let image = UIImage(data: imageData) {
             drawView.initialImage = image
         }
+        
+        imageScrollView.minimumZoomScale = 1.0;
+        imageScrollView.maximumZoomScale = 6.0;
+        imageScrollView.contentSize = CGSize(width: 1024, height: 768)
+        imageScrollView.panGestureRecognizer.minimumNumberOfTouches = 2
+        imageScrollView.panGestureRecognizer.maximumNumberOfTouches = 2
     }
 
     override func viewDidLayoutSubviews() {
@@ -125,6 +140,7 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
                 button.frame.origin = CGPoint(x: -100, y: button.frame.minY)
             }
         }
+        
         
     }
     override func didReceiveMemoryWarning() {
@@ -195,4 +211,11 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
         button.backgroundColor = c
         drawView.color = c
     }
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+    {
+        print("zooming?")
+        return self.drawView
+    }
+    
 }

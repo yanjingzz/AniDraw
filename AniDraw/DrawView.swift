@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DrawView: UIScrollView{
+class DrawView: UIView{
     var scaleRatio : CGFloat = 1.0
     var scaleImage : UIImage?
     var resetBoundsSize : CGSize = CGSize()
@@ -329,7 +329,6 @@ class DrawView: UIScrollView{
             
 //            let newframe = CGRect(x: 0.0, y: 0.0, width: bounds.width * scaleRatio , height: bounds.height * scaleRatio)
 //            zoomToRect(newframe, animated: true)
-            setZoomScale(scaleRatio, animated: true)
             
 //            let newHeight = (self.incrementalImage?.size.height)! * scaleRatio
 //            let newWidth = (self.incrementalImage?.size.width)! * scaleRatio
@@ -338,9 +337,7 @@ class DrawView: UIScrollView{
 //            self.incrementalImage? = UIGraphicsGetImageFromCurrentImageContext()
 //            UIGraphicsEndImageContext()
             print("zoom changed")
-            print("")
             print("scaleRatio:\(scaleRatio)")
-            print("zoom scale:\(self.zoomScale)")
             print("image:\(self.incrementalImage?.size)")
             print("boundRatio:\(minimunScaleRatio)")
         }

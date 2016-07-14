@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CharactersController: UIViewController {
+class CharactersController: UIViewController, UIScrollViewDelegate{
 
     var characters: [CharacterStorage]?
     private var currentCharacter: CharacterStorage? {
