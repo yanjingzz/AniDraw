@@ -757,7 +757,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <pinchGestureRecognizer id="r4S-7J-WIv"/>
+                <pinchGestureRecognizer id="r4S-7J-WIv">
+                    <connections>
+                        <action selector="changeZoom:" destination="BYZ-38-t0r" id="UdP-rB-1fh"/>
+                    </connections>
+                </pinchGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="6zC-UA-6vu">
                     <connections>
                         <action selector="drawStrokeForPanRecognizer:" destination="Srw-1J-y9f" id="L56-IV-q0J"/>

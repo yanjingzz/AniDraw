@@ -8,7 +8,11 @@
 
 import UIKit
 
-class DrawView: UIView {
+class DrawView: UIScrollView{
+    var scaleRatio : CGFloat = 1.0
+    var scaleImage : UIImage?
+    var resetBoundsSize : CGSize = CGSize()
+    var isScaleChanged : Boolean = false
     
     var undoImages : [UIImage] = []
     var redoImages : [UIImage] = []
@@ -72,7 +76,7 @@ class DrawView: UIView {
                 UIColor.whiteColor().setStroke()
                 path.fill()
                 path.stroke()
-
+                
             case .Brush:
                 color.setFill()
                 color.setStroke()
@@ -93,6 +97,7 @@ class DrawView: UIView {
     private struct Constants {
         
     }
+    
     @IBAction private func drawDotforTapRecognizer(recognizer: UITapGestureRecognizer) {
         let p = recognizer.locationInView(self)
         let width:CGFloat = 5.0
@@ -108,10 +113,10 @@ class DrawView: UIView {
         let v = recognizer.velocityInView(self)
         let width = strokeWidthFromSpeed(v.length())
         let current = PointWithWidth(point: p, width: width)
-    
+        
         switch recognizer.state {
         case .Began:
-
+            
             state = State.FirstPoint(prev: current)
             
         case .Changed:
@@ -157,7 +162,7 @@ class DrawView: UIView {
                 state = State.ThirdAndUp(first: second,second: current)
             }
             setNeedsDisplay()
-
+            
         case .Ended:
             guard let s = state else {
                 break
@@ -184,7 +189,7 @@ class DrawView: UIView {
             path.addCurveToPoint(currentEndPoints.0, controlPoint1: currentEndPoints.1 + dir.normalized() * bezierCircleConstant, controlPoint2: currentEndPoints.0 + dir.normalized() * bezierCircleConstant)
             path.addLineToPoint(prevEndPoints.0)
             paths.append(path)
-
+            
             fallthrough
         case .Cancelled:
             finishStroke()
@@ -194,8 +199,8 @@ class DrawView: UIView {
             break
         }
     }
-
-
+    
+    
     private func endPoints(atPositionWithWidth pw: PointWithWidth, perpendicularTo direction: CGPoint)  -> (CGPoint, CGPoint) {
         let p = pw.point
         let width = pw.width
@@ -230,6 +235,7 @@ class DrawView: UIView {
     }
     
     private func drawBitmap() {
+        //        let newboundSize = CGSize(width: bounds.width * scaleRatio, height: bounds.height * scaleRatio)
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
         
         incrementalImage?.drawAtPoint(CGPoint.zero)
@@ -253,8 +259,9 @@ class DrawView: UIView {
         }
         incrementalImage = UIGraphicsGetImageFromCurrentImageContext()
         
+        
         UIGraphicsEndImageContext()
-
+        
         if undoImages.count >= 21 {
             undoImages.removeFirst()
         }
@@ -266,8 +273,12 @@ class DrawView: UIView {
         
         undoImages.push(incrementalImage!)
         redoImages.removeAll()
+        
+        isScaleChanged = false
+        
         print("undoStack:\(undoImages.count)")
         print("redoStack:\(redoImages.count)")
+        print("imageSize:\(incrementalImage?.size)")
     }
     
     func undo() {
@@ -279,7 +290,7 @@ class DrawView: UIView {
             setNeedsDisplay()
         }
     }
- 
+    
     func redo() {
         if redoImages.isEmpty == false {
             print("redo")
@@ -289,4 +300,54 @@ class DrawView: UIView {
             setNeedsDisplay()
         }
     }
+    
+    func  changeImageZoom(scale: CGFloat) {
+        if incrementalImage == nil {
+            return
+        }
+        if isScaleChanged == false {
+            isScaleChanged = true
+            resetBoundsSize = bounds.size
+            scaleImage = incrementalImage
+        }
+        var temporalScaleRatio = (CGFloat(Int(scale * 10)) / 10 - 1) / 5 + 1
+        let minimunScaleRatio = resetBoundsSize.height / bounds.height
+        let maxmunScaleRatio = resetBoundsSize.height * 1.5 / bounds.height
+        if temporalScaleRatio > maxmunScaleRatio {
+            temporalScaleRatio = maxmunScaleRatio
+        }
+        if temporalScaleRatio < minimunScaleRatio {
+            temporalScaleRatio = minimunScaleRatio
+        }
+        var scaleChanged = false
+        if temporalScaleRatio != scaleRatio {
+            scaleChanged = true
+            scaleRatio = temporalScaleRatio
+        }
+        if scaleChanged == true {
+            print("scale:\(scaleRatio)")
+            
+//            let newframe = CGRect(x: 0.0, y: 0.0, width: bounds.width * scaleRatio , height: bounds.height * scaleRatio)
+//            zoomToRect(newframe, animated: true)
+            setZoomScale(scaleRatio, animated: true)
+            
+//            let newHeight = (self.incrementalImage?.size.height)! * scaleRatio
+//            let newWidth = (self.incrementalImage?.size.width)! * scaleRatio
+//            UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
+//            scaleImage?.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
+//            self.incrementalImage? = UIGraphicsGetImageFromCurrentImageContext()
+//            UIGraphicsEndImageContext()
+            print("zoom changed")
+            print("")
+            print("scaleRatio:\(scaleRatio)")
+            print("zoom scale:\(self.zoomScale)")
+            print("image:\(self.incrementalImage?.size)")
+            print("boundRatio:\(minimunScaleRatio)")
+        }
+        setNeedsDisplay()
+    }
+    
+    func  resetImageZoom() {
+    }
 }
+

@@ -31,6 +31,14 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
         drawView.redo()
     }
     
+    @IBAction func changeZoom(sender: UIPinchGestureRecognizer) {
+//        if sender.state == UIGestureRecognizerState.Ended {
+//            print("pinch:\(sender.scale)")
+            drawView.changeImageZoom(sender.scale)
+//        }
+    }
+    
+    
     @IBOutlet private weak var drawView: DrawView!
     @IBOutlet var toolsButton: [UIButton]!
     @IBOutlet weak var selectedColorCircleView: UIImageView!
