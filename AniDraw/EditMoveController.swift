@@ -14,12 +14,15 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
     @IBOutlet weak var skView: SKView!
     @IBOutlet weak var editView: KeyframesEditorView!
     
+    var characterNode: CharacterNode!
     var danceMove = DanceMove()
+    var scene: EditMoveScene!
+    
     var currentIndex: Int = -1 {
         didSet {
             currentIndex.clamp(-1, danceMove.count - 1)
             if currentIndex == -1 {
-                characterNode?.posture = Posture.idle
+                characterNode.posture = Posture.idle
                 slider.value = 0
                 return
             }
@@ -32,11 +35,110 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
                 }
             }
             slider.value = Float(beforeTime / danceMove.totalTime)
-            characterNode?.posture = danceMove.keyframes[currentIndex].posture
+            characterNode.posture = danceMove.keyframes[currentIndex].posture
         }
+    }
+
+    
+    // MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUpScene()
+        characterNode.posture = Posture.idle
+        scene.characterNode = characterNode
+    }
+
+    
+    private func setUpScene() {
+        scene = EditMoveScene(fileNamed:"DanceScene")
+        scene.characterNode = characterNode
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.showsPhysics = false
+        skView.ignoresSiblingOrder = true
+        scene.scaleMode = .AspectFill
+        skView.presentScene(scene)
+    }
+
+    
+    func updateEditView() {
+        var lengths = [CGFloat]()
+        var currentLength: CGFloat = 0.0
+        for key in danceMove.keyframes {
+            currentLength += CGFloat(key.time)
+            lengths.append(currentLength)
+            
+        }
+        editView.lengths = lengths
+        editView.totalLength = currentLength
+    }
+    
+    // MARK: - Controls
+    
+    @IBAction func playAnimation(sender: UIButton) {
+        print(danceMove.keyframes)
+        scene.playAnimation(danceMove)
     }
     
     @IBOutlet weak var slider: UISlider!
+    
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        if danceMove.keyframes.isEmpty {
+            currentIndex = -1
+            slider.setValue(0,animated: false)
+            return
+        }
+        let beforeTime = Double(slider.value) * danceMove.totalTime
+        if beforeTime <= danceMove.keyframes[0].time/2 {
+            currentIndex = -1
+            return
+        }
+        var accTime = 0.0
+        for (i,k) in danceMove.keyframes.enumerate() {
+            if i == danceMove.count-1 {
+                currentIndex = i
+                return
+            }
+            accTime += k.time
+            if accTime + danceMove.keyframes[i+1].time/2 > beforeTime {
+                currentIndex = i
+                return
+            }
+        }
+    }
+    
+    @IBAction func addPosture(sender: UIButton) {
+        if let c = characterNode {
+            let p = c.posture
+            let key = Keyframe(time: 0.5, posture: p)
+            
+            danceMove.keyframes.insert(key, atIndex: currentIndex + 1)
+            currentIndex += 1
+            updateEditView()
+        }
+    }
+    
+    @IBAction func deletePosture(sender: AnyObject) {
+        if currentIndex >= 0 {
+            danceMove.keyframes.removeAtIndex(currentIndex)
+            currentIndex -= 1
+            updateEditView()
+        }
+    }
+    
+    @IBAction func restorePosture(sender: UIButton) {
+        characterNode.posture = Posture.idle
+    }
+    
+    // MARK: Pan recognizer
+    
+    @IBAction func moveCharacterForPanRecognizer(recognizer: UIPanGestureRecognizer) {
+        scene.moveCharacter(recognizer.translationInView(skView))
+        recognizer.setTranslation(CGPointZero, inView: skView)
+    }
+
+    //MARK: - Save dance move to file
     
     @IBAction func saveDanceMove(sender: AnyObject) {
         presentViewController(alertForNamePrompt, animated: true, completion: nil)
@@ -60,32 +162,6 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         }
         danceMove = DanceMove()
         updateEditView()
-    }
-    @IBAction func sliderValueChanged(sender: UISlider) {
-        if danceMove.keyframes.isEmpty {
-            currentIndex = -1
-            slider.setValue(0,animated: false)
-            return
-        }
-        let beforeTime = Double(slider.value) * danceMove.totalTime
-        if beforeTime <= danceMove.keyframes[0].time/2 {
-            currentIndex = -1
-            return
-        }
-        var accTime = 0.0
-        for (i,k) in danceMove.keyframes.enumerate() {
-            if i == danceMove.count-1 {
-                currentIndex = i
-                return
-            }
-            accTime += k.time
-            if accTime + danceMove.keyframes[i+1].time/2 > beforeTime {
-                currentIndex = i
-                return
-            }
-            
-        }
-        
     }
     
     private var alertForNamePrompt: UIAlertController {
@@ -121,94 +197,12 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         alert.actions[1].enabled = (sender.text != "")
     }
     
-    
-    func updateEditView() {
-        var lengths = [CGFloat]()
-        var currentLength: CGFloat = 0.0
-        for key in danceMove.keyframes {
-            currentLength += CGFloat(key.time)
-            lengths.append(currentLength)
-            
-        }
-        editView.lengths = lengths
-        editView.totalLength = currentLength
-    }
-    @IBAction func addPosture(sender: UIButton) {
-        if let c = characterNode {
-            let p = c.posture
-            let key = Keyframe(time: 0.5, posture: p)
-            
-            danceMove.keyframes.insert(key, atIndex: currentIndex + 1)
-            currentIndex += 1
-            updateEditView()
-        }
-       
-    }
-    @IBAction func deletePosture(sender: AnyObject) {
-        if currentIndex >= 0 {
-            danceMove.keyframes.removeAtIndex(currentIndex)
-            currentIndex -= 1
-            updateEditView()
-        }
-    }
-    
-    @IBAction func restorePosture(sender: UIButton) {
-        characterNode?.posture = Posture.idle
-    }
-    @IBAction func playAnimation(sender: UIButton) {
-
-        print(danceMove.keyframes)
-        scene.playAnimation(danceMove)
-    }
-    
-    var characterNode: CharacterNode? {
-        didSet {
-            print(characterNode)
-            updateCharacter()
-        }
-    }
-    
-    let scene = EditMoveScene(fileNamed:"DanceScene")!
-    
-    @IBAction func moveCharacterForPanRecognizer(recognizer: UIPanGestureRecognizer) {
-
-        scene.moveCharacter(recognizer.translationInView(skView))
-        recognizer.setTranslation(CGPointZero, inView: skView)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        
-        /* Sprite Kit applies additional optimizations to improve rendering performance */
-        skView.ignoresSiblingOrder = true
-        
-        /* Set the scale mode to scale to fit the window */
-        scene.scaleMode = .AspectFill
-        
-        skView.presentScene(scene)
-    }
-    
-    @objc func showKeyframeDetail(sender: UIButton) {
-        performSegueWithIdentifier(Storyborad.PopoverSegueIdentifier, sender: sender)
-    }
-    
-    
-    
-    func updateCharacter() {
-        characterNode?.posture = Posture.idle
-        scene.characterNode = characterNode
-        
-    }
+    // MARK: - Navigation
     
     private struct Storyborad {
         static let PopoverSegueIdentifier = "showKeyframeDetail"
     }
     
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard let identifier = segue.identifier else {
             return
@@ -237,6 +231,11 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         
     }
     
+    // MARK: Keyframe detail controller
+    
+    @objc func showKeyframeDetail(sender: UIButton) {
+        performSegueWithIdentifier(Storyborad.PopoverSegueIdentifier, sender: sender)
+    }
     
     func keyframeDetailControllerWillDisapper(withData data: KeyframeDetailData) {
         let index = data.index
@@ -245,6 +244,8 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         danceMove.keyframes[index].positionCurve = data.positionCurve
         updateEditView()
     }
+
+    
     
     
 

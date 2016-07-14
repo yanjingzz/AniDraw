@@ -8,6 +8,7 @@
 
 import UIKit
 import MSColorPicker
+import JGProgressHUD
 
 enum DrawingTool: Int {
     case Pencil = 1
@@ -19,48 +20,60 @@ enum DrawingTool: Int {
 
 class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, UIPopoverPresentationControllerDelegate, UIScrollViewDelegate {
     
-    @IBOutlet weak var imageScrollView: UIScrollView!
-
-    @IBAction func undoAction(sender: UISwipeGestureRecognizer) {
-        print("left")
-        drawView.undo()
-    }
-        
-    @IBAction func redoAction(sender: UISwipeGestureRecognizer) {
-        print("right")
-        drawView.redo()
-    }
-    
     @IBOutlet private weak var drawView: DrawView!
-    @IBOutlet var toolsButton: [UIButton]!
-    @IBOutlet weak var selectedColorCircleView: UIImageView!
-    @IBOutlet weak var firstColorButton: UIButton!
+    
     var editingCharacter: CharacterStorage?
-    
-    var selectedColorButton: UIButton? {
-        didSet {
-            if selectedColorButton != nil {
-                selectedColorCircleView.frame.origin = selectedColorButton!.frame.origin
-            }
-            
-        }
-    }
-    
-    @IBAction private func selectColor(sender: UIButton) {
-        if let c = sender.backgroundColor {
-            drawView.color = c
-        }
-        
-        if sender == selectedColorButton {
-            performSegueWithIdentifier(Storyborad.PopoverSegueIdentifier, sender: sender)
-        }
-        self.selectedColorButton = sender
-    }
     
     private struct Constant {
         static let drawingToolsAnimationDuration = 0.3
+        static let HUDDisplayDuration = 0.5
     }
     
+    
+    //MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        drawView.color = firstColorButton.backgroundColor!
+        selectedColorButton = firstColorButton
+        if let character = editingCharacter,
+            let imageData = character.wholeImage,
+            let image = UIImage(data: imageData) {
+            drawView.initialImage = image
+        }
+        
+        imageScrollView.minimumZoomScale = 1.0;
+        imageScrollView.maximumZoomScale = 6.0;
+        imageScrollView.contentSize = CGSize(width: 1024, height: 768)
+        imageScrollView.panGestureRecognizer.minimumNumberOfTouches = 2
+        imageScrollView.panGestureRecognizer.maximumNumberOfTouches = 2
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        selectedColorCircleView.frame.origin = selectedColorButton!.frame.origin
+        for button in toolsButton {
+            if button.tag == selectedTool.rawValue {
+                button.frame.origin = CGPoint(x: 0, y: button.frame.minY)
+            } else {
+                button.frame.origin = CGPoint(x: -100, y: button.frame.minY)
+            }
+        }
+        
+        
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Select tool
+    
+    @IBOutlet var toolsButton: [UIButton]!
+    
+    @IBAction func selectTool(sender: UIButton) {
+        selectedTool = DrawingTool(rawValue: sender.tag)!
+    }
     
     var selectedTool = DrawingTool.Pencil {
         willSet {
@@ -94,57 +107,56 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
         }
     }
     
+    // MARK: Select color
     
+    @IBOutlet weak var selectedColorCircleView: UIImageView!
+    @IBOutlet weak var firstColorButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        drawView.color = firstColorButton.backgroundColor!
-        selectedColorButton = firstColorButton
-        if let character = editingCharacter,
-            let imageData = character.wholeImage,
-            let image = UIImage(data: imageData) {
-            drawView.initialImage = image
-        }
-        
-        imageScrollView.minimumZoomScale = 1.0;
-        imageScrollView.maximumZoomScale = 6.0;
-        imageScrollView.contentSize = CGSize(width: 1024, height: 768)
-        imageScrollView.panGestureRecognizer.minimumNumberOfTouches = 2
-        imageScrollView.panGestureRecognizer.maximumNumberOfTouches = 2
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        selectedColorCircleView.frame.origin = selectedColorButton!.frame.origin
-        for button in toolsButton {
-            if button.tag == DrawingTool.Pencil.rawValue {
-                button.frame.origin = CGPoint(x: 0, y: button.frame.minY)
-            } else {
-                button.frame.origin = CGPoint(x: -100, y: button.frame.minY)
+    var selectedColorButton: UIButton? {
+        didSet {
+            if selectedColorButton != nil {
+                selectedColorCircleView.frame.origin = selectedColorButton!.frame.origin
             }
+            
+        }
+    }
+    
+    @IBAction private func selectColor(sender: UIButton) {
+        if let c = sender.backgroundColor {
+            drawView.color = c
         }
         
-        
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        if sender == selectedColorButton {
+            performSegueWithIdentifier(Storyborad.PopoverSegueIdentifier, sender: sender)
+        }
+        self.selectedColorButton = sender
     }
     
+    
+    // MARK: - Navigation
 
-    
-    @IBAction func selectTool(sender: UIButton) {
-        selectedTool = DrawingTool(rawValue: sender.tag)!
-    }
-    
     private struct Storyborad {
         static let NextStepSegueIdentifier = "putSkeleton"
         static let PopoverSegueIdentifier = "showPopover"
     }
     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    @IBAction func nextStep(sender: UIButton) {
+        guard drawView.croppedImage != nil else {
+            showNoDrawingHUD()
+            return
+        }
+        print(drawView.croppedImage?.size)
+        performSegueWithIdentifier(Storyborad.NextStepSegueIdentifier, sender: sender)
+    }
+    
+    func showNoDrawingHUD() {
+        let hud = JGProgressHUD(style: .ExtraLight)
+        hud.indicatorView = JGProgressHUDImageIndicatorView(image: UIImage(named: "forbidden"))
+        hud.textLabel.text = "Draw something first!"
+        hud.showInView(view)
+        hud.dismissAfterDelay(1.0)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
@@ -156,7 +168,7 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
             guard let skeletonVC = segue.destinationViewController as? SkeletonController else {
                 break
             }
-            let image = drawView.image
+            let image = drawView.croppedImage
             skeletonVC.characterSkin = image
             if let character = editingCharacter {
                 skeletonVC.editingCharacter = character
@@ -195,9 +207,49 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
         drawView.color = c
     }
     
+    //MARK: - Scroll view
+    
+    @IBOutlet weak var imageScrollView: UIScrollView!
+    
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
     {
         return self.drawView
     }
     
+    //MARK: - Undo & Redo
+    
+    
+    @IBAction func undoAction(sender: UISwipeGestureRecognizer) {
+        
+        let flag = drawView.undo()
+        let hud = JGProgressHUD(style: .ExtraLight)
+        hud.interactionType = .BlockNoTouches
+        if flag {
+            hud.indicatorView = JGProgressHUDImageIndicatorView(image: UIImage(named: "undo"))
+            hud.textLabel.text = "Undo"
+        } else {
+            hud.indicatorView = JGProgressHUDImageIndicatorView(image: UIImage(named: "forbidden"))
+            hud.textLabel.text = "Nothing to undo"
+            
+        }
+        hud.showInView(view)
+        hud.dismissAfterDelay(Constant.HUDDisplayDuration)
+    }
+    
+    @IBAction func redoAction(sender: UISwipeGestureRecognizer) {
+        
+        let flag = drawView.redo()
+        let hud = JGProgressHUD(style: .ExtraLight)
+        hud.interactionType = .BlockNoTouches
+        if flag {
+            hud.indicatorView = JGProgressHUDImageIndicatorView(image: UIImage(named: "redo"))
+            hud.textLabel.text = "Redo"
+        } else {
+            hud.indicatorView = JGProgressHUDImageIndicatorView(image: UIImage(named: "forbidden"))
+            hud.textLabel.text = "Nothing to redo"
+        }
+        hud.showInView(view)
+        hud.dismissAfterDelay(Constant.HUDDisplayDuration)
+        
+    }
 }

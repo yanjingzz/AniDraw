@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IKV-mr-pMN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IKV-mr-pMN">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -31,7 +31,7 @@
                                         <state key="normal" image="play"/>
                                         <state key="selected" image="playdown"/>
                                         <connections>
-                                            <segue destination="JtF-Wr-vC4" kind="show" identifier="dance" id="wdu-8I-1Nm"/>
+                                            <action selector="dance:" destination="IKV-mr-pMN" eventType="touchUpInside" id="8M0-kf-DGl"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kC4-ED-zs5">
@@ -69,7 +69,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aiW-TX-zfk" kind="show" identifier="editDanceMove" id="9LQ-Ji-Oz4"/>
+                                    <action selector="editDanceMove:" destination="IKV-mr-pMN" eventType="touchUpInside" id="VUL-2F-Pd0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62e-BB-Jep">
@@ -123,12 +123,14 @@
                         <outlet property="nameLabel" destination="hGP-1F-Ykx" id="Dnp-Po-lPt"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="redrawCharacter" id="7N1-3H-qsw"/>
                         <segue destination="9qp-jS-GwS" kind="show" identifier="repositionSkeleton" id="sl5-qN-DsT"/>
+                        <segue destination="JtF-Wr-vC4" kind="show" identifier="dance" id="atH-FN-ZX1"/>
+                        <segue destination="aiW-TX-zfk" kind="show" identifier="editDanceMove" id="zPN-9p-1bl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oja-BE-jal" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cXF-0N-w4w" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-542" y="261"/>
+            <point key="canvasLocation" x="-531" y="261"/>
         </scene>
         <!--Animation Controller-->
         <scene sceneID="Agr-k0-dLc">
@@ -503,10 +505,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="CQZ-Fx-ERz">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="82" y="0.0" width="518" height="600"/>
                                 <subviews>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srw-1J-y9f" customClass="DrawView" customModule="AniDraw" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="518" height="600"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -606,7 +608,7 @@
                                     <action selector="selectColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5PR-eI-QHN"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dock" translatesAutoresizingMaskIntoConstraints="NO" id="uKi-L4-Swr">
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dock" translatesAutoresizingMaskIntoConstraints="NO" id="uKi-L4-Swr">
                                 <rect key="frame" x="0.0" y="57" width="82" height="485"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAb-Uf-nQF">
@@ -614,33 +616,28 @@
                                 <state key="normal" image="add"/>
                                 <state key="selected" image="adddown"/>
                                 <connections>
-                                    <segue destination="9qp-jS-GwS" kind="show" identifier="putSkeleton" id="R2f-3y-tg9"/>
+                                    <action selector="nextStep:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BsK-9P-fVk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xks-aH-qEL">
-                                <rect key="frame" x="-100" y="285" width="215" height="53"/>
+                                <rect key="frame" x="-100" y="267" width="215" height="65"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="6"/>
                                 <state key="normal" image="texture"/>
                                 <connections>
                                     <action selector="selectTool:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xNg-2e-nnh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MS2-aQ-LVN">
-                                <rect key="frame" x="-100" y="198" width="220" height="26"/>
-                                <size key="titleShadowOffset" width="0.0" height="2.2250738585072014e-308"/>
-                                <state key="normal" image="brush"/>
-                                <connections>
-                                    <action selector="selectTool:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PB4-fq-sZZ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRe-i1-4DL">
-                                <rect key="frame" x="-100" y="236" width="218" height="37"/>
+                                <rect key="frame" x="-100" y="218" width="218" height="49"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="6"/>
                                 <state key="normal" image="crayon"/>
                                 <connections>
                                     <action selector="selectTool:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N8H-90-5Y2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnS-NP-Tyx">
-                                <rect key="frame" x="0.0" y="105" width="213" height="29"/>
+                                <rect key="frame" x="0.0" y="87" width="213" height="41"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="6"/>
                                 <state key="normal" image="pencil">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -649,14 +646,16 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gQ-Og-jos">
-                                <rect key="frame" x="-100" y="146" width="225" height="40"/>
+                                <rect key="frame" x="-100" y="128" width="225" height="52"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="6"/>
                                 <state key="normal" image="pen"/>
                                 <connections>
                                     <action selector="selectTool:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WfK-ld-BvB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdt-zR-NAT">
-                                <rect key="frame" x="20" y="8" width="34" height="30"/>
+                                <rect key="frame" x="20" y="8" width="59" height="45"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -667,21 +666,32 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="GAc-0k-qBR">
                                 <rect key="frame" x="40" y="397" width="27" height="27"/>
                             </imageView>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MS2-aQ-LVN">
+                                <rect key="frame" x="-100" y="180" width="220" height="38"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="6"/>
+                                <size key="titleShadowOffset" width="0.0" height="2.2250738585072014e-308"/>
+                                <state key="normal" image="brush"/>
+                                <connections>
+                                    <action selector="selectTool:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PB4-fq-sZZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="CQZ-Fx-ERz" firstAttribute="leading" secondItem="uKi-L4-Swr" secondAttribute="trailing" id="0ek-j2-PcT"/>
                             <constraint firstItem="EMn-4O-DWf" firstAttribute="top" secondItem="gfv-7v-9kb" secondAttribute="bottom" constant="8" id="2No-28-PEn"/>
-                            <constraint firstItem="xks-aH-qEL" firstAttribute="top" secondItem="BRe-i1-4DL" secondAttribute="bottom" constant="12" id="4dH-uM-HB7"/>
+                            <constraint firstItem="xks-aH-qEL" firstAttribute="top" secondItem="BRe-i1-4DL" secondAttribute="bottom" id="4dH-uM-HB7"/>
                             <constraint firstItem="CQZ-Fx-ERz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6eG-jF-mpP"/>
                             <constraint firstItem="ycC-PM-isv" firstAttribute="top" secondItem="JhK-ih-nPH" secondAttribute="bottom" constant="8" id="76y-9U-Gmq"/>
                             <constraint firstItem="CQZ-Fx-ERz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="83k-Q1-kHE"/>
+                            <constraint firstItem="CQZ-Fx-ERz" firstAttribute="leading" secondItem="uKi-L4-Swr" secondAttribute="leading" id="AGL-iW-BZo"/>
                             <constraint firstItem="ycC-PM-isv" firstAttribute="centerX" secondItem="JhK-ih-nPH" secondAttribute="centerX" id="Aow-c3-y2k"/>
                             <constraint firstItem="bNb-PA-hbc" firstAttribute="centerX" secondItem="ycC-PM-isv" secondAttribute="centerX" id="BgC-cK-QWi"/>
-                            <constraint firstItem="BRe-i1-4DL" firstAttribute="top" secondItem="MS2-aQ-LVN" secondAttribute="bottom" constant="12" id="C03-Qh-k7X"/>
+                            <constraint firstItem="BRe-i1-4DL" firstAttribute="top" secondItem="MS2-aQ-LVN" secondAttribute="bottom" id="C03-Qh-k7X"/>
                             <constraint firstItem="jnS-NP-Tyx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" placeholder="YES" id="DAA-pg-QgA"/>
                             <constraint firstItem="JhK-ih-nPH" firstAttribute="leading" secondItem="uKi-L4-Swr" secondAttribute="leading" constant="40" id="Hcj-x2-Xxu"/>
                             <constraint firstItem="GAc-0k-qBR" firstAttribute="leading" secondItem="JhK-ih-nPH" secondAttribute="leading" placeholder="YES" id="Kq1-Uz-2f0"/>
-                            <constraint firstItem="xks-aH-qEL" firstAttribute="centerY" secondItem="uKi-L4-Swr" secondAttribute="centerY" constant="12" id="KsT-0S-e1g"/>
+                            <constraint firstItem="xks-aH-qEL" firstAttribute="centerY" secondItem="uKi-L4-Swr" secondAttribute="centerY" id="KsT-0S-e1g"/>
                             <constraint firstItem="xks-aH-qEL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-100" placeholder="YES" id="MN7-GS-rsf"/>
                             <constraint firstAttribute="bottom" secondItem="qAb-Uf-nQF" secondAttribute="bottom" constant="20" symbolic="YES" id="Mi4-Ll-KZK"/>
                             <constraint firstItem="6gQ-Og-jos" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-100" placeholder="YES" id="Nrt-Cy-K4E"/>
@@ -700,13 +710,21 @@
                             <constraint firstItem="gfv-7v-9kb" firstAttribute="leading" secondItem="uKi-L4-Swr" secondAttribute="leading" constant="7" id="mKF-mr-zac"/>
                             <constraint firstItem="a2E-vO-exm" firstAttribute="centerX" secondItem="EMn-4O-DWf" secondAttribute="centerX" id="n44-BP-oJ0"/>
                             <constraint firstItem="jdt-zR-NAT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nAC-lf-h9a"/>
-                            <constraint firstItem="MS2-aQ-LVN" firstAttribute="top" secondItem="6gQ-Og-jos" secondAttribute="bottom" constant="12" id="nC6-mZ-jRh"/>
+                            <constraint firstItem="MS2-aQ-LVN" firstAttribute="top" secondItem="6gQ-Og-jos" secondAttribute="bottom" id="nC6-mZ-jRh"/>
                             <constraint firstItem="uKi-L4-Swr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nyE-ps-Alz"/>
                             <constraint firstItem="CQZ-Fx-ERz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="p3J-xd-KjI"/>
+                            <constraint firstAttribute="trailing" secondItem="CQZ-Fx-ERz" secondAttribute="trailing" id="pJC-Vm-lCB"/>
                             <constraint firstItem="jdt-zR-NAT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="tF9-3w-GqS"/>
                             <constraint firstItem="a2E-vO-exm" firstAttribute="top" secondItem="EMn-4O-DWf" secondAttribute="bottom" constant="8" id="vhB-CF-sKP"/>
-                            <constraint firstItem="6gQ-Og-jos" firstAttribute="top" secondItem="jnS-NP-Tyx" secondAttribute="bottom" constant="12" id="znW-sb-ZHk"/>
+                            <constraint firstItem="6gQ-Og-jos" firstAttribute="top" secondItem="jnS-NP-Tyx" secondAttribute="bottom" id="znW-sb-ZHk"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6eG-jF-mpP"/>
+                                <exclude reference="AGL-iW-BZo"/>
+                                <exclude reference="eWJ-FO-5Uk"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -723,6 +741,7 @@
                         <segue destination="6tK-RE-9db" kind="popoverPresentation" identifier="showPopover" popoverAnchorView="GAc-0k-qBR" id="ZFY-Sf-75x">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
+                        <segue destination="9qp-jS-GwS" kind="show" identifier="putSkeleton" id="nUX-7l-zve"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -792,7 +811,8 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZt-5Q-YMn">
-                                <rect key="frame" x="20" y="8" width="34" height="30"/>
+                                <rect key="frame" x="20" y="8" width="59" height="45"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -902,7 +922,7 @@
         <image name="texture" width="215" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7N1-3H-qsw"/>
-        <segue reference="R2f-3y-tg9"/>
+        <segue reference="9XR-nB-WmU"/>
+        <segue reference="nUX-7l-zve"/>
     </inferredMetricsTieBreakers>
 </document>

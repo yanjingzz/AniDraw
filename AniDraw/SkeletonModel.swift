@@ -34,22 +34,22 @@ class SkeletonModel {
     
     func performClassifyJointsPerPixel() {
     // PART0:getParameters
-        let neckPosition = joints[.Neck]!
-        let waistPosition = joints[.Waist]!
-        let leftShoulderPosition = joints[.LeftShoulder]!
-        let leftElbowPosition = joints[.LeftElbow]!
-        let leftWristPosition = joints[.LeftWrist]!
-        let rightShoulderPosition = joints[.RightShoulder]!
-        let rightElbowPosition = joints[.RightElbow]!
-        let rightWristPosition = joints[.RightWrist]!
-        let leftHipPosition = joints[.LeftHip]!
-        let leftKneePosition = joints[.LeftKnee]!
-        let leftAnklePosition = joints[.LeftAnkle]!
-        let rightHipPosition = joints[.RightHip]!
-        let rightKneePosition = joints[.RightKnee]!
-        let rightAnklePosition = joints[.RightAnkle]!
-        
-        let jointRadius = 5
+//        let neckPosition = joints[.Neck]!
+//        let waistPosition = joints[.Waist]!
+//        let leftShoulderPosition = joints[.LeftShoulder]!
+//        let leftElbowPosition = joints[.LeftElbow]!
+//        let leftWristPosition = joints[.LeftWrist]!
+//        let rightShoulderPosition = joints[.RightShoulder]!
+//        let rightElbowPosition = joints[.RightElbow]!
+//        let rightWristPosition = joints[.RightWrist]!
+//        let leftHipPosition = joints[.LeftHip]!
+//        let leftKneePosition = joints[.LeftKnee]!
+//        let leftAnklePosition = joints[.LeftAnkle]!
+//        let rightHipPosition = joints[.RightHip]!
+//        let rightKneePosition = joints[.RightKnee]!
+//        let rightAnklePosition = joints[.RightAnkle]!
+//        
+//        let jointRadius = 5
         
     // PART1:classifyBasedOnJointPosition
         // Head

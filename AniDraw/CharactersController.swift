@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class CharactersController: UIViewController, UIScrollViewDelegate{
-
+    
+    //TODO: update characterImage after redraw?
+    
     var characters: [CharacterStorage]?
     private var currentCharacter: CharacterStorage? {
-        if carousel.currentItemIndex == -1 {
+        if carousel.currentItemIndex < 0 {
             return nil
         }
         return characters?[carousel.currentItemIndex]
@@ -24,8 +27,29 @@ class CharactersController: UIViewController, UIScrollViewDelegate{
         return nil
     }
     @IBOutlet weak var carousel: iCarousel!
-
+    
     @IBOutlet weak var nameLabel: UILabel!
+    
+    //MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        carousel.type = .CoverFlow2
+        carousel.bounceDistance = 0.1
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        characters = CharacterStorage.allCharacters()
+        carousel.reloadData()
+    }
+
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: - IBActions
     
     @IBAction func editCharacter(sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
@@ -45,35 +69,11 @@ class CharactersController: UIViewController, UIScrollViewDelegate{
         if let popoverVC = alert.popoverPresentationController {
             popoverVC.sourceView = view
             popoverVC.sourceRect = sender.frame
-
+            
         }
         presentViewController(alert, animated: true, completion: nil)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        carousel.type = .CoverFlow2
-        carousel.bounceDistance = 0.1
-    }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        characters = CharacterStorage.allCharacters()
-        carousel.reloadData()
-    }
-
-    //TODO: update characterImage after redraw?
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    private struct Storyboard {
-        static let DoneAddingCharacterIdentifier = "doneAddingCharacter"
-        static let EditDanceMoveIdentifier = "editDanceMove"
-        static let DanceIdentifier = "dance"
-        static let RedrawCharacterIdentifier = "redrawCharacter"
-        static let RepositionSkeletonIdentifier = "repositionSkeleton"
-    }
     
-   
     func deleteCharacter() {
         if let character = currentCharacter {
             let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -92,7 +92,42 @@ class CharactersController: UIViewController, UIScrollViewDelegate{
         carousel.reloadData()
     }
     
+    
+    
+    @IBAction func dance(sender: UIButton) {
+        guard currentCharacter != nil else {
+            showNoCharacterHUD()
+            return
+        }
+        performSegueWithIdentifier(Storyboard.DanceIdentifier, sender: sender)
+    }
+    @IBAction func editDanceMove(sender: UIButton) {
+        guard currentCharacter != nil else {
+            showNoCharacterHUD()
+            return
+        }
+        performSegueWithIdentifier(Storyboard.EditDanceMoveIdentifier, sender: sender)
+        
+    }
+    
+    func showNoCharacterHUD() {
+        let hud = JGProgressHUD(style: .ExtraLight)
+        hud.indicatorView = JGProgressHUDImageIndicatorView(image: UIImage(named: "forbidden"))
+        hud.textLabel.text = "Create a character first!"
+        hud.showInView(view)
+        hud.dismissAfterDelay(1.0)
+    }
+
+    
     // MARK: - Navigation
+    
+    private struct Storyboard {
+        static let DoneAddingCharacterIdentifier = "doneAddingCharacter"
+        static let EditDanceMoveIdentifier = "editDanceMove"
+        static let DanceIdentifier = "dance"
+        static let RedrawCharacterIdentifier = "redrawCharacter"
+        static let RepositionSkeletonIdentifier = "repositionSkeleton"
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard let ident = segue.identifier else{
@@ -141,11 +176,10 @@ class CharactersController: UIViewController, UIScrollViewDelegate{
         print("CharactersController unwindToCharactersController")
     }
 
-    
-    
-
 
 }
+
+//MARK: - Carousel delegate
 
 extension CharactersController: iCarouselDataSource, iCarouselDelegate {
 
