@@ -9,11 +9,7 @@
 import UIKit
 
 class DrawView: UIView{
-    var scaleRatio : CGFloat = 1.0
-    var scaleImage : UIImage?
-    var resetBoundsSize : CGSize = CGSize()
-    var isScaleChanged : Boolean = false
-    
+
     var undoImages : [UIImage] = []
     var redoImages : [UIImage] = []
     var tool: DrawingTool?
@@ -274,11 +270,6 @@ class DrawView: UIView{
         undoImages.push(incrementalImage!)
         redoImages.removeAll()
         
-        isScaleChanged = false
-        
-        print("undoStack:\(undoImages.count)")
-        print("redoStack:\(redoImages.count)")
-        print("imageSize:\(incrementalImage?.size)")
     }
     
     func undo() {
