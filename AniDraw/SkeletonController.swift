@@ -21,6 +21,7 @@ class SkeletonController: UIViewController {
     
     var editingCharacter: CharacterStorage?
     
+    var skeletonModel : SkeletonModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +30,15 @@ class SkeletonController: UIViewController {
         } else {
             characterSkin = characterImageView.image?.trimToNontransparent()
         }
-        
+        //skeletonModel initialize
+        skeletonModel = SkeletonModel()
         // Do any additional setup after loading the view.
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        //Test
+        self.skeletonModalUpdateTest()
         updateImage()
     }
     
@@ -65,6 +69,8 @@ class SkeletonController: UIViewController {
             }
         case .Ended:
             if movedView != nil {
+                //Test
+                self.skeletonModalUpdateTest()
                 updateImage()
             }
             fallthrough
@@ -181,6 +187,7 @@ class SkeletonController: UIViewController {
     
     
     func updateImage() {  //preview
+        
         let image = characterSkin.CGImage!
         let inBodyPart = belongsToBodyPart()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)) {
@@ -195,7 +202,6 @@ class SkeletonController: UIViewController {
             }
             let width = CGImageGetWidth(image)
             let height = CGImageGetHeight(image)
-            
             
             
             for y in 0..<height {
@@ -294,79 +300,80 @@ class SkeletonController: UIViewController {
     }
     
     func belongsToBodyPart() -> (CGPoint) -> BodyPartName {
-        let neckPoint = jointPoint(.Neck)
-        let waistPoint = jointPoint(.Waist)
-        let bodyPoint = (neckPoint+waistPoint)/2
-        
-        let leftElbowPoint = jointPoint(.LeftElbow)
-        let leftShoulderPoint = jointPoint(.LeftShoulder)
-        let leftWristPoint = jointPoint(.LeftWrist)
-        let leftHipPoint = jointPoint(.LeftHip)
-        let leftKneePoint = jointPoint(.LeftKnee)
-        let leftAnklePoint = jointPoint(.LeftAnkle)
-        
-        let rightElbowPoint = jointPoint(.RightElbow)
-        let rightShoulderPoint = jointPoint(.RightShoulder)
-        let rightWristPoint = jointPoint(.RightWrist)
-        let rightHipPoint = jointPoint(.RightHip)
-        let rightKneePoint = jointPoint(.RightKnee)
-        let rightAnklePoint = jointPoint(.RightAnkle)
-        let ret: (CGPoint) -> BodyPartName = {p in
-            if dot(p-neckPoint,neckPoint - waistPoint) > 0 {
-                return .Head
-            }
-            if dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) > 0 {
-                // left body
-                if dot(p-leftAnklePoint, leftAnklePoint - leftKneePoint) > 0 {
-                    return .LeftFoot
-                }
-                if dot(p-leftElbowPoint,leftElbowPoint - leftShoulderPoint) > 0 &&
-                    dot(p-leftShoulderPoint, (leftWristPoint - leftElbowPoint).perpendicular) < 0 {
-                    return .LeftForearm
-                }
-                if dot(p-leftKneePoint, leftAnklePoint - leftKneePoint) > 0 {
-                    // && dot(p-leftAnklePoint, leftAnklePoint - leftKneePoint) <= 0
-                    return .LeftShank
-                }
-                if dot(p-leftHipPoint,  leftKneePoint - leftHipPoint) > 0 {
-                    // && dot(p-leftKneePoint, leftAnklePoint - leftKneePoint) <= 0
-                    return .LeftThigh
-                }
-                if dot(p-leftShoulderPoint, leftShoulderPoint - bodyPoint) > 0 &&
-                    dot(p-leftElbowPoint,leftElbowPoint - leftShoulderPoint) <= 0 {
-                    return .LeftUpperArm
-                }
-            
-            } else {
-                // right body
-                if dot(p-rightAnklePoint, rightAnklePoint - rightKneePoint) > 0 {
-                    return .RightFoot
-                }
-                if dot(p-rightElbowPoint,rightElbowPoint - rightShoulderPoint) > 0 &&
-                    dot(p-rightShoulderPoint, (rightWristPoint - rightElbowPoint).perpendicular) >= 0 {
-                    return .RightForearm
-                }
-                if dot(p-rightKneePoint, rightAnklePoint - rightKneePoint) > 0 {
-                    // && dot(p-rightAnklePoint, rightAnklePoint - rightKneePoint) <= 0
-                    return .RightShank
-                }
-                if dot(p-rightHipPoint,  rightKneePoint - rightHipPoint) > 0 {
-                    // && dot(p-rightKneePoint, rightAnklePoint - rightKneePoint) <= 0
-                    return .RightThigh
-                }
-                if dot(p-rightShoulderPoint, rightShoulderPoint - bodyPoint) > 0 &&
-                    dot(p-rightElbowPoint,rightElbowPoint - rightShoulderPoint) <= 0 {
-                    return .RightUpperArm
-                }
-            }
-            //Not limbs or head
-            if dot(p-waistPoint,neckPoint - waistPoint) > 0 {
-                return .UpperBody
-            }
-            return .LowerBody
-            
-        }
-        return ret
+        return getSingle
+//        let neckPoint = jointPoint(.Neck)
+//        let waistPoint = jointPoint(.Waist)
+//        let bodyPoint = (neckPoint+waistPoint)/2
+//        
+//        let leftElbowPoint = jointPoint(.LeftElbow)
+//        let leftShoulderPoint = jointPoint(.LeftShoulder)
+//        let leftWristPoint = jointPoint(.LeftWrist)
+//        let leftHipPoint = jointPoint(.LeftHip)
+//        let leftKneePoint = jointPoint(.LeftKnee)
+//        let leftAnklePoint = jointPoint(.LeftAnkle)
+//        
+//        let rightElbowPoint = jointPoint(.RightElbow)
+//        let rightShoulderPoint = jointPoint(.RightShoulder)
+//        let rightWristPoint = jointPoint(.RightWrist)
+//        let rightHipPoint = jointPoint(.RightHip)
+//        let rightKneePoint = jointPoint(.RightKnee)
+//        let rightAnklePoint = jointPoint(.RightAnkle)
+//        let ret: (CGPoint) -> BodyPartName = {p in
+//            if dot(p-neckPoint,neckPoint - waistPoint) > 0 {
+//                return .Head
+//            }
+//            if dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) > 0 {
+//                // left body
+//                if dot(p-leftAnklePoint, leftAnklePoint - leftKneePoint) > 0 {
+//                    return .LeftFoot
+//                }
+//                if dot(p-leftElbowPoint,leftElbowPoint - leftShoulderPoint) > 0 &&
+//                    dot(p-leftShoulderPoint, (leftWristPoint - leftElbowPoint).perpendicular) < 0 {
+//                    return .LeftForearm
+//                }
+//                if dot(p-leftKneePoint, leftAnklePoint - leftKneePoint) > 0 {
+//                    // && dot(p-leftAnklePoint, leftAnklePoint - leftKneePoint) <= 0
+//                    return .LeftShank
+//                }
+//                if dot(p-leftHipPoint,  leftKneePoint - leftHipPoint) > 0 {
+//                    // && dot(p-leftKneePoint, leftAnklePoint - leftKneePoint) <= 0
+//                    return .LeftThigh
+//                }
+//                if dot(p-leftShoulderPoint, leftShoulderPoint - bodyPoint) > 0 &&
+//                    dot(p-leftElbowPoint,leftElbowPoint - leftShoulderPoint) <= 0 {
+//                    return .LeftUpperArm
+//                }
+//            
+//            } else {
+//                // right body
+//                if dot(p-rightAnklePoint, rightAnklePoint - rightKneePoint) > 0 {
+//                    return .RightFoot
+//                }
+//                if dot(p-rightElbowPoint,rightElbowPoint - rightShoulderPoint) > 0 &&
+//                    dot(p-rightShoulderPoint, (rightWristPoint - rightElbowPoint).perpendicular) >= 0 {
+//                    return .RightForearm
+//                }
+//                if dot(p-rightKneePoint, rightAnklePoint - rightKneePoint) > 0 {
+//                    // && dot(p-rightAnklePoint, rightAnklePoint - rightKneePoint) <= 0
+//                    return .RightShank
+//                }
+//                if dot(p-rightHipPoint,  rightKneePoint - rightHipPoint) > 0 {
+//                    // && dot(p-rightKneePoint, rightAnklePoint - rightKneePoint) <= 0
+//                    return .RightThigh
+//                }
+//                if dot(p-rightShoulderPoint, rightShoulderPoint - bodyPoint) > 0 &&
+//                    dot(p-rightElbowPoint,rightElbowPoint - rightShoulderPoint) <= 0 {
+//                    return .RightUpperArm
+//                }
+//            }
+//            //Not limbs or head
+//            if dot(p-waistPoint,neckPoint - waistPoint) > 0 {
+//                return .UpperBody
+//            }
+//            return .LowerBody
+//            
+//        }
+//        return ret
         
     }
     
@@ -389,7 +396,40 @@ class SkeletonController: UIViewController {
         .RightUpperArm:  0x00FF7FFF,
     ]
 
+    func reset() {
+        var newJoints = [JointName:CGPoint]()
+        for joint in JointName.allJoints {
+            newJoints[joint] = jointPoint(joint)
+//            print("\(joint):\(newJoints[joint])")
+        }
+        skeletonModel.setParameter(characterImageView.frame.origin,image: characterImageView.image!)
+        skeletonModel.setJointsPosition(newJoints)
+    }
+    
+    func skeletonModalUpdateTest() {
+        print("-------------")
+        reset()
+        print("setSkeletonModel!")
+        print("Controller: frame.origin: \(characterImageView.frame.origin)")
+        print("Controller: frame.center: \(characterImageView.frame.center)")
+        print("Controller: image.size: \(characterImageView.image?.size)")
+        skeletonModel.performNavieClassifyJointsPerPixel()
+        print("naive perform finish!")
+        print("Skeleton: matrix size: (\(skeletonModel.matrix.count),\(skeletonModel.matrix[0].count))")
+        print("Skeleton: Height: \(skeletonModel.matrixHeight)")
+        print("Skeleton: Width: \(skeletonModel.matrixWidth)")
+        print("-------------")
+    }
 
+    
+    func getSingle(position:CGPoint) -> BodyPartName {
+        let list = skeletonModel.getJointsFromAbsolutePosition(position)
+        if list == nil || list?.count == 0{
+            return .Head
+        } else {
+            return list![0]
+        }
+    }
 }
 
 
