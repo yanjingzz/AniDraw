@@ -64,7 +64,6 @@ class SkeletonController: UIViewController {
                 let p = recognizer.locationInView(skeletonView)
                 let origin = p - CGPoint(x: SkeletonView.Constants.JointSize / 2, y: SkeletonView.Constants.JointSize / 2)
                 view.frame = CGRect(origin: origin, size: view.frame.size)
-                
                 skeletonView.setNeedsDisplay()
             }
         case .Ended:
@@ -212,8 +211,11 @@ class SkeletonController: UIViewController {
                     let p = self.characterImageView.convertPoint(CGPoint(x:x,y:y), toView: self.skeletonView)
                     let pixel = pixels[width * y + x]
                     if pixel.alphaValue != 0 && pixel.alphaValue != 0xFF {
-                        let part = inBodyPart(p)
-                        pixels[width * y + x] = self.colorForPart[part]!
+                        let (part1,part2) = inBodyPart(p)
+                        let partBasedOnPriority = self.skeletonModel.getBodyPartNameInPriority(part1, b2: part2)
+                        if partBasedOnPriority != nil {
+                            pixels[width * y + x] = self.colorForPart[partBasedOnPriority!]!
+                        }
                     }
                 }
             }
@@ -262,7 +264,6 @@ class SkeletonController: UIViewController {
                 data[part] = (pixel: p,context: c)
             }
             
-            
             for y in 0..<height {
                 for x in 0..<width {
                     if self.moved == true {
@@ -271,12 +272,21 @@ class SkeletonController: UIViewController {
                     let p = self.characterImageView.convertPoint(CGPoint(x:x,y:y), toView: self.skeletonView)
                     let pixel = pixels[width * y + x]
                     if pixel.alphaValue != 0 {
-                        let part = inBodyPart(p)
-                        data[part]?.pixel[width * y + x] = pixel
-                        lowX[part] = x < lowX[part] ? x : lowX[part]
-                        highX[part] = x > highX[part] ? x : highX[part]
-                        lowY[part] = y < lowY[part] ? y : lowY[part]
-                        highY[part] = y > highY[part] ? y : highY [part]
+                        let (part1,part2) = inBodyPart(p)
+                        if part1 != nil {
+                            data[part1!]?.pixel[width * y + x] = pixel
+                            lowX[part1!] = x < lowX[part1!] ? x : lowX[part1!]
+                            highX[part1!] = x > highX[part1!] ? x : highX[part1!]
+                            lowY[part1!] = y < lowY[part1!] ? y : lowY[part1!]
+                            highY[part1!] = y > highY[part1!] ? y : highY [part1!]
+                        }
+                        if part2 != nil {
+                            data[part2!]?.pixel[width * y + x] = pixel
+                            lowX[part2!] = x < lowX[part2!] ? x : lowX[part2!]
+                            highX[part2!] = x > highX[part2!] ? x : highX[part2!]
+                            lowY[part2!] = y < lowY[part2!] ? y : lowY[part2!]
+                            highY[part2!] = y > highY[part2!] ? y : highY [part2!]
+                        }
                     }
                 }
             }
@@ -293,14 +303,45 @@ class SkeletonController: UIViewController {
                 self.segmentedPartsFrame[part] = convertedRect
                 free(data[part]!.pixel)
             }
+            
+//            for y in 0..<height {
+//                for x in 0..<width {
+//                    if self.moved == true {
+//                        return
+//                    }
+//                    let p = self.characterImageView.convertPoint(CGPoint(x:x,y:y), toView: self.skeletonView)
+//                    let pixel = pixels[width * y + x]
+//                    if pixel.alphaValue != 0 {
+//                        let part = inBodyPart(p)
+//                        data[part]?.pixel[width * y + x] = pixel
+//                        lowX[part] = x < lowX[part] ? x : lowX[part]
+//                        highX[part] = x > highX[part] ? x : highX[part]
+//                        lowY[part] = y < lowY[part] ? y : lowY[part]
+//                        highY[part] = y > highY[part] ? y : highY [part]
+//                    }
+//                }
+//            }
+//            free(pixels)
+//            for part in BodyPartName.allParts {
+//                let image = CGBitmapContextCreateImage(data[part]?.context)
+//                let newRect = CGRect(x: lowX[part]!, y: lowY[part]!, width: highX[part]!-lowX[part]!, height: highY[part]!-lowY[part]!)
+//                if let imageRef = CGImageCreateWithImageInRect(image, newRect) {
+//                    self.segmentedParts[part] = imageRef
+//                } else {
+//                    print("image not generated for \(part), rectangle is \(newRect)")
+//                }
+//                let convertedRect = CGRect(origin: self.characterImageView.convertPoint(newRect.origin, toView: self.skeletonView), size: newRect.size)
+//                self.segmentedPartsFrame[part] = convertedRect
+//                free(data[part]!.pixel)
+//            }
 
             dispatch_async(dispatch_get_main_queue(), completion)
         }
 
     }
     
-    func belongsToBodyPart() -> (CGPoint) -> BodyPartName {
-        return getSingle
+    func belongsToBodyPart() -> (CGPoint) -> (BodyPartName?,BodyPartName?) {
+        return skeletonModel.getJointsFromAbsolutePosition
 //        let neckPoint = jointPoint(.Neck)
 //        let waistPoint = jointPoint(.Waist)
 //        let bodyPoint = (neckPoint+waistPoint)/2
@@ -402,7 +443,8 @@ class SkeletonController: UIViewController {
             newJoints[joint] = jointPoint(joint)
 //            print("\(joint):\(newJoints[joint])")
         }
-        skeletonModel.setParameter(characterImageView.frame.origin,image: characterImageView.image!)
+        //characterImageView.image!
+        skeletonModel.setParameter(characterImageView.frame.origin,image: characterSkin)
         skeletonModel.setJointsPosition(newJoints)
     }
     
@@ -415,20 +457,35 @@ class SkeletonController: UIViewController {
         print("Controller: image.size: \(characterImageView.image?.size)")
         skeletonModel.performNavieClassifyJointsPerPixel()
         print("naive perform finish!")
+        if skeletonModel.getSkeletonModelInitValid() == true {
         print("Skeleton: matrix size: (\(skeletonModel.matrix.count),\(skeletonModel.matrix[0].count))")
+        print("Skeleton: color size: (\(skeletonModel.R.count),\(skeletonModel.R[0].count))")
+        } else {
+            print("Skeleton: matrix & color : empty")
+        }
         print("Skeleton: Height: \(skeletonModel.matrixHeight)")
         print("Skeleton: Width: \(skeletonModel.matrixWidth)")
         print("-------------")
     }
 
+    @IBOutlet var colorTestTapGesture: UITapGestureRecognizer!
     
-    func getSingle(position:CGPoint) -> BodyPartName {
-        let list = skeletonModel.getJointsFromAbsolutePosition(position)
-        if list == nil || list?.count == 0{
-            return .Head
+    @IBAction func colorTestAction(sender: UITapGestureRecognizer) {
+        print("[single tap test]")
+        let relativeTapPosition = sender.locationInView(characterImageView)
+        let absoluteTapPosition = sender.locationInView(skeletonView)
+        let offset = skeletonModel.positionOffset
+        print("relative: \(relativeTapPosition)), \(skeletonModel.getColorFromRelativePosition(relativeTapPosition))")
+        print("absolute: \(absoluteTapPosition)), \(skeletonModel.getColorFromAbsolutePosition(absoluteTapPosition))")
+        let Y = Int(relativeTapPosition.y)
+        let X = Int(relativeTapPosition.x)
+        if Y >= 0 && Y < skeletonModel.matrixHeight && X >= 0 && X < skeletonModel.matrixWidth {
+            print("bodyPartName: \(skeletonModel.matrix[Y][X])")
         } else {
-            return list![0]
+            print("bodyPartName: [out of index]")
         }
+        print("offset:\(offset)")
+        print("[single tap test end]")
     }
 }
 
