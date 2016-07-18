@@ -14,18 +14,13 @@ class AnimationController: UIViewController {
     @IBOutlet weak var skView: SKView!
     
     var scene: DanceScene!
-    var characterNode: CharacterNode? {
-        didSet {
-            guard let scene = scene, let character = characterNode else {
-                return
-            }
-            scene.characterNode = character
-        }
-    }
+    var characterNode: CharacterNode!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpScene()
+        scene.characterNode = characterNode
 
     }
     private func setUpScene() {

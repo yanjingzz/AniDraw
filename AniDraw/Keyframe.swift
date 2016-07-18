@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-struct Keyframe {
+struct Keyframe: CustomStringConvertible {
     var time: CFTimeInterval
     var posture: Posture
 //    var nextCurve: DanceMoveAnimationCurve
@@ -23,14 +23,22 @@ struct Keyframe {
         angleCurve = .Linear
         positionCurve = .Linear
     }
-    init(time:NSTimeInterval, posture:Posture, angleCurve: Curve, postureCurve: Curve) {
+    init(time:NSTimeInterval, posture:Posture, angleCurve: Curve, positionCurve: Curve) {
         self.time = time
         self.posture = posture
         self.angleCurve = angleCurve
-        self.positionCurve = postureCurve
+        self.positionCurve = positionCurve
     }
     init (time:NSTimeInterval, posture:Posture) {
-        self.init(time:time, posture: posture, angleCurve: .EaseInOut, postureCurve: .EaseInOut)
+        self.init(time:time, posture: posture, angleCurve: .EaseInOut, positionCurve: .EaseInOut)
+    }
+    var description: String {
+        var string = "\nKeyframe( \n"
+        string += "    time: \(time), \n"
+        string += "    posture: \(posture), \n"
+        string += "    angleCurve: .\(angleCurve), \n"
+        string += "    positionCurve: .\(positionCurve))"
+        return string
     }
     enum Curve : Int {
         case Linear = 0

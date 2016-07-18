@@ -34,7 +34,7 @@ class KeyframesEditorView: UIView {
                 for _ in 0..<(oldValue.count-lengths.count) {
                     let view = keyViews.popLast()
                     view?.removeFromSuperview()
-                    let button = keyViews.popLast()
+                    let button = timeButtons.popLast()
                     button?.removeFromSuperview()
                 }
             }
@@ -56,7 +56,7 @@ class KeyframesEditorView: UIView {
         }
         for(i, button) in timeButtons.enumerate() {
             
-            button.sizeToFit()
+            
             button.tag = i
             if i == 0 {
                 button.setTitle("\(lengths[i])s", forState: .Normal)
@@ -65,6 +65,7 @@ class KeyframesEditorView: UIView {
                 button.setTitle("\(lengths[i] - lengths[i-1])s", forState: .Normal)
                 button.frame.origin = CGPoint(x: (lengths[i] + lengths[i-1]) / totalLength * bounds.width / 2 - 5, y: 0)
             }
+            button.sizeToFit()
         }
     }
     

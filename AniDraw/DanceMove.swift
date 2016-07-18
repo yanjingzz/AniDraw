@@ -98,7 +98,7 @@ public class DanceMove {
         }
         var kfs = [Keyframe]()
         for i in 0..<times.length {
-            kfs.append(Keyframe(time: times[i], posture: postures[i], angleCurve: angleCurves[i],postureCurve: postureCurves[i]))
+            kfs.append(Keyframe(time: times[i], posture: postures[i], angleCurve: angleCurves[i],positionCurve: postureCurves[i]))
         }
         
         self.init(keyframes: kfs,levelOfIntensity: intensity)
@@ -110,7 +110,7 @@ public class DanceMove {
         }
         var kfs = [Keyframe]()
         for i in 0..<times.length {
-            kfs.append(Keyframe(time: times[i], posture: postures[i], angleCurve: .EaseInOut ,postureCurve: .EaseInOut))
+            kfs.append(Keyframe(time: times[i], posture: postures[i], angleCurve: .EaseInOut ,positionCurve: .EaseInOut))
         }
         
         self.init(keyframes: kfs,levelOfIntensity: intensity)

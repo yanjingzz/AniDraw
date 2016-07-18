@@ -44,9 +44,10 @@ public extension UIImage {
     
     func trimToNontransparent() -> UIImage? {
         let newRect = self.BoundingBoxOfNontransparentPixels()
-        guard !CGRectIsEmpty(newRect) else {
+        guard newRect.size.height > 0 && newRect.size.width > 0 else {
             return nil
         }
+        print("Image cropped size: \(newRect.size)")
         guard let imageRef = CGImageCreateWithImageInRect(self.CGImage!, newRect) else{
             return nil
         }

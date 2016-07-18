@@ -10,10 +10,41 @@ import UIKit
 
 class DrawView: UIView{
 
-    var undoImages : [UIImage] = []
-    var redoImages : [UIImage] = []
     var tool: DrawingTool?
     var color: UIColor = UIColor.blackColor()
+    
+    private var path: UIBezierPath?
+    private var points = [PointWithWidth]()
+    private var incrementalImage: UIImage?
+    var initialImage: UIImage?
+    
+    var croppedImage: UIImage? {
+        get {
+            return incrementalImage?.trimToNontransparent()
+        }
+    }
+    
+    private struct Constants {
+        static let PointsDistanceThreshold: CGFloat = 0.5
+        static let bezierArcConstant: CGFloat = (2/3)*CGFloat(tan(M_PI_4))
+    }
+    
+    override func layoutSubviews() {
+        if let image = initialImage where incrementalImage == nil {
+            UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
+            let center = bounds.center
+            let origin = center - CGPoint(x: image.size.width / 2, y: image.size.height / 2)
+            image.drawAtPoint(origin)
+            incrementalImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+        }
+    }
+    
+    // MARK: Private definitions
+    
+    private let drawingQueue = dispatch_queue_create("drawingQueue", DISPATCH_QUEUE_SERIAL)
+    
     private struct PointWithWidth {
         var point: CGPoint
         var width: CGFloat
@@ -28,69 +59,28 @@ class DrawView: UIView{
             return UIBezierPath(ovalInRect: rect1)
         }
     }
-    @IBInspectable var strokeColor: UIColor = UIColor.blackColor() { didSet { setNeedsDisplay() } }
     
-    private var paths = [UIBezierPath]()
-    private var incrementalImage: UIImage?
-    var initialImage: UIImage?
-    
-    override func layoutSubviews() {
-        if let image = initialImage where incrementalImage == nil {
-            UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
-            let center = bounds.center
-            let origin = center - CGPoint(x: image.size.width / 2, y: image.size.height / 2)
-            image.drawAtPoint(origin)
-            incrementalImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            
-        }
-    }
-    private let drawingQueue = dispatch_queue_create("drawingQueue", DISPATCH_QUEUE_SERIAL)
-    
-    private enum State {
-        case FirstPoint (prev: PointWithWidth)
-        case SecondAndUp (first: PointWithWidth,second: PointWithWidth)
-        case ThirdAndUp (first: PointWithWidth,second: PointWithWidth)
-    }
-    private var state: State?
-    
-    
-    var image: UIImage? {
-        get {
-            return incrementalImage?.trimToNontransparent()
-        }
-    }
+
     
     // MARK: - drawing
     
     override func drawRect(rect: CGRect) {
         incrementalImage?.drawInRect(rect)
-        for path in paths {
-            switch tool ?? .Pencil {
-            case .Eraser:
-                UIColor.whiteColor().setFill()
-                UIColor.whiteColor().setStroke()
-                path.fill()
-                path.stroke()
-                
-            case .Brush:
-                color.setFill()
-                color.setStroke()
-                path.fillWithBlendMode(CGBlendMode.Multiply, alpha: 0.2)
-            case .Crayon:
-                color.setFill()
-                color.setStroke()
-                path.fillWithBlendMode(CGBlendMode.Darken, alpha: 1)
-            default:
-                color.setFill()
-                color.setStroke()
-                path.fill()
-                path.stroke()
-            }
+        switch tool ?? .Pencil {
+        case .Eraser:
+            UIColor.whiteColor().setFill()
+            path?.fill()
+        case .Brush:
+            color.setFill()
+            path?.fillWithBlendMode(CGBlendMode.Multiply, alpha: 0.2)
+        case .Crayon:
+            color.setFill()
+            path?.fillWithBlendMode(CGBlendMode.Darken, alpha: 1)
+        default:
+            color.setFill()
+            path?.fill()
+            
         }
-    }
-    
-    private struct Constants {
         
     }
     
@@ -98,106 +88,109 @@ class DrawView: UIView{
         let p = recognizer.locationInView(self)
         let width:CGFloat = 5.0
         let current = PointWithWidth(point: p, width: width)
-        paths.append(current.path)
+        path = current.path
         finishStroke()
     }
-    
-    
     
     @IBAction private func drawStrokeForPanRecognizer(recognizer: UIPanGestureRecognizer) {
         let p = recognizer.locationInView(self)
         let v = recognizer.velocityInView(self)
         let width = strokeWidthFromSpeed(v.length())
         let current = PointWithWidth(point: p, width: width)
+        if points.last == nil {
+            points.append(current)
+        } else if (points.last!.point - p).length() > Constants.PointsDistanceThreshold {
+            points.append(current)
+        }
         
-        switch recognizer.state {
-        case .Began:
+        switch points {
+        case _ where points.isEmpty:
+            print("drawView pan gesture recognizer points[] empty!")
+            break
+        case _ where points.count == 1:
+            let current = PointWithWidth(point: p, width: width)
+            path = current.path
             
-            state = State.FirstPoint(prev: current)
-            
-        case .Changed:
-            guard let s = state else {
-                break
-            }
-            switch s {
-            case .FirstPoint(prev: let prev):
-                let middlePoint = PointWithWidth.average(current, prev)
-                let dir = p - prev.point
-                let prevEndPoints = endPoints(atPositionWithWidth: prev, perpendicularTo: dir)
-                let currentEndPoints = endPoints(atPositionWithWidth: middlePoint, perpendicularTo: dir)
-                let path = UIBezierPath()
-                path.moveToPoint(prevEndPoints.1)
-                path.addLineToPoint(currentEndPoints.1)
-                path.addLineToPoint(currentEndPoints.0)
-                path.addLineToPoint(prevEndPoints.0)
-                let bezierCircleConstant = width*(2/3)*CGFloat(tan(M_PI_4))
-                path.addCurveToPoint(prevEndPoints.1, controlPoint1: prevEndPoints.0 - dir.normalized() * bezierCircleConstant, controlPoint2: prevEndPoints.1 - dir.normalized() * bezierCircleConstant)
-                path.closePath()
-                paths.append(path)
-                state = State.SecondAndUp(first: prev, second: current)
-                
-            case .SecondAndUp(first: let first, second: _):
-                state = State.ThirdAndUp(first: first,second: current)
-            case .ThirdAndUp(first: let first, second: let second):
-                let middlePoint1 = PointWithWidth.average(first, second)
-                let middlePoint2 = PointWithWidth.average(second, current)
-                let m1EndPoints = endPoints(atPositionWithWidth: middlePoint1, perpendicularTo: second.point - first.point)
-                let m2EndPoints = endPoints(atPositionWithWidth: middlePoint2, perpendicularTo: current.point - second.point)
-                let controlEndPoints = endPoints(atPositionWithWidth: second, perpendicularTo: current.point - first.point)
-                let path = UIBezierPath()
-                path.moveToPoint(m1EndPoints.0)
-                path.addLineToPoint(m1EndPoints.1)
-                path.addQuadCurveToPoint(m2EndPoints.1, controlPoint: controlEndPoints.1)
-                path.addLineToPoint(m2EndPoints.0)
-                path.addQuadCurveToPoint(m1EndPoints.0, controlPoint: controlEndPoints.0)
-                path.closePath()
-                if second.point == current.point {
-                    //TODO: deal with second == current
-                }
-                paths.append(path)
-                state = State.ThirdAndUp(first: second,second: current)
-            }
-            setNeedsDisplay()
-            
-        case .Ended:
-            guard let s = state else {
-                break
-            }
-            let prev: PointWithWidth
-            switch s {
-            case .FirstPoint(prev: let pp):
-                
-                prev = PointWithWidth.average(pp, current)
-            case .SecondAndUp(first: let first, second: _):
-                prev = PointWithWidth.average(first, current)
-            case .ThirdAndUp(first: let first, second:  _):
-                prev = PointWithWidth.average(first, current)
-                
-            }
-            let dir = p - prev.point
-            let prevEndPoints = endPoints(atPositionWithWidth: prev, perpendicularTo: dir)
-            let currentEndPoints = endPoints(atPositionWithWidth: current, perpendicularTo: dir)
+        case _ where points.count == 2:
             let path = UIBezierPath()
-            path.moveToPoint(prevEndPoints.0)
-            path.addLineToPoint(prevEndPoints.1)
-            path.addLineToPoint(currentEndPoints.1)
-            let bezierCircleConstant = width*(2/3)*CGFloat(tan(M_PI_4))
-            path.addCurveToPoint(currentEndPoints.0, controlPoint1: currentEndPoints.1 + dir.normalized() * bezierCircleConstant, controlPoint2: currentEndPoints.0 + dir.normalized() * bezierCircleConstant)
-            path.addLineToPoint(prevEndPoints.0)
-            paths.append(path)
+            let prev = points[0]
+            let middlePoint = PointWithWidth.average(current, prev)
+            let dir = p - prev.point
+            let prevEndPoints = endPoints(at: prev, perpTo: dir)
+            let currentEndPoints = endPoints(at: middlePoint, perpTo: dir)
             
-            fallthrough
-        case .Cancelled:
-            finishStroke()
-        case .Failed:
-            break
+            path.moveToPoint(prevEndPoints.1)
+            path.addLineToPoint(currentEndPoints.1)
+            
+            let off0 = dir.normalized() * prev.width * Constants.bezierArcConstant
+            path.addCurveToPoint(currentEndPoints.0, controlPoint1: currentEndPoints.1 + off0, controlPoint2: prevEndPoints.0 + off0)
+            path.addLineToPoint(prevEndPoints.0)
+            let off1 = dir.normalized() * width * Constants.bezierArcConstant
+            path.addCurveToPoint(prevEndPoints.1, controlPoint1: prevEndPoints.0 - off1, controlPoint2: prevEndPoints.1 - off1)
+            path.closePath()
+            self.path = path
         default:
-            break
+            let path = UIBezierPath()
+            
+            do { // first cap
+                let first = points[0]
+                let second = points[1]
+                let mid = PointWithWidth.average(first, second)
+                let firstEnds = endPoints(at: first, perpTo: mid.point - first.point)
+                let midEnds = endPoints(at: mid, perpTo: second.point - first.point)
+                path.moveToPoint(midEnds.1)
+                path.addLineToPoint(firstEnds.1)
+                
+                let off0 = (mid.point - first.point).normalized() * first.width * Constants.bezierArcConstant
+                path.addCurveToPoint(firstEnds.0, controlPoint1: firstEnds.1 - off0, controlPoint2: firstEnds.0 - off0)
+                path.addLineToPoint(firstEnds.0)
+            }
+            //first half
+            for i in 0 ..< points.count - 2 {
+                let first = points[i]
+                let second = points[i+1]
+                let third = points[i+2]
+                let mid2 = PointWithWidth.average(second, third)
+                let m2Ends = endPoints(at: mid2, perpTo: third.point - second.point)
+                let controlEndPoints = endPoints(at: second, perpTo: third.point - first.point)
+                path.addQuadCurveToPoint(m2Ends.0, controlPoint: controlEndPoints.0)
+            }
+            do { // second cap
+                let first = points[points.count-2]
+                let second = points[points.count-1]
+                let mid = PointWithWidth.average(first, second)
+                let secondEnds = endPoints(at: second, perpTo: second.point - mid.point)
+                let midEnds = endPoints(at: mid, perpTo: second.point - first.point)
+                path.moveToPoint(midEnds.0)
+                path.addLineToPoint(secondEnds.0)
+                
+                let off0 = (second.point - mid.point).normalized() * first.width * Constants.bezierArcConstant
+                path.addCurveToPoint(secondEnds.1, controlPoint1: secondEnds.0 + off0, controlPoint2: secondEnds.1 + off0)
+                path.addLineToPoint(midEnds.1)
+            }
+            
+            //second half
+            for j in 0 ..< points.count - 2 {
+                let i = points.count - 3 - j
+                let first = points[i]
+                let second = points[i+1]
+                let third = points[i+2]
+                let mid1 = PointWithWidth.average(first, second)
+                let m1Ends = endPoints(at: mid1, perpTo: second.point - first.point)
+                let controlEndPoints = endPoints(at: second, perpTo: third.point - first.point)
+                path.addQuadCurveToPoint(m1Ends.1, controlPoint: controlEndPoints.1)
+            }
+            self.path = path
+        }
+       
+        setNeedsDisplay()
+        if recognizer.state == .Ended || recognizer.state == .Cancelled {
+            finishStroke()
         }
     }
     
     
-    private func endPoints(atPositionWithWidth pw: PointWithWidth, perpendicularTo direction: CGPoint)  -> (CGPoint, CGPoint) {
+    private func endPoints(at pw: PointWithWidth, perpTo direction: CGPoint)  -> (CGPoint, CGPoint) {
         let p = pw.point
         let width = pw.width
         let d = direction.normalized() / 2
@@ -223,40 +216,36 @@ class DrawView: UIView{
     }
     
     private func finishStroke() {
-        print("finish:\(paths.count)")
+//        print("finished")
         drawBitmap()
+        points.removeAll()
+        path = nil
         setNeedsDisplay()
-        paths.removeAll()
-        state = nil
     }
     
     private func drawBitmap() {
-        //        let newboundSize = CGSize(width: bounds.width * scaleRatio, height: bounds.height * scaleRatio)
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
         
         incrementalImage?.drawAtPoint(CGPoint.zero)
-        for path in paths {
-            switch tool ?? .Pencil {
-            case .Eraser:
-                path.fillWithBlendMode(CGBlendMode.Clear, alpha: 1.0)
-                path.strokeWithBlendMode(CGBlendMode.Clear, alpha: 1.0)
-            case .Brush:
-                color.setFill()
-                path.fillWithBlendMode(CGBlendMode.Multiply, alpha: 0.2)
-            case .Crayon:
-                color.setFill()
-                path.fillWithBlendMode(CGBlendMode.Darken, alpha: 1.0)
-            default:
-                color.setFill()
-                color.setStroke()
-                path.fill()
-                path.stroke()
-            }
+        switch tool ?? .Pencil {
+        case .Eraser:
+            path?.fillWithBlendMode(CGBlendMode.Clear, alpha: 1.0)
+        case .Brush:
+            color.setFill()
+            path?.fillWithBlendMode(CGBlendMode.Multiply, alpha: 0.2)
+        case .Crayon:
+            color.setFill()
+            path?.fillWithBlendMode(CGBlendMode.Darken, alpha: 1.0)
+        default:
+            color.setFill()
+            path?.fill()
         }
+        
         incrementalImage = UIGraphicsGetImageFromCurrentImageContext()
         
-        
         UIGraphicsEndImageContext()
+        
+        //undo and redo
         
         if undoImages.count >= 21 {
             undoImages.removeFirst()
@@ -272,24 +261,33 @@ class DrawView: UIView{
         
     }
     
-    func undo() {
-        if undoImages.count > 1 {
-            print("undo")
-            let temporaryImage = undoImages.pop()
-            redoImages.push(temporaryImage!)
-            incrementalImage = undoImages.get(undoImages.endIndex-1)
-            setNeedsDisplay()
+    //MARK: - Undo & redo
+    
+    var undoImages : [UIImage] = []
+    var redoImages : [UIImage] = []
+    
+    func undo() -> Bool{
+        guard undoImages.count > 1 else{
+            return false
         }
+        let temporaryImage = undoImages.pop()
+        redoImages.push(temporaryImage!)
+        incrementalImage = undoImages.get(undoImages.endIndex-1)
+        setNeedsDisplay()
+        return true
+        
+        
     }
     
-    func redo() {
-        if redoImages.isEmpty == false {
-            print("redo")
-            incrementalImage = redoImages.get(redoImages.endIndex-1)
-            let temporaryImage = redoImages.pop()
-            undoImages.push(temporaryImage!)
-            setNeedsDisplay()
+    func redo() -> Bool {
+        guard !redoImages.isEmpty else {
+            return false
         }
+        incrementalImage = redoImages.get(redoImages.endIndex-1)
+        let temporaryImage = redoImages.pop()
+        undoImages.push(temporaryImage!)
+        setNeedsDisplay()
+        return true
     }
     
 }

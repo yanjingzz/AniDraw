@@ -79,6 +79,7 @@ class KeyframeDetailController: UITableViewController, UIPickerViewDataSource, U
         time = time < 0 ? 0 : time
         time = time > 2.5 ? 2.5 : time
         slider.value = time
+        timeLabel.text = "\(time)s"
         anglePickerView.selectRow(data.angleCurve.rawValue, inComponent: 0, animated: false)
         positionPickerView.selectRow(data.positionCurve.rawValue, inComponent: 0, animated: false)
     }
