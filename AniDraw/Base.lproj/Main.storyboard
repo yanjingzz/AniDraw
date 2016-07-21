@@ -802,6 +802,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="character_eg2" translatesAutoresizingMaskIntoConstraints="NO" id="cWx-2h-OxV">
                                 <rect key="frame" x="-212" y="-84" width="1024" height="768"/>
                             </imageView>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKb-Mb-4vE" customClass="SkeletonView" customModule="AniDraw" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="yoK-8Y-5Qb" appends="YES" id="cPf-H1-jjw"/>
+                                    <outletCollection property="gestureRecognizers" destination="RVa-uV-ckn" appends="YES" id="LQE-Fp-9vG"/>
+                                </connections>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZt-5Q-YMn">
                                 <rect key="frame" x="20" y="8" width="59" height="45"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -820,15 +829,6 @@
                                     <action selector="doneAddingCharacter" destination="9qp-jS-GwS" eventType="touchUpInside" id="Z2o-8i-LjW"/>
                                 </connections>
                             </button>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKb-Mb-4vE" customClass="SkeletonView" customModule="AniDraw" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="yoK-8Y-5Qb" appends="YES" id="cPf-H1-jjw"/>
-                                    <outletCollection property="gestureRecognizers" destination="RVa-uV-ckn" appends="YES" id="LQE-Fp-9vG"/>
-                                </connections>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

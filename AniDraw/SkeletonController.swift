@@ -32,13 +32,12 @@ class SkeletonController: UIViewController {
         }
         //skeletonModel initialize
         skeletonModel = SkeletonModel()
+        SkeletonModel.lastUpdateTimeStamp = NSDate()
         // Do any additional setup after loading the view.
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        //Test
-        self.skeletonModalUpdateTest()
         updateImage()
     }
     
@@ -51,14 +50,14 @@ class SkeletonController: UIViewController {
     @IBAction private func moveJointsWithPanRecognizer(recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
         case .Began:
-            
+            print("drag began~")
+            SkeletonModel.lastUpdateTimeStamp = NSDate()
             let p = recognizer.locationInView(skeletonView)
             if let view = view.hitTest(p, withEvent: nil) where view != skeletonView {
                 moved = true
                 movedView = view
             }
         case .Changed:
-            
             if let view = movedView {
                 moved = true
                 let p = recognizer.locationInView(skeletonView)
@@ -68,9 +67,7 @@ class SkeletonController: UIViewController {
             }
         case .Ended:
             if movedView != nil {
-                //Test
-                self.skeletonModalUpdateTest()
-                updateImage()
+               updateImage()
             }
             fallthrough
         default:
@@ -187,9 +184,22 @@ class SkeletonController: UIViewController {
     
     func updateImage() {  //preview
         
+        
         let image = characterSkin.CGImage!
-        let inBodyPart = belongsToBodyPart()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)) {
+
+            let updateSkeletonModel = SkeletonModel()
+            SkeletonModel.lastUpdateTimeStamp = updateSkeletonModel.selfUpdateTimeStamp
+            print("UpdateTimeStamp:\(SkeletonModel.lastUpdateTimeStamp)")
+            self.reset(updateSkeletonModel)
+            if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
+            updateSkeletonModel.performClassifyJointsPerPixel()
+            if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
+            self.skeletonModel = updateSkeletonModel
+            if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
+            let inBodyPart = self.belongsToBodyPart()
+            if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
+
             
             self.moved = false
             let (pixels, context) = image.toARGBBitmapData()
@@ -201,7 +211,6 @@ class SkeletonController: UIViewController {
             }
             let width = CGImageGetWidth(image)
             let height = CGImageGetHeight(image)
-            
             
             for y in 0..<height {
                 for x in 0..<width {
@@ -437,26 +446,26 @@ class SkeletonController: UIViewController {
         .RightUpperArm:  0x00FF7FFF,
     ]
 
-    func reset() {
+    func reset(skeleton:SkeletonModel) {
         var newJoints = [JointName:CGPoint]()
         for joint in JointName.allJoints {
             newJoints[joint] = jointPoint(joint)
 //            print("\(joint):\(newJoints[joint])")
         }
         //characterImageView.image!
-        skeletonModel.setParameter(characterImageView.frame.origin,image: characterSkin)
-        skeletonModel.setJointsPosition(newJoints)
+        skeleton.setParameter(characterImageView.frame.origin,image: characterSkin)
+        skeleton.setJointsPosition(newJoints)
     }
     
     func skeletonModalUpdateTest() {
         print("-------------")
-        reset()
+        reset(self.skeletonModel)
         print("setSkeletonModel!")
         print("Controller: frame.origin: \(characterImageView.frame.origin)")
         print("Controller: frame.center: \(characterImageView.frame.center)")
         print("Controller: image.size: \(characterImageView.image?.size)")
-        skeletonModel.performNavieClassifyJointsPerPixel()
-        print("naive perform finish!")
+        skeletonModel.performClassifyJointsPerPixel()
+        print("[perform finish!]")
         if skeletonModel.getSkeletonModelInitValid() == true {
         print("Skeleton: matrix size: (\(skeletonModel.matrix.count),\(skeletonModel.matrix[0].count))")
         print("Skeleton: color size: (\(skeletonModel.R.count),\(skeletonModel.R[0].count))")
