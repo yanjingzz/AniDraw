@@ -12,6 +12,7 @@ import UIKit
 
 struct Keyframe: CustomStringConvertible {
     var time: CFTimeInterval
+    var interruptable: Bool
     var posture: Posture
 //    var nextCurve: DanceMoveAnimationCurve
     var angleCurve: Curve
@@ -22,15 +23,14 @@ struct Keyframe: CustomStringConvertible {
         posture = Posture(position: pos)
         angleCurve = .Linear
         positionCurve = .Linear
+        interruptable = true
     }
-    init(time:NSTimeInterval, posture:Posture, angleCurve: Curve, positionCurve: Curve) {
+    init(time:NSTimeInterval, posture:Posture, angleCurve: Curve = .EaseInOut, positionCurve: Curve = .EaseInOut, interruptable: Bool = true) {
         self.time = time
         self.posture = posture
         self.angleCurve = angleCurve
         self.positionCurve = positionCurve
-    }
-    init (time:NSTimeInterval, posture:Posture) {
-        self.init(time:time, posture: posture, angleCurve: .EaseInOut, positionCurve: .EaseInOut)
+        self.interruptable = interruptable
     }
     var description: String {
         var string = "\nKeyframe( \n"
@@ -40,6 +40,8 @@ struct Keyframe: CustomStringConvertible {
         string += "    positionCurve: .\(positionCurve))"
         return string
     }
+    
+    static let idle = Keyframe(time:0.5, posture:Posture.idle, angleCurve: .EaseInOut, positionCurve: .EaseInOut)
     enum Curve : Int {
         case Linear = 0
         case EaseIn

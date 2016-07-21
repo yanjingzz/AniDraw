@@ -11,25 +11,11 @@ import UIKit
 
 class DanceScene: SKScene {
     
-    let danceModel = DanceModel(center: CGPoint(x: 0, y: 0))
-    private let audioInput = AudioInput.sharedInstance
+    let danceModel = DanceModel()
     
     var lastUpdateTime : CFTimeInterval = 0
     var dt : CFTimeInterval = 0
-    var characterNode: CharacterNode? {
-        willSet {
-             if let c = characterNode {
-                removeChildrenInArray([c])
-            }
-        }
-        didSet {
-            if let c = characterNode {
-                c.position = CGPoint(x: size.width/2, y: size.height/2)
-                c.zPosition = 100
-                addChild(c)
-            }
-        }
-    }
+    var characterNode: CharacterNode!
     
     var amplitudePeakLabel = SKLabelNode()
     var amplitudeAverageLabel = SKLabelNode()
@@ -41,8 +27,6 @@ class DanceScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        
-        print(characterNode?.posture)
         
         amplitudePeakLabel.fontSize = 20
         amplitudeAverageLabel.fontSize = 20
@@ -69,29 +53,18 @@ class DanceScene: SKScene {
         addChild(levelLabel)
         addChild(singStatusLabel)
         
-        audioInput.start()
-        audioInput.delegate = danceModel
+        characterNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        characterNode.zPosition = 100
+        addChild(characterNode)
+
     }
     
     override func willMoveFromView(view: SKView) {
-        audioInput.stop()
     }
 
-//    func shakeAngle(maximumAngleInDegrees maxAngle: CGFloat, currentTime: CFTimeInterval, cycle: CGFloat) -> CGFloat {
-//        let ret =  maxAngle.degreesToRadians() * sin(CGFloat(currentTime) / cycle * 2 * CGFloat(M_PI))
-//        print(ret)
-//        return ret
-//    }
     
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
-//        if let node = characterNode {
-//            var posture = node.posture
-//            posture.angles[.Head] = shakeAngle(maximumAngleInDegrees: 20, currentTime: currentTime, cycle: 1.5)
-//            print(posture.angles[.Head])
-//            node.posture = posture
-//            print(node.parts[.Head]!.zRotation)
-//        }
+
 
         if lastUpdateTime > 0 {
             dt = currentTime - lastUpdateTime
@@ -105,30 +78,23 @@ class DanceScene: SKScene {
 //        let peak = danceModel.peakAmplitude
 //        let average = danceModel.averageAmplitude
 //        let singStatus = danceModel.isSing == true ? "Singing" : "Waiting"
-        audioInput.update()
-        amplitudePeakLabel.text = "Peak: \(audioInput.amplitude)"
-//        amplitudeAverageLabel.text = "Average: \(average) (\(pow(10,average/20)))"
-        pitchLabel.text = "Frenquency: \(audioInput.tracker.frequency)"
-//        tempoLabel.text = "Tempo: \(danceModel.tempo)"
-        if audioInput.isSinging {
-            durationLabel.text = "Duration: \(audioInput.singingDuration!)"
-        } else {
-            durationLabel.text = ""
-        }
-        singStatusLabel.text = "IsSinging: \(audioInput.isSinging)"
+//        
+//        amplitudePeakLabel.text = "Peak: \(audioInput.amplitude)"
+////        amplitudeAverageLabel.text = "Average: \(average) (\(pow(10,average/20)))"
+//        pitchLabel.text = "Frenquency: \(audioInput.tracker.frequency)"
+////        tempoLabel.text = "Tempo: \(danceModel.tempo)"
+//        if audioInput.isSinging {
+//            durationLabel.text = "Duration: \(audioInput.singingDuration!)"
+//        } else {
+//            durationLabel.text = ""
+//        }
+//        singStatusLabel.text = "IsSinging: \(audioInput.isSinging)"
         
         levelLabel.text = "Level: " + String(danceModel.chooseMethod())
         
         
-        if let node = characterNode {
-//            if danceModel.needIdle == true {
-//                danceModel.abortDanceMove()
-//                danceModel.needIdle = false
-//            }
-            node.posture = danceModel.getPostureByIntervalTime(dt)
-//            print("shake!")
-//            print(node.parts[.Head]!.zRotation)
-        }
+        
+        characterNode.posture = danceModel.getPostureByIntervalTime(dt)
         
 
     }

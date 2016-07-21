@@ -15,14 +15,28 @@ class AnimationController: UIViewController {
     
     var scene: DanceScene!
     var characterNode: CharacterNode!
-    
+    var audioController: AEAudioController!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpScene()
-        scene.characterNode = characterNode
-
+        
+        
+        audioController = (UIApplication.sharedApplication().delegate as! AppDelegate).audioController
+        do {
+            try audioController.start()
+        } catch {
+            print("Audio controller cannot start!")
+        }
+        let receiver = MyAudioReceiver()
+        audioController.addInputReceiver(receiver)
+        MyAudioReceiver.setDelegate(scene.danceModel)
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        audioController.stop()
+    }
+    
     private func setUpScene() {
         scene = DanceScene(fileNamed:"DanceScene")
         scene.characterNode = characterNode
@@ -31,6 +45,7 @@ class AnimationController: UIViewController {
         skView.showsPhysics = false
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .AspectFill
+        scene.characterNode = characterNode
         skView.presentScene(scene)
     }
     
@@ -44,10 +59,6 @@ class AnimationController: UIViewController {
         return true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
 
 }
