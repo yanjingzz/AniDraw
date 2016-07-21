@@ -14,11 +14,10 @@
 		2701F1441D24BDF700C597E6 /* Joints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F1431D24BDF700C597E6 /* Joints.swift */; };
 		270641EA1D33D9CC007195AB /* KeyframesEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270641E91D33D9CC007195AB /* KeyframesEditorView.swift */; };
 		271258631D22B7D000BD9C36 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271258621D22B7D000BD9C36 /* UIImage+.swift */; };
+		271AFC251D37F0FC005C8BAA /* aubio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 276AA3551D37EEA2009B5126 /* aubio.framework */; };
 		27252A251D255A89002CE361 /* CGImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27252A241D255A89002CE361 /* CGImage+.swift */; };
 		27252A271D260C7B002CE361 /* EditMoveScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27252A261D260C7B002CE361 /* EditMoveScene.swift */; };
-		2754484E1D2F81EC000B2C34 /* AudioInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754484D1D2F81EC000B2C34 /* AudioInput.swift */; };
-		275448501D2F820A000B2C34 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2754484F1D2F820A000B2C34 /* AudioKit.framework */; };
-		275448521D2F821D000B2C34 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2754484F1D2F820A000B2C34 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		273627091D37D5C8007DAECD /* MyAudioReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 273627081D37D5C8007DAECD /* MyAudioReceiver.m */; };
 		275ABBA61D224E4200BC3B8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBA51D224E4200BC3B8D /* AppDelegate.swift */; };
 		275ABBA81D224E4200BC3B8D /* EditMoveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275ABBA71D224E4200BC3B8D /* EditMoveController.swift */; };
 		275ABBAB1D224E4200BC3B8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275ABBA91D224E4200BC3B8D /* Main.storyboard */; };
@@ -71,7 +70,13 @@
 		275BC6911D2B5F56004484DE /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BC6711D2B5F56004484DE /* TextField.swift */; };
 		275BC6921D2B5F56004484DE /* TextFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BC6721D2B5F56004484DE /* TextFormat.swift */; };
 		275BC6931D2B5F56004484DE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BC6731D2B5F56004484DE /* UIColor.swift */; };
+		276AA3581D37EEBB009B5126 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 276AA3571D37EEBB009B5126 /* Accelerate.framework */; };
+		276DF6C61D3CC36700D739FE /* DancePlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DF6C51D3CC36700D739FE /* DancePlayback.swift */; };
 		2774FF2A1D2D063A00C79564 /* Moves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2774FF291D2D063A00C79564 /* Moves.swift */; };
+		2785B1791D3885F600665472 /* EthnicMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785B1781D3885F600665472 /* EthnicMoves.swift */; };
+		2785B17B1D38865B00665472 /* BalletMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785B17A1D38865B00665472 /* BalletMoves.swift */; };
+		2785B17D1D3886AF00665472 /* GenericMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785B17C1D3886AF00665472 /* GenericMoves.swift */; };
+		2785B17F1D38898E00665472 /* JazzMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785B17E1D38898E00665472 /* JazzMoves.swift */; };
 		279E62E41D2B92B200747411 /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E62E31D2B92B200747411 /* CharactersController.swift */; };
 		27ABA2161D340C09007D945F /* KeyframeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABA2151D340C09007D945F /* KeyframeDetailController.swift */; };
 		27ABA2181D3492B3007D945F /* String+WriteToURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABA2171D3492B3007D945F /* String+WriteToURL.swift */; };
@@ -91,24 +96,11 @@
 		27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31F1D236A5000325894 /* Keyframe.swift */; };
 		27F6AD221D23A89500BF3116 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6AD211D23A89500BF3116 /* SkeletonView.swift */; };
 		27F6AD241D23A8D200BF3116 /* JointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6AD231D23A8D200BF3116 /* JointView.swift */; };
-		280B5F0A342D36ADE844D5B2 /* Pods_AniDraw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A56761E1255BDF6AE5EA5E /* Pods_AniDraw.framework */; };
+		ED4B3D9E4CB94BE03C85D365 /* Pods_AniDraw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D825507B974B64B54D30F0 /* Pods_AniDraw.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		275448531D2F821D000B2C34 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				275448521D2F821D000B2C34 /* AudioKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		0B7AD8078A7B30093CF82600 /* Pods-AniDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniDraw.release.xcconfig"; path = "Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw.release.xcconfig"; sourceTree = "<group>"; };
 		0B9999011D37714300BED178 /* SkeletonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkeletonModel.swift; sourceTree = "<group>"; };
 		0BF052F21D2C07B800268947 /* DanceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceModel.swift; sourceTree = "<group>"; };
 		2701F13F1D2428AA00C597E6 /* UInt32+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt32+.swift"; sourceTree = "<group>"; };
@@ -118,8 +110,8 @@
 		271258621D22B7D000BD9C36 /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		27252A241D255A89002CE361 /* CGImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+.swift"; sourceTree = "<group>"; };
 		27252A261D260C7B002CE361 /* EditMoveScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditMoveScene.swift; sourceTree = "<group>"; };
-		2754484D1D2F81EC000B2C34 /* AudioInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioInput.swift; sourceTree = "<group>"; };
-		2754484F1D2F820A000B2C34 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		273627071D37D5C8007DAECD /* MyAudioReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAudioReceiver.h; sourceTree = "<group>"; };
+		273627081D37D5C8007DAECD /* MyAudioReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAudioReceiver.m; sourceTree = "<group>"; };
 		275ABBA21D224E4200BC3B8D /* AniDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		275ABBA51D224E4200BC3B8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		275ABBA71D224E4200BC3B8D /* EditMoveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMoveController.swift; sourceTree = "<group>"; };
@@ -175,7 +167,14 @@
 		275BC6711D2B5F56004484DE /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		275BC6721D2B5F56004484DE /* TextFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormat.swift; sourceTree = "<group>"; };
 		275BC6731D2B5F56004484DE /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		276AA3551D37EEA2009B5126 /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = aubio.framework; sourceTree = "<group>"; };
+		276AA3571D37EEBB009B5126 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		276DF6C51D3CC36700D739FE /* DancePlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DancePlayback.swift; sourceTree = "<group>"; };
 		2774FF291D2D063A00C79564 /* Moves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moves.swift; sourceTree = "<group>"; };
+		2785B1781D3885F600665472 /* EthnicMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthnicMoves.swift; sourceTree = "<group>"; };
+		2785B17A1D38865B00665472 /* BalletMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalletMoves.swift; sourceTree = "<group>"; };
+		2785B17C1D3886AF00665472 /* GenericMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericMoves.swift; sourceTree = "<group>"; };
+		2785B17E1D38898E00665472 /* JazzMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JazzMoves.swift; sourceTree = "<group>"; };
 		279E62E31D2B92B200747411 /* CharactersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
 		279E62F51D2BE13300747411 /* AniDraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AniDraw-Bridging-Header.h"; sourceTree = "<group>"; };
 		27ABA2151D340C09007D945F /* KeyframeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyframeDetailController.swift; sourceTree = "<group>"; };
@@ -197,9 +196,8 @@
 		27D5F32F1D2BE54E00EB314D /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = iCarousel/iCarousel.m; sourceTree = "<group>"; };
 		27F6AD211D23A89500BF3116 /* SkeletonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		27F6AD231D23A8D200BF3116 /* JointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JointView.swift; sourceTree = "<group>"; };
-		58A56761E1255BDF6AE5EA5E /* Pods_AniDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AniDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B82212FB773A5012C1FFF4B3 /* Pods-AniDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniDraw.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw.debug.xcconfig"; sourceTree = "<group>"; };
-		EC73AE9467A5B672CE6A3650 /* Pods-AniDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniDraw.release.xcconfig"; path = "Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw.release.xcconfig"; sourceTree = "<group>"; };
+		90D825507B974B64B54D30F0 /* Pods_AniDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AniDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8D8B268ADA97A433ABF3378 /* Pods-AniDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniDraw.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,21 +205,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				275448501D2F820A000B2C34 /* AudioKit.framework in Frameworks */,
-				280B5F0A342D36ADE844D5B2 /* Pods_AniDraw.framework in Frameworks */,
+				276AA3581D37EEBB009B5126 /* Accelerate.framework in Frameworks */,
+				ED4B3D9E4CB94BE03C85D365 /* Pods_AniDraw.framework in Frameworks */,
+				271AFC251D37F0FC005C8BAA /* aubio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		075DD4FFD542DE3A66F7E11D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D8D8B268ADA97A433ABF3378 /* Pods-AniDraw.debug.xcconfig */,
+				0B7AD8078A7B30093CF82600 /* Pods-AniDraw.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		275ABB991D224E4200BC3B8D = {
 			isa = PBXGroup;
 			children = (
 				275ABBA41D224E4200BC3B8D /* AniDraw */,
 				275ABBA31D224E4200BC3B8D /* Products */,
-				67C1747C30EE5DAFBA87933E /* Pods */,
 				E707276443EA5C9BE3FB16BB /* Frameworks */,
+				075DD4FFD542DE3A66F7E11D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -246,10 +254,12 @@
 				27ABA2171D3492B3007D945F /* String+WriteToURL.swift */,
 				27AFB31D1D2365A200325894 /* Posture.swift */,
 				27AFB31F1D236A5000325894 /* Keyframe.swift */,
-				2774FF291D2D063A00C79564 /* Moves.swift */,
+				2785B1771D3885E300665472 /* Moves */,
 				27AFB3211D236B8A00325894 /* DanceMove.swift */,
+				276DF6C51D3CC36700D739FE /* DancePlayback.swift */,
 				0BF052F21D2C07B800268947 /* DanceModel.swift */,
-				2754484D1D2F81EC000B2C34 /* AudioInput.swift */,
+				273627071D37D5C8007DAECD /* MyAudioReceiver.h */,
+				273627081D37D5C8007DAECD /* MyAudioReceiver.m */,
 				27AFB3451D236DEC00325894 /* DanceScene.sks */,
 				27AFB31B1D2362CF00325894 /* DanceScene.swift */,
 				27F8C2661D2BECDA001F3B26 /* iCarousel */,
@@ -369,6 +379,18 @@
 			path = text;
 			sourceTree = "<group>";
 		};
+		2785B1771D3885E300665472 /* Moves */ = {
+			isa = PBXGroup;
+			children = (
+				2774FF291D2D063A00C79564 /* Moves.swift */,
+				2785B1781D3885F600665472 /* EthnicMoves.swift */,
+				2785B17A1D38865B00665472 /* BalletMoves.swift */,
+				2785B17C1D3886AF00665472 /* GenericMoves.swift */,
+				2785B17E1D38898E00665472 /* JazzMoves.swift */,
+			);
+			name = Moves;
+			sourceTree = "<group>";
+		};
 		27AFB3161D235FDB00325894 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,20 +452,12 @@
 			name = iCarousel;
 			sourceTree = "<group>";
 		};
-		67C1747C30EE5DAFBA87933E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B82212FB773A5012C1FFF4B3 /* Pods-AniDraw.debug.xcconfig */,
-				EC73AE9467A5B672CE6A3650 /* Pods-AniDraw.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		E707276443EA5C9BE3FB16BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2754484F1D2F820A000B2C34 /* AudioKit.framework */,
-				58A56761E1255BDF6AE5EA5E /* Pods_AniDraw.framework */,
+				276AA3571D37EEBB009B5126 /* Accelerate.framework */,
+				276AA3551D37EEA2009B5126 /* aubio.framework */,
+				90D825507B974B64B54D30F0 /* Pods_AniDraw.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -462,10 +476,6 @@
 				275ABBA01D224E4200BC3B8D /* Resources */,
 				EF092F80D99BECDD61774731 /* [CP] Embed Pods Frameworks */,
 				522927A73BCF4A04C8DB39F5 /* [CP] Copy Pods Resources */,
-				5AC7F607F9BD69E2309CC302 /* 📦 Embed Pods Frameworks */,
-				63284D1761139B63055E9AAB /* 📦 Copy Pods Resources */,
-				001F64D0D8619B955D834484 /* Embed Pods Frameworks */,
-				275448531D2F821D000B2C34 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -526,21 +536,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		001F64D0D8619B955D834484 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		522927A73BCF4A04C8DB39F5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -549,36 +544,6 @@
 			inputPaths = (
 			);
 			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5AC7F607F9BD69E2309CC302 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AniDraw/Pods-AniDraw-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		63284D1761139B63055E9AAB /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,11 +623,13 @@
 				27CA0ACA1D2A4F8E00F4332C /* Model.xcdatamodeld in Sources */,
 				27CA0AF21D2A758700F4332C /* BodyPart+CoreDataProperties.swift in Sources */,
 				275ABBBC1D2261E200BC3B8D /* DrawView.swift in Sources */,
+				2785B17D1D3886AF00665472 /* GenericMoves.swift in Sources */,
 				275BC6811D2B5F56004484DE /* MovieClip.swift in Sources */,
 				275BC6871D2B5F56004484DE /* easing.swift in Sources */,
 				27AFB3221D236B8A00325894 /* DanceMove.swift in Sources */,
 				275ABBD41D226EF700BC3B8D /* SKTTimingFunctions.swift in Sources */,
 				275BC6761D2B5F56004484DE /* EventDispatcher.swift in Sources */,
+				2785B17B1D38865B00665472 /* BalletMoves.swift in Sources */,
 				275BC68D1D2B5F56004484DE /* Object.swift in Sources */,
 				275BC6791D2B5F56004484DE /* TouchEvent.swift in Sources */,
 				275ABBCF1D226EF700BC3B8D /* SKAction+SpecialEffects.swift in Sources */,
@@ -671,7 +638,6 @@
 				275ABBCD1D226EF700BC3B8D /* Int+Extensions.swift in Sources */,
 				27F6AD241D23A8D200BF3116 /* JointView.swift in Sources */,
 				275BC68C1D2B5F56004484DE /* SoundChannel.swift in Sources */,
-				2754484E1D2F81EC000B2C34 /* AudioInput.swift in Sources */,
 				2774FF2A1D2D063A00C79564 /* Moves.swift in Sources */,
 				275BC6781D2B5F56004484DE /* Touch.swift in Sources */,
 				275ABBD51D226EF700BC3B8D /* Vector3.swift in Sources */,
@@ -684,6 +650,7 @@
 				275BC6851D2B5F56004484DE /* Stage.swift in Sources */,
 				27CA0AF31D2A758700F4332C /* BodyPart.swift in Sources */,
 				0BF052F31D2C07B800268947 /* DanceModel.swift in Sources */,
+				2785B1791D3885F600665472 /* EthnicMoves.swift in Sources */,
 				275ABBD01D226EF700BC3B8D /* SKColor+Extensions.swift in Sources */,
 				27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */,
 				275BC6751D2B5F56004484DE /* Event.swift in Sources */,
@@ -693,11 +660,14 @@
 				275BC6911D2B5F56004484DE /* TextField.swift in Sources */,
 				2701F1401D2428AA00C597E6 /* UInt32+.swift in Sources */,
 				275ABBCC1D226EF700BC3B8D /* CGVector+Extensions.swift in Sources */,
+				273627091D37D5C8007DAECD /* MyAudioReceiver.m in Sources */,
+				276DF6C61D3CC36700D739FE /* DancePlayback.swift in Sources */,
 				2701F1441D24BDF700C597E6 /* Joints.swift in Sources */,
 				275ABBA61D224E4200BC3B8D /* AppDelegate.swift in Sources */,
 				275BC67E1D2B5F56004484DE /* InteractiveNode.swift in Sources */,
 				27C227491D2B553800B581C5 /* CharacterStorage+CoreDataProperties.swift in Sources */,
 				275ABBD21D226EF700BC3B8D /* SKTAudio.swift in Sources */,
+				2785B17F1D38898E00665472 /* JazzMoves.swift in Sources */,
 				275BC67C1D2B5F56004484DE /* Graphics.swift in Sources */,
 				275BC6801D2B5F56004484DE /* LabelNode.swift in Sources */,
 				271258631D22B7D000BD9C36 /* UIImage+.swift in Sources */,
@@ -827,7 +797,7 @@
 		};
 		275ABBB51D224E4200BC3B8D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B82212FB773A5012C1FFF4B3 /* Pods-AniDraw.debug.xcconfig */;
+			baseConfigurationReference = D8D8B268ADA97A433ABF3378 /* Pods-AniDraw.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -835,9 +805,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
+					"$(inherited)/**",
+					"$(PROJECT_DIR)/**",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -852,7 +824,7 @@
 		};
 		275ABBB61D224E4200BC3B8D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC73AE9467A5B672CE6A3650 /* Pods-AniDraw.release.xcconfig */;
+			baseConfigurationReference = 0B7AD8078A7B30093CF82600 /* Pods-AniDraw.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -860,9 +832,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
+					"$(inherited)/**",
+					"$(PROJECT_DIR)/**",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

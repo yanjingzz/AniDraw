@@ -40,7 +40,8 @@ class KeyframeDetailController: UITableViewController, UIPickerViewDataSource, U
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
-        timeLabel.text = "\(sender.value)s"
+        slider.value = round(slider.value / 0.125) * 0.125
+        timeLabel.text = "\(slider.value)s"
     }
     
     /*

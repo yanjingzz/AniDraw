@@ -66,13 +66,15 @@ class DrawView: UIView{
     
     override func drawRect(rect: CGRect) {
         incrementalImage?.drawInRect(rect)
+        drawPath()
+    }
+    func drawPath() {
         switch tool ?? .Pencil {
         case .Eraser:
-            UIColor.whiteColor().setFill()
-            path?.fill()
+            path?.fillWithBlendMode(CGBlendMode.Clear, alpha: 1)
         case .Brush:
             color.setFill()
-            path?.fillWithBlendMode(CGBlendMode.Multiply, alpha: 0.2)
+            path?.fillWithBlendMode(CGBlendMode.Multiply, alpha: 0.5)
         case .Crayon:
             color.setFill()
             path?.fillWithBlendMode(CGBlendMode.Darken, alpha: 1)
@@ -81,7 +83,7 @@ class DrawView: UIView{
             path?.fill()
             
         }
-        
+
     }
     
     @IBAction private func drawDotforTapRecognizer(recognizer: UITapGestureRecognizer) {
@@ -97,10 +99,11 @@ class DrawView: UIView{
         let v = recognizer.velocityInView(self)
         let width = strokeWidthFromSpeed(v.length())
         let current = PointWithWidth(point: p, width: width)
-        if points.last == nil {
+        if points.isEmpty {
             points.append(current)
         } else if (points.last!.point - p).length() > Constants.PointsDistanceThreshold {
             points.append(current)
+            
         }
         
         switch points {
@@ -180,6 +183,7 @@ class DrawView: UIView{
                 let controlEndPoints = endPoints(at: second, perpTo: third.point - first.point)
                 path.addQuadCurveToPoint(m1Ends.1, controlPoint: controlEndPoints.1)
             }
+            path.closePath()
             self.path = path
         }
        
@@ -227,20 +231,7 @@ class DrawView: UIView{
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
         
         incrementalImage?.drawAtPoint(CGPoint.zero)
-        switch tool ?? .Pencil {
-        case .Eraser:
-            path?.fillWithBlendMode(CGBlendMode.Clear, alpha: 1.0)
-        case .Brush:
-            color.setFill()
-            path?.fillWithBlendMode(CGBlendMode.Multiply, alpha: 0.2)
-        case .Crayon:
-            color.setFill()
-            path?.fillWithBlendMode(CGBlendMode.Darken, alpha: 1.0)
-        default:
-            color.setFill()
-            path?.fill()
-        }
-        
+        drawPath()
         incrementalImage = UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext()

@@ -8,16 +8,25 @@
 
 import UIKit
 import CoreData
+import TheAmazingAudioEngine
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    let audioController = AEAudioController(audioDescription:AEAudioStreamBasicDescriptionNonInterleavedFloatStereo)
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         application.statusBarHidden = true
+        
+        do {
+            try audioController.setInputEnabled(true)
+            audioController.voiceProcessingEnabled = true
+            try audioController.setOutputEnabled(true)
+        } catch {
+            print(error)
+        }
+
         return true
     }
 
