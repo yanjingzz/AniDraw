@@ -158,23 +158,15 @@
                                     <action selector="goBack:" destination="JtF-Wr-vC4" eventType="touchUpInside" id="x1A-Eo-7BJ"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AaQ-dU-F7m" customClass="EZAudioPlot">
-                                <rect key="frame" x="108" y="8" width="472" height="84"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vJn-HP-Hik" firstAttribute="leading" secondItem="YXQ-Fs-frw" secondAttribute="leading" id="ASN-cy-F6Y"/>
                             <constraint firstAttribute="trailing" secondItem="vJn-HP-Hik" secondAttribute="trailing" id="D0L-4O-Xxy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="AaQ-dU-F7m" secondAttribute="trailing" id="MtY-xj-DBN"/>
                             <constraint firstItem="0uE-dd-vJ1" firstAttribute="top" secondItem="MfZ-CE-9uw" secondAttribute="bottom" constant="8" symbolic="YES" id="RDs-kb-45I"/>
-                            <constraint firstItem="6tB-WB-hrg" firstAttribute="top" secondItem="AaQ-dU-F7m" secondAttribute="bottom" constant="508" id="WTO-Rm-qHn"/>
                             <constraint firstItem="vJn-HP-Hik" firstAttribute="top" secondItem="MfZ-CE-9uw" secondAttribute="bottom" id="lKj-UD-tcO"/>
                             <constraint firstItem="0uE-dd-vJ1" firstAttribute="leading" secondItem="YXQ-Fs-frw" secondAttribute="leadingMargin" id="lMQ-mW-Rmy"/>
                             <constraint firstItem="vJn-HP-Hik" firstAttribute="bottom" secondItem="6tB-WB-hrg" secondAttribute="top" id="vId-F3-WyO"/>
-                            <constraint firstItem="AaQ-dU-F7m" firstAttribute="leading" secondItem="0uE-dd-vJ1" secondAttribute="trailing" constant="54" id="yqU-Ns-bKf"/>
-                            <constraint firstItem="AaQ-dU-F7m" firstAttribute="top" secondItem="MfZ-CE-9uw" secondAttribute="bottom" constant="8" id="z1Q-fW-0ga"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -270,6 +262,13 @@
                                     <action selector="saveDanceMove:" destination="aiW-TX-zfk" eventType="touchUpInside" id="pHC-pw-o3A"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epe-rT-Fcg">
+                                <rect key="frame" x="459" y="133" width="121" height="30"/>
+                                <state key="normal" title="Next Dance Move"/>
+                                <connections>
+                                    <action selector="nextDanceMove" destination="aiW-TX-zfk" eventType="touchUpInside" id="0Ft-ah-6cv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -291,7 +290,9 @@
                             <constraint firstItem="d9g-5J-t2k" firstAttribute="leading" secondItem="5D5-tB-1Lz" secondAttribute="trailing" constant="8" symbolic="YES" id="cIW-J0-xhZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eq1-nz-aPE" secondAttribute="trailing" id="ceq-8F-Fh9"/>
                             <constraint firstItem="6eT-Hf-3Xc" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leadingMargin" id="eBz-F6-e08"/>
+                            <constraint firstItem="epe-rT-Fcg" firstAttribute="top" secondItem="KYD-Sq-Jss" secondAttribute="bottom" constant="8" symbolic="YES" id="eVF-E6-fNe"/>
                             <constraint firstItem="KYD-Sq-Jss" firstAttribute="trailing" secondItem="eq1-nz-aPE" secondAttribute="trailing" id="izY-Ww-fNG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="epe-rT-Fcg" secondAttribute="trailing" id="oZz-Yv-Jdc"/>
                             <constraint firstItem="gQ4-On-vFY" firstAttribute="top" secondItem="oNC-CE-ggl" secondAttribute="bottom" constant="8" symbolic="YES" id="raP-jn-du0"/>
                             <constraint firstItem="d9g-5J-t2k" firstAttribute="leading" secondItem="xEI-e3-Z3u" secondAttribute="trailing" constant="8" symbolic="YES" id="sX0-zz-XRR"/>
                             <constraint firstItem="d9g-5J-t2k" firstAttribute="trailing" secondItem="k3h-s7-rja" secondAttribute="trailingMargin" id="srT-jy-9BK"/>
@@ -509,7 +510,7 @@
                                 <subviews>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srw-1J-y9f" customClass="DrawView" customModule="AniDraw" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="518" height="600"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="6zC-UA-6vu" appends="YES" id="Dvu-fE-bVR"/>
@@ -519,6 +520,7 @@
                                         </connections>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Srw-1J-y9f" firstAttribute="centerY" secondItem="CQZ-Fx-ERz" secondAttribute="centerY" id="0vQ-Sf-KgA"/>
                                     <constraint firstItem="Srw-1J-y9f" firstAttribute="top" secondItem="CQZ-Fx-ERz" secondAttribute="top" id="GiS-fN-rH0"/>

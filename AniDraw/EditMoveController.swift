@@ -15,7 +15,8 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
     @IBOutlet weak var editView: KeyframesEditorView!
     
     var characterNode: CharacterNode!
-    var danceMove = DanceMove()
+    var moveIndex = 0
+    var danceMove = MovesStorage.array[0]
     var scene: EditMoveScene!
     
     var currentIndex: Int = -1 {
@@ -47,6 +48,7 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         setUpScene()
         characterNode.posture = Posture.idle
         scene.characterNode = characterNode
+        updateEditView()
     }
 
     
@@ -79,6 +81,7 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
     @IBAction func playAnimation(sender: UIButton) {
         print(danceMove.keyframes)
         scene.playAnimation(danceMove)
+        currentIndex = danceMove.count - 1
     }
     
     @IBOutlet weak var slider: UISlider!
@@ -89,11 +92,15 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
             slider.setValue(0,animated: false)
             return
         }
+        if currentIndex != -1 {
+            danceMove.keyframes[currentIndex].posture = characterNode.posture
+        }
         let beforeTime = Double(slider.value) * danceMove.totalTime
         if beforeTime <= danceMove.keyframes[0].time/2 {
             currentIndex = -1
             return
         }
+        
         var accTime = 0.0
         for (i,k) in danceMove.keyframes.enumerate() {
             if i == danceMove.count-1 {
@@ -106,6 +113,7 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
                 return
             }
         }
+        
     }
     
     @IBAction func addPosture(sender: UIButton) {
@@ -140,6 +148,17 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
 
     //MARK: - Save dance move to file
     
+    @IBAction func nextDanceMove() {
+        moveIndex += 1
+        if moveIndex >= MovesStorage.array.count {
+            moveIndex = 0
+        }
+        danceMove = MovesStorage.array[moveIndex]
+        updateEditView()
+        currentIndex = -1
+
+    }
+    
     @IBAction func saveDanceMove(sender: AnyObject) {
         presentViewController(alertForNamePrompt, animated: true, completion: nil)
         
@@ -151,9 +170,11 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         
         do {
             if let name = name {
-                try "\n\nlet \(name) = ".appendLineToURL(fileurl)
+                try "\n\nstatic let \(name) = DanceMove( \nkeyframes:".appendLineToURL(fileurl)
+                try "\(danceMove.keyframes), ".appendLineToURL(fileurl)
+                try "levelOfIntensity: 1)".appendLineToURL(fileurl)
             }
-            try "\(danceMove.keyframes)".appendLineToURL(fileurl)
+            
             print("\(fileurl)")
             
         }
@@ -162,6 +183,7 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         }
         danceMove = DanceMove()
         updateEditView()
+        currentIndex = -1
     }
     
     private var alertForNamePrompt: UIAlertController {

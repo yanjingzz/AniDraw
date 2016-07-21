@@ -1,1 +1,0 @@
-../../../../AudioKit/iOS/AudioKit.framework/Headers/AKStringResonatorAudioUnit.h

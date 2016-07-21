@@ -178,7 +178,7 @@ class SkeletonController: UIViewController {
     
     var characterSkin: UIImage!
     
-    
+    //TODO: CGContext issues
     
     func updateImage() {  //preview
         let image = characterSkin.CGImage!
@@ -211,6 +211,7 @@ class SkeletonController: UIViewController {
                     }
                 }
             }
+        
             let alteredImage = CGBitmapContextCreateImage(context)!
             free(pixels)
             dispatch_async(dispatch_get_main_queue(), {

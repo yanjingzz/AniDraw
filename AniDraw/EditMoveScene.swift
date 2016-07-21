@@ -40,9 +40,9 @@ class EditMoveScene: SKScene {
         
         lastUpdateTime = currentTime
         if playing {
-            if let posture = danceMove?.getPostureByIntervalTime(dt) {
-                characterNode?.posture = posture
-            } else {
+            let posture = dancePlayback.getPostureByIntervalTime(dt)
+            characterNode?.posture = posture
+            if dancePlayback.isEmpty {
                 playing = false
             }
         }
@@ -131,12 +131,10 @@ class EditMoveScene: SKScene {
         characterNode?.position += translation
     }
     private var playing = false
-    private var danceMove: DanceMove?
+    private var dancePlayback = DancePlayback()
     
     func playAnimation(dance: DanceMove) {
-        danceMove = dance
-        print(danceMove?.previousPosture)
-        danceMove?.reset()
+        dancePlayback.startDanceMove(dance)
         playing = true
     }
 

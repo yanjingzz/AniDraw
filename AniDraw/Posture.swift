@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Posture: CustomStringConvertible {
+struct Posture: CustomStringConvertible, Equatable {
     var angles: [BodyPartName:CGFloat]
     var position: CGPoint
     init (angles: [BodyPartName:CGFloat], position: CGPoint) {
@@ -61,4 +61,17 @@ struct Posture: CustomStringConvertible {
         }
         return Posture(angles: newAngles, position: newPosition)
     }
+    
+}
+
+@warn_unused_result func ==(lhs: Posture, rhs: Posture) -> Bool {
+    if lhs.position != rhs.position {
+        return false
+    }
+    for name in BodyPartName.allParts {
+        if lhs.angles[name] != rhs.angles[name] {
+            return false
+        }
+    }
+    return true
 }
