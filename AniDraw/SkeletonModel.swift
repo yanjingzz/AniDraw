@@ -23,6 +23,7 @@ class SkeletonModel {
     var B : [[int]] = []
     var A : [[int]] = []
     
+    
     static var lastUpdateTimeStamp : NSDate = NSDate()
     var selfUpdateTimeStamp : NSDate
     
@@ -75,8 +76,6 @@ class SkeletonModel {
             print("Not valid!!!")
             return
         }
-        matrix.removeAll()
-        matrix = Array(count: matrixHeight, repeatedValue: Array(count: matrixWidth, repeatedValue: (nil,nil)))
         
     // PART0:getParameters
         let neckPosition = joints[.Neck]!
@@ -94,13 +93,108 @@ class SkeletonModel {
         let rightKneePosition = joints[.RightKnee]!
         let rightAnklePosition = joints[.RightAnkle]!
         
+        
         let shoulderWidth = Int(pow((pow(rightShoulderPosition.x - leftShoulderPosition.x,2) +
                 pow(rightShoulderPosition.y - leftShoulderPosition.y,2)),0.5))
         let shoulderCenterPostion = (leftShoulderPosition + rightShoulderPosition) / 2
+        let hipCenterPosition = (leftHipPosition + rightHipPosition) / 2
+        
+        let centerOfHead = CGPoint(x:neckPosition.x,y:neckPosition.y / 2)
+        let centerOfUpperBody = (neckPosition + waistPosition)/2
+        let centerOfLowerBody = (hipCenterPosition + waistPosition)/2
+        let centerOfLeftUpperArm = (leftShoulderPosition + leftElbowPosition)/2
+        let centerOfRightUpperArm = (rightShoulderPosition + rightElbowPosition)/2
+        let centerOfLeftForearm = (leftElbowPosition + leftWristPosition)/2
+        let centerOfRightForearm = (rightElbowPosition + rightWristPosition)/2
+        let centerOfLeftThigh = (leftHipPosition + leftKneePosition)/2
+        let centerOfRightThigh = (rightHipPosition + rightKneePosition)/2
+        let centerOfLeftShank = (leftKneePosition+leftAnklePosition)/2
+        let centerOfRightShank = (rightKneePosition+rightAnklePosition)/2
+        let centerOfLeftFoot = leftAnklePosition
+        let centerOfRightFoot = rightAnklePosition
+        
 //        let gradientOnLeftShoulderToRightShoulder = (rightShoulderPosition.y - leftShoulderPosition.y) /
 //            (rightShoulderPosition.x - leftShoulderPosition.x) // the same as gradientOnCenterToRightShoulder
-//        let gradientOnLeftShoulderToLeftElbow = (leftShoulderPosition.y - leftElbowPosition.y) /
-//            (leftShoulderPosition.x - leftElbowPosition.x)
+
+        //gradient for limbs
+        //leftUpperArm
+        var leftUpperArmVertical : Boolean = false
+        var gradientOnLeftShoulderToElbow : Double = 0
+        if leftShoulderPosition.x == leftElbowPosition.x {
+            leftUpperArmVertical = true
+        } else {
+            gradientOnLeftShoulderToElbow = (leftShoulderPosition.y - leftElbowPosition.y) /
+            (leftShoulderPosition.x - leftElbowPosition.x)
+        }
+        //rightUpperArm
+        var rightUpperArmVertical : Boolean = false
+        var gradientOnRightShoulderToElbow : Double = 0
+        if rightShoulderPosition.x == rightElbowPosition.x {
+            rightUpperArmVertical = true
+        } else {
+            gradientOnRightShoulderToElbow = (rightShoulderPosition.y - rightElbowPosition.y) /
+                (rightShoulderPosition.x - rightElbowPosition.x)
+        }
+        //leftForearm
+        var leftForearmVertical : Boolean = false
+        var gradientOnLeftElbowToWrist : Double = 0
+        if leftElbowPosition.x == leftWristPosition.x {
+            leftForearmVertical = true
+        } else {
+            gradientOnLeftElbowToWrist = (leftElbowPosition.y - leftWristPosition.y) /
+                (leftElbowPosition.x - leftWristPosition.x)
+        }
+        //rightForearm
+        var rightForearmVertical : Boolean = false
+        var gradientOnRightElbowToWrist : Double = 0
+        if rightElbowPosition.x == rightWristPosition.x {
+            rightForearmVertical = true
+        } else {
+            gradientOnRightElbowToWrist = (rightElbowPosition.y - rightsWristPosition.y) /
+                (rightElbowPosition.x - rightWristPosition.x)
+        }
+        //leftThigh
+        var leftThighVertical : Boolean = false
+        var gradientOnLeftHipToKnee : Double = 0
+        if leftHipPosition.x == leftKneePosition.x {
+            leftThighVertical = true
+        } else {
+            gradientOnLeftHipToKnee = (leftHipPosition.y - leftKneePosition.y) /
+                (leftHipPosition.x - leftKneePosition.x)
+        }
+        //rightThigh
+        var rightThighVertical : Boolean = false
+        var gradientOnRightHipToKnee : Double = 0
+        if rightHipPosition.x == rightKneePosition.x {
+            rightThighVertical = true
+        } else {
+            gradientOnRightHipToKnee = (rightHipPosition.y - rightKneePosition.y) /
+                (rightHipPosition.x - rightKneePosition.x)
+        }
+        //leftShank
+        var leftShankVertical : Boolean = false
+        var gradientOnLeftKneeToAnkle : Double = 0
+        if leftKneePosition.x == leftAnklePosition.x {
+            leftShankVertical = true
+        } else {
+            gradientOnLeftKneeToAnkle = (leftKneePosition.y - leftAnklePosition.y) /
+                (leftKneePosition.x - leftAnklePosition.x)
+        }
+        //rightShank
+        var rightShankVertical : Boolean = false
+        var gradientOnRightKneeToAnkle : Double = 0
+        if rightKneePosition.x == rightAnklePosition.x {
+            rightShankVertical = true
+        } else {
+            gradientOnRightKneeToAnkle = (rightKneePosition.y - rightAnklePosition.y) /
+                (rightKneePosition.x - rightAnklePosition.x)
+        }
+        
+        //if raise for limbs
+        var leftUpperArmRaise : Boolean = false
+        var rightUpperArmRaise : Boolean = false
+        var leftForearmRaise : Boolean = false
+        var rightForearmRaise : Boolean = false
         
         var X : Int = 0
         var Y : Int = 0
@@ -196,10 +290,73 @@ class SkeletonModel {
             return
         }
         
-            //shoulder(1/5 of shoulderwidth)
-        var radiusOfLeftShoulder : Int = shoulderWidth / 5
+            //shoulder
         
-        var radiusOfRightShoulder : Int = shoulderWidth / 5
+        X = Int(leftShoulderPosition.x)
+        Y = Int(leftShoulderPosition.y)
+        var radiusOfLeftShoulder : Int = 0
+        //min(shoulderWidth / 5,X,matrixWidth-X-1)
+        leftSide = X-1
+        rightSide = X+1
+        if A[Y][X] != 0 && A[Y][leftSide] == 0 && A[Y][rightSide] == 0 {
+            radiusOfLeftShoulder = 0
+        } else {
+            leftBound = 0
+            rightBound = Int(shoulderCenterPostion.x) - shoulderWidth / 3
+            while A[Y][leftSide] == 0 && leftSide>leftBound {
+                leftSide -= 1
+            }
+            transparentLeft = leftSide
+            while A[Y][leftSide] != 0 && leftSide>leftBound {
+                leftSide -= 1
+            }
+            while A[Y][rightSide] == 0 && rightSide<rightBound {
+                rightSide += 1
+            }
+            transparentRight = rightSide
+            while A[Y][rightSide] == 0 && rightSide<rightBound {
+                rightSide += 1
+            }
+            radiusOfLeftShoulder = min(max(rightSide-X,X-leftSide),X,matrixWidth-X-1)
+        }
+        
+        if selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {
+            print("update abort!")
+            return
+        }
+        
+        X = Int(rightShoulderPosition.x)
+        Y = Int(rightShoulderPosition.y)
+        var radiusOfRightShoulder : Int = 0
+        //min(shoulderWidth / 5,X,matrixWidth-X-1)
+        leftSide = X-1
+        rightSide = X+1
+        if A[Y][X] != 0 && A[Y][leftSide] == 0 && A[Y][rightSide] == 0 {
+            radiusOfRightShoulder = 0
+        } else {
+            leftBound = Int(shoulderCenterPostion.x) + shoulderWidth / 3
+            rightBound = matrixWidth-1
+            while A[Y][leftSide] == 0 && leftSide>leftBound {
+                leftSide -= 1
+            }
+            transparentLeft = leftSide
+            while A[Y][leftSide] != 0 && leftSide>leftBound {
+                leftSide -= 1
+            }
+            while A[Y][rightSide] == 0 && rightSide<rightBound {
+                rightSide += 1
+            }
+            transparentRight = rightSide
+            while A[Y][rightSide] == 0 && rightSide<rightBound {
+                rightSide += 1
+            }
+            radiusOfRightShoulder = min(max(rightSide-X,X-leftSide),X,matrixWidth-X-1)
+        }
+        
+        if selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {
+            print("update abort!")
+            return
+        }
         
             //elbow
         var radiusOfLeftElbow : Int = 0
@@ -209,7 +366,7 @@ class SkeletonModel {
         leftSide = X-1
         rightSide = X+1
         if A[Y][X] != 0 && A[Y][leftSide] == 0 && A[Y][rightSide] == 0 {
-            radiusOfLeftElbow = 1
+            radiusOfLeftElbow = 0
         } else {
             leftBound = 0
             rightBound = Int(shoulderCenterPostion.x) - radiusOfWaist
@@ -242,7 +399,7 @@ class SkeletonModel {
         leftSide = X-1
         rightSide = X+1
         if A[Y][X] != 0 && A[Y][leftSide] == 0 && A[Y][rightSide] == 0 {
-            radiusOfRightElbow = 1
+            radiusOfRightElbow = 0
         } else {
             leftBound = Int(shoulderCenterPostion.x) + radiusOfWaist
             rightBound = matrixWidth-1
@@ -276,7 +433,7 @@ class SkeletonModel {
         leftSide = X-1
         rightSide = X+1
         if A[Y][X] != 0 && A[Y][leftSide] == 0 && A[Y][rightSide] == 0 {
-            radiusOfLeftHip = 1
+            radiusOfLeftHip = 0
         } else {
             leftBound = 0
             rightBound = Int(waistPosition.x)
@@ -309,7 +466,7 @@ class SkeletonModel {
         leftSide = X-1
         rightSide = X+1
         if A[Y][X] != 0 && A[Y][leftSide] == 0 && A[Y][rightSide] == 0 {
-            radiusOfRightHip = 1
+            radiusOfRightHip = 0
         } else {
             leftBound = Int(waistPosition.x)
             rightBound = matrixWidth-1
@@ -342,7 +499,7 @@ class SkeletonModel {
         leftSide = X-1
         rightSide = X+1
         if A[Y][X] != 0 && A[Y][leftSide] == 0 && A[Y][rightSide] == 0 {
-            radiusOfLeftKnee = 1
+            radiusOfLeftKnee = 0
         } else {
             leftBound = 0
             rightBound = Int(waistPosition.x)
@@ -374,7 +531,7 @@ class SkeletonModel {
         leftSide = X-1
         rightSide = X+1
         if A[Y][X] != 0 && A[Y][leftSide] == 0 && A[Y][rightSide] == 0 {
-            radiusOfRightKnee = 1
+            radiusOfRightKnee = 0
         } else {
             leftBound = Int(waistPosition.x)
             rightBound = matrixWidth-1
@@ -407,7 +564,7 @@ class SkeletonModel {
         leftSide = X-1
         rightSide = X+1
         if A[Y][X] != 0 && A[Y][leftSide] == 0 && A[Y][rightSide] == 0 {
-            radiusOfLeftAnkle = 1
+            radiusOfLeftAnkle = 0
         } else {
             leftBound = 0
             rightBound = Int(waistPosition.x)
@@ -439,7 +596,7 @@ class SkeletonModel {
         leftSide = X-1
         rightSide = X+1
         if A[Y][X] != 0 && A[Y][leftSide] == 0 && A[Y][rightSide] == 0 {
-            radiusOfRightAnkle = 1
+            radiusOfRightAnkle = 0
         } else {
             leftBound = Int(waistPosition.x)
             rightBound = matrixWidth-1
@@ -481,18 +638,18 @@ class SkeletonModel {
         print("RightAnkle:\(radiusOfRightKnee)")
 
         
-        setJointBased(radiusOfNeck, center: neckPosition, addPart: [.Head,.UpperBody])
-        setJointBased(radiusOfWaist, center: waistPosition, addPart: [.UpperBody,.LowerBody])
-        setJointBased(radiusOfLeftShoulder, center: leftShoulderPosition, addPart: [.UpperBody,.LeftUpperArm])
-        setJointBased(radiusOfLeftElbow, center: leftElbowPosition, addPart: [.LeftUpperArm,.LeftForearm])
-        setJointBased(radiusOfRightShoulder, center: rightShoulderPosition, addPart: [.UpperBody,.RightUpperArm])
-        setJointBased(radiusOfRightElbow, center: rightElbowPosition, addPart: [.RightUpperArm,.RightForearm])
-        setJointBased(radiusOfLeftHip, center: leftHipPosition, addPart: [.LowerBody,.LeftThigh])
-        setJointBased(radiusOfLeftKnee, center: leftKneePosition, addPart: [.LeftThigh,.LeftShank])
-        setJointBased(radiusOfLeftKnee, center: leftAnklePosition, addPart: [.LeftShank,.LeftFoot])
-        setJointBased(radiusOfRightHip, center: rightHipPosition, addPart: [.LowerBody,.RightThigh])
-        setJointBased(radiusOfRightKnee, center: rightKneePosition, addPart: [.RightThigh,.RightShank])
-        setJointBased(radiusOfRightKnee, center: rightAnklePosition, addPart: [.RightShank,.RightFoot])
+        setJointBasedParaBola(radiusOfNeck, center: neckPosition, ratio: 0.6, addPart: (.Head, nil))
+        setJointBasedParaBola(radiusOfWaist, center: waistPosition, ratio: 0.6, addPart: (.UpperBody,.LowerBody))
+        setJointBasedCircle(radiusOfLeftShoulder, center: leftShoulderPosition, addPart: (.LeftUpperArm,nil))
+        setJointBasedCircle(radiusOfLeftElbow, center: leftElbowPosition, addPart: (.LeftUpperArm,nil))
+        setJointBasedCircle(radiusOfRightShoulder, center: rightShoulderPosition, addPart: (.RightUpperArm,nil))
+        setJointBasedCircle(radiusOfRightElbow, center: rightElbowPosition, addPart: (.RightUpperArm,nil))
+        setJointBasedCircle(radiusOfLeftHip, center: leftHipPosition, addPart: (.LeftThigh,nil))
+        setJointBasedCircle(radiusOfLeftKnee, center: leftKneePosition, addPart: (.LeftThigh,nil))
+        setJointBasedCircle(radiusOfLeftKnee, center: leftAnklePosition, addPart: (.LeftShank,nil))
+        setJointBasedCircle(radiusOfRightHip, center: rightHipPosition, addPart: (.RightThigh,nil))
+        setJointBasedCircle(radiusOfRightKnee, center: rightKneePosition, addPart: (.RightThigh,nil))
+        setJointBasedCircle(radiusOfRightKnee, center: rightAnklePosition, addPart: (.RightShank,nil))
         if selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {
             print("update abort!")
             return
@@ -575,6 +732,7 @@ class SkeletonModel {
                 fillY += 1
             }
         } else {    //raise arm
+            leftUpperArmRaise = true
             topBound = Int(leftElbowPosition.y)
             bottomBound = Int(leftShoulderPosition.y)
             leftBound = 0
@@ -631,6 +789,7 @@ class SkeletonModel {
                 fillY += 1
             }
         } else {    //raise arm
+            rightUpperArmRaise = true
             topBound = Int(rightElbowPosition.y)
             bottomBound = Int(rightShoulderPosition.y)
             leftBound = Int(shoulderCenterPostion.x)
@@ -823,6 +982,7 @@ class SkeletonModel {
                 fillY += 1
             }
         } else {    //raise arm
+            leftForearmRaise = true
             topBound = 0
             bottomBound = Int(leftKneePosition.y)
             leftBound = 0
@@ -879,6 +1039,7 @@ class SkeletonModel {
                 fillY += 1
             }
         } else {    //raise arm
+            rightForearmRaise = true
             topBound = 0
             bottomBound = Int(rightElbowPosition.y)
             leftBound = Int(shoulderCenterPostion.x)
@@ -931,23 +1092,88 @@ class SkeletonModel {
         }
         
         
-    // PART3:find if some pixels left
+    // PART3:find if some non-zero pixels don't belong to any bodypart left
+        
         for y in 0..<matrixHeight {
             for x in 0..<matrixWidth {
                 if selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {
                     print("update abort!")
                     return
                 }
-                if matrix[y][x].0 == nil && matrix[y][x].1 == nil{
-                    if y < Int(neckPosition.y)  {matrix[y][x].0 = .Head}
-                    else {
-                        if y < Int(max(leftKneePosition.y,rightKneePosition.y)) {
-                            if x < Int(shoulderCenterPostion.x) {matrix[y][x].0 = .LeftForearm}
-                            else {matrix[y][x].0 = .RightForearm}
-                        } else {
-                            if x < Int(shoulderCenterPostion.x) {matrix[y][x].0 = .LeftFoot}
-                            else {matrix[y][x].0 = .RightFoot}
+                if A[y][x] != 0 && matrix[y][x].0 == nil && matrix[y][x].1 == nil{
+                    //check pixels around
+                    var bodyPartCount = [BodyPartName:Int]()
+                    for part in BodyPartName.allParts {
+                        bodyPartCount[part] = 0
+                    }
+                    var hasResultThroughAroundPixels = false
+                    for offsetY in -3...3 {
+                        for offsetX in -3...3 {
+                            Y = y+offsetY
+                            X = x+offsetX
+                            if X < 0 || X >= matrixWidth || Y < 0 || Y >= matrixHeight {continue}
+                            if A[Y][X] != 0 &&
+                                matrix[y+offsetY][x+offsetX].0 != nil {
+                                hasResultThroughAroundPixels = true
+                                let tempPart = (matrix[y+offsetY][x+offsetX].0)!
+                                bodyPartCount[tempPart]! += 1
+                            }
                         }
+                    }
+                    
+                    if hasResultThroughAroundPixels == true {
+                        //calculate the most possible bodypartname that pixel belongs to
+                        var selectBodyPartName : BodyPartName = .Head
+                        var maxCount : Int = -1
+                        for part in BodyPartName.allParts {
+                            if bodyPartCount[part]! > maxCount {
+                                selectBodyPartName = part
+                                maxCount = bodyPartCount[part]!
+                            } else {
+                                if bodyPartCount[part]! == maxCount {
+                                    if priorityOfBodyPartName[part] > priorityOfBodyPartName[selectBodyPartName] {
+                                        selectBodyPartName = part
+                                    }
+                                }
+                            }
+                        }
+                        matrix[y][x].0 = selectBodyPartName
+                    } else {
+//                        calculate the distance of the pixel to all BodyPart center position & find the minimun one
+                        let pixelPosition = CGPoint(x:CGFloat(x),y:CGFloat(y))
+                        var distanceToBodyPart = [BodyPartName:CGFloat]()
+                        distanceToBodyPart[.Head] = distance(centerOfHead,p2:pixelPosition)
+                        distanceToBodyPart[.UpperBody] = distance(centerOfUpperBody,p2:pixelPosition)
+                        distanceToBodyPart[.LowerBody] = distance(centerOfLowerBody,p2:pixelPosition)
+                        distanceToBodyPart[.LeftUpperArm] = distance(centerOfLeftUpperArm,p2:pixelPosition)
+                        distanceToBodyPart[.RightUpperArm] = distance(centerOfRightUpperArm,p2:pixelPosition)
+                        distanceToBodyPart[.LeftForearm] = distance(centerOfLeftForearm,p2:pixelPosition)
+                        distanceToBodyPart[.RightForearm] = distance(centerOfRightForearm,p2:pixelPosition)
+                        distanceToBodyPart[.LeftThigh] = distance(centerOfLeftThigh,p2:pixelPosition)
+                        distanceToBodyPart[.RightThigh] = distance(centerOfRightThigh,p2:pixelPosition)
+                        distanceToBodyPart[.LeftShank] = distance(centerOfLeftShank,p2:pixelPosition)
+                        distanceToBodyPart[.RightShank] = distance(centerOfRightShank,p2:pixelPosition)
+                        distanceToBodyPart[.LeftFoot] = distance(centerOfLeftFoot,p2:pixelPosition)
+                        distanceToBodyPart[.RightFoot] = distance(centerOfRightFoot,p2:pixelPosition)
+                        var selectBodyPartName : BodyPartName = .Head
+                        var minDistance : CGFloat = -1
+                        for part in BodyPartName.allParts {
+                            if distanceToBodyPart[part] < minDistance {
+                                selectBodyPartName = part
+                                minDistance = distanceToBodyPart[part]!
+                            } else {
+                                if distanceToBodyPart[part] == minDistance {
+                                    if priorityOfBodyPartName[part] > priorityOfBodyPartName[selectBodyPartName] {
+                                        selectBodyPartName = part
+                                    }
+                                }
+                            }
+                            if minDistance == -1 {
+                                selectBodyPartName = part
+                                minDistance = distanceToBodyPart[part]!
+                            }
+                        }
+                        matrix[y][x].0 = selectBodyPartName
                     }
                 }
             }
@@ -955,9 +1181,24 @@ class SkeletonModel {
         isPerformClassifyPixels = false
         print("perform end")
     }
+
+    func performSuperNaiveClassifyJointsPerPixel() {
+        isPerformClassifyPixels = true
+        if isModelValid == false {
+            return
+        } else {
+            print("valid!!!")
+            for y in 0..<matrixHeight {
+                for x in 0..<matrixWidth {
+                    matrix[y][x] = (.Head,nil)
+                }
+            }
+        }
+        
+    }
     
     //Naive for Test
-    func performNavieClassifyJointsPerPixel() {
+    func performNaiveClassifyJointsPerPixel() {
         
         isPerformClassifyPixels = true
         if isModelValid == false {
@@ -1181,6 +1422,12 @@ class SkeletonModel {
         free(pixels)
     }
     
+    private func distance(p1:CGPoint,p2:CGPoint) -> CGFloat{
+        let dx = p1.x - p2.x
+        let dy = p1.y - p2.y
+        return dx*dx+dy*dy
+    }
+    
     //for Part1: addBodyPartName
     private func appendBodyPartName(x:Int,y:Int,part:BodyPartName) {
         if y >= matrixHeight || y<0 || x>=matrixWidth || x<0 {return}
@@ -1210,8 +1457,11 @@ class SkeletonModel {
     
     
     //for Part1:   circle
-    private func setJointBased(radius:Int,center:CGPoint,addPart:[BodyPartName]) {
-        if addPart.count == 0 {return}
+    private func setJointBasedCircle(radius:Int,center:CGPoint,addPart:(BodyPartName?,BodyPartName?)) {
+        if radius == 0 {return}
+        let upperBodyName = addPart.0
+        let lowerBodyName = addPart.1
+//        if addPart.count == 0 {return}
         for offsetX in -radius...radius {
             for offsetY in -radius...radius {
                 if selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {
@@ -1219,8 +1469,44 @@ class SkeletonModel {
                 }
                 if pow(CGFloat(offsetX),2.0) + pow(CGFloat(offsetY),2.0) > pow(CGFloat(radius),2) {continue}
                 let X = Int(center.x) + offsetX, Y = Int(center.y) + offsetY
-                for part in addPart {
-                    appendBodyPartName(X, y: Y, part: part)
+                if upperBodyName != nil {appendBodyPartName(X, y: Y, part: upperBodyName!)}
+                if lowerBodyName != nil {appendBodyPartName(X, y: Y, part: lowerBodyName!)}
+            }
+        }
+    }
+    
+    private func setJointBasedParaBola(radius:Int,center:CGPoint,ratio:Double,addPart:(BodyPartName?,BodyPartName?)) {
+        if radius == 0 {return}
+        let upperBodyName = addPart.0
+        let lowerBodyName = addPart.1
+        let k = ratio / Double(radius)
+        //upper
+        if upperBodyName != nil {
+            for offsetY in 0...radius {
+                for offsetX in -radius...radius {
+                    if selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {
+                        return
+                    }
+                    let valueY = Double(-offsetY)
+                    if valueY > k * Double(offsetX*offsetX-radius*radius) {
+                        let X = Int(center.x) + offsetX, Y = Int(center.y) + offsetY
+                        appendBodyPartName(X, y: Y, part: upperBodyName!)
+                    }
+                }
+            }
+        }
+        //lower
+        if lowerBodyName != nil {
+            for offsetY in -radius...0 {
+                for offsetX in -radius...radius {
+                    if selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {
+                        return
+                    }
+                    let valueY = Double(-offsetY)
+                    if valueY < -k * Double(offsetX*offsetX-radius*radius) {
+                        let X = Int(center.x) + offsetX, Y = Int(center.y) + offsetY
+                        appendBodyPartName(X, y: Y, part: lowerBodyName!)
+                    }
                 }
             }
         }

@@ -38,6 +38,7 @@ class SkeletonController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+//        self.reset()
         updateImage()
     }
     
@@ -50,10 +51,12 @@ class SkeletonController: UIViewController {
     @IBAction private func moveJointsWithPanRecognizer(recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
         case .Began:
-            print("drag began~")
-            SkeletonModel.lastUpdateTimeStamp = NSDate()
             let p = recognizer.locationInView(skeletonView)
             if let view = view.hitTest(p, withEvent: nil) where view != skeletonView {
+                
+                print("drag end~")
+                SkeletonModel.lastUpdateTimeStamp = NSDate()
+                
                 moved = true
                 movedView = view
             }
@@ -67,7 +70,8 @@ class SkeletonController: UIViewController {
             }
         case .Ended:
             if movedView != nil {
-               updateImage()
+                self.reset()
+                updateImage()
             }
             fallthrough
         default:
@@ -186,20 +190,27 @@ class SkeletonController: UIViewController {
         
         
         let image = characterSkin.CGImage!
+
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)) {
 
+            
             let updateSkeletonModel = SkeletonModel()
             SkeletonModel.lastUpdateTimeStamp = updateSkeletonModel.selfUpdateTimeStamp
             print("UpdateTimeStamp:\(SkeletonModel.lastUpdateTimeStamp)")
-            self.reset(updateSkeletonModel)
             if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
+            updateSkeletonModel.setParameter(self.skeletonModel.positionOffset,image:self.characterSkin)
+            if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
+            for joint in JointName.allJoints {
+                updateSkeletonModel.joints[joint] = self.skeletonModel.joints[joint]
+            }
+            if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
+            updateSkeletonModel.isModelValid = self.skeletonModel.isModelValid
             updateSkeletonModel.performClassifyJointsPerPixel()
             if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
             self.skeletonModel = updateSkeletonModel
             if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
+            
             let inBodyPart = self.belongsToBodyPart()
-            if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
-
             
             self.moved = false
             let (pixels, context) = image.toARGBBitmapData()
@@ -229,6 +240,7 @@ class SkeletonController: UIViewController {
                 }
             }
         
+            
             let alteredImage = CGBitmapContextCreateImage(context)!
             free(pixels)
             dispatch_async(dispatch_get_main_queue(), {
@@ -447,20 +459,20 @@ class SkeletonController: UIViewController {
         .RightUpperArm:  0x00FF7FFF,
     ]
 
-    func reset(skeleton:SkeletonModel) {
+    func reset() {
         var newJoints = [JointName:CGPoint]()
         for joint in JointName.allJoints {
             newJoints[joint] = jointPoint(joint)
-//            print("\(joint):\(newJoints[joint])")
+            print("\(joint):\(newJoints[joint])")
         }
         //characterImageView.image!
-        skeleton.setParameter(characterImageView.frame.origin,image: characterSkin)
-        skeleton.setJointsPosition(newJoints)
+        skeletonModel.setParameter(characterImageView.frame.origin,image: characterSkin)
+        skeletonModel.setJointsPosition(newJoints)
     }
     
     func skeletonModalUpdateTest() {
         print("-------------")
-        reset(self.skeletonModel)
+        reset()
         print("setSkeletonModel!")
         print("Controller: frame.origin: \(characterImageView.frame.origin)")
         print("Controller: frame.center: \(characterImageView.frame.center)")
