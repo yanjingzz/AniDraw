@@ -119,7 +119,7 @@ class SkeletonModel {
         //gradient for limbs
         //leftUpperArm
         var leftUpperArmVertical : Boolean = false
-        var gradientOnLeftShoulderToElbow : Double = 0
+        var gradientOnLeftShoulderToElbow : CGFloat = 0
         if leftShoulderPosition.x == leftElbowPosition.x {
             leftUpperArmVertical = true
         } else {
@@ -128,7 +128,7 @@ class SkeletonModel {
         }
         //rightUpperArm
         var rightUpperArmVertical : Boolean = false
-        var gradientOnRightShoulderToElbow : Double = 0
+        var gradientOnRightShoulderToElbow : CGFloat = 0
         if rightShoulderPosition.x == rightElbowPosition.x {
             rightUpperArmVertical = true
         } else {
@@ -137,7 +137,7 @@ class SkeletonModel {
         }
         //leftForearm
         var leftForearmVertical : Boolean = false
-        var gradientOnLeftElbowToWrist : Double = 0
+        var gradientOnLeftElbowToWrist : CGFloat = 0
         if leftElbowPosition.x == leftWristPosition.x {
             leftForearmVertical = true
         } else {
@@ -146,16 +146,16 @@ class SkeletonModel {
         }
         //rightForearm
         var rightForearmVertical : Boolean = false
-        var gradientOnRightElbowToWrist : Double = 0
+        var gradientOnRightElbowToWrist : CGFloat = 0
         if rightElbowPosition.x == rightWristPosition.x {
             rightForearmVertical = true
         } else {
-            gradientOnRightElbowToWrist = (rightElbowPosition.y - rightsWristPosition.y) /
+            gradientOnRightElbowToWrist = (rightElbowPosition.y - rightWristPosition.y) /
                 (rightElbowPosition.x - rightWristPosition.x)
         }
         //leftThigh
         var leftThighVertical : Boolean = false
-        var gradientOnLeftHipToKnee : Double = 0
+        var gradientOnLeftHipToKnee : CGFloat = 0
         if leftHipPosition.x == leftKneePosition.x {
             leftThighVertical = true
         } else {
@@ -164,7 +164,7 @@ class SkeletonModel {
         }
         //rightThigh
         var rightThighVertical : Boolean = false
-        var gradientOnRightHipToKnee : Double = 0
+        var gradientOnRightHipToKnee : CGFloat = 0
         if rightHipPosition.x == rightKneePosition.x {
             rightThighVertical = true
         } else {
@@ -173,7 +173,7 @@ class SkeletonModel {
         }
         //leftShank
         var leftShankVertical : Boolean = false
-        var gradientOnLeftKneeToAnkle : Double = 0
+        var gradientOnLeftKneeToAnkle : CGFloat = 0
         if leftKneePosition.x == leftAnklePosition.x {
             leftShankVertical = true
         } else {
@@ -182,13 +182,23 @@ class SkeletonModel {
         }
         //rightShank
         var rightShankVertical : Boolean = false
-        var gradientOnRightKneeToAnkle : Double = 0
+        var gradientOnRightKneeToAnkle : CGFloat = 0
         if rightKneePosition.x == rightAnklePosition.x {
             rightShankVertical = true
         } else {
             gradientOnRightKneeToAnkle = (rightKneePosition.y - rightAnklePosition.y) /
                 (rightKneePosition.x - rightAnklePosition.x)
         }
+        
+        print("---[gradient]---")
+        print("leftUpperArm:\(gradientOnLeftShoulderToElbow)")
+        print("leftForearm:\(gradientOnLeftElbowToWrist)")
+        print("rightUpperArm:\(gradientOnRightShoulderToElbow)")
+        print("rightForearm:\(gradientOnRightElbowToWrist)")
+        print("leftThigh:\(gradientOnLeftHipToKnee)")
+        print("rightThigh:\(gradientOnRightHipToKnee)")
+        print("leftShank:\(gradientOnLeftKneeToAnkle)")
+        print("rightShank:\(gradientOnRightKneeToAnkle)")
         
         //if raise for limbs
         var leftUpperArmRaise : Boolean = false
