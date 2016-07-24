@@ -301,7 +301,7 @@ class SkeletonModel {
         }
         
             //shoulder
-        
+            //left
         X = Int(leftShoulderPosition.x)
         Y = Int(leftShoulderPosition.y)
         var radiusOfLeftShoulder : Int = 0
@@ -334,7 +334,7 @@ class SkeletonModel {
             print("update abort!")
             return
         }
-        
+            //right
         X = Int(rightShoulderPosition.x)
         Y = Int(rightShoulderPosition.y)
         var radiusOfRightShoulder : Int = 0
@@ -369,6 +369,7 @@ class SkeletonModel {
         }
         
             //elbow
+            //left
         var radiusOfLeftElbow : Int = 0
         
         X = Int(leftElbowPosition.x)
@@ -401,7 +402,7 @@ class SkeletonModel {
             print("update abort!")
             return
         }
-
+            //right
         var radiusOfRightElbow : Int = 0
         
         X = Int(rightElbowPosition.x)
@@ -436,6 +437,7 @@ class SkeletonModel {
         }
 
             //Hip
+            //left
         var radiusOfLeftHip : Int = 0
         
         X = Int(leftHipPosition.x)
@@ -468,7 +470,7 @@ class SkeletonModel {
             print("update abort!")
             return
         }
-
+            //right
         var radiusOfRightHip : Int = 0
         
         X = Int(rightHipPosition.x)
@@ -503,6 +505,7 @@ class SkeletonModel {
         }
 
             //knee
+            //left
         var radiusOfLeftKnee : Int = 0
         X = Int(leftKneePosition.x)
         Y = Int(leftKneePosition.y)
@@ -534,7 +537,7 @@ class SkeletonModel {
             print("update abort!")
             return
         }
-        
+            //right
         var radiusOfRightKnee : Int = 0
         X = Int(rightKneePosition.x)
         Y = Int(rightKneePosition.y)
