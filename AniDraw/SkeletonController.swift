@@ -129,8 +129,10 @@ class SkeletonController: UIViewController {
             }
 
         }
+        
         HUD.dismiss()
         performSegueWithIdentifier(Storyboard.DoneAddingCharacterIdentifier, sender: nil)
+        
         
     }
     
@@ -138,11 +140,14 @@ class SkeletonController: UIViewController {
     
     private var alertForNamePrompt: UIAlertController{
         let alert = UIAlertController(title: "Name", message: "Give a name to the character you just created!", preferredStyle: .Alert)
-        let confirmAction = UIAlertAction(title: "Done", style: .Default) { action in
-            self.HUD.textLabel.text = "Saving"
-            self.HUD.showInView(self.view)
-            self.characterName = alert.textFields![0].text
-            self.saveCharacter()
+        let confirmAction = UIAlertAction(title: "Done", style: .Default) { [unowned self] action in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.HUD.textLabel.text = "Saving"
+                self.HUD.showInView(self.view)
+                self.characterName = alert.textFields![0].text
+                self.saveCharacter()
+            }
+            
         }
         
         confirmAction.enabled = false
