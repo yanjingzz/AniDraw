@@ -56,6 +56,10 @@ enum BodyPartName: Int {
         }
     }
     
+    static var count: Int {
+        return BodyPartName.RightFoot.rawValue + 1
+    }
+    
     var childPart: [BodyPartName] {
         switch self {
         case UpperBody:

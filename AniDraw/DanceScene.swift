@@ -90,7 +90,7 @@ class DanceScene: SKScene {
 //        }
 //        singStatusLabel.text = "IsSinging: \(audioInput.isSinging)"
         
-        levelLabel.text = "Level: " + String(danceModel.chooseMethod())
+        levelLabel.text = "Level: \(danceModel.currentLevel), index: \(danceModel.currentIndex)"
         
         
         

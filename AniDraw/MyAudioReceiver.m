@@ -150,6 +150,7 @@ static void receiverCallback(__unsafe_unretained MyAudioReceiver *THIS,
             [receiverData setIsSinging: isSinging];
             [receiverData setOnset: onset_data];
             [receiverData setPitch: pitch_data];
+//            [receiverData setBpm: bpm_data];
             [receiverData setDecibel: decibel];
             [receiverData setTime: this_time];
             //mfcc
@@ -170,7 +171,7 @@ static void receiverCallback(__unsafe_unretained MyAudioReceiver *THIS,
                     [delegate receiverDidReceiveData: receiverData];
                     
                 } else {
-                    NSLog(@"Abandon! this time: %f  current time %f", this_time, current_time);
+//                    NSLog(@"Abandon! this time: %f  current time %f", this_time, current_time);
                 }
             });
         }
