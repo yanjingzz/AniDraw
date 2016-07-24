@@ -26,6 +26,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print(error)
         }
+        
+        let launchedBefore = NSUserDefaults.standardUserDefaults().boolForKey("launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+        } else {
+            print("First launch, setting NSUserDefault.")
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "launchedBefore")
+            
+            GenericMoves.createAll()
+            EthnicMoves.createAll()
+            BalletMoves.createAll()
+            JazzMoves.createAll()
+            saveContext()
+        }
 
         return true
     }

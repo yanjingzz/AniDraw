@@ -32,6 +32,14 @@ struct Keyframe: CustomStringConvertible {
         self.positionCurve = positionCurve
         self.interruptable = interruptable
     }
+    init(storedKeyframe: StoredKeyframe) {
+        time = storedKeyframe.time
+        posture = Posture(storedPosture: storedKeyframe.posture!)
+        angleCurve = Curve(rawValue: Int(storedKeyframe.rawAngleCurve))!
+        positionCurve = Curve(rawValue: Int(storedKeyframe.rawPositionCurve))!
+        interruptable = storedKeyframe.interruptable
+    }
+    
     var description: String {
         var string = "\nKeyframe( \n"
         string += "    time: \(time), \n"
@@ -76,7 +84,7 @@ struct Keyframe: CustomStringConvertible {
         case BounceEaseOut
         case BounceEaseInOut
         
-        static var count: Int { return BounceEaseInOut.rawValue + 1 }
+        static var count: Int { return Int(BounceEaseInOut.rawValue) + 1 }
         
         var description: String {
             switch self {
@@ -115,7 +123,35 @@ struct Keyframe: CustomStringConvertible {
             }
         }
     }
+    var flipped: Keyframe {
+        return Keyframe(time: time, posture: posture.flipped, angleCurve: angleCurve, positionCurve: positionCurve, interruptable: interruptable)
+    }
 }
 
+func +(posture: Posture, position: CGPoint) -> Posture {
+    return Posture(angles: posture.angles, position: posture.position + position)
+}
+
+func +(key: Keyframe, position: CGPoint) -> Keyframe {
+    return Keyframe(time: key.time, posture: key.posture + position, angleCurve: key.angleCurve, positionCurve: key.positionCurve, interruptable: key.interruptable)
+}
+
+extension _ArrayType where Generator.Element == Keyframe {
+    var totalTime: NSTimeInterval {
+        var time = 0.0
+        for key in self {
+            time += key.time
+        }
+        return time
+    }
+    var flipped: [Keyframe] {
+        var ret = [Keyframe]()
+        for key in self {
+            ret.append(key.flipped)
+        }
+        return ret
+    }
+    
+}
 
 

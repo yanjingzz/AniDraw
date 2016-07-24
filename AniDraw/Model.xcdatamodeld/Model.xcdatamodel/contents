@@ -15,8 +15,32 @@
         <attribute name="wholeImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <relationship name="parts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BodyPart" inverseName="partOf" inverseEntity="BodyPart" syncable="YES"/>
     </entity>
+    <entity name="DanceMove" representedClassName=".DanceMove" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="rawLevel" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="rawStyle" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="keyframesSet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Keyframe" inverseName="belongsTo" inverseEntity="Keyframe" syncable="YES"/>
+    </entity>
+    <entity name="Keyframe" representedClassName=".StoredKeyframe" syncable="YES">
+        <attribute name="index" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="interruptable" attributeType="Boolean" syncable="YES"/>
+        <attribute name="rawAngleCurve" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="rawPositionCurve" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="time" attributeType="Date" syncable="YES"/>
+        <relationship name="belongsTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DanceMove" inverseName="keyframesSet" inverseEntity="DanceMove" syncable="YES"/>
+        <relationship name="posture" maxCount="1" deletionRule="Cascade" destinationEntity="Posture" inverseName="belongsTo" inverseEntity="Posture" syncable="YES"/>
+    </entity>
+    <entity name="Posture" representedClassName=".StoredPosture" syncable="YES">
+        <attribute name="rawAngles" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="rawPositionX" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="rawPositionY" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="belongsTo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Keyframe" inverseName="posture" inverseEntity="Keyframe" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="BodyPart" positionX="-54" positionY="9" width="128" height="165"/>
+        <element name="BodyPart" positionX="-54" positionY="-57" width="128" height="165"/>
         <element name="Character" positionX="-270" positionY="18" width="110" height="90"/>
+        <element name="DanceMove" positionX="-396" positionY="234" width="108" height="103"/>
+        <element name="Keyframe" positionX="-191" positionY="219" width="128" height="148"/>
+        <element name="Posture" positionX="-0" positionY="243" width="128" height="103"/>
     </elements>
 </model>
