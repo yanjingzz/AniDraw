@@ -14,7 +14,7 @@ import CoreData
 
 extension CharacterStorage {
 
-    @NSManaged var name: String?
+    @NSManaged var name: String
     @NSManaged var wholeImage: NSData?
     @NSManaged var parts: NSSet?
 

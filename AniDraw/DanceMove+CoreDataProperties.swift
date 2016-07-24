@@ -14,7 +14,7 @@ import CoreData
 
 extension DanceMove {
 
-    @NSManaged var name: String?
+    @NSManaged var name: String
     @NSManaged var rawStyle: Int32
     @NSManaged var rawLevel: Int32
     @NSManaged var keyframesSet: NSSet?

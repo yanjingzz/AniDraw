@@ -25,27 +25,23 @@ class SkeletonModel {
     
     
     static var lastUpdateTimeStamp : NSDate = NSDate()
-    var selfUpdateTimeStamp : NSDate
+    var selfUpdateTimeStamp = NSDate()
     
-    var priorityOfBodyPartName = [BodyPartName:Int]()
-    
-    init() {
-        priorityOfBodyPartName[.Head] = 0
-        priorityOfBodyPartName[.LowerBody] = 1
-        priorityOfBodyPartName[.UpperBody] = 2
-        priorityOfBodyPartName[.LeftThigh] = 3
-        priorityOfBodyPartName[.RightThigh] = 4
-        priorityOfBodyPartName[.LeftShank] = 5
-        priorityOfBodyPartName[.RightShank] = 6
-        priorityOfBodyPartName[.LeftFoot] = 7
-        priorityOfBodyPartName[.RightFoot] = 8
-        priorityOfBodyPartName[.LeftUpperArm] = 9
-        priorityOfBodyPartName[.RightUpperArm] = 10
-        priorityOfBodyPartName[.LeftForearm] = 11
-        priorityOfBodyPartName[.RightForearm] = 12
-        selfUpdateTimeStamp = NSDate()
-    }
-    
+    var priorityOfBodyPartName: [BodyPartName:Int] = [
+        .Head: 0,
+        .LowerBody: 1,
+        .UpperBody: 2,
+        .LeftThigh: 3,
+        .RightThigh: 4,
+        .LeftShank: 5,
+        .RightShank: 6,
+        .LeftFoot: 7,
+        .RightFoot: 8,
+        .LeftUpperArm: 9,
+        .RightUpperArm: 10,
+        .LeftForearm: 11,
+        .RightForearm: 12
+    ]
     
     
     func setJointsPosition(setJoints:[JointName:CGPoint]) {
@@ -93,6 +89,8 @@ class SkeletonModel {
         let rightKneePosition = joints[.RightKnee]!
         let rightAnklePosition = joints[.RightAnkle]!
         
+//        为什么不用sqrt?
+//        为什们不用length?
         
         let shoulderWidth = Int(pow((pow(rightShoulderPosition.x - leftShoulderPosition.x,2) +
                 pow(rightShoulderPosition.y - leftShoulderPosition.y,2)),0.5))
@@ -221,6 +219,7 @@ class SkeletonModel {
         
 //        let defaultRadius = 5
         
+
         //[1]get each joint's radius
             //neck
         var radiusOfNeck : Int = 0
@@ -537,6 +536,7 @@ class SkeletonModel {
             print("update abort!")
             return
         }
+        
             //right
         var radiusOfRightKnee : Int = 0
         X = Int(rightKneePosition.x)
@@ -663,6 +663,8 @@ class SkeletonModel {
         setJointBasedCircle(radiusOfRightHip, center: rightHipPosition, addPart: (.RightThigh,nil))
         setJointBasedCircle(radiusOfRightKnee, center: rightKneePosition, addPart: (.RightThigh,nil))
         setJointBasedCircle(radiusOfRightKnee, center: rightAnklePosition, addPart: (.RightShank,nil))
+        
+
         if selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {
             print("update abort!")
             return

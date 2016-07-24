@@ -199,27 +199,7 @@ class GenericMoves {
                             .LeftForearm: 2.16721],
                         position: CGPoint(x: 0.0, y: 0.0)),
                     angleCurve: .EaseInOut,
-                    positionCurve: .EaseInOut),
-                Keyframe(
-                    time: 0.5,
-                    posture: Posture(
-                        angles: [
-                            .LeftUpperArm: -0.00179362,
-                            .LeftShank: 0.0,
-                            .RightFoot: 0.0,
-                            .RightShank: 0.0,
-                            .LowerBody: 0.00047636,
-                            .LeftThigh: 0.0,
-                            .Head: 0.000266448,
-                            .RightForearm: 0.0, 
-                            .LeftFoot: 0.0, 
-                            .RightUpperArm: 0.00151187, 
-                            .UpperBody: -0.00047636, 
-                            .RightThigh: 0.0, 
-                            .LeftForearm: 0.0], 
-                        position: CGPoint(x: 0.0, y: 0.0)), 
-                    angleCurve: .SineEaseInOut, 
-                    positionCurve: .EaseIn)], 
+                    positionCurve: .EaseInOut)],
             levelOfIntensity: 1,
             name: "Shake head")
         
@@ -415,27 +395,7 @@ class GenericMoves {
                             .LeftForearm: 0.713748],
                         position: CGPoint(x: 2.00647, y: -37.0811)),
                     angleCurve: .EaseIn,
-                    positionCurve: .EaseIn),
-                Keyframe(
-                    time: 0.5,
-                    posture: Posture(
-                        angles: [
-                            .LeftUpperArm: -0.00528872,
-                            .LeftShank: 0.00506449,
-                            .RightFoot: -6.28204,
-                            .RightShank: 6.27787,
-                            .LowerBody: 0.000573024,
-                            .LeftThigh: -0.00246018,
-                            .Head: -0.00135106,
-                            .RightForearm: 6.27884,
-                            .LeftFoot: -0.00293607,
-                            .RightUpperArm: 0.00552964,
-                            .UpperBody: -0.000330068,
-                            .RightThigh: 0.00327235,
-                            .LeftForearm: 0.00302941],
-                        position: CGPoint(x: 0.00854492, y: -0.157379)),
-                    angleCurve: .EaseInOut,
-                    positionCurve: .EaseInOut)],
+                    positionCurve: .EaseIn)],
             levelOfIntensity: 3,
             name: "Big jump")
         
@@ -523,27 +483,7 @@ class GenericMoves {
                             .LeftForearm: 5.48836],
                         position: CGPoint(x: 5.0, y: -54.5)),
                     angleCurve: .EaseOut,
-                    positionCurve: .Linear),
-                Keyframe(
-                    time: 0.5,
-                    posture: Posture(
-                        angles: [
-                            .LeftUpperArm: 5.81999,
-                            .LeftShank: 0.00175166,
-                            .RightFoot: 0.192663,
-                            .RightShank: 6.2818,
-                            .LowerBody: -0.00486511,
-                            .LeftThigh: -0.0223852,
-                            .Head: 0.016594,
-                            .RightForearm: 0.0,
-                            .LeftFoot: -0.286297,
-                            .RightUpperArm: 0.240143,
-                            .UpperBody: 0.0524767,
-                            .RightThigh: -0.0236341,
-                            .LeftForearm: 6.28218],
-                        position: CGPoint(x: 0.505737, y: -21.0425)),
-                    angleCurve: .EaseInOut,
-                    positionCurve: .EaseInOut)],
+                    positionCurve: .Linear)],
             levelOfIntensity: 3,
             name: "Jump & side kick")
         
@@ -630,26 +570,6 @@ class GenericMoves {
                             .RightThigh: 0.565783,
                             .LeftForearm: 1.10393],
                         position: CGPoint(x: 96.5, y: -11.5)),
-                    angleCurve: .EaseInOut,
-                    positionCurve: .EaseInOut),
-                Keyframe(
-                    time: 0.5,
-                    posture: Posture(
-                        angles: [
-                            .LeftUpperArm: -0.360366,
-                            .LeftShank: 0.00660872,
-                            .RightFoot: 0.247793,
-                            .RightShank: 6.27873,
-                            .LowerBody: -0.0604089,
-                            .LeftThigh: -0.0277284,
-                            .Head: 0.0333487,
-                            .RightForearm: 0.0,
-                            .LeftFoot: -0.0579829,
-                            .RightUpperArm: 0.0555868,
-                            .UpperBody: 0.0591646,
-                            .RightThigh: -0.0106775,
-                            .LeftForearm: 0.00482786],
-                        position: CGPoint(x: 23.7443, y: -22.9687)),
                     angleCurve: .EaseInOut,
                     positionCurve: .EaseInOut)],
             levelOfIntensity: 4,
@@ -804,28 +724,8 @@ class GenericMoves {
                         position: CGPoint(x: 216.5, y: -63.0)),
                     angleCurve: .EaseOut,
                     positionCurve: .EaseOut,
-                    interruptable: false),
-                Keyframe(
-                    time: 0.5,
-                    posture: Posture(
-                        angles: [
-                            .LeftUpperArm: 6.27798,
-                            .LeftShank: 0.00529552,
-                            .RightFoot: -6.28036,
-                            .RightShank: 6.27853,
-                            .LowerBody: 0.00146645,
-                            .LeftThigh: -0.00653028,
-                            .Head: 0.0017578,
-                            .RightForearm: 0.0,
-                            .LeftFoot: -0.0039258,
-                            .RightUpperArm: 0.00422025,
-                            .UpperBody: -0.00185114,
-                            .RightThigh: 0.00208008,
-                            .LeftForearm: 0.0],
-                        position: CGPoint(x: 204.502, y: 0.833069)),
-                    angleCurve: .EaseInOut,
-                    positionCurve: .EaseInOut
-                )],
+                    interruptable: false)
+            ],
             levelOfIntensity: 5,
             name: "Big cart wheel")
         
@@ -1317,27 +1217,8 @@ class GenericMoves {
                         position: CGPoint(x: 57.5, y: -100.0)), 
                     angleCurve: .EaseOut, 
                     positionCurve: .EaseOut,
-                    interruptable: false),
-                Keyframe( 
-                    time: 0.5, 
-                    posture: Posture( 
-                        angles: [
-                            .LeftUpperArm: 6.28103, 
-                            .LeftShank: 0.00190043, 
-                            .RightFoot: -6.28306, 
-                            .RightShank: 6.28141, 
-                            .LowerBody: 0.000145033, 
-                            .LeftThigh: -0.00161874, 
-                            .Head: 0.000174597, 
-                            .RightForearm: 0.000584662, 
-                            .LeftFoot: -0.000941753, 
-                            .RightUpperArm: 0.00154257, 
-                            .UpperBody: 0.000257462, 
-                            .RightThigh: 0.000661671, 
-                            .LeftForearm: 0.0], 
-                        position: CGPoint(x: 0.0527344, y: -0.0917664)), 
-                    angleCurve: .EaseOut, 
-                    positionCurve: .EaseOut)], 
+                    interruptable: false)
+            ],
             levelOfIntensity: 5,
             name: "Bump head")
         
@@ -1615,27 +1496,7 @@ class GenericMoves {
                             .LeftForearm: 0.0], 
                         position: CGPoint(x: 15.0, y: -67.5)), 
                     angleCurve: .EaseIn, 
-                    positionCurve: .EaseIn), 
-                Keyframe( 
-                    time: 0.5, 
-                    posture: Posture( 
-                        angles: [
-                            .LeftUpperArm: 0.0, 
-                            .LeftShank: 0.00510991, 
-                            .RightFoot: -6.27954, 
-                            .RightShank: 6.27726, 
-                            .LowerBody: -0.000253927, 
-                            .LeftThigh: -0.00543511, 
-                            .Head: 0.0, 
-                            .RightForearm: 0.0, 
-                            .LeftFoot: 0.0, 
-                            .RightUpperArm: 0.0, 
-                            .UpperBody: 9.23499e-05, 
-                            .RightThigh: 0.00520205, 
-                            .LeftForearm: 0.0], 
-                        position: CGPoint(x: -77.3415, y: 6.68631)), 
-                    angleCurve: .EaseInOut, 
-                    positionCurve: .EaseInOut)], 
+                    positionCurve: .EaseIn)],
             levelOfIntensity: 3,
             name: "Hop & jump")
     }

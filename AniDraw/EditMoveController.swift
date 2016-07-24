@@ -253,8 +253,14 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         let confirmAction = UIAlertAction(title: "Done", style: .Default) { action in
             let name = alert.textFields![0].text ?? ""
             self.writeToFile(name)
-            self.danceMove.name = name
-            (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+            self.danceMove.managedObjectContext?.performBlockAndWait{
+                self.danceMove.name = name
+                do{
+                    try self.danceMove.managedObjectContext?.save()
+                } catch {
+                    print(error)
+                }
+            }
             self.newDanceMove()
         }
         
