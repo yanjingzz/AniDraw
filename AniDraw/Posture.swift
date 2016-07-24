@@ -29,6 +29,15 @@ struct Posture: CustomStringConvertible, Equatable {
         }
         self.position = position
     }
+    
+    init(storedPosture: StoredPosture) {
+        position = CGPoint(x: storedPosture.rawPositionX, y: storedPosture.rawPositionY)
+        angles = [BodyPartName:CGFloat]()
+        for i in 0..<BodyPartName.count {
+            angles[BodyPartName(rawValue: i)!] = CGFloat(storedPosture.rawAngles[i])
+        }
+    }
+    
     static let idle = Posture(position: CGPoint(x: 0, y: 0))
     var description: String {
         var string = "Posture( \n"

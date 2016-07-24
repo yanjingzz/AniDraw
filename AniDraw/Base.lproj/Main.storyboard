@@ -199,8 +199,11 @@
                                     <outletCollection property="gestureRecognizers" destination="nGR-K1-L6Z" appends="YES" id="sNW-Rn-kkd"/>
                                 </connections>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigation" translatesAutoresizingMaskIntoConstraints="NO" id="qIg-MA-xQW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="71"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQ4-On-vFY">
-                                <rect key="frame" x="20" y="8" width="59" height="45"/>
+                                <rect key="frame" x="20" y="13" width="59" height="45"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -208,16 +211,6 @@
                                 <connections>
                                     <action selector="goBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EDa-zz-vu9"/>
                                     <segue destination="cXF-0N-w4w" kind="unwind" unwindAction="unwindToCharactersController:" id="zcu-x7-FGE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eq1-nz-aPE">
-                                <rect key="frame" x="484" y="58" width="96" height="29"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                <state key="normal" title="Delete Posture">
-                                    <color key="titleColor" red="1" green="0.14222420299999999" blue="0.17895343960000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="deletePosture:" destination="aiW-TX-zfk" eventType="touchUpInside" id="MWh-3Y-66V"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eT-Hf-3Xc">
@@ -231,17 +224,7 @@
                                 <rect key="frame" x="522" y="523" width="58" height="57"/>
                                 <state key="normal" image="add"/>
                                 <connections>
-                                    <action selector="addPosture:" destination="aiW-TX-zfk" eventType="touchUpInside" id="WKn-f1-zYd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fby-GP-GMU">
-                                <rect key="frame" x="477" y="21" width="103" height="29"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                <state key="normal" title="Restore Posture">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="restorePosture:" destination="aiW-TX-zfk" eventType="touchUpInside" id="xL2-Ij-snO"/>
+                                    <action selector="addPosture:" destination="aiW-TX-zfk" eventType="touchUpInside" id="DSB-hV-HcQ"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5D5-tB-1Lz">
@@ -255,58 +238,67 @@
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEI-e3-Z3u" customClass="KeyframesEditorView" customModule="AniDraw" customModuleProvider="target">
                                 <rect key="frame" x="86" y="561" width="428" height="19"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYD-Sq-Jss">
-                                <rect key="frame" x="458" y="95" width="122" height="30"/>
-                                <state key="normal" title="Save Dance Move"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kv3-zR-pUz">
+                                <rect key="frame" x="197" y="13" width="206" height="45"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="New Dance Move">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="saveDanceMove:" destination="aiW-TX-zfk" eventType="touchUpInside" id="pHC-pw-o3A"/>
+                                    <action selector="namePopover:" destination="aiW-TX-zfk" eventType="touchUpInside" id="a0j-iM-YhZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epe-rT-Fcg">
-                                <rect key="frame" x="459" y="133" width="121" height="30"/>
-                                <state key="normal" title="Next Dance Move"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJB-R3-yr7">
+                                <rect key="frame" x="535" y="13" width="45" height="45"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="nextDanceMove" destination="aiW-TX-zfk" eventType="touchUpInside" id="0Ft-ah-6cv"/>
+                                    <action selector="editPopover:" destination="aiW-TX-zfk" eventType="touchUpInside" id="7ra-Yc-53i"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vhk-kt-FMi" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leading" id="0H5-Gs-OhD"/>
+                            <constraint firstItem="qIg-MA-xQW" firstAttribute="centerX" secondItem="k3h-s7-rja" secondAttribute="centerX" id="347-k0-uw3"/>
+                            <constraint firstItem="Kv3-zR-pUz" firstAttribute="centerY" secondItem="gQ4-On-vFY" secondAttribute="centerY" id="7Jz-4g-24F"/>
+                            <constraint firstItem="gJB-R3-yr7" firstAttribute="centerY" secondItem="qIg-MA-xQW" secondAttribute="centerY" id="895-Fv-FCd"/>
                             <constraint firstItem="xEI-e3-Z3u" firstAttribute="leading" secondItem="5D5-tB-1Lz" secondAttribute="leading" id="8JF-zi-pbK"/>
                             <constraint firstItem="RUv-lZ-bGs" firstAttribute="top" secondItem="6eT-Hf-3Xc" secondAttribute="bottom" constant="8" symbolic="YES" id="9Cx-S3-kfB"/>
+                            <constraint firstItem="qIg-MA-xQW" firstAttribute="top" secondItem="oNC-CE-ggl" secondAttribute="bottom" id="9Te-LA-QUU"/>
                             <constraint firstItem="xEI-e3-Z3u" firstAttribute="leading" secondItem="6eT-Hf-3Xc" secondAttribute="trailing" constant="8" symbolic="YES" id="AoL-rw-fMv"/>
-                            <constraint firstItem="eq1-nz-aPE" firstAttribute="top" secondItem="fby-GP-GMU" secondAttribute="bottom" constant="8" symbolic="YES" id="CrC-ja-NTa"/>
-                            <constraint firstItem="fby-GP-GMU" firstAttribute="baseline" secondItem="gQ4-On-vFY" secondAttribute="baseline" id="ER0-QU-dfF"/>
+                            <constraint firstAttribute="trailing" secondItem="qIg-MA-xQW" secondAttribute="trailing" id="EnP-I0-rLi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gJB-R3-yr7" secondAttribute="trailing" id="Gpe-h1-4O0"/>
                             <constraint firstItem="xEI-e3-Z3u" firstAttribute="top" secondItem="5D5-tB-1Lz" secondAttribute="bottom" constant="8" symbolic="YES" id="IaX-W3-PFQ"/>
                             <constraint firstAttribute="trailing" secondItem="vhk-kt-FMi" secondAttribute="trailing" id="JdX-wb-1N0"/>
                             <constraint firstItem="5D5-tB-1Lz" firstAttribute="top" secondItem="6eT-Hf-3Xc" secondAttribute="top" id="K95-lu-wLg"/>
                             <constraint firstItem="vhk-kt-FMi" firstAttribute="top" secondItem="oNC-CE-ggl" secondAttribute="bottom" id="MUF-68-XI5"/>
                             <constraint firstItem="6eT-Hf-3Xc" firstAttribute="centerY" secondItem="d9g-5J-t2k" secondAttribute="centerY" id="R8d-Pz-soC"/>
-                            <constraint firstItem="fby-GP-GMU" firstAttribute="trailing" secondItem="d9g-5J-t2k" secondAttribute="trailing" id="U8H-Fs-5sI"/>
                             <constraint firstItem="gQ4-On-vFY" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leadingMargin" id="Yri-r0-5lG"/>
                             <constraint firstItem="xEI-e3-Z3u" firstAttribute="bottom" secondItem="6eT-Hf-3Xc" secondAttribute="bottom" id="Z0V-YY-bzJ"/>
                             <constraint firstItem="vhk-kt-FMi" firstAttribute="bottom" secondItem="RUv-lZ-bGs" secondAttribute="top" id="ZO9-TC-x7y"/>
                             <constraint firstItem="d9g-5J-t2k" firstAttribute="leading" secondItem="5D5-tB-1Lz" secondAttribute="trailing" constant="8" symbolic="YES" id="cIW-J0-xhZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="eq1-nz-aPE" secondAttribute="trailing" id="ceq-8F-Fh9"/>
+                            <constraint firstItem="Kv3-zR-pUz" firstAttribute="centerX" secondItem="k3h-s7-rja" secondAttribute="centerX" id="ckq-Wo-2fb"/>
                             <constraint firstItem="6eT-Hf-3Xc" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leadingMargin" id="eBz-F6-e08"/>
-                            <constraint firstItem="epe-rT-Fcg" firstAttribute="top" secondItem="KYD-Sq-Jss" secondAttribute="bottom" constant="8" symbolic="YES" id="eVF-E6-fNe"/>
-                            <constraint firstItem="KYD-Sq-Jss" firstAttribute="trailing" secondItem="eq1-nz-aPE" secondAttribute="trailing" id="izY-Ww-fNG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="epe-rT-Fcg" secondAttribute="trailing" id="oZz-Yv-Jdc"/>
+                            <constraint firstItem="gQ4-On-vFY" firstAttribute="centerY" secondItem="qIg-MA-xQW" secondAttribute="centerY" id="qKE-65-S4f"/>
                             <constraint firstItem="gQ4-On-vFY" firstAttribute="top" secondItem="oNC-CE-ggl" secondAttribute="bottom" constant="8" symbolic="YES" id="raP-jn-du0"/>
                             <constraint firstItem="d9g-5J-t2k" firstAttribute="leading" secondItem="xEI-e3-Z3u" secondAttribute="trailing" constant="8" symbolic="YES" id="sX0-zz-XRR"/>
                             <constraint firstItem="d9g-5J-t2k" firstAttribute="trailing" secondItem="k3h-s7-rja" secondAttribute="trailingMargin" id="srT-jy-9BK"/>
-                            <constraint firstItem="KYD-Sq-Jss" firstAttribute="top" secondItem="eq1-nz-aPE" secondAttribute="bottom" constant="8" symbolic="YES" id="wbi-sm-ExB"/>
+                            <constraint firstItem="qIg-MA-xQW" firstAttribute="leading" secondItem="k3h-s7-rja" secondAttribute="leading" id="tg4-XG-wX3"/>
                             <constraint firstAttribute="bottom" secondItem="d9g-5J-t2k" secondAttribute="bottom" constant="20" symbolic="YES" id="zdZ-Gd-4tc"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="raP-jn-du0"/>
                                 <exclude reference="9Cx-S3-kfB"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="editView" destination="xEI-e3-Z3u" id="9Zc-wN-d33"/>
+                        <outlet property="nameButton" destination="Kv3-zR-pUz" id="6SI-kp-epw"/>
                         <outlet property="skView" destination="vhk-kt-FMi" id="zQ6-ub-y20"/>
                         <outlet property="slider" destination="5D5-tB-1Lz" id="f5q-d0-VpE"/>
                         <segue destination="l1X-8B-GQY" kind="popoverPresentation" identifier="showKeyframeDetail" popoverAnchorView="xEI-e3-Z3u" id="mam-Jg-edE">
@@ -930,7 +922,7 @@
         <image name="texture" width="215" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="sl5-qN-DsT"/>
         <segue reference="9XR-nB-WmU"/>
-        <segue reference="nUX-7l-zve"/>
     </inferredMetricsTieBreakers>
 </document>

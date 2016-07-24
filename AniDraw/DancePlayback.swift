@@ -14,6 +14,7 @@ class DancePlayback {
     private var previousPosture: Posture?
     private var _totalTime: NSTimeInterval = 0.0
     private var currentPassTime : NSTimeInterval = 0.0
+    private var positionOffset = CGPointZero
     var totalTime: NSTimeInterval {
         return _totalTime
     }
@@ -21,6 +22,10 @@ class DancePlayback {
     var currentKeyframe: Keyframe? {
         //The play head is always at keyframes.first
         return keyframes.first
+    }
+    
+    var isEnding: Bool {
+        return keyframes.count <= 1
     }
     
     var isEmpty: Bool {
@@ -37,39 +42,32 @@ class DancePlayback {
     }
     
     private var aborting: Bool = false
-    func abort() -> Bool{
+    func abort() -> Bool {
         if isReturningIdle {
             return true
         }
         if keyframes[0].interruptable {
-            replaceDanceMovesAfterCurrentKeyTo(DanceMove.idle)
+            replaceKeysAfterCurrentKeyTo([Keyframe.idle])
             return true
         }
         return false
     }
-    
-    func startDanceMove(danceMove: DanceMove?) {
-        guard let danceMove = danceMove where !danceMove.isEmpty else {
-            return
-        }
+
+    func startDanceMove(newKeyframes: [Keyframe]) {
         if keyframes.isEmpty {
-            keyframes = danceMove.keyframes
-            _totalTime = danceMove.totalTime
-            
+            keyframes = newKeyframes
+            _totalTime = newKeyframes.totalTime
             return
         } else if keyframes[0].interruptable { // if should interrupt current danceMove
-            replaceDanceMovesAfterCurrentKeyTo(danceMove)
+            replaceKeysAfterCurrentKeyTo(keyframes)
         } else {
             //TODO: current move shouldn't be interrupted so do what?
         }
     }
     
-    func appendDanceMove(danceMove: DanceMove?) {
-        guard let danceMove = danceMove where !danceMove.isEmpty else {
-            return
-        }
-        keyframes += danceMove.keyframes
-        _totalTime += danceMove.totalTime
+    func appendKeyframes(newKeyframes: [Keyframe]) {
+        keyframes += newKeyframes
+        _totalTime += newKeyframes.totalTime
     }
     
     func reset() {
@@ -78,15 +76,22 @@ class DancePlayback {
         _totalTime = 0
     }
     
-    func replaceDanceMovesAfterCurrentKeyTo(danceMove: DanceMove?) {
+    func replaceKeysAfterCurrentKeyTo(newKeyframes: [Keyframe]) {
         let firstKey = keyframes.first
         keyframes.removeAll(keepCapacity: true)
-        if firstKey != nil {
-            keyframes.append(firstKey!)
+        let positionOffset = firstKey?.posture.position
+        _totalTime = 0
+        if let key = firstKey {
+            keyframes.append(key)
+            _totalTime = key.time
         }
-        if let danceMove = danceMove where !danceMove.isEmpty {
-            keyframes += danceMove.keyframes
+        
+        
+        for move in newKeyframes {
+            _totalTime += move.time
+            keyframes.append(move + (positionOffset ?? CGPoint.zero))
         }
+        
         
     }
     
@@ -122,9 +127,9 @@ class DancePlayback {
         let ratio = CGFloat(currentPassTime / currentKey.time)
         
         //get gesture
-        
-        return Posture(angles: calculateAngle(srcPosture.angles,dest: desPosture.angles, curve: angleCurve,ratio: ratio),
-                       position: calculatePosition(srcPosture.position, dest: desPosture.position, curve: positionCurve,ratio: ratio))
+        let newAngles = calculateAngle(srcPosture.angles,dest: desPosture.angles, curve: angleCurve,ratio: ratio)
+        let newPosition = calculatePosition(srcPosture.position, dest: desPosture.position, curve: positionCurve,ratio: ratio)
+        return Posture(angles: newAngles, position: newPosition)
     }
     
     private func calculateAngle(src:[BodyPartName: CGFloat],dest:[BodyPartName: CGFloat],curve: Keyframe.Curve,ratio:CGFloat) -> [BodyPartName: CGFloat] {

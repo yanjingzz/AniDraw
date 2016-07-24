@@ -14,18 +14,15 @@ import AVFoundation
 
 class DanceModel: NSObject, MyAudioReceiverDelegate {
 //    let danceMoveList = MovesStorage.AllMoves
-    let danceMoveList = GenericMoves.dict
+    let danceMoveList = Moves.dictOfStyle(.Generic)
     let dancePlayback = DancePlayback()
     var dataSet : [[CGFloat]] = []
     var bpm: Double?
-    var level = 0
+    var currentLevel = 0
+    var currentIndex = -1
     
-    private struct Constants {
-        static let peakAmplitudeThreshold : CGFloat = -25
-        static let averageAmplitudeThreshold : CGFloat = -30
-        static let durationThreshold : CFTimeInterval = 0.8
-        static let pitchScope : CGFloat = 5
-    }
+    var lastIndex: [Int?] = Array<Int?>(count: 6, repeatedValue: nil)
+    
     
 //    func currentTimeFactor() -> Double {
 //        guard let expectedBPM = bpm else {
@@ -49,28 +46,67 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
         return dancePlayback.getPostureByIntervalTime(dtime)
     }
     
-    func chooseMethod() -> (Int,Int) {
-        //TODO: set model
+    private struct Const {
+        static let MaxLevel = 5
+        static let PitchHigherBound = 7.0
+        static let PitchLowerBound = 4.5
+        static let PitchRange = Const.PitchHigherBound - Const.PitchLowerBound
+        static let DecibelHigherBound = -5.0
+        static let DecibelLowerBound = -50.0
+        static let DecibelRange = Const.DecibelHigherBound - Const.DecibelLowerBound
+    }
+    
+    private func pickLevel(withPitch pitch: Double, decibel: Double) -> Int{
+        var pitch_index: Double = log(pitch)
+        pitch_index = (pitch_index-Const.PitchLowerBound) * Double(Const.MaxLevel) / Const.PitchRange
+        pitch_index > Double(Const.MaxLevel) + 1 ? 0 : pitch_index
+        
+        let decibel_index = (decibel - Const.DecibelLowerBound) * Double(Const.MaxLevel) / Const.DecibelRange
+        
+        let level = Int(max(pitch_index, decibel_index)).clamped(1, 5)
+        print("pick level: pitch \(pitch_index) decibel \(decibel_index): \(level)")
+        return level
+        
+    }
+    
+    func pickIndex(level: Int) -> Int? {
         
         let array = danceMoveList[level]
         let max = array?.count ?? 0
-        let index = Int.random(max)
-        return (level,index)
+        if max == 1 {
+            return 0
+        } else if max == 0 {
+            return nil
+        }
+        var index = Int.random(max - 1)
+        if index >= lastIndex[level] {
+            index += 1
+        }
+        print("pick index: max \(max): \(index)")
+        
+        return index
     
     }
     
     
+    
     func startNewDanceMove(withPitch pitch: Float, decibel: Float, bpm: Float) {
-        var pitch_index = log(pitch)
-        pitch_index = pitch_index < 0 ? 0 : pitch_index
-        let decibel_index = (decibel+70) / 14
-        let level = Int(pitch_index * decibel_index / 8).clamped(1, 5)
-        print("start new dance move \(pitch_index) \(decibel_index) \(bpm): \(level)")
         
-        if self.level != level || dancePlayback.isReturningIdle {
-            self.level = level
-            let (_, index) = chooseMethod()
-            dancePlayback.startDanceMove(danceMoveList[level]?[index])
+        let level = pickLevel(withPitch: Double(pitch), decibel: Double(decibel))
+        if dancePlayback.isEnding {
+            currentLevel = level
+            if let index = pickIndex(level) {
+                currentIndex = index
+                lastIndex[level] = index
+                if let kfs = danceMoveList[level]?[index].keyframes where !kfs.isEmpty {
+                    if dancePlayback.currentPosture.position.x * kfs.last!.posture.position.x > 0 {
+                        dancePlayback.replaceKeysAfterCurrentKeyTo(kfs.flipped)
+                    } else {
+                        dancePlayback.replaceKeysAfterCurrentKeyTo(kfs)
+                    }
+                }
+                
+            }
         }
     }
     
@@ -80,7 +116,9 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
             startNewDanceMove(withPitch: data.pitch, decibel: data.decibel, bpm: data.bpm)
         }
         if data.isSinging == false {
-            level = 0
+            currentLevel = 0
+            currentIndex = -1
+            print("abort")
             dancePlayback.abort()
         }
 

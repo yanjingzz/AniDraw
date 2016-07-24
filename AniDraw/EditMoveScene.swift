@@ -130,11 +130,13 @@ class EditMoveScene: SKScene {
         let translation = CGPoint(x: translationInView.x, y: -translationInView.y)
         characterNode?.position += translation
     }
-    private var playing = false
+    var playing = false
+    
+    
     private var dancePlayback = DancePlayback()
     
     func playAnimation(dance: DanceMove) {
-        dancePlayback.startDanceMove(dance)
+        dancePlayback.startDanceMove(dance.keyframes)
         playing = true
     }
 

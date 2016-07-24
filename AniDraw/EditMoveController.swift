@@ -16,9 +16,9 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
     
     var characterNode: CharacterNode!
     var moveIndex = 0
-    var danceMove = MovesStorage.array[0]
+    var allMoves: [DanceMove]!
+    var danceMove: DanceMove = DanceMove()
     var scene: EditMoveScene!
-    
     var currentIndex: Int = -1 {
         didSet {
             currentIndex.clamp(-1, danceMove.count - 1)
@@ -42,13 +42,14 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
 
     
     // MARK: - Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpScene()
         characterNode.posture = Posture.idle
         scene.characterNode = characterNode
         updateEditView()
+        allMoves = Moves.all()
     }
 
     
@@ -76,23 +77,29 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         editView.totalLength = currentLength
     }
     
-    // MARK: - Controls
+    // MARK: - Playback controls
     
     @IBAction func playAnimation(sender: UIButton) {
+        if currentIndex >= 0 {
+            danceMove.keyframes[currentIndex].posture = characterNode.posture
+        }
         print(danceMove.keyframes)
         scene.playAnimation(danceMove)
-        currentIndex = danceMove.count - 1
+        currentIndex = -1
     }
     
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var nameButton: UIButton!
     
-    @IBAction func sliderValueChanged(sender: UISlider) {
+     @IBAction func sliderValueChanged(sender: UISlider) {
         if danceMove.keyframes.isEmpty {
             currentIndex = -1
             slider.setValue(0,animated: false)
             return
         }
-        if currentIndex != -1 {
+        if scene.playing {
+            scene.playing = false
+        } else if currentIndex != -1 {
             danceMove.keyframes[currentIndex].posture = characterNode.posture
         }
         let beforeTime = Double(slider.value) * danceMove.totalTime
@@ -116,28 +123,6 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         
     }
     
-    @IBAction func addPosture(sender: UIButton) {
-        if let c = characterNode {
-            let p = c.posture
-            let key = Keyframe(time: 0.5, posture: p)
-            
-            danceMove.keyframes.insert(key, atIndex: currentIndex + 1)
-            currentIndex += 1
-            updateEditView()
-        }
-    }
-    
-    @IBAction func deletePosture(sender: AnyObject) {
-        if currentIndex >= 0 {
-            danceMove.keyframes.removeAtIndex(currentIndex)
-            currentIndex -= 1
-            updateEditView()
-        }
-    }
-    
-    @IBAction func restorePosture(sender: UIButton) {
-        characterNode.posture = Posture.idle
-    }
     
     // MARK: Pan recognizer
     
@@ -145,25 +130,107 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         scene.moveCharacter(recognizer.translationInView(skView))
         recognizer.setTranslation(CGPointZero, inView: skView)
     }
+    
+    //MARK: UI controls
+    
+    @IBAction func addPosture(sender: UIButton) {
+        
+        let p = characterNode.posture
+        if currentIndex >= 0 {
+            danceMove.keyframes[currentIndex].posture = p
+        }
+        let key = Keyframe(time: 0.5, posture: p)
+        danceMove.keyframes.insert(key, atIndex: currentIndex + 1)
+        currentIndex += 1
+        updateEditView()
+    
+    }
+    
+    func deletePosture() {
+        if currentIndex >= 0 {
+            danceMove.keyframes.removeAtIndex(currentIndex)
+            currentIndex -= 1
+            updateEditView()
+        }
+    }
+    
+    func restorePosture() {
+        characterNode.posture = Posture.idle
+    }
+
+    
+    @IBAction func namePopover(sender: UIButton) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        let saveAction = UIAlertAction(title: "Save Dance Move", style: .Default) { [unowned self] action in
+            self.saveDanceMove()
+        }
+        let newAction = UIAlertAction(title: "New Dance Move", style: .Default) { [unowned self] action in
+            self.newDanceMove()
+        }
+        let nextAction = UIAlertAction(title: "Next Dance Move", style: .Default) { [unowned self] action in
+            self.nextDanceMove()
+        }
+        alert.addAction(saveAction)
+        alert.addAction(newAction)
+        alert.addAction(nextAction)
+        alert.view.layoutIfNeeded()
+        if let popoverVC = alert.popoverPresentationController {
+            popoverVC.sourceView = view
+            popoverVC.sourceRect = sender.frame
+            
+        }
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    @IBAction func editPopover(sender: UIButton) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        let restoreAction = UIAlertAction(title: "Restore Posture", style: .Destructive) { [unowned self] action in
+            self.restorePosture()
+        }
+        
+        let deleteAction = UIAlertAction(title: "Delete Posture", style: .Destructive) { [unowned self] action in
+            self.deletePosture()
+        }
+        alert.addAction(restoreAction)
+        alert.addAction(deleteAction)
+        alert.view.layoutIfNeeded()
+        if let popoverVC = alert.popoverPresentationController {
+            popoverVC.sourceView = view
+            popoverVC.sourceRect = sender.frame
+            
+        }
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
+
 
     //MARK: - Save dance move to file
+    func saveDanceMove() {
+        presentViewController(alertForNamePrompt, animated: true, completion: nil)
+    }
     
-    @IBAction func nextDanceMove() {
-        moveIndex += 1
-        if moveIndex >= MovesStorage.array.count {
-            moveIndex = 0
-        }
-        danceMove = MovesStorage.array[moveIndex]
+    func newDanceMove() {
+        (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.refreshObject(self.danceMove, mergeChanges: false)
+        danceMove = DanceMove()
+        nameButton.setTitle("New Dance Move", forState: .Normal)
         updateEditView()
         currentIndex = -1
-
     }
     
-    @IBAction func saveDanceMove(sender: AnyObject) {
-        presentViewController(alertForNamePrompt, animated: true, completion: nil)
-        
+    func nextDanceMove() {
+        (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.refreshObject(self.danceMove, mergeChanges: false)
+        moveIndex += 1
+        if moveIndex >= allMoves.count {
+            moveIndex = 0
+        }
+        danceMove = allMoves[moveIndex]
+        let name = danceMove.name ?? ""
+        nameButton.setTitle("\(danceMove.style)-\(name)", forState: .Normal)
+        print("\(name) \(danceMove.level) \(danceMove.style)")
+        updateEditView()
+        currentIndex = -1
     }
-    func writeToFileAndUpdate(name: String?) {
+    
+    func writeToFile(name: String?) {
         let fileName = "danceMove.txt"
         let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last! as NSURL
         let fileurl =  dir.URLByAppendingPathComponent(fileName)
@@ -174,33 +241,36 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
                 try "\(danceMove.keyframes), ".appendLineToURL(fileurl)
                 try "levelOfIntensity: 1)".appendLineToURL(fileurl)
             }
-            
             print("\(fileurl)")
-            
         }
         catch {
             print("Could not write to file")
         }
-        danceMove = DanceMove()
-        updateEditView()
-        currentIndex = -1
     }
     
     private var alertForNamePrompt: UIAlertController {
-        let alert = UIAlertController(title: "Name", message: "Give a name to dance move you just created!", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Save", message: "If you want to save, enter a name and press Done!", preferredStyle: .Alert)
         let confirmAction = UIAlertAction(title: "Done", style: .Default) { action in
-            self.writeToFileAndUpdate(alert.textFields![0].text)
+            let name = alert.textFields![0].text ?? ""
+            self.writeToFile(name)
+            self.danceMove.name = name
+            (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+            self.newDanceMove()
         }
         
         confirmAction.enabled = false
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) {action in
+            (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.refreshObject(self.danceMove, mergeChanges: false)
+        }
+        
         alert.addAction(cancelAction)
         alert.addAction(confirmAction)
         alert.preferredAction = confirmAction
         alert.addTextFieldWithConfigurationHandler { textField in
             textField.becomeFirstResponder()
             textField.placeholder = "Name"
+            textField.text = self.danceMove.name ?? ""
             textField.clearButtonMode = .WhileEditing
             textField.autocapitalizationType = .Words
             textField.autocorrectionType = .No

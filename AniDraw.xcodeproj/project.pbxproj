@@ -72,6 +72,11 @@
 		275BC6931D2B5F56004484DE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BC6731D2B5F56004484DE /* UIColor.swift */; };
 		276AA3581D37EEBB009B5126 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 276AA3571D37EEBB009B5126 /* Accelerate.framework */; };
 		276DF6C61D3CC36700D739FE /* DancePlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DF6C51D3CC36700D739FE /* DancePlayback.swift */; };
+		277317171D41C5AA00C01260 /* StoredPosture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277317161D41C5AA00C01260 /* StoredPosture.swift */; };
+		2773171D1D41C62200C01260 /* StoredKeyframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277317191D41C62200C01260 /* StoredKeyframe.swift */; };
+		2773172D1D41CAD800C01260 /* StoredKeyframe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773172A1D41CAD800C01260 /* StoredKeyframe+CoreDataProperties.swift */; };
+		2773172E1D41CAD800C01260 /* StoredPosture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773172B1D41CAD800C01260 /* StoredPosture+CoreDataProperties.swift */; };
+		2773172F1D41CAD800C01260 /* DanceMove+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773172C1D41CAD800C01260 /* DanceMove+CoreDataProperties.swift */; };
 		2774FF2A1D2D063A00C79564 /* Moves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2774FF291D2D063A00C79564 /* Moves.swift */; };
 		2785B1791D3885F600665472 /* EthnicMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785B1781D3885F600665472 /* EthnicMoves.swift */; };
 		2785B17B1D38865B00665472 /* BalletMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785B17A1D38865B00665472 /* BalletMoves.swift */; };
@@ -170,6 +175,11 @@
 		276AA3551D37EEA2009B5126 /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = aubio.framework; sourceTree = "<group>"; };
 		276AA3571D37EEBB009B5126 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		276DF6C51D3CC36700D739FE /* DancePlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DancePlayback.swift; sourceTree = "<group>"; };
+		277317161D41C5AA00C01260 /* StoredPosture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoredPosture.swift; sourceTree = "<group>"; };
+		277317191D41C62200C01260 /* StoredKeyframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoredKeyframe.swift; sourceTree = "<group>"; };
+		2773172A1D41CAD800C01260 /* StoredKeyframe+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoredKeyframe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2773172B1D41CAD800C01260 /* StoredPosture+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoredPosture+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2773172C1D41CAD800C01260 /* DanceMove+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DanceMove+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2774FF291D2D063A00C79564 /* Moves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moves.swift; sourceTree = "<group>"; };
 		2785B1781D3885F600665472 /* EthnicMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthnicMoves.swift; sourceTree = "<group>"; };
 		2785B17A1D38865B00665472 /* BalletMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalletMoves.swift; sourceTree = "<group>"; };
@@ -254,7 +264,6 @@
 				27ABA2171D3492B3007D945F /* String+WriteToURL.swift */,
 				27AFB31D1D2365A200325894 /* Posture.swift */,
 				27AFB31F1D236A5000325894 /* Keyframe.swift */,
-				2785B1771D3885E300665472 /* Moves */,
 				27AFB3211D236B8A00325894 /* DanceMove.swift */,
 				276DF6C51D3CC36700D739FE /* DancePlayback.swift */,
 				0BF052F21D2C07B800268947 /* DanceModel.swift */,
@@ -262,6 +271,7 @@
 				273627081D37D5C8007DAECD /* MyAudioReceiver.m */,
 				27AFB3451D236DEC00325894 /* DanceScene.sks */,
 				27AFB31B1D2362CF00325894 /* DanceScene.swift */,
+				2785B1771D3885E300665472 /* Moves */,
 				27F8C2661D2BECDA001F3B26 /* iCarousel */,
 				275BC64C1D2B5F56004484DE /* ActionSwift3 */,
 				27CA0AF61D2A760300F4332C /* Supporting Files */,
@@ -383,9 +393,9 @@
 			isa = PBXGroup;
 			children = (
 				2774FF291D2D063A00C79564 /* Moves.swift */,
+				2785B17C1D3886AF00665472 /* GenericMoves.swift */,
 				2785B1781D3885F600665472 /* EthnicMoves.swift */,
 				2785B17A1D38865B00665472 /* BalletMoves.swift */,
-				2785B17C1D3886AF00665472 /* GenericMoves.swift */,
 				2785B17E1D38898E00665472 /* JazzMoves.swift */,
 			);
 			name = Moves;
@@ -412,6 +422,11 @@
 		27CA0AF41D2A758C00F4332C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				2773172A1D41CAD800C01260 /* StoredKeyframe+CoreDataProperties.swift */,
+				2773172B1D41CAD800C01260 /* StoredPosture+CoreDataProperties.swift */,
+				2773172C1D41CAD800C01260 /* DanceMove+CoreDataProperties.swift */,
+				277317191D41C62200C01260 /* StoredKeyframe.swift */,
+				277317161D41C5AA00C01260 /* StoredPosture.swift */,
 				27C227471D2B553800B581C5 /* CharacterStorage+CoreDataProperties.swift */,
 				27C227481D2B553800B581C5 /* CharacterStorage.swift */,
 				27CA0AC81D2A4F8E00F4332C /* Model.xcdatamodeld */,
@@ -655,6 +670,7 @@
 				27ABA2181D3492B3007D945F /* String+WriteToURL.swift in Sources */,
 				279E62E41D2B92B200747411 /* CharactersController.swift in Sources */,
 				27C2274A1D2B553800B581C5 /* CharacterStorage.swift in Sources */,
+				2773171D1D41C62200C01260 /* StoredKeyframe.swift in Sources */,
 				27AFB31C1D2362CF00325894 /* DanceScene.swift in Sources */,
 				275BC68E1D2B5F56004484DE /* SKEase.swift in Sources */,
 				27AFB31E1D2365A200325894 /* Posture.swift in Sources */,
@@ -676,6 +692,7 @@
 				275BC6871D2B5F56004484DE /* easing.swift in Sources */,
 				27AFB3221D236B8A00325894 /* DanceMove.swift in Sources */,
 				275ABBD41D226EF700BC3B8D /* SKTTimingFunctions.swift in Sources */,
+				277317171D41C5AA00C01260 /* StoredPosture.swift in Sources */,
 				275BC6761D2B5F56004484DE /* EventDispatcher.swift in Sources */,
 				2785B17B1D38865B00665472 /* BalletMoves.swift in Sources */,
 				275BC68D1D2B5F56004484DE /* Object.swift in Sources */,
@@ -694,10 +711,13 @@
 				270641EA1D33D9CC007195AB /* KeyframesEditorView.swift in Sources */,
 				275BC6821D2B5F56004484DE /* SimpleButton.swift in Sources */,
 				275BC68F1D2B5F56004484DE /* SKMultilineLabel.swift in Sources */,
+				2773172E1D41CAD800C01260 /* StoredPosture+CoreDataProperties.swift in Sources */,
 				275BC6891D2B5F56004484DE /* Global.swift in Sources */,
+				2773172F1D41CAD800C01260 /* DanceMove+CoreDataProperties.swift in Sources */,
 				275BC6851D2B5F56004484DE /* Stage.swift in Sources */,
 				27CA0AF31D2A758700F4332C /* BodyPart.swift in Sources */,
 				0BF052F31D2C07B800268947 /* DanceModel.swift in Sources */,
+				2773172D1D41CAD800C01260 /* StoredKeyframe+CoreDataProperties.swift in Sources */,
 				2785B1791D3885F600665472 /* EthnicMoves.swift in Sources */,
 				275ABBD01D226EF700BC3B8D /* SKColor+Extensions.swift in Sources */,
 				27F6AD201D237BBA00BF3116 /* Keyframe.swift in Sources */,
