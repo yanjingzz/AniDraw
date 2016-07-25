@@ -107,8 +107,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1418"
             endingLineNumber = "1418"
-            landmarkName = "loadColorsFromImage(_:)"
-            landmarkType = "5">
+            landmarkName = "SkeletonModel"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

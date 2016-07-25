@@ -214,12 +214,12 @@ class SkeletonController: UIViewController {
             
             self.moved = false
             let (pixels, context) = image.toARGBBitmapData()
-            var data = [BodyPartName: (pixel: UnsafeMutablePointer<UInt32>, context: CGContext?)]()
-            for joint in BodyPartName.allParts {
-                let c = image.createARGBBitmapContext()
-                let p = UnsafeMutablePointer<UInt32>(CGBitmapContextGetData(c))
-                data[joint] = (pixel: p,context: c)
-            }
+//            var data = [BodyPartName: (pixel: UnsafeMutablePointer<UInt32>, context: CGContext?)]()
+//            for joint in BodyPartName.allParts {
+//                let c = image.createARGBBitmapContext()
+//                let p = UnsafeMutablePointer<UInt32>(CGBitmapContextGetData(c))
+//                data[joint] = (pixel: p,context: c)
+//            }
             let width = CGImageGetWidth(image)
             let height = CGImageGetHeight(image)
             

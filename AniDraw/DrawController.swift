@@ -141,10 +141,10 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
     }
     
     @IBAction func nextStep(sender: UIButton) {
-        guard drawView.croppedImage != nil else {
-            showNoDrawingHUD()
-            return
-        }
+//        guard drawView.croppedImage != nil else {
+//            showNoDrawingHUD()
+//            return
+//        }
         print(drawView.croppedImage?.size)
         performSegueWithIdentifier(Storyborad.NextStepSegueIdentifier, sender: sender)
     }
@@ -168,7 +168,7 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
             guard let skeletonVC = segue.destinationViewController as? SkeletonController else {
                 break
             }
-            let image = drawView.croppedImage
+            let image = drawView.croppedImage ?? UIImage(named: "character_eg2")?.trimToNontransparent()
             skeletonVC.characterSkin = image
             if let character = editingCharacter {
                 skeletonVC.editingCharacter = character
