@@ -106,10 +106,16 @@ class EditMoveScene: SKScene {
                 if (shortestAngleBetween((p1 - p0).angle,(p2 - p0).angle) > 0) {
                     node.zRotation = CGFloat.pi - acos((l2*l2 + l1*l1 - l3*l3) / (2*l1*l2))
                     node.parent!.zRotation = CGFloat.pi - acos((l3*l3 + l1*l1 - l2*l2) / (2*l1*l3)) + (p2 - p0).angle - CGFloat(M_PI_2) - node.parent!.parent!.zRotation
+                    
                 } else {
                     node.zRotation = CGFloat.pi + acos((l2*l2 + l1*l1 - l3*l3) / (2*l1*l2))
                     node.parent!.zRotation = CGFloat.pi + acos((l3*l3 + l1*l1 - l2*l2) / (2*l1*l3)) + (p2 - p0).angle - CGFloat(M_PI_2) - node.parent!.parent!.zRotation
+                    
                 }
+            }
+            //TODO: Fix this!
+            if let angle = node.parent?.parent?.parent?.zRotation {
+                node.parent!.zRotation -= angle
             }
         
             

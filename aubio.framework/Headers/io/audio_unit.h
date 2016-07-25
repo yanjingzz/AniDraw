@@ -18,8 +18,8 @@
 
 */
 
-#ifndef AUBIO_AUDIO_UNIT_H
-#define AUBIO_AUDIO_UNIT_H
+#ifndef _AUBIO_AUDIO_UNIT_H
+#define _AUBIO_AUDIO_UNIT_H
 
 /** \file
 
@@ -58,4 +58,4 @@ uint_t del_aubio_audio_unit(aubio_audio_unit_t *o);
 }
 #endif
 
-#endif /* AUBIO_AUDIO_UNIT_H */
+#endif /* _AUBIO_AUDIO_UNIT_H */

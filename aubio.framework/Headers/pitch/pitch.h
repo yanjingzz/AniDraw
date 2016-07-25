@@ -18,8 +18,8 @@
 
 */
 
-#ifndef AUBIO_PITCH_H
-#define AUBIO_PITCH_H
+#ifndef _AUBIO_PITCH_H
+#define _AUBIO_PITCH_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -107,7 +107,7 @@ typedef struct _aubio_pitch_t aubio_pitch_t;
   \param out output pitch candidates of size [1]
 
 */
-void aubio_pitch_do (aubio_pitch_t * o, const fvec_t * in, fvec_t * out);
+void aubio_pitch_do (aubio_pitch_t * o, fvec_t * in, fvec_t * out);
 
 /** change yin or yinfft tolerance threshold
 
@@ -179,4 +179,4 @@ smpl_t aubio_pitch_get_confidence (aubio_pitch_t * o);
 }
 #endif
 
-#endif /* AUBIO_PITCH_H */
+#endif /* _AUBIO_PITCH_H */

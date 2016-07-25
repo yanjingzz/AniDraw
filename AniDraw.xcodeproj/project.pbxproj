@@ -14,7 +14,6 @@
 		2701F1441D24BDF700C597E6 /* Joints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2701F1431D24BDF700C597E6 /* Joints.swift */; };
 		270641EA1D33D9CC007195AB /* KeyframesEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270641E91D33D9CC007195AB /* KeyframesEditorView.swift */; };
 		271258631D22B7D000BD9C36 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271258621D22B7D000BD9C36 /* UIImage+.swift */; };
-		271AFC251D37F0FC005C8BAA /* aubio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 276AA3551D37EEA2009B5126 /* aubio.framework */; };
 		27252A251D255A89002CE361 /* CGImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27252A241D255A89002CE361 /* CGImage+.swift */; };
 		27252A271D260C7B002CE361 /* EditMoveScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27252A261D260C7B002CE361 /* EditMoveScene.swift */; };
 		273627091D37D5C8007DAECD /* MyAudioReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 273627081D37D5C8007DAECD /* MyAudioReceiver.m */; };
@@ -82,6 +81,7 @@
 		2785B17B1D38865B00665472 /* BalletMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785B17A1D38865B00665472 /* BalletMoves.swift */; };
 		2785B17D1D3886AF00665472 /* GenericMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785B17C1D3886AF00665472 /* GenericMoves.swift */; };
 		2785B17F1D38898E00665472 /* JazzMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785B17E1D38898E00665472 /* JazzMoves.swift */; };
+		2799254D1D45ABEF006C1735 /* aubio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2799254B1D45ABE1006C1735 /* aubio.framework */; };
 		279E62E41D2B92B200747411 /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E62E31D2B92B200747411 /* CharactersController.swift */; };
 		27ABA2161D340C09007D945F /* KeyframeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABA2151D340C09007D945F /* KeyframeDetailController.swift */; };
 		27ABA2181D3492B3007D945F /* String+WriteToURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABA2171D3492B3007D945F /* String+WriteToURL.swift */; };
@@ -173,7 +173,6 @@
 		275BC6711D2B5F56004484DE /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		275BC6721D2B5F56004484DE /* TextFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormat.swift; sourceTree = "<group>"; };
 		275BC6731D2B5F56004484DE /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		276AA3551D37EEA2009B5126 /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = aubio.framework; sourceTree = "<group>"; };
 		276AA3571D37EEBB009B5126 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		276DF6C51D3CC36700D739FE /* DancePlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DancePlayback.swift; sourceTree = "<group>"; };
 		277317161D41C5AA00C01260 /* StoredPosture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoredPosture.swift; sourceTree = "<group>"; };
@@ -186,6 +185,7 @@
 		2785B17A1D38865B00665472 /* BalletMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalletMoves.swift; sourceTree = "<group>"; };
 		2785B17C1D3886AF00665472 /* GenericMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericMoves.swift; sourceTree = "<group>"; };
 		2785B17E1D38898E00665472 /* JazzMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JazzMoves.swift; sourceTree = "<group>"; };
+		2799254B1D45ABE1006C1735 /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = aubio.framework; sourceTree = "<group>"; };
 		279E62E31D2B92B200747411 /* CharactersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
 		279E62F51D2BE13300747411 /* AniDraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AniDraw-Bridging-Header.h"; sourceTree = "<group>"; };
 		27ABA2151D340C09007D945F /* KeyframeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyframeDetailController.swift; sourceTree = "<group>"; };
@@ -218,8 +218,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				276AA3581D37EEBB009B5126 /* Accelerate.framework in Frameworks */,
+				2799254D1D45ABEF006C1735 /* aubio.framework in Frameworks */,
 				ED4B3D9E4CB94BE03C85D365 /* Pods_AniDraw.framework in Frameworks */,
-				271AFC251D37F0FC005C8BAA /* aubio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,8 +473,8 @@
 		E707276443EA5C9BE3FB16BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2799254B1D45ABE1006C1735 /* aubio.framework */,
 				276AA3571D37EEBB009B5126 /* Accelerate.framework */,
-				276AA3551D37EEA2009B5126 /* aubio.framework */,
 				90D825507B974B64B54D30F0 /* Pods_AniDraw.framework */,
 			);
 			name = Frameworks;
