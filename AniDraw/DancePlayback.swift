@@ -79,7 +79,7 @@ class DancePlayback {
     func replaceKeysAfterCurrentKeyTo(newKeyframes: [Keyframe]) {
         let firstKey = keyframes.first
         keyframes.removeAll(keepCapacity: true)
-        let positionOffset = firstKey?.posture.position
+        let positionOffset = CGPoint(x: CGFloat(firstKey?.posture.position.x ?? 0), y: 0)
         _totalTime = 0
         if let key = firstKey {
             keyframes.append(key)
