@@ -15,7 +15,7 @@ class CharacterStorage: NSManagedObject {
 // Insert code here to add functionality to your managed object subclass
     class func insertCharacter(name: String, characterNode: CharacterNode, characterImage: UIImage) {
         let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        context.performBlock {
+        context.performBlockAndWait {
             guard let character = NSEntityDescription.insertNewObjectForEntityForName("Character", inManagedObjectContext:context) as? CharacterStorage else {
                 return
             }
@@ -36,6 +36,7 @@ class CharacterStorage: NSManagedObject {
                     bodyPart.partOf = character
                 }
             }
+            print(character.name)
             do {
                 try context.save()
             } catch {
@@ -47,7 +48,7 @@ class CharacterStorage: NSManagedObject {
     }
     func edit(characterNode: CharacterNode, characterImage: UIImage) {
         let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        context.performBlock {
+        context.performBlockAndWait {
             self.wholeImage = UIImagePNGRepresentation(characterImage)
 
             for element in self.parts! {

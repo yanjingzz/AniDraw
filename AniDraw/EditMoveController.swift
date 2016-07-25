@@ -16,6 +16,7 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
     
     var characterNode: CharacterNode!
     var moveIndex = 0
+    var newMoveFlag = true
     var allMoves: [DanceMove]!
     var danceMove: DanceMove = DanceMove()
     var scene: EditMoveScene!
@@ -164,6 +165,7 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         let saveAction = UIAlertAction(title: "Save Dance Move", style: .Default) { [unowned self] action in
             self.saveDanceMove()
         }
+        saveAction.enabled = (danceMove.keyframesSet != nil && danceMove.keyframesSet!.count != 0)
         let newAction = UIAlertAction(title: "New Dance Move", style: .Default) { [unowned self] action in
             self.newDanceMove()
         }
@@ -207,9 +209,22 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
     func saveDanceMove() {
         presentViewController(alertForNamePrompt, animated: true, completion: nil)
     }
+    func discardChanges() {
+        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        
+//        if newMoveFlag {
+//            context.deleteObject(danceMove)
+//        } else {
+//            context.refreshObject(self.danceMove, mergeChanges: false)
+//        }
+        context.rollback()
+        allMoves = Moves.all()
+//        print(allMoves)
+    }
     
     func newDanceMove() {
-        (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.refreshObject(self.danceMove, mergeChanges: false)
+        discardChanges()
+        newMoveFlag = true
         danceMove = DanceMove()
         nameButton.setTitle("New Dance Move", forState: .Normal)
         updateEditView()
@@ -217,7 +232,8 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
     }
     
     func nextDanceMove() {
-        (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.refreshObject(self.danceMove, mergeChanges: false)
+        discardChanges()
+        newMoveFlag = false
         moveIndex += 1
         if moveIndex >= allMoves.count {
             moveIndex = 0
@@ -237,9 +253,10 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         
         do {
             if let name = name {
-                try "\n\nstatic let \(name) = DanceMove( \nkeyframes:".appendLineToURL(fileurl)
+                try "\n_ = DanceMove( \nkeyframes:".appendLineToURL(fileurl)
                 try "\(danceMove.keyframes), ".appendLineToURL(fileurl)
-                try "levelOfIntensity: 1)".appendLineToURL(fileurl)
+                try "levelOfIntensity: 1, \nstyle: .Generic,".appendLineToURL(fileurl)
+                try "name: \(name))".appendLineToURL(fileurl)
             }
             print("\(fileurl)")
         }
@@ -253,17 +270,22 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         let confirmAction = UIAlertAction(title: "Done", style: .Default) { action in
             let name = alert.textFields![0].text ?? ""
             self.writeToFile(name)
-            self.danceMove.name = name
-            (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
-            self.newDanceMove()
+            self.danceMove.managedObjectContext?.performBlockAndWait{
+                self.danceMove.name = name
+                do{
+                    try self.danceMove.managedObjectContext?.save()
+                } catch {
+                    print(error)
+                }
+            }
+            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                self.newDanceMove()
+            }
         }
         
-        confirmAction.enabled = false
+        confirmAction.enabled = !self.danceMove.name.isEmpty
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) {action in
-            (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.refreshObject(self.danceMove, mergeChanges: false)
-        }
-        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
         alert.addAction(cancelAction)
         alert.addAction(confirmAction)
         alert.preferredAction = confirmAction
@@ -293,6 +315,11 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
     
     private struct Storyborad {
         static let PopoverSegueIdentifier = "showKeyframeDetail"
+    }
+    
+    @IBAction private func goBack(sender: UIButton) {
+        discardChanges()
+        dismissViewControllerAnimated(true) {}
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
