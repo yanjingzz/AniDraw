@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
             endingLineNumber = "77"
-            landmarkName = "receiverDidReceiveData(_:)"
+            landmarkName = "pickIndex(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -219,7 +219,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1346"
             endingLineNumber = "1346"
-            landmarkName = "getJointsFromRelativePosition(_:)"
+            landmarkName = "getBodyPartsFromRelativePosition(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -236,6 +236,22 @@
             startingLineNumber = "1441"
             endingLineNumber = "1441"
             landmarkName = "distance(_:p2:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AniDraw/CGImage+.swift"
+            timestampString = "491047325.37287"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "createARGBBitmapContext()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

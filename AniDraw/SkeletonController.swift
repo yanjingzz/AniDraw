@@ -363,7 +363,7 @@ class SkeletonController: UIViewController {
     }
     
     func belongsToBodyPart() -> (CGPoint) -> (BodyPartName?,BodyPartName?) {
-        return skeletonModel.getJointsFromAbsolutePosition
+        return skeletonModel.getBodyPartsFromAbsolutePosition
 //        let neckPoint = jointPoint(.Neck)
 //        let waistPoint = jointPoint(.Waist)
 //        let bodyPoint = (neckPoint+waistPoint)/2

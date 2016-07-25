@@ -1320,7 +1320,7 @@ class SkeletonModel {
         isPerformClassifyPixels = false
     }
     
-    func getJointsFromAbsolutePosition(absolutePosition: CGPoint) -> (BodyPartName?,BodyPartName?) {
+    func getBodyPartsFromAbsolutePosition(absolutePosition: CGPoint) -> (BodyPartName?,BodyPartName?) {
         if isModelValid == false {
             return (nil,nil)
         }
@@ -1337,7 +1337,7 @@ class SkeletonModel {
         return matrix[relativeY][relativeX]
     }
     
-    func getJointsFromRelativePosition(relativePosition: CGPoint) -> (BodyPartName?,BodyPartName?) {
+    func getBodyPartsFromRelativePosition(relativePosition: CGPoint) -> (BodyPartName?,BodyPartName?) {
         if isModelValid == false {
             return (nil,nil)
         }
