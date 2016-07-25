@@ -36,6 +36,7 @@ class CharacterStorage: NSManagedObject {
                     bodyPart.partOf = character
                 }
             }
+            print(character.name)
             do {
                 try context.save()
             } catch {

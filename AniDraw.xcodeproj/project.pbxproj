@@ -92,6 +92,7 @@
 		27AFB31E1D2365A200325894 /* Posture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB31D1D2365A200325894 /* Posture.swift */; };
 		27AFB3221D236B8A00325894 /* DanceMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AFB3211D236B8A00325894 /* DanceMove.swift */; };
 		27AFB3461D236DEC00325894 /* DanceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 27AFB3451D236DEC00325894 /* DanceScene.sks */; };
+		27BF737E1D453CAE0044A622 /* HipHopMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BF737D1D453CAE0044A622 /* HipHopMoves.swift */; };
 		27C227491D2B553800B581C5 /* CharacterStorage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C227471D2B553800B581C5 /* CharacterStorage+CoreDataProperties.swift */; };
 		27C2274A1D2B553800B581C5 /* CharacterStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C227481D2B553800B581C5 /* CharacterStorage.swift */; };
 		27CA0ACA1D2A4F8E00F4332C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27CA0AC81D2A4F8E00F4332C /* Model.xcdatamodeld */; };
@@ -197,6 +198,7 @@
 		27AFB31F1D236A5000325894 /* Keyframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyframe.swift; sourceTree = "<group>"; };
 		27AFB3211D236B8A00325894 /* DanceMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceMove.swift; sourceTree = "<group>"; };
 		27AFB3451D236DEC00325894 /* DanceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DanceScene.sks; sourceTree = "<group>"; };
+		27BF737D1D453CAE0044A622 /* HipHopMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HipHopMoves.swift; sourceTree = "<group>"; };
 		27C227471D2B553800B581C5 /* CharacterStorage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CharacterStorage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		27C227481D2B553800B581C5 /* CharacterStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterStorage.swift; sourceTree = "<group>"; };
 		27CA0AC91D2A4F8E00F4332C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				2785B1781D3885F600665472 /* EthnicMoves.swift */,
 				2785B17A1D38865B00665472 /* BalletMoves.swift */,
 				2785B17E1D38898E00665472 /* JazzMoves.swift */,
+				27BF737D1D453CAE0044A622 /* HipHopMoves.swift */,
 			);
 			name = Moves;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				27252A251D255A89002CE361 /* CGImage+.swift in Sources */,
 				27F6AD221D23A89500BF3116 /* SkeletonView.swift in Sources */,
 				275ABBB81D22549F00BC3B8D /* DrawController.swift in Sources */,
+				27BF737E1D453CAE0044A622 /* HipHopMoves.swift in Sources */,
 				275BC6741D2B5F56004484DE /* Array.swift in Sources */,
 				275ABBD11D226EF700BC3B8D /* SKNode+Extensions.swift in Sources */,
 				275BC67A1D2B5F56004484DE /* DisplayObject.swift in Sources */,

@@ -30,14 +30,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let launchedBefore = NSUserDefaults.standardUserDefaults().boolForKey("launchedBefore")
         if launchedBefore  {
             print("Not first launch.")
+//            let fetchRequest = NSFetchRequest(entityName: "DanceMove")
+//            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+//            
+//            do {
+//                try managedObjectContext.executeRequest(deleteRequest)
+//                
+//            } catch let error as NSError {
+//                print(error)
+//            }
+//            GenericMoves.createAll()
+//            EthnicMoves.createAll()
+//            BalletMoves.createAll()
+//            JazzMoves.createAll()
+//            HipHopMoves.createAll()
+            saveContext()
+            
         } else {
             print("First launch, setting NSUserDefault.")
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "launchedBefore")
-            
             GenericMoves.createAll()
             EthnicMoves.createAll()
             BalletMoves.createAll()
             JazzMoves.createAll()
+            HipHopMoves.createAll()
             saveContext()
         }
 

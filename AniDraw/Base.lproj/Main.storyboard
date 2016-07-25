@@ -209,7 +209,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="goBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EDa-zz-vu9"/>
+                                    <action selector="goBack:" destination="aiW-TX-zfk" eventType="touchUpInside" id="RfC-Il-7aG"/>
                                     <segue destination="cXF-0N-w4w" kind="unwind" unwindAction="unwindToCharactersController:" id="zcu-x7-FGE"/>
                                 </connections>
                             </button>
