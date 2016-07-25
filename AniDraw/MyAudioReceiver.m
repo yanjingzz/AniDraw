@@ -85,7 +85,7 @@ static void receiverCallback(__unsafe_unretained MyAudioReceiver *THIS,
     }
     
     if (onset_o == NULL) {
-        onset_o = new_aubio_onset("default", frames, frames, 44100);
+        onset_o = new_aubio_onset("complex", frames, frames, 44100);
         aubio_onset_set_silence(onset_o, silentThreshold);
     }
     if (fft_o == NULL) {
