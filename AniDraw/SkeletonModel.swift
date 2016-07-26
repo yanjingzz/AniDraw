@@ -505,11 +505,18 @@ class SkeletonModel {
             tmpX = leftX
             tmpY = Y + Int(dif*CGFloat(tmpX-X))
             while tmpX != X {
-                let part1 = matrix[tmpY][tmpX].0
-                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                if tmpY >= 0 && tmpY < matrixHeight {
+                    let part1 = matrix[tmpY][tmpX].0
+                    if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
+                }
                 tmpX += 1
                 tmpY = Y + Int(dif*CGFloat(tmpX-X))
+            }
+            if tmpY >= 0 && tmpY < matrixHeight {
+                let part1 = matrix[tmpY][tmpX].0
+                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                {appendBodyPartName(tmpX, y: tmpY, part: part)}
             }
             //from center to rightSide(as to leftSide)
             var rightX = min(X + Int(dx),matrixWidth-1)
@@ -532,11 +539,18 @@ class SkeletonModel {
             tmpX = rightX
             tmpY = Y + Int(dif*CGFloat(tmpX-X))
             while tmpX != X {
-                let part1 = matrix[tmpY][tmpX].0
-                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                if tmpY >= 0 && tmpY < matrixHeight {
+                    let part1 = matrix[tmpY][tmpX].0
+                    if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
+                }
                 tmpX -= 1
                 tmpY = Y + Int(dif*CGFloat(tmpX-X))
+            }
+            if tmpY >= 0 && tmpY < matrixHeight {
+                let part1 = matrix[tmpY][tmpX].0
+                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                {appendBodyPartName(tmpX, y: tmpY, part: part)}
             }
             if Y < destY {
                 Y += 1
@@ -574,11 +588,18 @@ class SkeletonModel {
             tmpY = upY
             tmpX = X - Int(gradient*CGFloat(tmpY - Y))
             while tmpY != Y {
-                let part1 = matrix[tmpY][tmpX].0
-                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                if tmpX >= 0 && tmpX < matrixWidth {
+                    let part1 = matrix[tmpY][tmpX].0
+                    if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
+                }
                 tmpY += 1
                 tmpX = X - Int(gradient*CGFloat(tmpY - Y))
+            }
+            if tmpX >= 0 && tmpX < matrixWidth {
+                let part1 = matrix[tmpY][tmpX].0
+                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                {appendBodyPartName(tmpX, y: tmpY, part: part)}
             }
             //from center to downSide
             var downY = min(Y + Int(dy),matrixHeight-1)
@@ -601,11 +622,18 @@ class SkeletonModel {
             tmpY = downY
             tmpX = X - Int(gradient*CGFloat(tmpY - Y))
             while tmpY != Y {
-                let part1 = matrix[tmpY][tmpX].0
-                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                if tmpX >= 0 && tmpX < matrixWidth {
+                    let part1 = matrix[tmpY][tmpX].0
+                    if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
+                }
                 tmpY -= 1
                 tmpX = X - Int(gradient*CGFloat(tmpY - Y))
+            }
+            if tmpX >= 0 && tmpX < matrixWidth {
+                let part1 = matrix[tmpY][tmpX].0
+                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                {appendBodyPartName(tmpX, y: tmpY, part: part)}
             }
             if X < destX {
                 X += 1
@@ -726,6 +754,7 @@ class SkeletonModel {
                 if pow(CGFloat(offsetX),2.0) + pow(CGFloat(offsetY),2.0) > pow(CGFloat(radius),2) {continue}
                 let X = Int(center.x) + offsetX, Y = Int(center.y) + offsetY
                 if X < 0 || X > matrixWidth-1 || Y < 0 || Y > matrixHeight-1 {continue}
+                if A[Y][X] == 0 {continue}
                 if upperBodyName != nil {appendBodyPartName(X, y: Y, part: upperBodyName!)}
                 if lowerBodyName != nil {appendBodyPartName(X, y: Y, part: lowerBodyName!)}
             }

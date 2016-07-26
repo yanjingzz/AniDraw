@@ -134,11 +134,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AniDraw/SkeletonController.swift"
-            timestampString = "491232978.266561"
+            timestampString = "491233552.093002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "segmentParts(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -242,16 +242,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AniDraw/SkeletonModel.swift"
-            timestampString = "491232142.819732"
+            filePath = "AniDraw/SkeletonController.swift"
+            timestampString = "491233569.49627"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "509"
-            endingLineNumber = "509"
-            landmarkName = "fillInXDegrees(_:srcY:destX:destY:gradient:part:radius:)"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "saveCharacter()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

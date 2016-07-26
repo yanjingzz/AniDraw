@@ -33,11 +33,11 @@ class SkeletonController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-//        self.reset()
-        updateImage()
-    }
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+////        self.reset()
+////        updateImage()
+//    }
     
     // MARK: - Move Points
     
@@ -189,6 +189,7 @@ class SkeletonController: UIViewController {
     
     func updateImage() {  //preview
         
+        print("updateImage")
         
         let image = characterSkin.CGImage!
 
@@ -245,6 +246,7 @@ class SkeletonController: UIViewController {
     }
     
     func segmentParts(completion: () -> Void){ //save image
+        print("segmentParts")
         for joint in JointName.allJoints {
             print("segmentParts: .\(joint): CGPoint(x: \(jointPoint(joint).x), y: \(jointPoint(joint).y))")
         }

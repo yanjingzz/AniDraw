@@ -163,7 +163,7 @@ class CharactersController: UIViewController, UIScrollViewDelegate{
                 let character = currentCharacter else {
                     break
             }
-            destVC.characterSkin = currentCharacterImage
+            destVC.characterSkin = currentCharacterImage?.trimToNontransparent()
             destVC.editingCharacter = character
 
             
