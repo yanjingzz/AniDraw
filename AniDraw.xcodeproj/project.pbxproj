@@ -262,8 +262,9 @@
 				27CA0AF41D2A758C00F4332C /* CoreData */,
 				2701F1431D24BDF700C597E6 /* Joints.swift */,
 				27AFB3141D235FCD00325894 /* BodyPartNode.swift */,
-				0B9999011D37714300BED178 /* SkeletonModel.swift */,
 				27AFB3171D23604A00325894 /* CharacterNode.swift */,
+				0B9999011D37714300BED178 /* SkeletonModel.swift */,
+				277317161D41C5AA00C01260 /* StoredPosture.swift */,
 				27252A261D260C7B002CE361 /* EditMoveScene.swift */,
 				27ABA2171D3492B3007D945F /* String+WriteToURL.swift */,
 				27AFB31D1D2365A200325894 /* Posture.swift */,
@@ -432,7 +433,6 @@
 				2773172B1D41CAD800C01260 /* StoredPosture+CoreDataProperties.swift */,
 				2773172C1D41CAD800C01260 /* DanceMove+CoreDataProperties.swift */,
 				277317191D41C62200C01260 /* StoredKeyframe.swift */,
-				277317161D41C5AA00C01260 /* StoredPosture.swift */,
 				27C227471D2B553800B581C5 /* CharacterStorage+CoreDataProperties.swift */,
 				27C227481D2B553800B581C5 /* CharacterStorage.swift */,
 				27CA0AC81D2A4F8E00F4332C /* Model.xcdatamodeld */,
@@ -522,7 +522,7 @@
 				TargetAttributes = {
 					275ABBA11D224E4200BC3B8D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = KU9ZGHL9NX;
+						DevelopmentTeam = TL45XG83G4;
 					};
 				};
 			};
@@ -889,7 +889,7 @@
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = younn.AniDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AniDraw/AniDraw-Bridging-Header.h";
@@ -916,7 +916,7 @@
 				INFOPLIST_FILE = AniDraw/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = younn.AniDraw;
+				PRODUCT_BUNDLE_IDENTIFIER = yanjingzz.AniDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AniDraw/AniDraw-Bridging-Header.h";

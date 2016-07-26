@@ -18,7 +18,7 @@ class SkeletonController: UIViewController {
     @IBAction private func goBack(sender: UIButton) {
         dismissViewControllerAnimated(true) { }
     }
-    let jointLabel = UILabel()
+    
     var editingCharacter: CharacterStorage?
     
     var skeletonModelJoints = [JointName:CGPoint]()
@@ -30,57 +30,44 @@ class SkeletonController: UIViewController {
         } else {
             characterSkin = characterImageView.image?.trimToNontransparent()
         }
-        //skeletonModel initialize
-        jointLabel.hidden = true
-        skeletonModel = SkeletonModel()
-        SkeletonModel.lastUpdateTimeStamp = NSDate()
-        view.addSubview(jointLabel)
         // Do any additional setup after loading the view.
     }
     
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-////        self.reset()
-////        updateImage()
-//    }
+    //    override func viewDidLayoutSubviews() {
+    //        super.viewDidLayoutSubviews()
+    ////        self.reset()
+    ////        updateImage()
+    //    }
     
     // MARK: - Move Points
     
-    private var movedView : JointView?
+    private var movedView : UIView?
     private var moved = false
-   
+    
     
     @IBAction private func moveJointsWithPanRecognizer(recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
         case .Began:
             let p = recognizer.locationInView(skeletonView)
-            if let view = view.hitTest(p, withEvent: nil) as? JointView {
+            if let view = view.hitTest(p, withEvent: nil) where view != skeletonView {
+                
                 SkeletonModel.lastUpdateTimeStamp = NSDate()
                 
                 moved = true
                 movedView = view
-                jointLabel.hidden = false
-                jointLabel.text = view.jointName.rawValue
-                jointLabel.sizeToFit()
-                jointLabel.frame.center = view.frame.center - CGPoint(x: 0, y: 30)
-                jointLabel.setNeedsDisplay()
-                
             }
         case .Changed:
             if let view = movedView {
                 moved = true
                 let p = recognizer.locationInView(skeletonView)
-                let origin = p - CGPoint(x: SkeletonView.Constants.JointSize / 2, y: SkeletonView.Constants.JointSize / 2)
-                view.frame = CGRect(origin: origin, size: view.frame.size)
+                view.frame.center = p
                 skeletonView.setNeedsDisplay()
-                jointLabel.frame.center = view.frame.center - CGPoint(x: 0, y: 30)
             }
         case .Ended:
             if movedView != nil {
                 self.resetJoints()
                 updateImage()
             }
-            jointLabel.hidden = true
             fallthrough
         default:
             movedView = nil
@@ -135,7 +122,7 @@ class SkeletonController: UIViewController {
             } else {
                 return
             }
-
+            
         }
         
         HUD.dismiss()
@@ -171,9 +158,9 @@ class SkeletonController: UIViewController {
             textField.autocapitalizationType = .Words
             textField.autocorrectionType = .No
             textField.returnKeyType = .Done
-
+            
             textField.addTarget(self, action: #selector(SkeletonController.textChangedForNamePrompt), forControlEvents: .EditingChanged)
-
+            
         }
         return alert
     }
@@ -204,9 +191,9 @@ class SkeletonController: UIViewController {
         print("updateImage")
         
         let image = characterSkin.CGImage!
-
+        
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)) {
-
+            
             
             let skeletonModel = SkeletonModel()
             SkeletonModel.lastUpdateTimeStamp = skeletonModel.selfUpdateTimeStamp
@@ -218,11 +205,11 @@ class SkeletonController: UIViewController {
             if skeletonModel.needAbort() == true {return}
             
             let inBodyPart = skeletonModel.getBodyPartsFromAbsolutePosition
-
+            
             
             self.moved = false
             let (pixels, context) = image.toARGBBitmapData()
-
+            
             let width = CGImageGetWidth(image)
             let height = CGImageGetHeight(image)
             
@@ -242,7 +229,7 @@ class SkeletonController: UIViewController {
                     }
                 }
             }
-        
+            
             
             let alteredImage = CGBitmapContextCreateImage(context)!
             free(pixels)
@@ -252,7 +239,7 @@ class SkeletonController: UIViewController {
                 }
                 self.characterImageView.image = UIImage(CGImage: alteredImage)
             })
-
+            
         }
         
     }
@@ -338,14 +325,10 @@ class SkeletonController: UIViewController {
                 self.segmentedPartsFrame[part] = convertedRect
                 free(data[part]!.pixel)
             }
-
+            
             dispatch_async(dispatch_get_main_queue(), completion)
         }
-
-    }
-    
-    func belongsToBodyPart() -> (CGPoint) -> (BodyPartName?,BodyPartName?) {
-        return skeletonModel.getJointsFromAbsolutePosition
+        
     }
     
     let colorForPart: [BodyPartName: UInt32] = [
@@ -358,15 +341,15 @@ class SkeletonController: UIViewController {
         .LeftThigh:     0xFF00FFFF,
         .LeftForearm:   0x00FF00FF,
         .LeftUpperArm:  0x00FF7FFF,
-
+        
         
         .RightFoot:      0x0000FFFF,
         .RightShank:     0x7F00FFFF,
         .RightThigh:     0xFF00FFFF,
         .RightForearm:   0x00FF00FF,
         .RightUpperArm:  0x00FF7FFF,
-    ]
-
+        ]
+    
     func resetJoints() {
         for joint in JointName.allJoints {
             skeletonModelJoints[joint] = jointPoint(joint)

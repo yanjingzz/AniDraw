@@ -73,6 +73,7 @@ class CharacterNode: SKNode {
         }
         for (_, node) in parts {
             node.zRotation = 0
+
         }
         
         
