@@ -47,7 +47,7 @@ class CharacterNode: SKNode {
             let anchorX =  (anchorPosition.x - frame.minX) / (frame.maxX - frame.minX)
             let anchorY =  (frame.maxY + anchorPosition.y) / (frame.maxY - frame.minY)
             node.anchorPoint = CGPoint(x: anchorX, y: anchorY)
-            let (j1, j2) = part.directionJoints
+            let (j1, j2) = part.directionForInitializingCharacterNode
             let directionVec = jointsPosition[j1]! - jointsPosition[j2]!
             absoluteRotation[part] = directionVec.angle + CGFloat(M_PI_2)
             

@@ -146,6 +146,35 @@ enum BodyPartName: Int {
         }
     }
     
+    var directionForInitializingCharacterNode: (JointName, JointName) {
+        switch self {
+        case Head: fallthrough
+        case UpperBody: fallthrough
+        case LowerBody:
+            return (.Neck, .Waist)
+        case LeftUpperArm:
+            return (.LeftShoulder, .LeftElbow)
+        case .LeftForearm:
+            return (.LeftElbow, .LeftWrist)
+        case LeftThigh:
+            return (.LeftHip, .LeftKnee)
+        case LeftShank: fallthrough
+        case .LeftFoot:
+            return (.LeftKnee, .LeftAnkle)
+            
+        case RightUpperArm:
+            return (.RightShoulder, .RightElbow)
+        case .RightForearm:
+            return (.RightElbow, .RightWrist)
+        case RightThigh:
+            return (.RightHip, .RightKnee)
+        case RightShank: fallthrough
+        case .RightFoot:
+            return (.RightKnee, .RightAnkle)
+        }
+    }
+
+    
     var parentPart: BodyPartName? {
         switch self {
         case Head:
