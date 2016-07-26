@@ -81,6 +81,7 @@
 		2785B17B1D38865B00665472 /* BalletMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785B17A1D38865B00665472 /* BalletMoves.swift */; };
 		2785B17D1D3886AF00665472 /* GenericMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785B17C1D3886AF00665472 /* GenericMoves.swift */; };
 		2785B17F1D38898E00665472 /* JazzMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785B17E1D38898E00665472 /* JazzMoves.swift */; };
+		2793D41F1D461B0C0072F0C5 /* BeatTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2793D41E1D461B0C0072F0C5 /* BeatTracker.swift */; };
 		2799254D1D45ABEF006C1735 /* aubio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2799254B1D45ABE1006C1735 /* aubio.framework */; };
 		279E62E41D2B92B200747411 /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E62E31D2B92B200747411 /* CharactersController.swift */; };
 		27ABA2161D340C09007D945F /* KeyframeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABA2151D340C09007D945F /* KeyframeDetailController.swift */; };
@@ -185,6 +186,7 @@
 		2785B17A1D38865B00665472 /* BalletMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalletMoves.swift; sourceTree = "<group>"; };
 		2785B17C1D3886AF00665472 /* GenericMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericMoves.swift; sourceTree = "<group>"; };
 		2785B17E1D38898E00665472 /* JazzMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JazzMoves.swift; sourceTree = "<group>"; };
+		2793D41E1D461B0C0072F0C5 /* BeatTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeatTracker.swift; sourceTree = "<group>"; };
 		2799254B1D45ABE1006C1735 /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = aubio.framework; sourceTree = "<group>"; };
 		279E62E31D2B92B200747411 /* CharactersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
 		279E62F51D2BE13300747411 /* AniDraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AniDraw-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				27AFB3211D236B8A00325894 /* DanceMove.swift */,
 				276DF6C51D3CC36700D739FE /* DancePlayback.swift */,
 				0BF052F21D2C07B800268947 /* DanceModel.swift */,
+				2793D41E1D461B0C0072F0C5 /* BeatTracker.swift */,
 				273627071D37D5C8007DAECD /* MyAudioReceiver.h */,
 				273627081D37D5C8007DAECD /* MyAudioReceiver.m */,
 				27AFB3451D236DEC00325894 /* DanceScene.sks */,
@@ -732,6 +735,7 @@
 				275BC6911D2B5F56004484DE /* TextField.swift in Sources */,
 				2701F1401D2428AA00C597E6 /* UInt32+.swift in Sources */,
 				275ABBCC1D226EF700BC3B8D /* CGVector+Extensions.swift in Sources */,
+				2793D41F1D461B0C0072F0C5 /* BeatTracker.swift in Sources */,
 				273627091D37D5C8007DAECD /* MyAudioReceiver.m in Sources */,
 				276DF6C61D3CC36700D739FE /* DancePlayback.swift in Sources */,
 				2701F1441D24BDF700C597E6 /* Joints.swift in Sources */,

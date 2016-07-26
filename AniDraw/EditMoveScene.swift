@@ -41,7 +41,7 @@ class EditMoveScene: SKScene {
         lastUpdateTime = currentTime
         if playing {
             let posture = dancePlayback.getPostureByIntervalTime(dt)
-            characterNode?.posture = posture
+            characterNode?.posture = posture ?? dancePlayback.currentPosture
             if dancePlayback.isEmpty {
                 playing = false
             }

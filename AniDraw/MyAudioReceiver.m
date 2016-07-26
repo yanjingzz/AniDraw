@@ -15,17 +15,19 @@
 
 @implementation MyAudioReceiver
 
-uint_t _mfcc_n_coeff = 13;
+const uint_t _mfcc_n_coeff = 13;
 aubio_pitch_t *pitch_o;
 aubio_tempo_t *tempo_o;
 aubio_onset_t *onset_o;
 aubio_mfcc_t *mfcc_o;
 aubio_fft_t *fft_o;
-float lastPitch = 0;
-int silenceCounter = 0;
 bool isSinging = false;
-float silentThreshold = -50;
+float lastPitch = 0;
+int currentCounter = 0;
+const float silentThreshold = -50;
 float current_time;
+const float halfToneFactor = 1.059463094359295;
+const int sampleRate = 44100;
 dispatch_queue_t audioQueue;
 __weak id <MyAudioReceiverDelegate> delegate;
 
@@ -74,29 +76,30 @@ static void receiverCallback(__unsafe_unretained MyAudioReceiver *THIS,
 //    NSLog(@"%d", (unsigned int)time->mFlags);
 //    NSLog(@"%f %d %d %d", time->mSampleTime, (unsigned int)frames, (unsigned int)buffer.mDataByteSize, (unsigned int)buffer.mNumberChannels);
     
-    if (pitch_o == NULL) {
-        pitch_o = new_aubio_pitch("yin", frames, frames, 44100);
-        aubio_pitch_set_silence(pitch_o, silentThreshold);
-    }
     
-    if (tempo_o == NULL) {
-        tempo_o = new_aubio_tempo("default", frames, frames, 44100);
-        aubio_tempo_set_silence(tempo_o, silentThreshold);
-    }
-    
-    if (onset_o == NULL) {
-        onset_o = new_aubio_onset("complex", frames, frames, 44100);
-        aubio_onset_set_silence(onset_o, silentThreshold);
-    }
-    if (fft_o == NULL) {
-        fft_o = new_aubio_fft(frames);
-    }
-    if (mfcc_o == NULL) {
-        mfcc_o = new_aubio_mfcc(frames, 40, _mfcc_n_coeff, 44100);
-    }
-    float this_time = time->mSampleTime;
+    double this_time = time->mSampleTime / sampleRate;
     current_time = this_time;
     dispatch_async(audioQueue, ^{
+        if (pitch_o == NULL) {
+            pitch_o = new_aubio_pitch("default", frames, frames, sampleRate);
+            aubio_pitch_set_silence(pitch_o, silentThreshold);
+        }
+        
+        if (tempo_o == NULL) {
+            tempo_o = new_aubio_tempo("default", frames, frames, sampleRate);
+            aubio_tempo_set_silence(tempo_o, silentThreshold);
+        }
+        
+        if (onset_o == NULL) {
+            onset_o = new_aubio_onset("complex", frames, frames, sampleRate);
+            aubio_onset_set_silence(onset_o, silentThreshold);
+        }
+        if (fft_o == NULL) {
+            fft_o = new_aubio_fft(frames);
+        }
+        if (mfcc_o == NULL) {
+            mfcc_o = new_aubio_mfcc(frames, 40, _mfcc_n_coeff, sampleRate);
+        }
         float *data = (float *)buffer.mData;
         fvec_t input;
         
@@ -108,36 +111,34 @@ static void receiverCallback(__unsafe_unretained MyAudioReceiver *THIS,
         // pitch
         aubio_pitch_do(pitch_o, &input, output);
         float pitch_data = output->data[0];
-        float pitch_confidence = aubio_pitch_get_confidence(pitch_o);
-        if (pitch_confidence == 0) {
+        if (pitch_data > 1000 || pitch_data < 65) {
             pitch_data = 0;
-        } else {
-            pitch_data = pitch_data * pitch_confidence + lastPitch * (1-pitch_confidence);
         }
-        lastPitch = pitch_data;
-        
-        //tempo
-//        aubio_tempo_do(tempo_o, &input, output);
-//        float bpm_data = aubio_tempo_get_bpm(tempo_o);
         
         //onset
         aubio_onset_do(onset_o, &input, output);
-//        float threshold = aubio_onset_get_silence(onset_o);
+        
         float decibel = aubio_db_spl(&input);
         float onset_data = output->data[0];
-        if (onset_data != 0) {
+        
+        
+        if (onset_data != 0 && pitch_data != 0) {
             isSinging = true;
-            silenceCounter = 0;
-        }
-        if (aubio_silence_detection(&input, aubio_onset_get_silence(onset_o)) == 1) {
-            silenceCounter += 1;
-        }
-        if (silenceCounter >= 5) {
-            silenceCounter = 5;
-            isSinging = false;
+            currentCounter = 1;
+            lastPitch = pitch_data;
         }
         
+        if (pitch_data == 0 || (pitch_data / lastPitch) > halfToneFactor ||
+            (lastPitch / pitch_data) > halfToneFactor) {
+            isSinging = false;
+            lastPitch = 0;
+            currentCounter = 0;
+        } else {
+            lastPitch = (lastPitch * currentCounter + pitch_data) / (currentCounter + 1);
+            currentCounter += 1;
+        }
       
+//        NSLog(@"%d", isSinging);
         
         del_fvec(output);
         
@@ -146,7 +147,6 @@ static void receiverCallback(__unsafe_unretained MyAudioReceiver *THIS,
         
         @autoreleasepool {
             ReceiverData *receiverData = [[ReceiverData alloc] init];
-//            [receiverData setBpm: bpm_data];
             [receiverData setIsSinging: isSinging];
             [receiverData setOnset: onset_data];
             [receiverData setPitch: pitch_data];

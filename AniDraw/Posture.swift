@@ -74,9 +74,6 @@ struct Posture: CustomStringConvertible, Equatable {
 }
 
 @warn_unused_result func ==(lhs: Posture, rhs: Posture) -> Bool {
-    if lhs.position != rhs.position {
-        return false
-    }
     for name in BodyPartName.allParts {
         if lhs.angles[name] != rhs.angles[name] {
             return false
