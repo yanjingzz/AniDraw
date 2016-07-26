@@ -33,7 +33,7 @@ class SkeletonModel {
     static var lastUpdateTimeStamp : NSDate = NSDate()
     var selfUpdateTimeStamp = NSDate()
     
-    var priority: [BodyPartName:Int] = [
+    static var priority: [BodyPartName:Int] = [
         .Head: 0,
         .LowerBody: 15,
         .UpperBody: 15,
@@ -158,7 +158,6 @@ class SkeletonModel {
         //fill each blocks around the joint
         for joint in JointName.allJoints {
             if needAbort() == true {return}
-            let part = joint.DriveBodyPart
             if joint == JointName.Neck || joint == JointName.Waist {
                 setJointBasedParaBola(radius[joint]!, center: joints[joint]!, ratio: 0.6, addPart: joint.addPart)
             } else {
@@ -193,11 +192,6 @@ class SkeletonModel {
         if isModelValid == false {
             return (nil,nil)
         }
-//        if absolutePosition.x - positionOffset.x < 0 || absolutePosition.y - positionOffset.y < 0 ||
-//        absolutePosition.x - positionOffset.x > CGFloat(matrixWidth) || absolutePosition.y - positionOffset.y > CGFloat(matrixHeight)
-//        {
-//            return nil
-//        }
         if isPerformClassifyPixels == true {
             return (.Head,nil)
         }
@@ -275,13 +269,6 @@ class SkeletonModel {
         }
     }
     
-    func getBodyPartNameInPriority(b1:BodyPartName?,b2:BodyPartName?) -> BodyPartName? {
-        var priority1 = -1 ,priority2 = -1
-        if b1 != nil {priority1 = priority[b1!]!}
-        if b2 != nil {priority2 = priority[b2!]!}
-        return priority1 > priority2 ? b1 : b2
-    }
-    
     func setJointsPosition(setJoints:[JointName:CGPoint]) {
         for joint in JointName.allJoints {
             if setJoints[joint] != nil {
@@ -296,6 +283,23 @@ class SkeletonModel {
             }
         }
     }
+    
+    func needAbort() -> Boolean {
+        if selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {
+            print("update abort!")
+            return true
+        }
+        return false
+    }
+
+    
+    static func getBodyPartNameInPriority(b1:BodyPartName?,b2:BodyPartName?) -> BodyPartName? {
+        var priority1 = -1 ,priority2 = -1
+        if b1 != nil {priority1 = priority[b1!]!}
+        if b2 != nil {priority2 = priority[b2!]!}
+        return priority1 > priority2 ? b1 : b2
+    }
+
     
     //for setParameter
     private func loadColorsFromImage(image:UIImage) {
@@ -502,7 +506,7 @@ class SkeletonModel {
             tmpY = Y + Int(dif*CGFloat(tmpX-X))
             while tmpX != X {
                 let part1 = matrix[tmpY][tmpX].0
-                if part1 == nil || (part1 != nil && priority[part] >= priority[part1!])
+                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
                 tmpX += 1
                 tmpY = Y + Int(dif*CGFloat(tmpX-X))
@@ -529,7 +533,7 @@ class SkeletonModel {
             tmpY = Y + Int(dif*CGFloat(tmpX-X))
             while tmpX != X {
                 let part1 = matrix[tmpY][tmpX].0
-                if part1 == nil || (part1 != nil && priority[part] >= priority[part1!])
+                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
                 tmpX -= 1
                 tmpY = Y + Int(dif*CGFloat(tmpX-X))
@@ -571,7 +575,7 @@ class SkeletonModel {
             tmpX = X - Int(gradient*CGFloat(tmpY - Y))
             while tmpY != Y {
                 let part1 = matrix[tmpY][tmpX].0
-                if part1 == nil || (part1 != nil && priority[part] >= priority[part1!])
+                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
                 tmpY += 1
                 tmpX = X - Int(gradient*CGFloat(tmpY - Y))
@@ -598,7 +602,7 @@ class SkeletonModel {
             tmpX = X - Int(gradient*CGFloat(tmpY - Y))
             while tmpY != Y {
                 let part1 = matrix[tmpY][tmpX].0
-                if part1 == nil || (part1 != nil && priority[part] >= priority[part1!])
+                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
                 tmpY -= 1
                 tmpX = X - Int(gradient*CGFloat(tmpY - Y))
@@ -648,7 +652,7 @@ class SkeletonModel {
                                 maxCount = bodyPartCount[part]!
                             } else {
                                 if bodyPartCount[part]! == maxCount {
-                                    if priority[part] > priority[selectBodyPartName] {
+                                    if SkeletonModel.priority[part] > SkeletonModel.priority[selectBodyPartName] {
                                         selectBodyPartName = part
                                     }
                                 }
@@ -667,7 +671,7 @@ class SkeletonModel {
                                 minDistance = distance
                             } else {
                                 if distance == minDistance {
-                                    if priority[part] > priority[selectBodyPartName] {
+                                    if SkeletonModel.priority[part] > SkeletonModel.priority[selectBodyPartName] {
                                         selectBodyPartName = part
                                     }
                                 }
@@ -791,14 +795,6 @@ class SkeletonModel {
             joints[.RightHip]!.y > joints[.RightKnee]!.y ||
             joints[.RightKnee]!.y > joints[.RightAnkle]!.y {return false}
         return true
-    }
-
-    private func needAbort() -> Boolean {
-        if selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {
-            print("update abort!")
-            return true
-        }
-        return false
     }
 }
 
