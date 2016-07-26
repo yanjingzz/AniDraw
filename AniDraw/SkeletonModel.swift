@@ -37,16 +37,16 @@ class SkeletonModel {
         .Head: 0,
         .LowerBody: 15,
         .UpperBody: 15,
-        .LeftThigh: 3,
-        .RightThigh: 4,
-        .LeftShank: 5,
-        .RightShank: 6,
-        .LeftFoot: 7,
+        .LeftThigh: 9,
+        .RightThigh: 9,
+        .LeftShank: 7,
+        .RightShank: 7,
+        .LeftFoot: 8,
         .RightFoot: 8,
-        .LeftUpperArm: 9,
-        .RightUpperArm: 10,
+        .LeftUpperArm: 13,
+        .RightUpperArm: 13,
         .LeftForearm: 11,
-        .RightForearm: 12
+        .RightForearm: 11
         ]
     
     var fillPartInSequence : [BodyPartName] = [
@@ -339,12 +339,11 @@ class SkeletonModel {
         
         if X < leftBound || X > rightBound || Y < upBound || Y > downBound {return 0}
         
-        if (gradient != 0 || vertical == true) {
+        if (abs(gradient) > 1 || vertical == true) {
             var leftSide = X
             var rightSide = X
             var tempY = Y
             let dY = vertical == true ? 0 : -1 / gradient
-//            print("For Test:\(joint):\(leftBound),\(rightBound),\(upBound),\(downBound),\(dY)")
             
             while leftSide > leftBound && A[tempY][leftSide] == 0 {
                 leftSide -= 1
@@ -381,17 +380,54 @@ class SkeletonModel {
             var rightPoint = CGPoint(x:rightSide,y:Y+Int(CGFloat(rightSide+X)*dY))
             leftPoint = makePointValid(leftPoint)
             rightPoint = makePointValid(rightPoint)
+            if joint == JointName.LeftElbow {
+                print("leftElbow!:point:\(joints[joint]),leftPoint:\(leftPoint),rightPoint:\(rightPoint)")
+            }
             return Int((leftPoint-rightPoint).length()/2)
         } else {
             var upSide = Y
             var downSide = Y
-            while upSide > upBound || A[upSide][X] == 0  {upSide -= 1}
+            var tempX = X
+            while upSide > upBound && A[upSide][tempX] == 0 {
+                upSide -= 1
+                tempX = X + Int(gradient * CGFloat(Y - upSide))
+                if tempX < leftBound || tempX > rightBound {
+                    return 0
+                }
+            }
             if upSide == upBound {return 0}
-            while upSide >= upBound || A[upSide][X] != 0  {upSide -= 1}
-            while downSide < downBound || A[downSide][Y] == 0 {downSide += 1}
+            while upSide >= upBound && A[upSide][tempX] != 0 {
+                upSide -= 1
+                tempX = X + Int(gradient * CGFloat(Y - upSide))
+                if tempX < leftBound || tempX > rightBound {
+                    return 0
+                }
+            }
+            tempX = X
+            while downSide < downBound && A[downSide][tempX] == 0 {
+                downSide += 1
+                tempX = X + Int(gradient * CGFloat(Y - downSide))
+                if tempX < leftBound || tempX > rightBound {
+                    return 0
+                }
+            }
             if downSide == downBound {return 0}
-            while downSide <= downBound || A[downSide][Y] != 0 {downSide += 1}
-            return (downSide - upSide) / 2
+            while downSide <= downBound && A[downSide][tempX] != 0 {
+                downSide += 1
+                tempX = X + Int(gradient * CGFloat(Y - downSide))
+                if tempX < leftBound || tempX > rightBound {
+                    return 0
+                }
+            }
+            var upPoint = CGPoint(x:X+Int(gradient*CGFloat(Y-upSide)),y:upSide)
+            var downPoint = CGPoint(x:X+Int(gradient*CGFloat(Y-downSide)),y:downSide)
+            upPoint = makePointValid(upPoint)
+            downPoint = makePointValid(downPoint)
+            if joint == JointName.LeftElbow {
+                print("leftElbow!:point:\(joints[joint]),upPoint:\(upPoint),downPoint:\(downPoint)")
+            }
+
+            return Int((upPoint-downPoint).length()/2)
         }
     }
     //for PART2
@@ -648,12 +684,6 @@ class SkeletonModel {
         }
     }
     
-    private func distance(p1:CGPoint,p2:CGPoint) -> CGFloat{
-        let dx = p1.x - p2.x
-        let dy = p1.y - p2.y
-        return dx*dx+dy*dy
-    }
-    
     private func appendBodyPartName(x:Int,y:Int,part:BodyPartName) {
         if y >= matrixHeight || y<0 || x>=matrixWidth || x<0 {return}
         if matrix[y][x].0 == nil {
@@ -679,7 +709,6 @@ class SkeletonModel {
         if part1 == nil && part2 != nil {return part2 == part}
         return part1 == part || part2 == part
     }
-    
     
     //for Part1:   circle
     private func setJointBasedCircle(radius:Int,center:CGPoint,addPart:(BodyPartName?,BodyPartName?)) {
