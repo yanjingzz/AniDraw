@@ -21,7 +21,7 @@ class SkeletonController: UIViewController {
     let jointLabel = UILabel()
     var editingCharacter: CharacterStorage?
     
-    var skeletonModel : SkeletonModel!
+    var skeletonModelJoints = [JointName:CGPoint]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +38,11 @@ class SkeletonController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-//        self.reset()
-        updateImage()
-    }
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+////        self.reset()
+////        updateImage()
+//    }
     
     // MARK: - Move Points
     
@@ -77,7 +77,7 @@ class SkeletonController: UIViewController {
             }
         case .Ended:
             if movedView != nil {
-                self.reset()
+                self.resetJoints()
                 updateImage()
             }
             jointLabel.hidden = true
@@ -201,38 +201,28 @@ class SkeletonController: UIViewController {
     
     func updateImage() {  //preview
         
+        print("updateImage")
         
         let image = characterSkin.CGImage!
 
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)) {
 
             
-            let updateSkeletonModel = SkeletonModel()
-            SkeletonModel.lastUpdateTimeStamp = updateSkeletonModel.selfUpdateTimeStamp
-            print("UpdateTimeStamp:\(SkeletonModel.lastUpdateTimeStamp)")
-            if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
-            updateSkeletonModel.setParameter(self.skeletonModel.positionOffset,image:self.characterSkin)
-            if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
-            for joint in JointName.allJoints {
-                updateSkeletonModel.joints[joint] = self.skeletonModel.joints[joint]
-            }
-            if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
-            updateSkeletonModel.isModelValid = self.skeletonModel.isModelValid
-            updateSkeletonModel.performClassifyJointsPerPixel()
-            if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
-            self.skeletonModel = updateSkeletonModel
-            if updateSkeletonModel.selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {return}
+            let skeletonModel = SkeletonModel()
+            SkeletonModel.lastUpdateTimeStamp = skeletonModel.selfUpdateTimeStamp
+            skeletonModel.setParameter(self.characterImageView.frame.origin,image:self.characterSkin)
+            if skeletonModel.needAbort() == true {return}
+            skeletonModel.setJointsPosition(self.skeletonModelJoints)
+            if skeletonModel.needAbort() == true {return}
+            skeletonModel.performClassifyJointsPerPixel()
+            if skeletonModel.needAbort() == true {return}
             
-            let inBodyPart = self.belongsToBodyPart()
+            let inBodyPart = skeletonModel.getBodyPartsFromAbsolutePosition
+
             
             self.moved = false
             let (pixels, context) = image.toARGBBitmapData()
-//            var data = [BodyPartName: (pixel: UnsafeMutablePointer<UInt32>, context: CGContext?)]()
-//            for joint in BodyPartName.allParts {
-//                let c = image.createARGBBitmapContext()
-//                let p = UnsafeMutablePointer<UInt32>(CGBitmapContextGetData(c))
-//                data[joint] = (pixel: p,context: c)
-//            }
+
             let width = CGImageGetWidth(image)
             let height = CGImageGetHeight(image)
             
@@ -245,7 +235,7 @@ class SkeletonController: UIViewController {
                     let pixel = pixels[width * y + x]
                     if pixel.alphaValue != 0 && pixel.alphaValue != 0xFF {
                         let (part1,part2) = inBodyPart(p)
-                        let partBasedOnPriority = self.skeletonModel.getBodyPartNameInPriority(part1, b2: part2)
+                        let partBasedOnPriority = SkeletonModel.getBodyPartNameInPriority(part1, b2: part2)
                         if partBasedOnPriority != nil {
                             pixels[width * y + x] = self.colorForPart[partBasedOnPriority!]!
                         }
@@ -268,12 +258,22 @@ class SkeletonController: UIViewController {
     }
     
     func segmentParts(completion: () -> Void){ //save image
+        print("segmentParts")
         for joint in JointName.allJoints {
             print("segmentParts: .\(joint): CGPoint(x: \(jointPoint(joint).x), y: \(jointPoint(joint).y))")
         }
         let image = characterSkin.CGImage!
-        let inBodyPart = belongsToBodyPart()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)) {
+            
+            let skeletonModel = SkeletonModel()
+            SkeletonModel.lastUpdateTimeStamp = skeletonModel.selfUpdateTimeStamp
+            skeletonModel.setParameter(self.characterImageView.frame.origin,image:self.characterSkin)
+            skeletonModel.setJointsPosition(self.skeletonModelJoints)
+            skeletonModel.performClassifyJointsPerPixel()
+            
+            let inBodyPart = skeletonModel.getBodyPartsFromAbsolutePosition
+            
+            
             self.moved = false
             let (pixels, _) = image.toARGBBitmapData()
             var data = [BodyPartName: (pixel: UnsafeMutablePointer<UInt32>, context: CGContext?)]()
@@ -367,56 +367,13 @@ class SkeletonController: UIViewController {
         .RightUpperArm:  0x00FF7FFF,
     ]
 
-    func reset() {
-        var newJoints = [JointName:CGPoint]()
+    func resetJoints() {
         for joint in JointName.allJoints {
-            newJoints[joint] = jointPoint(joint)
-            print("\(joint):\(newJoints[joint])")
+            skeletonModelJoints[joint] = jointPoint(joint)
+            print("\(joint):\(skeletonModelJoints[joint])")
         }
-        //characterImageView.image!
-        skeletonModel.setParameter(characterImageView.frame.origin,image: characterSkin)
-        skeletonModel.setJointsPosition(newJoints)
     }
     
-    func skeletonModalUpdateTest() {
-        print("-------------")
-        reset()
-        print("setSkeletonModel!")
-        print("Controller: frame.origin: \(characterImageView.frame.origin)")
-        print("Controller: frame.center: \(characterImageView.frame.center)")
-        print("Controller: image.size: \(characterImageView.image?.size)")
-        skeletonModel.performClassifyJointsPerPixel()
-        print("[perform finish!]")
-        if skeletonModel.getSkeletonModelInitValid() == true {
-        print("Skeleton: matrix size: (\(skeletonModel.matrix.count),\(skeletonModel.matrix[0].count))")
-        print("Skeleton: color size: (\(skeletonModel.R.count),\(skeletonModel.R[0].count))")
-        } else {
-            print("Skeleton: matrix & color : empty")
-        }
-        print("Skeleton: Height: \(skeletonModel.matrixHeight)")
-        print("Skeleton: Width: \(skeletonModel.matrixWidth)")
-        print("-------------")
-    }
-
-    @IBOutlet var colorTestTapGesture: UITapGestureRecognizer!
-    
-    @IBAction func colorTestAction(sender: UITapGestureRecognizer) {
-        print("[single tap test]")
-        let relativeTapPosition = sender.locationInView(characterImageView)
-        let absoluteTapPosition = sender.locationInView(skeletonView)
-        let offset = skeletonModel.positionOffset
-        print("relative: \(relativeTapPosition)), \(skeletonModel.getColorFromRelativePosition(relativeTapPosition))")
-        print("absolute: \(absoluteTapPosition)), \(skeletonModel.getColorFromAbsolutePosition(absoluteTapPosition))")
-        let Y = Int(relativeTapPosition.y)
-        let X = Int(relativeTapPosition.x)
-        if Y >= 0 && Y < skeletonModel.matrixHeight && X >= 0 && X < skeletonModel.matrixWidth {
-            print("bodyPartName: \(skeletonModel.matrix[Y][X])")
-        } else {
-            print("bodyPartName: [out of index]")
-        }
-        print("offset:\(offset)")
-        print("[single tap test end]")
-    }
 }
 
 
