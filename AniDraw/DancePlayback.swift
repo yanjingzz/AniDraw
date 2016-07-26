@@ -11,7 +11,7 @@ import Foundation
 class DancePlayback {
     
     private var keyframes = [Keyframe]()
-    private var previousPosture = Posture.idle
+    var previousPosture = Posture.idle
     private var _totalTime: NSTimeInterval = 0.0
     private var currentPassTime : NSTimeInterval = 0.0
     var totalTime: NSTimeInterval {

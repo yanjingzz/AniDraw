@@ -10,7 +10,7 @@ import UIKit
 
 class DrawView: UIView{
 
-    var tool: DrawingTool?
+    var tool: DrawingTool = .Pencil
     var color: UIColor = UIColor.blackColor()
     
     private var path: UIBezierPath?
@@ -59,7 +59,21 @@ class DrawView: UIView{
             return UIBezierPath(ovalInRect: rect1)
         }
     }
-    
+    private var pointWidth: CGFloat {
+        switch tool {
+        case .Pencil:
+            return 2.0
+        case .Pen:
+            return 2.0
+        case .Eraser:
+            return 10
+        case .Crayon:
+            return 7.0
+        default:
+            return 0
+
+        }
+    }
 
     
     // MARK: - drawing
@@ -69,12 +83,12 @@ class DrawView: UIView{
         drawPath()
     }
     func drawPath() {
-        switch tool ?? .Pencil {
+        switch tool {
         case .Eraser:
             path?.fillWithBlendMode(CGBlendMode.Clear, alpha: 1)
         case .Brush:
             color.setFill()
-            path?.fillWithBlendMode(CGBlendMode.Multiply, alpha: 0.5)
+            path?.fillWithBlendMode(CGBlendMode.Multiply, alpha: 0.8)
         case .Crayon:
             color.setFill()
             path?.fillWithBlendMode(CGBlendMode.Darken, alpha: 1)
@@ -88,37 +102,84 @@ class DrawView: UIView{
     
     @IBAction private func drawDotforTapRecognizer(recognizer: UITapGestureRecognizer) {
         let p = recognizer.locationInView(self)
-        let width:CGFloat = 5.0
+        let width:CGFloat = pointWidth
         let current = PointWithWidth(point: p, width: width)
         path = current.path
         finishStroke()
     }
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //employed to remedy the pan recognizer delay
+        guard touches.count == 1 else {
+            return
+        }
+        let touch = touches.first!
+        let current = PointWithWidth(point: touch.locationInView(self), width: pointWidth)
+        if !points.isEmpty {
+            points.removeAll()
+        }
+        points.append(current)
+        path = current.path
+    }
+    
     
     @IBAction private func drawStrokeForPanRecognizer(recognizer: UIPanGestureRecognizer) {
         let p = recognizer.locationInView(self)
         let v = recognizer.velocityInView(self)
         let width = strokeWidthFromSpeed(v.length())
         let current = PointWithWidth(point: p, width: width)
-        if points.isEmpty {
-            points.append(current)
-        } else if (points.last!.point - p).length() > Constants.PointsDistanceThreshold {
-            points.append(current)
+        if points.isEmpty
+            || (points.last!.point - p).length() > Constants.PointsDistanceThreshold {
             
+            points.append(current)
+        }
+        switch tool {
+        case .Brush:
+            path = connectPointsToFill()
+        default:
+            path = connectPointsToStroke()
+        }
+        
+        setNeedsDisplay()
+        if recognizer.state == .Ended || recognizer.state == .Cancelled {
+            finishStroke()
+        }
+    }
+    
+    func connectPointsToFill() -> UIBezierPath {
+        guard points.count >= 3 else {
+            print("drawView pan gesture recognizer points[] empty!")
+            return UIBezierPath()
+        }
+        let path = UIBezierPath()
+        let firstMidPoint = (points[0].point + points[1].point) / 2
+        path.moveToPoint(points[0].point)
+        path.addLineToPoint(firstMidPoint)
+        for i in 1 ..< points.count - 1 {
+            let midPoint = (points[i].point + points[i+1].point) / 2
+            path.addQuadCurveToPoint(midPoint, controlPoint: points[i].point)
+        }
+        path.addLineToPoint(points.last!.point)
+        path.closePath()
+        return path
+        
+        
+    }
+
+    func connectPointsToStroke() -> UIBezierPath {
+        guard let current = points.last else {
+            print("drawView pan gesture recognizer points[] empty!")
+            return UIBezierPath()
         }
         
         switch points {
-        case _ where points.isEmpty:
-            print("drawView pan gesture recognizer points[] empty!")
-            break
         case _ where points.count == 1:
-            let current = PointWithWidth(point: p, width: width)
-            path = current.path
+            return current.path
             
         case _ where points.count == 2:
             let path = UIBezierPath()
             let prev = points[0]
             let middlePoint = PointWithWidth.average(current, prev)
-            let dir = p - prev.point
+            let dir = current.point - prev.point
             let prevEndPoints = endPoints(at: prev, perpTo: dir)
             let currentEndPoints = endPoints(at: middlePoint, perpTo: dir)
             
@@ -128,10 +189,11 @@ class DrawView: UIView{
             let off0 = dir.normalized() * prev.width * Constants.bezierArcConstant
             path.addCurveToPoint(currentEndPoints.0, controlPoint1: currentEndPoints.1 + off0, controlPoint2: prevEndPoints.0 + off0)
             path.addLineToPoint(prevEndPoints.0)
-            let off1 = dir.normalized() * width * Constants.bezierArcConstant
+            let off1 = dir.normalized() * current.width * Constants.bezierArcConstant
             path.addCurveToPoint(prevEndPoints.1, controlPoint1: prevEndPoints.0 - off1, controlPoint2: prevEndPoints.1 - off1)
             path.closePath()
-            self.path = path
+            return path
+            
         default:
             let path = UIBezierPath()
             
@@ -184,16 +246,10 @@ class DrawView: UIView{
                 path.addQuadCurveToPoint(m1Ends.1, controlPoint: controlEndPoints.1)
             }
             path.closePath()
-            self.path = path
+            return path
         }
-       
-        setNeedsDisplay()
-        if recognizer.state == .Ended || recognizer.state == .Cancelled {
-            finishStroke()
-        }
+
     }
-    
-    
     private func endPoints(at pw: PointWithWidth, perpTo direction: CGPoint)  -> (CGPoint, CGPoint) {
         let p = pw.point
         let width = pw.width
@@ -280,6 +336,8 @@ class DrawView: UIView{
         setNeedsDisplay()
         return true
     }
+    
+    
     
 }
 

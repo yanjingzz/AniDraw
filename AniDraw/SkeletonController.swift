@@ -18,7 +18,7 @@ class SkeletonController: UIViewController {
     @IBAction private func goBack(sender: UIButton) {
         dismissViewControllerAnimated(true) { }
     }
-    
+    let jointLabel = UILabel()
     var editingCharacter: CharacterStorage?
     
     var skeletonModel : SkeletonModel!
@@ -31,8 +31,10 @@ class SkeletonController: UIViewController {
             characterSkin = characterImageView.image?.trimToNontransparent()
         }
         //skeletonModel initialize
+        jointLabel.hidden = true
         skeletonModel = SkeletonModel()
         SkeletonModel.lastUpdateTimeStamp = NSDate()
+        view.addSubview(jointLabel)
         // Do any additional setup after loading the view.
     }
     
@@ -44,7 +46,7 @@ class SkeletonController: UIViewController {
     
     // MARK: - Move Points
     
-    private var movedView : UIView?
+    private var movedView : JointView?
     private var moved = false
    
     
@@ -52,13 +54,17 @@ class SkeletonController: UIViewController {
         switch recognizer.state {
         case .Began:
             let p = recognizer.locationInView(skeletonView)
-            if let view = view.hitTest(p, withEvent: nil) where view != skeletonView {
-                
-                print("drag end~")
+            if let view = view.hitTest(p, withEvent: nil) as? JointView {
                 SkeletonModel.lastUpdateTimeStamp = NSDate()
                 
                 moved = true
                 movedView = view
+                jointLabel.hidden = false
+                jointLabel.text = view.jointName.rawValue
+                jointLabel.sizeToFit()
+                jointLabel.frame.center = view.frame.center - CGPoint(x: 0, y: 30)
+                jointLabel.setNeedsDisplay()
+                
             }
         case .Changed:
             if let view = movedView {
@@ -67,12 +73,14 @@ class SkeletonController: UIViewController {
                 let origin = p - CGPoint(x: SkeletonView.Constants.JointSize / 2, y: SkeletonView.Constants.JointSize / 2)
                 view.frame = CGRect(origin: origin, size: view.frame.size)
                 skeletonView.setNeedsDisplay()
+                jointLabel.frame.center = view.frame.center - CGPoint(x: 0, y: 30)
             }
         case .Ended:
             if movedView != nil {
                 self.reset()
                 updateImage()
             }
+            jointLabel.hidden = true
             fallthrough
         default:
             movedView = nil
@@ -330,37 +338,6 @@ class SkeletonController: UIViewController {
                 self.segmentedPartsFrame[part] = convertedRect
                 free(data[part]!.pixel)
             }
-            
-//            for y in 0..<height {
-//                for x in 0..<width {
-//                    if self.moved == true {
-//                        return
-//                    }
-//                    let p = self.characterImageView.convertPoint(CGPoint(x:x,y:y), toView: self.skeletonView)
-//                    let pixel = pixels[width * y + x]
-//                    if pixel.alphaValue != 0 {
-//                        let part = inBodyPart(p)
-//                        data[part]?.pixel[width * y + x] = pixel
-//                        lowX[part] = x < lowX[part] ? x : lowX[part]
-//                        highX[part] = x > highX[part] ? x : highX[part]
-//                        lowY[part] = y < lowY[part] ? y : lowY[part]
-//                        highY[part] = y > highY[part] ? y : highY [part]
-//                    }
-//                }
-//            }
-//            free(pixels)
-//            for part in BodyPartName.allParts {
-//                let image = CGBitmapContextCreateImage(data[part]?.context)
-//                let newRect = CGRect(x: lowX[part]!, y: lowY[part]!, width: highX[part]!-lowX[part]!, height: highY[part]!-lowY[part]!)
-//                if let imageRef = CGImageCreateWithImageInRect(image, newRect) {
-//                    self.segmentedParts[part] = imageRef
-//                } else {
-//                    print("image not generated for \(part), rectangle is \(newRect)")
-//                }
-//                let convertedRect = CGRect(origin: self.characterImageView.convertPoint(newRect.origin, toView: self.skeletonView), size: newRect.size)
-//                self.segmentedPartsFrame[part] = convertedRect
-//                free(data[part]!.pixel)
-//            }
 
             dispatch_async(dispatch_get_main_queue(), completion)
         }
@@ -369,80 +346,6 @@ class SkeletonController: UIViewController {
     
     func belongsToBodyPart() -> (CGPoint) -> (BodyPartName?,BodyPartName?) {
         return skeletonModel.getJointsFromAbsolutePosition
-//        let neckPoint = jointPoint(.Neck)
-//        let waistPoint = jointPoint(.Waist)
-//        let bodyPoint = (neckPoint+waistPoint)/2
-//        
-//        let leftElbowPoint = jointPoint(.LeftElbow)
-//        let leftShoulderPoint = jointPoint(.LeftShoulder)
-//        let leftWristPoint = jointPoint(.LeftWrist)
-//        let leftHipPoint = jointPoint(.LeftHip)
-//        let leftKneePoint = jointPoint(.LeftKnee)
-//        let leftAnklePoint = jointPoint(.LeftAnkle)
-//        
-//        let rightElbowPoint = jointPoint(.RightElbow)
-//        let rightShoulderPoint = jointPoint(.RightShoulder)
-//        let rightWristPoint = jointPoint(.RightWrist)
-//        let rightHipPoint = jointPoint(.RightHip)
-//        let rightKneePoint = jointPoint(.RightKnee)
-//        let rightAnklePoint = jointPoint(.RightAnkle)
-//        let ret: (CGPoint) -> BodyPartName = {p in
-//            if dot(p-neckPoint,neckPoint - waistPoint) > 0 {
-//                return .Head
-//            }
-//            if dot(p-bodyPoint, (neckPoint - waistPoint).perpendicular) > 0 {
-//                // left body
-//                if dot(p-leftAnklePoint, leftAnklePoint - leftKneePoint) > 0 {
-//                    return .LeftFoot
-//                }
-//                if dot(p-leftElbowPoint,leftElbowPoint - leftShoulderPoint) > 0 &&
-//                    dot(p-leftShoulderPoint, (leftWristPoint - leftElbowPoint).perpendicular) < 0 {
-//                    return .LeftForearm
-//                }
-//                if dot(p-leftKneePoint, leftAnklePoint - leftKneePoint) > 0 {
-//                    // && dot(p-leftAnklePoint, leftAnklePoint - leftKneePoint) <= 0
-//                    return .LeftShank
-//                }
-//                if dot(p-leftHipPoint,  leftKneePoint - leftHipPoint) > 0 {
-//                    // && dot(p-leftKneePoint, leftAnklePoint - leftKneePoint) <= 0
-//                    return .LeftThigh
-//                }
-//                if dot(p-leftShoulderPoint, leftShoulderPoint - bodyPoint) > 0 &&
-//                    dot(p-leftElbowPoint,leftElbowPoint - leftShoulderPoint) <= 0 {
-//                    return .LeftUpperArm
-//                }
-//            
-//            } else {
-//                // right body
-//                if dot(p-rightAnklePoint, rightAnklePoint - rightKneePoint) > 0 {
-//                    return .RightFoot
-//                }
-//                if dot(p-rightElbowPoint,rightElbowPoint - rightShoulderPoint) > 0 &&
-//                    dot(p-rightShoulderPoint, (rightWristPoint - rightElbowPoint).perpendicular) >= 0 {
-//                    return .RightForearm
-//                }
-//                if dot(p-rightKneePoint, rightAnklePoint - rightKneePoint) > 0 {
-//                    // && dot(p-rightAnklePoint, rightAnklePoint - rightKneePoint) <= 0
-//                    return .RightShank
-//                }
-//                if dot(p-rightHipPoint,  rightKneePoint - rightHipPoint) > 0 {
-//                    // && dot(p-rightKneePoint, rightAnklePoint - rightKneePoint) <= 0
-//                    return .RightThigh
-//                }
-//                if dot(p-rightShoulderPoint, rightShoulderPoint - bodyPoint) > 0 &&
-//                    dot(p-rightElbowPoint,rightElbowPoint - rightShoulderPoint) <= 0 {
-//                    return .RightUpperArm
-//                }
-//            }
-//            //Not limbs or head
-//            if dot(p-waistPoint,neckPoint - waistPoint) > 0 {
-//                return .UpperBody
-//            }
-//            return .LowerBody
-//            
-//        }
-//        return ret
-        
     }
     
     let colorForPart: [BodyPartName: UInt32] = [

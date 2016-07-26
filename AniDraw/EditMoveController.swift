@@ -51,6 +51,9 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         scene.characterNode = characterNode
         updateEditView()
         allMoves = Moves.all()
+//        for move in allMoves {
+//            print("\(move.name), \(move.style), \(move.level)")
+//        }
     }
 
     
@@ -85,6 +88,7 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
             danceMove.keyframes[currentIndex].posture = characterNode.posture
         }
         print(danceMove.keyframes)
+        
         scene.playAnimation(danceMove)
         currentIndex = -1
     }
@@ -234,15 +238,15 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
     func nextDanceMove() {
         discardChanges()
         newMoveFlag = false
-        moveIndex += 1
-        if moveIndex >= allMoves.count {
-            moveIndex = 0
-        }
         danceMove = allMoves[moveIndex]
         let name = danceMove.name ?? ""
         nameButton.setTitle("\(danceMove.style)-\(name)", forState: .Normal)
         print("\(name) \(danceMove.level) \(danceMove.style)")
         updateEditView()
+        moveIndex += 1
+        if moveIndex >= allMoves.count {
+            moveIndex = 0
+        }
         currentIndex = -1
     }
     
@@ -256,7 +260,7 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
                 try "\n_ = DanceMove( \nkeyframes:".appendLineToURL(fileurl)
                 try "\(danceMove.keyframes), ".appendLineToURL(fileurl)
                 try "levelOfIntensity: 1, \nstyle: .Generic,".appendLineToURL(fileurl)
-                try "name: \(name))".appendLineToURL(fileurl)
+                try "name: \"\(name)\")".appendLineToURL(fileurl)
             }
             print("\(fileurl)")
         }
@@ -270,7 +274,7 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         let confirmAction = UIAlertAction(title: "Done", style: .Default) { action in
             let name = alert.textFields![0].text ?? ""
             self.writeToFile(name)
-            self.danceMove.managedObjectContext?.performBlockAndWait{
+            self.danceMove.managedObjectContext?.performBlock {
                 self.danceMove.name = name
                 do{
                     try self.danceMove.managedObjectContext?.save()

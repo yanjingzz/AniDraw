@@ -30,30 +30,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let launchedBefore = NSUserDefaults.standardUserDefaults().boolForKey("launchedBefore")
         if launchedBefore  {
             print("Not first launch.")
-//            let fetchRequest = NSFetchRequest(entityName: "DanceMove")
-//            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-//            
-//            do {
-//                try managedObjectContext.executeRequest(deleteRequest)
-//                
-//            } catch let error as NSError {
-//                print(error)
-//            }
-//            GenericMoves.createAll()
-//            EthnicMoves.createAll()
-//            BalletMoves.createAll()
-//            JazzMoves.createAll()
-//            HipHopMoves.createAll()
+            
+//            resetDanceMoveDatabase()
+            
             saveContext()
             
         } else {
             print("First launch, setting NSUserDefault.")
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "launchedBefore")
-            GenericMoves.createAll()
-            EthnicMoves.createAll()
-            BalletMoves.createAll()
-            JazzMoves.createAll()
-            HipHopMoves.createAll()
+            
+            resetDanceMoveDatabase()
+            
             saveContext()
         }
 
@@ -144,7 +131,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    func resetDanceMoveDatabase () {
+        let fileManager = NSFileManager.defaultManager()
+        let fileName = "danceMove.txt"
+        let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last! as NSURL
+        let fileurl =  dir.URLByAppendingPathComponent(fileName)
+        do {
+            try fileManager.removeItemAtURL(fileurl)
+        } catch {
+            print(error)
+        }
+        
+        
+        let fetchRequest = NSFetchRequest(entityName: "DanceMove")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try managedObjectContext.executeRequest(deleteRequest)
+            
+        } catch let error as NSError {
+            print(error)
+        }
+        GenericMoves.createAll()
+        EthnicMoves.createAll()
+        BalletMoves.createAll()
+        JazzMoves.createAll()
+        HipHopMoves.createAll()
+    }
 
 
 }
