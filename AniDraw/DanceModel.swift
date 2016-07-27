@@ -14,7 +14,7 @@ import AVFoundation
 
 class DanceModel: NSObject, MyAudioReceiverDelegate {
 //    let danceMoveList = MovesStorage.AllMoves
-    let danceMoveList = Moves.dictOfStyle(.Generic)
+    let danceMoveList = Moves.dictOfStyle(.Ballet)
     let dancePlayback = DancePlayback()
     let beatTracker = BeatTracker(total: Const.BeatTrackerTotal)
     var dataSet : [[CGFloat]] = []
@@ -32,15 +32,16 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
     
     var currentTimeFactor: Double {
         
-        var factor = currentTempo / Const.OriginalTempo
-        while factor > sqrt(2.0) {
-            factor /= 2
-        }
-        while factor <= sqrt(0.5) {
-            factor *= 2
-        }
-
-        return factor
+//        var factor = currentTempo / Const.OriginalTempo
+//        while factor > sqrt(2.0) {
+//            factor /= 2
+//        }
+//        while factor <= sqrt(0.5) {
+//            factor *= 2
+//        }
+//
+//        return factor
+        return 1
         
     }
     
@@ -85,7 +86,7 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
         let decibel_index = (decibel - Const.DecibelLowerBound) * Double(Const.MaxLevel) / Const.DecibelRange
         
         let level = Int(max(pitch_index, decibel_index)).clamped(1, 5)
-//        print("pick level: pitch \(pitch_index) decibel \(decibel_index): \(level)")
+        print("pick level: pitch \(pitch_index) decibel \(decibel_index): \(level)")
         return level
         
     }
@@ -103,7 +104,7 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
         if index >= lastIndex[level] {
             index += 1
         }
-//        print("pick index: max \(max): \(index)")
+        print("pick index: max \(max): \(index)")
         
         return index
     
