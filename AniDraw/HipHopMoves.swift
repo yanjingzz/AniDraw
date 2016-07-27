@@ -153,7 +153,7 @@ struct HipHopMoves {
                         position: CGPoint(x: 0.0, y: 0.0)), 
                     angleCurve: .Linear, 
                     positionCurve: .EaseIn)], 
-            levelOfIntensity: 1,
+            levelOfIntensity: 4,
             style: .HipHop,
             name: "Arms Wave")
         
@@ -260,8 +260,8 @@ struct HipHopMoves {
                         position: CGPoint(x: 78.0, y: -2.0)),
                     angleCurve: .EaseIn,
                     positionCurve: .EaseIn)],
-            levelOfIntensity: 1,
-            style: .Generic,
+            levelOfIntensity: 2,
+            style: .HipHop,
             name: "Arm Circle")
         
         _ = DanceMove(
@@ -467,8 +467,8 @@ struct HipHopMoves {
                         position: CGPoint(x: 24.5, y: 4.5)), 
                     angleCurve: .EaseInOut, 
                     positionCurve: .EaseInOut)], 
-            levelOfIntensity: 1, 
-            style: .Generic,
+            levelOfIntensity: 3,
+            style: .HipHop,
             name: "Shoulder Move")
         
         _ = DanceMove( 
@@ -554,8 +554,8 @@ struct HipHopMoves {
                         position: CGPoint(x: 0.0, y: 0.0)), 
                     angleCurve: .EaseIn, 
                     positionCurve: .EaseIn)], 
-            levelOfIntensity: 1, 
-            style: .Generic,
+            levelOfIntensity: 2,
+            style: .HipHop,
             name: "Up & Down Step")
         
         _ = DanceMove( 
@@ -701,77 +701,10 @@ struct HipHopMoves {
                         position: CGPoint(x: 35.5, y: 19.0)), 
                     angleCurve: .EaseInOut, 
                     positionCurve: .EaseInOut)], 
-            levelOfIntensity: 1, 
-            style: .Generic,
+            levelOfIntensity: 3,
+            style: .HipHop,
             name: "Cycle Step")
-        
-        _ = DanceMove( 
-            keyframes:
-            [
-                Keyframe( 
-                    time: 0.5, 
-                    posture: Posture( 
-                        angles: [
-                            .LeftUpperArm: -1.39878, 
-                            .LeftShank: 0.0, 
-                            .RightFoot: 0.0, 
-                            .LeftThigh: -1.41992, 
-                            .LowerBody: -0.0558611, 
-                            .RightShank: 0.0, 
-                            .Head: 0.393843, 
-                            .RightForearm: 0.0, 
-                            .LeftFoot: 0.0, 
-                            .RightUpperArm: 2.13742, 
-                            .UpperBody: 0.0558611, 
-                            .RightThigh: 1.51301, 
-                            .LeftForearm: 0.0], 
-                        position: CGPoint(x: 171.667, y: -132.167)), 
-                    angleCurve: .EaseInOut, 
-                    positionCurve: .CubicEaseInOut), 
-                Keyframe( 
-                    time: 0.25, 
-                    posture: Posture( 
-                        angles: [
-                            .LeftUpperArm: -1.39878, 
-                            .LeftShank: 0.0, 
-                            .RightFoot: 0.0, 
-                            .LeftThigh: -1.41992, 
-                            .LowerBody: -0.0558611, 
-                            .RightShank: 0.0, 
-                            .Head: 0.393843, 
-                            .RightForearm: 0.0, 
-                            .LeftFoot: 0.0, 
-                            .RightUpperArm: 2.13742, 
-                            .UpperBody: 0.0558611, 
-                            .RightThigh: 1.51301, 
-                            .LeftForearm: 0.0], 
-                        position: CGPoint(x: 171.667, y: -132.167)), 
-                    angleCurve: .EaseInOut, 
-                    positionCurve: .EaseInOut), 
-                Keyframe( 
-                    time: 0.25, 
-                    posture: Posture( 
-                        angles: [
-                            .LeftUpperArm: 0.0, 
-                            .LeftShank: 0.0, 
-                            .RightFoot: 0.0, 
-                            .LeftThigh: 0.0, 
-                            .LowerBody: 0.0, 
-                            .RightShank: 0.0, 
-                            .Head: 0.0, 
-                            .RightForearm: 0.0, 
-                            .LeftFoot: 0.0, 
-                            .RightUpperArm: 0.0, 
-                            .UpperBody: 0.0, 
-                            .RightThigh: 0.0, 
-                            .LeftForearm: 0.0], 
-                        position: CGPoint(x: 0.0, y: 0.0)), 
-                    angleCurve: .EaseInOut, 
-                    positionCurve: .EaseInOut)], 
-            levelOfIntensity: 1, 
-            style: .Generic,
-            name: "Split")
-        
+
         
         _ = DanceMove(
             keyframes:
@@ -857,7 +790,7 @@ struct HipHopMoves {
                     angleCurve: .EaseIn,
                     positionCurve: .EaseIn)],
             levelOfIntensity: 1,
-            style: .Generic,
+            style: .HipHop,
             name: "Up & Down")
         
         _ = DanceMove(
@@ -944,7 +877,7 @@ struct HipHopMoves {
                     angleCurve: .EaseIn,
                     positionCurve: .EaseIn)],
             levelOfIntensity: 1,
-            style: .Generic,
+            style: .HipHop,
             name: "Up & Down W/ Hug")
         
         _ = DanceMove(
@@ -1070,8 +1003,8 @@ struct HipHopMoves {
                         position: CGPoint(x: 0.0, y: 0.0)), 
                     angleCurve: .EaseIn, 
                     positionCurve: .EaseIn)], 
-            levelOfIntensity: 1, 
-            style: .Generic,
+            levelOfIntensity: 1,
+            style: .HipHop,
             name: "Up & Down Double")
         
         _ = DanceMove(
@@ -1177,8 +1110,8 @@ struct HipHopMoves {
                         position: CGPoint(x: 187.5, y: 7.5)), 
                     angleCurve: .EaseIn, 
                     positionCurve: .EaseIn)], 
-            levelOfIntensity: 1, 
-            style: .Generic,
+            levelOfIntensity: 2,
+            style: .HipHop,
             name: "Hop And Down")
 
 
