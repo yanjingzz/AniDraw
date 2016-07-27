@@ -62,16 +62,15 @@ class DrawView: UIView{
     private var pointWidth: CGFloat {
         switch tool {
         case .Pencil:
-            return 2.0
+            return 3
         case .Pen:
-            return 2.0
+            return 7
         case .Eraser:
-            return 10
+            return 15
+        case .Brush:
+            return 20
         case .Crayon:
-            return 7.0
-        default:
-            return 0
-
+            return 20
         }
     }
 
@@ -118,7 +117,7 @@ class DrawView: UIView{
             points.removeAll()
         }
         points.append(current)
-        path = current.path
+//        path = current.path
     }
     
     
@@ -263,15 +262,15 @@ class DrawView: UIView{
         let t = tool ?? .Pencil
         switch t {
         case .Pencil:
-            return (speed / 500).clamped(1.0, 10.0)
+            return (speed / 500).clamped(3.0, 20.0)
         case .Pen:
-            return (100 / speed).clamped(1.0, 3.0)
+            return (speed / 1000).clamped(7.0, 10.0)
         case .Eraser:
             return (speed / 50).clamped(10.0, 100.0)
         case .Brush:
             return (speed / 1000).clamped(20.0, 30.0)
-        default:
-            return (speed / 1000).clamped(7.0, 10.0)
+        case .Crayon:
+            return (speed / 1000).clamped(20, 30)
         }
     }
     

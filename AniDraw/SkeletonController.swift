@@ -20,7 +20,7 @@ class SkeletonController: UIViewController {
     }
     
     var editingCharacter: CharacterStorage?
-    
+    let jointLabel = UILabel()
     var skeletonModelJoints = [JointName:CGPoint]()
     
     override func viewDidLoad() {
@@ -30,14 +30,10 @@ class SkeletonController: UIViewController {
         } else {
             characterSkin = characterImageView.image?.trimToNontransparent()
         }
+        jointLabel.hidden = true
+        view.addSubview(jointLabel)
         // Do any additional setup after loading the view.
     }
-    
-    //    override func viewDidLayoutSubviews() {
-    //        super.viewDidLayoutSubviews()
-    ////        self.reset()
-    ////        updateImage()
-    //    }
     
     // MARK: - Move Points
     
@@ -49,25 +45,32 @@ class SkeletonController: UIViewController {
         switch recognizer.state {
         case .Began:
             let p = recognizer.locationInView(skeletonView)
-            if let view = view.hitTest(p, withEvent: nil) where view != skeletonView {
+            if let view = view.hitTest(p, withEvent: nil) as? JointView {
                 
                 SkeletonModel.lastUpdateTimeStamp = NSDate()
                 
                 moved = true
                 movedView = view
+                jointLabel.hidden = false
+                jointLabel.text = view.jointName.rawValue
+                jointLabel.sizeToFit()
+                jointLabel.center = view.center - CGPoint(x: 0, y: 30)
+                jointLabel.setNeedsDisplay()
             }
         case .Changed:
             if let view = movedView {
                 moved = true
                 let p = recognizer.locationInView(skeletonView)
-                view.frame.center = p
+                view.center = p
                 skeletonView.setNeedsDisplay()
+                jointLabel.center = view.center - CGPoint(x: 0, y: 30)
             }
         case .Ended:
             if movedView != nil {
                 self.resetJoints()
                 updateImage()
             }
+            jointLabel.hidden = true
             fallthrough
         default:
             movedView = nil
