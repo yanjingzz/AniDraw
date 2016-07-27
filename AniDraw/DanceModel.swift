@@ -14,7 +14,7 @@ import AVFoundation
 
 class DanceModel: NSObject, MyAudioReceiverDelegate {
 //    let danceMoveList = MovesStorage.AllMoves
-    let danceMoveList = Moves.dictOfStyle(.Ballet)
+    let danceMoveList = Moves.dictOfStyle(.HipHop)
     let dancePlayback = DancePlayback()
     let beatTracker = BeatTracker(total: Const.BeatTrackerTotal)
     var dataSet : [[CGFloat]] = []
@@ -164,8 +164,8 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
         
         if data.isSinging == false {
             if isSinging == true {
-                currentLevel = 0
-                currentIndex = -1
+//                currentLevel = 0
+//                currentIndex = -1
                 lastEnd = data.time
                 isSinging = false
             }

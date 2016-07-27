@@ -560,8 +560,8 @@ class SkeletonModel {
         var X = srcX
         var Y = srcY
         
-        var upBound = 0
-        var downBound = matrixHeight-1
+        let upBound = 0
+        let downBound = matrixHeight-1
         
         var tmpRadius = radius
         while X != destX {
