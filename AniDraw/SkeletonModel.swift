@@ -9,7 +9,6 @@
 import Foundation
 
 class SkeletonModel {
-    var isPerformClassifyPixels : Bool = false
     var isModelValid : Bool = false
     var positionOffset : CGPoint = CGPoint(x:0,y:0)
     //joints' position is related to the image instead of view
@@ -50,24 +49,34 @@ class SkeletonModel {
         ]
     
     var fillPartInSequence : [BodyPartName] = [
-        .UpperBody,
-        .LowerBody,
-        .LeftUpperArm,
-        .RightUpperArm,
         .LeftThigh,
         .RightThigh,
         .LeftShank,
         .RightShank,
         .LeftFoot,
         .RightFoot,
+        .LeftUpperArm,
+        .RightUpperArm,
         .LeftForearm,
         .RightForearm,
+        .UpperBody,
+        .LowerBody,
         .Head
         ]
+    
+    var limbs : [BodyPartName] = [
+        .LeftUpperArm,
+        .LeftForearm,
+        .RightUpperArm,
+        .RightForearm,
+        .LeftThigh,
+        .LeftShank,
+        .RightThigh,
+        .RightShank
+    ]
 
     
     func performClassifyJointsPerPixel() {
-        isPerformClassifyPixels = true
         print("perform start!")
         
         if isModelValid == true {
@@ -183,16 +192,12 @@ class SkeletonModel {
         
         performJudgePixelsAlone(center)
         
-        isPerformClassifyPixels = false
         print("perform end")
     }
     
     func getBodyPartsFromAbsolutePosition(absolutePosition: CGPoint) -> (BodyPartName?,BodyPartName?) {
         if isModelValid == false {
             return (nil,nil)
-        }
-        if isPerformClassifyPixels == true {
-            return (.Head,nil)
         }
         let relativeX = Int(absolutePosition.x - positionOffset.x)
         let relativeY = Int(absolutePosition.y - positionOffset.y)
@@ -202,9 +207,6 @@ class SkeletonModel {
     func getBodyPartsFromRelativePosition(relativePosition: CGPoint) -> (BodyPartName?,BodyPartName?) {
         if isModelValid == false {
             return (nil,nil)
-        }
-        if isPerformClassifyPixels == true {
-            return (.Head,nil)
         }
         return matrix[Int(relativePosition.y)][Int(relativePosition.x)]
     }
@@ -457,17 +459,18 @@ class SkeletonModel {
         
         var leftBound = 0
         var rightBound = matrixWidth-1
-        
-        if part == BodyPartName.UpperBody {
-            leftBound = Int(joints[.LeftShoulder]!.x)
-            rightBound = Int(joints[.RightShoulder]!.x)
-        }
-        
+
+        let initialdx = sqrt(CGFloat(radius * radius) / (CGFloat(1) + dif * dif))
+                
         var tmpRadius = radius
         while Y != destY {
+            if limbs.contains(part) == true {
+                leftBound = max(X - Int(initialdx),0)
+                rightBound = min(X + Int(initialdx),matrixWidth-1)
+            }
             //from center to leftSide
             let dx = sqrt(CGFloat(tmpRadius * tmpRadius) / (CGFloat(1) + dif * dif))
-            var leftX = max(X - Int(dx),0)
+            var leftX = max(X - Int(dx),leftBound)
             if needAbort() == true {return}
             var tmpX = leftX - 1
             var tmpY = Y + Int(dif*CGFloat(tmpX-X))
@@ -489,7 +492,8 @@ class SkeletonModel {
             while tmpX != X {
                 if tmpY >= 0 && tmpY < matrixHeight {
                     let part1 = matrix[tmpY][tmpX].0
-                    if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+//                    if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                    if part1 == nil
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
                 }
                 tmpX += 1
@@ -497,11 +501,12 @@ class SkeletonModel {
             }
             if tmpY >= 0 && tmpY < matrixHeight {
                 let part1 = matrix[tmpY][tmpX].0
-                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+//                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                if part1 == nil
                 {appendBodyPartName(tmpX, y: tmpY, part: part)}
             }
             //from center to rightSide(as to leftSide)
-            var rightX = min(X + Int(dx),matrixWidth-1)
+            var rightX = min(X + Int(dx),rightBound)
             if needAbort() == true {return}
             tmpX = rightX + 1
             tmpY = Y + Int(dif*CGFloat(tmpX-X))
@@ -523,7 +528,8 @@ class SkeletonModel {
             while tmpX != X {
                 if tmpY >= 0 && tmpY < matrixHeight {
                     let part1 = matrix[tmpY][tmpX].0
-                    if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+//                    if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                    if part1 == nil
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
                 }
                 tmpX -= 1
@@ -531,7 +537,8 @@ class SkeletonModel {
             }
             if tmpY >= 0 && tmpY < matrixHeight {
                 let part1 = matrix[tmpY][tmpX].0
-                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+//                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                if part1 == nil
                 {appendBodyPartName(tmpX, y: tmpY, part: part)}
             }
             var leftPoint = CGPoint(x:leftX,y:Y+Int(CGFloat(leftX-X)*dif))
@@ -540,11 +547,8 @@ class SkeletonModel {
             rightPoint = makePointValid(rightPoint)
             tmpRadius = Int((leftPoint - rightPoint).length()/2)
             
-            print("(\(X),\(Y)),\(leftPoint),\(rightPoint),\(tmpRadius))")
             
-            if tmpRadius == 0 {
-                print("tmpRadius == 0 : \(part)")
-                return}
+            if tmpRadius == 0 {return}
             if Y < destY {
                 Y += 1
                 X = srcX - Int(CGFloat(Y-srcY)*dif)
@@ -560,14 +564,22 @@ class SkeletonModel {
         var X = srcX
         var Y = srcY
         
+        let initialdy = sqrt(CGFloat(radius*radius) / (CGFloat(1) + gradient * gradient))
+        
         var upBound = 0
         var downBound = matrixHeight-1
         
         var tmpRadius = radius
         while X != destX {
+
+            if limbs.contains(part) == true {
+                upBound = max(0,Y - Int(initialdy))
+                downBound = min(Y + Int(initialdy),matrixHeight-1)
+            }
+            
             let dy = sqrt(CGFloat(tmpRadius*tmpRadius) / (CGFloat(1) + gradient * gradient))
             //from center to upSide
-            var upY = max(0,Y - Int(dy))
+            var upY = max(upBound,Y - Int(dy))
             if needAbort() == true {return}
             var tmpY = upY - 1
             var tmpX = X - Int(gradient*CGFloat(tmpY - Y))
@@ -589,7 +601,8 @@ class SkeletonModel {
             while tmpY != Y {
                 if tmpX >= 0 && tmpX <= matrixWidth-1 {
                     let part1 = matrix[tmpY][tmpX].0
-                    if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+//                    if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                    if part1 == nil
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
                 }
                 tmpY += 1
@@ -597,11 +610,12 @@ class SkeletonModel {
             }
             if tmpX >= 0 && tmpX <= matrixWidth-1 {
                 let part1 = matrix[tmpY][tmpX].0
-                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+//                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                if part1 == nil
                 {appendBodyPartName(tmpX, y: tmpY, part: part)}
             }
             //from center to downSide
-            var downY = min(Y + Int(dy),matrixHeight-1)
+            var downY = min(Y + Int(dy),downBound)
             if needAbort() == true {return}
             tmpY = downY + 1
             tmpX = X - Int(gradient*CGFloat(tmpY - Y))
@@ -623,7 +637,8 @@ class SkeletonModel {
             while tmpY != Y {
                 if tmpX >= 0 && tmpX <= matrixWidth-1 {
                     let part1 = matrix[tmpY][tmpX].0
-                    if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+//                    if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                    if part1 == nil
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
                 }
                 tmpY -= 1
@@ -631,7 +646,8 @@ class SkeletonModel {
             }
             if tmpX >= 0 && tmpX <= matrixWidth-1 {
                 let part1 = matrix[tmpY][tmpX].0
-                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+//                if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
+                if part1 == nil
                 {appendBodyPartName(tmpX, y: tmpY, part: part)}
             }
             var upPoint = CGPoint(x:X+Int(gradient*CGFloat(Y-upY)),y:upY)
@@ -640,11 +656,7 @@ class SkeletonModel {
             downPoint = makePointValid(downPoint)
             tmpRadius = Int((upPoint - downPoint).length()/2)
             
-            print("(\(X),\(Y)),\(upPoint),\(downPoint),\(tmpRadius))")
-
-            if tmpRadius == 0 {
-                print("tmpRadius == 0 : \(part)")
-                return}
+            if tmpRadius == 0 {return}
 
             if X < destX {
                 X += 1
@@ -756,18 +768,20 @@ class SkeletonModel {
     //for Part1:   circle
     private func setJointBasedCircle(radius:Int,center:CGPoint,addPart:(BodyPartName?,BodyPartName?)) {
         if radius == 0 {return}
-        let upperBodyName = addPart.0
-        let lowerBodyName = addPart.1
+        let part1 = addPart.0
+        let part2 = addPart.1
+        let alpha = A[Int(center.y)][Int(center.x)]
 //        if addPart.count == 0 {return}
         for offsetX in -radius...radius {
             for offsetY in -radius...radius {
                 if needAbort() == true {return}
-                if pow(CGFloat(offsetX),2.0) + pow(CGFloat(offsetY),2.0) > pow(CGFloat(radius),2) {continue}
+                let distance = CGPoint(x:offsetX,y:offsetY).length()
+                if  distance > CGFloat(radius) {continue}
                 let X = Int(center.x) + offsetX, Y = Int(center.y) + offsetY
                 if X < 0 || X > matrixWidth-1 || Y < 0 || Y > matrixHeight-1 {continue}
                 if A[Y][X] == 0 {continue}
-                if upperBodyName != nil {appendBodyPartName(X, y: Y, part: upperBodyName!)}
-                if lowerBodyName != nil {appendBodyPartName(X, y: Y, part: lowerBodyName!)}
+                if part1 != nil {appendBodyPartName(X, y: Y, part: part1!)}
+                if part2 != nil && alpha == 255 {appendBodyPartName(X, y: Y, part: part2!)}
             }
         }
     }
@@ -781,9 +795,7 @@ class SkeletonModel {
         if upperBodyName != nil {
             for offsetY in 0...radius {
                 for offsetX in -radius...radius {
-                    if selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {
-                        return
-                    }
+                    if needAbort() == true {return}
                     let valueY = Double(-offsetY)
                     if valueY >= k * Double(offsetX*offsetX-radius*radius) {
                         let X = Int(center.x) + offsetX, Y = Int(center.y) + offsetY
@@ -796,9 +808,7 @@ class SkeletonModel {
         if lowerBodyName != nil {
             for offsetY in -radius...0 {
                 for offsetX in -radius...radius {
-                    if selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {
-                        return
-                    }
+                    if needAbort() == true {return}
                     let valueY = Double(-offsetY)
                     if valueY <= -k * Double(offsetX*offsetX-radius*radius) {
                         let X = Int(center.x) + offsetX, Y = Int(center.y) + offsetY
