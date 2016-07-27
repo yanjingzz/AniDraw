@@ -49,6 +49,8 @@ class SkeletonModel {
         ]
     
     var fillPartInSequence : [BodyPartName] = [
+        .UpperBody,
+        .LowerBody,
         .LeftThigh,
         .RightThigh,
         .LeftShank,
@@ -59,8 +61,6 @@ class SkeletonModel {
         .RightUpperArm,
         .LeftForearm,
         .RightForearm,
-        .UpperBody,
-        .LowerBody,
         .Head
         ]
     
@@ -461,7 +461,12 @@ class SkeletonModel {
         var rightBound = matrixWidth-1
 
         let initialdx = sqrt(CGFloat(radius * radius) / (CGFloat(1) + dif * dif))
-                
+        
+        if part == BodyPartName.UpperBody {
+            leftBound = Int(joints[.LeftShoulder]!.x)
+            rightBound = Int(joints[.RightShoulder]!.x)
+        }
+        
         var tmpRadius = radius
         while Y != destY {
             if limbs.contains(part) == true {
