@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if launchedBefore  {
             print("Not first launch.")
             
-//            resetDanceMoveDatabase()
+            resetDanceMoveDatabase()
             
             saveContext()
             
@@ -152,11 +152,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let error as NSError {
             print(error)
         }
-        GenericMoves.createAll()
-        EthnicMoves.createAll()
+//        GenericMoves.createAll()
+//        EthnicMoves.createAll()
         BalletMoves.createAll()
-        JazzMoves.createAll()
-        HipHopMoves.createAll()
+//        JazzMoves.createAll()
+//        HipHopMoves.createAll()
     }
 
 
