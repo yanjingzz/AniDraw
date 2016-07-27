@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
             endingLineNumber = "77"
-            landmarkName = "receiverDidReceiveData(_:)"
+            landmarkName = "pickIndex(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -102,12 +102,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AniDraw/SkeletonModel.swift"
-            timestampString = "490952532.785895"
+            timestampString = "491232142.819732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1418"
-            endingLineNumber = "1418"
-            landmarkName = "loadColorsFromImage(_:)"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
+            landmarkName = "performClassifyJointsPerPixel()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -118,11 +118,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AniDraw/SkeletonController.swift"
-            timestampString = "490849506.20124"
+            timestampString = "491231681.646223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "moveJointsWithPanRecognizer(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -134,11 +134,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AniDraw/SkeletonController.swift"
-            timestampString = "490851667.199628"
+            timestampString = "491233552.093002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "328"
-            endingLineNumber = "328"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "segmentParts(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -150,27 +150,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AniDraw/SkeletonModel.swift"
-            timestampString = "490952532.785895"
+            timestampString = "491207110.13682"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "performClassifyJointsPerPixel()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AniDraw/SkeletonModel.swift"
-            timestampString = "490952532.785895"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "650"
-            endingLineNumber = "650"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "performClassifyJointsPerPixel()"
             landmarkType = "5">
          </BreakpointContent>
@@ -182,12 +166,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AniDraw/SkeletonController.swift"
-            timestampString = "490849506.20124"
+            timestampString = "491231681.646223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "updateImage()"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "jointPoint(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -198,12 +182,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AniDraw/SkeletonModel.swift"
-            timestampString = "490952532.785895"
+            timestampString = "491231681.646223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1357"
-            endingLineNumber = "1357"
-            landmarkName = "getColorFromAbsolutePosition(_:)"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "performClassifyJointsPerPixel()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -214,12 +198,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AniDraw/SkeletonModel.swift"
-            timestampString = "490952532.785895"
+            timestampString = "491231681.646223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1346"
-            endingLineNumber = "1346"
-            landmarkName = "getJointsFromRelativePosition(_:)"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "performClassifyJointsPerPixel()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -230,12 +214,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AniDraw/SkeletonModel.swift"
-            timestampString = "490952532.785895"
+            timestampString = "491232142.819732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1441"
-            endingLineNumber = "1441"
-            landmarkName = "distance(_:p2:)"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
+            landmarkName = "performClassifyJointsPerPixel()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AniDraw/SkeletonModel.swift"
+            timestampString = "491232142.819732"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
+            landmarkName = "performClassifyJointsPerPixel()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AniDraw/SkeletonController.swift"
+            timestampString = "491233569.49627"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "doneAddingCharacter()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
