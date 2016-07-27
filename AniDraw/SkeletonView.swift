@@ -17,7 +17,7 @@ class SkeletonView: UIView {
     var jointPositionInView:[JointName: CGPoint] {
         var ret = [JointName: CGPoint]()
         for (joint, view) in joints {
-            ret[joint] = CGPoint(x: view.frame.center.x, y: view.frame.center.y)
+            ret[joint] = view.center
         }
         return ret
     }

@@ -62,16 +62,15 @@ class DrawView: UIView{
     private var pointWidth: CGFloat {
         switch tool {
         case .Pencil:
-            return 2.0
+            return 3
         case .Pen:
-            return 2.0
+            return 7
         case .Eraser:
-            return 10
+            return 15
+        case .Brush:
+            return 20
         case .Crayon:
-            return 7.0
-        default:
-            return 0
-
+            return 20
         }
     }
 
@@ -118,7 +117,7 @@ class DrawView: UIView{
             points.removeAll()
         }
         points.append(current)
-        path = current.path
+//        path = current.path
     }
     
     
@@ -263,15 +262,15 @@ class DrawView: UIView{
         let t = tool ?? .Pencil
         switch t {
         case .Pencil:
-            return (speed / 500).clamped(1.0, 10.0)
+            return (speed / 500).clamped(3.0, 20.0)
         case .Pen:
-            return (100 / speed).clamped(1.0, 3.0)
+            return (speed / 1000).clamped(7.0, 10.0)
         case .Eraser:
             return (speed / 50).clamped(10.0, 100.0)
         case .Brush:
             return (speed / 1000).clamped(20.0, 30.0)
-        default:
-            return (speed / 1000).clamped(7.0, 10.0)
+        case .Crayon:
+            return (speed / 1000).clamped(20, 30)
         }
     }
     
@@ -299,11 +298,11 @@ class DrawView: UIView{
         }
         if undoImages.count == 0 {
             UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
-            undoImages.push(UIGraphicsGetImageFromCurrentImageContext())
+            undoImages.append(UIGraphicsGetImageFromCurrentImageContext())
             UIGraphicsEndImageContext()
         }
         
-        undoImages.push(incrementalImage!)
+        undoImages.append(incrementalImage!)
         redoImages.removeAll()
         
     }
@@ -317,9 +316,9 @@ class DrawView: UIView{
         guard undoImages.count > 1 else{
             return false
         }
-        let temporaryImage = undoImages.pop()
-        redoImages.push(temporaryImage!)
-        incrementalImage = undoImages.get(undoImages.endIndex-1)
+        let temporaryImage = undoImages.removeLast()
+        redoImages.append(temporaryImage)
+        incrementalImage = undoImages[undoImages.endIndex-1]
         setNeedsDisplay()
         return true
         
@@ -330,9 +329,9 @@ class DrawView: UIView{
         guard !redoImages.isEmpty else {
             return false
         }
-        incrementalImage = redoImages.get(redoImages.endIndex-1)
-        let temporaryImage = redoImages.pop()
-        undoImages.push(temporaryImage!)
+        incrementalImage = redoImages[redoImages.endIndex-1]
+        let temporaryImage = redoImages.removeLast()
+        undoImages.append(temporaryImage)
         setNeedsDisplay()
         return true
     }
