@@ -83,6 +83,9 @@ class KeyframeDetailController: UITableViewController, UIPickerViewDataSource, U
         timeLabel.text = "\(time)s"
         anglePickerView.selectRow(data.angleCurve.rawValue, inComponent: 0, animated: false)
         positionPickerView.selectRow(data.positionCurve.rawValue, inComponent: 0, animated: false)
+        angleCurveLabel.text = Keyframe.Curve(rawValue: data.angleCurve.rawValue)?.description
+        positionCurveLabel.text = Keyframe.Curve(rawValue: data.positionCurve.rawValue)?.description
+
     }
     
 }

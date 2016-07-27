@@ -19,7 +19,7 @@
 @property float onset;
 @property bool isSinging;
 @property float decibel;
-@property float time;
+@property double time;
 @property NSArray *mfcc;
 
 @end

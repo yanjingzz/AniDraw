@@ -116,6 +116,38 @@ enum BodyPartName: Int {
     
     var directionJoints: (JointName, JointName) {
         switch self {
+        case Head:
+            return (.Neck, .Neck)
+        case UpperBody:
+            return (.Neck, .Waist)
+        case LowerBody:
+            return (.Waist, .Waist)
+        case LeftUpperArm:
+            return (.LeftShoulder, .LeftElbow)
+        case .LeftForearm:
+            return (.LeftElbow, .LeftWrist)
+        case LeftThigh:
+            return (.LeftHip, .LeftKnee)
+        case LeftShank:
+            return (.LeftKnee, .LeftAnkle)
+        case .LeftFoot:
+            return (.LeftAnkle, .LeftAnkle)
+
+        case RightUpperArm:
+            return (.RightShoulder, .RightElbow)
+        case .RightForearm:
+            return (.RightElbow, .RightWrist)
+        case RightThigh:
+            return (.RightHip, .RightKnee)
+        case RightShank:
+            return (.RightKnee, .RightAnkle)
+        case .RightFoot:
+            return (.RightAnkle, .RightAnkle)
+        }
+    }
+    
+    var directionForInitializingCharacterNode: (JointName, JointName) {
+        switch self {
         case Head: fallthrough
         case UpperBody: fallthrough
         case LowerBody:
@@ -141,6 +173,7 @@ enum BodyPartName: Int {
             return (.RightKnee, .RightAnkle)
         }
     }
+
     
     var parentPart: BodyPartName? {
         switch self {
@@ -188,5 +221,38 @@ enum BodyPartName: Int {
             return 0
         }
     }
+    //seq: UpperBody->LowerBody->UpperArm->Thigh->Shank->Foot->Forearm->Head
 
+//    //as joints' bound,left,right,up,down
+//    var bounds: (JointName?,JointName?,JointName?,JointName?) {
+//        switch self {
+//        case Head:
+//            return (nil,nil,nil,.Neck)
+//        case UpperBody:
+//            return (.LeftElbow,.RightElbow,.Neck,.Waist)
+//        case LowerBody:
+//            return (.LeftElbow,.RightElbow,.Waist,nil)
+//        case LeftUpperArm:
+//            return (nil,.Waist,nil,nil)
+//        case .LeftForearm:
+//            return (nil,.Waist,nil,nil)
+//        case LeftThigh:
+//            return (nil,.Waist,.LeftHip,.LeftKnee)
+//        case LeftShank:
+//            return (nil,.Waist,.LeftKnee,.LeftAnkle)
+//        case .LeftFoot:
+//            return (nil,.Waist,.LeftAnkle,nil)
+//        case RightUpperArm:
+//            return (.Waist,nil,nil,nil)
+//        case .RightForearm:
+//            return (.Waist,nil,nil,nil)
+//        case RightThigh:
+//            return (.Waist,nil,.RightHip,.RightKnee)
+//        case RightShank:
+//            return (.Waist,nil,.RightKnee,.RightAnkle)
+//        case RightFoot:
+//            return (.Waist,nil,.RightAnkle,nil)
+//            
+//        }
+//    }
 }

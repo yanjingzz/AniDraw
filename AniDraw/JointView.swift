@@ -26,10 +26,18 @@ class JointView: UIView {
             }
             path.stroke()
         }
-       
+    }
+    let jointName: JointName
+    
+    init(frame: CGRect, name: JointName) {
+        jointName = name
+        super.init(frame: frame)
         
-        
-        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        jointName = .Neck
+        super.init(coder: aDecoder)
     }
     
     override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {

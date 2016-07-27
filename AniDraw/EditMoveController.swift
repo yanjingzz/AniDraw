@@ -51,6 +51,9 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         scene.characterNode = characterNode
         updateEditView()
         allMoves = Moves.all()
+//        for move in allMoves {
+//            print("\(move.name), \(move.style), \(move.level)")
+//        }
     }
 
     
@@ -85,6 +88,7 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
             danceMove.keyframes[currentIndex].posture = characterNode.posture
         }
         print(danceMove.keyframes)
+        
         scene.playAnimation(danceMove)
         currentIndex = -1
     }
@@ -234,50 +238,47 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
     func nextDanceMove() {
         discardChanges()
         newMoveFlag = false
-        moveIndex += 1
-        if moveIndex >= allMoves.count {
-            moveIndex = 0
-        }
         danceMove = allMoves[moveIndex]
         let name = danceMove.name ?? ""
         nameButton.setTitle("\(danceMove.style)-\(name)", forState: .Normal)
         print("\(name) \(danceMove.level) \(danceMove.style)")
         updateEditView()
+        moveIndex += 1
+        if moveIndex >= allMoves.count {
+            moveIndex = 0
+        }
         currentIndex = -1
     }
     
-    func writeToFile(name: String?) {
-        let fileName = "danceMove.txt"
-        let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last! as NSURL
-        let fileurl =  dir.URLByAppendingPathComponent(fileName)
-        
-        do {
-            if let name = name {
+    func writeToFile() {
+        let currentDance = danceMove
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+            let fileName = "danceMove.txt"
+            let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last! as NSURL
+            let fileurl =  dir.URLByAppendingPathComponent(fileName)
+            
+            do {
                 try "\n_ = DanceMove( \nkeyframes:".appendLineToURL(fileurl)
-                try "\(danceMove.keyframes), ".appendLineToURL(fileurl)
+                try "\(currentDance.keyframes), ".appendLineToURL(fileurl)
                 try "levelOfIntensity: 1, \nstyle: .Generic,".appendLineToURL(fileurl)
-                try "name: \(name))".appendLineToURL(fileurl)
+                try "name: \"\(currentDance.name)\")".appendLineToURL(fileurl)
+                print("\(fileurl)")
             }
-            print("\(fileurl)")
+            catch {
+                print("Could not write to file")
+            }
         }
-        catch {
-            print("Could not write to file")
-        }
+        
     }
     
     private var alertForNamePrompt: UIAlertController {
         let alert = UIAlertController(title: "Save", message: "If you want to save, enter a name and press Done!", preferredStyle: .Alert)
         let confirmAction = UIAlertAction(title: "Done", style: .Default) { action in
+            
             let name = alert.textFields![0].text ?? ""
-            self.writeToFile(name)
-            self.danceMove.managedObjectContext?.performBlockAndWait{
-                self.danceMove.name = name
-                do{
-                    try self.danceMove.managedObjectContext?.save()
-                } catch {
-                    print(error)
-                }
-            }
+            self.danceMove.name = name
+            self.writeToFile()
+            (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
             dispatch_async(dispatch_get_main_queue()) { [unowned self] in
                 self.newDanceMove()
             }

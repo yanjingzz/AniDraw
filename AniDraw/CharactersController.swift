@@ -163,7 +163,7 @@ class CharactersController: UIViewController, UIScrollViewDelegate{
                 let character = currentCharacter else {
                     break
             }
-            destVC.characterSkin = currentCharacterImage
+            destVC.characterSkin = currentCharacterImage?.trimToNontransparent()
             destVC.editingCharacter = character
 
             
@@ -190,8 +190,9 @@ extension CharactersController: iCarouselDataSource, iCarouselDelegate {
         var itemView: UIImageView
         if (view == nil)
         {
-            let size = carousel.bounds.height - 100
-            itemView = UIImageView(frame:CGRect(x:0, y:0, width:size, height:size))
+            let height = carousel.bounds.height - 50
+//            let width = carousel.bounds.width - 200
+            itemView = UIImageView(frame:CGRect(x:0, y:0, width: height, height: height))
             itemView.contentMode = .ScaleAspectFit
         }
         else

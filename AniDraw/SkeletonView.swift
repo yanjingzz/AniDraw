@@ -24,21 +24,16 @@ class SkeletonView: UIView {
     
     private func createJoints() -> [JointName: JointView] {
         var joints = [JointName: JointView]()
-        for part in JointName.allJoints {
-            let jointView = JointView()
-            jointView.bounds = CGRect(x: 0, y: 0, width: Constants.JointSize, height: Constants.JointSize)
-            joints[part] = jointView
+        for name in JointName.allJoints {
+            let position = Constants.DefaultPositionForJoint[name]!
+            let frameRect = CGRect(x: position.x, y: position.y, width: Constants.JointSize, height: Constants.JointSize)
+            let jointView = JointView(frame: frameRect, name: name)
+            joints[name] = jointView
             jointView.opaque = false
             addSubview(jointView)
             jointView.userInteractionEnabled = true
         }
         return joints
-    }
-    override func layoutSubviews() {
-        for joint in JointName.allJoints {
-            let position = Constants.DefaultPositionForJoint[joint]!
-            joints[joint]!.frame = CGRect(x: position.x, y: position.y, width: Constants.JointSize, height: Constants.JointSize)
-        }
     }
     
     override func drawRect(rect: CGRect) {

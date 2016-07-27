@@ -41,4 +41,110 @@ enum JointName: String {
             .RightAnkle
         ]
     }
+    
+    var DriveBodyPart: BodyPartName {
+        switch self {
+        case .Neck:
+            return .Head
+        case .Waist:
+            return .LowerBody
+        case .LeftShoulder:
+            return .LeftUpperArm
+        case .LeftElbow:
+            return .LeftForearm
+        case .LeftWrist:
+            return .LeftForearm
+        case .LeftHip:
+            return .LeftThigh
+        case .LeftKnee:
+            return .LeftShank
+        case .LeftAnkle:
+            return .LeftFoot
+        case .RightShoulder:
+            return .RightUpperArm
+        case .RightElbow:
+            return .RightForearm
+        case .RightWrist:
+            return .RightForearm
+        case .RightHip:
+            return .RightThigh
+        case .RightKnee:
+            return .RightShank
+        case .RightAnkle:
+            return .RightFoot
+        }
+    }
+    
+    //left,right,up,down:
+    //nil:
+    //left->leftBounds=0
+    //right->rightBounds=matrixWidth-1
+    //up->upBounds=0
+    //down->downBounds=matrixHeight-1
+    
+    var bounds:(JointName?,JointName?,JointName?,JointName?) {
+        switch self {
+        case .Neck:
+            return (.LeftShoulder,.RightShoulder,nil,.Waist)
+        case .Waist:
+            return (.LeftElbow,.RightElbow,.Neck,.LeftHip)
+        case .LeftShoulder:
+            return (nil,.Neck,nil,nil)
+        case .LeftElbow:
+            return (nil,.Waist,nil,nil)
+        case .LeftWrist:
+            return (nil,.Waist,nil,nil)
+        case .LeftHip:
+            return (nil,.Waist,.Waist,.LeftKnee)
+        case .LeftKnee:
+            return (nil,.Waist,.LeftHip,.LeftAnkle)
+        case .LeftAnkle:
+            return (nil,.Waist,.LeftKnee,nil)
+        case .RightShoulder:
+            return (.Waist,nil,nil,nil)
+        case .RightElbow:
+            return (.Waist,nil,nil,nil)
+        case .RightWrist:
+            return (.Waist,nil,nil,nil)
+        case .RightHip:
+            return (.Waist,nil,.Waist,.RightKnee)
+        case .RightKnee:
+            return (.Waist,nil,.RightHip,.RightAnkle)
+        case .RightAnkle:
+            return (.Waist,nil,.RightKnee,nil)
+        }
+    }
+    
+    var addPart:(BodyPartName?,BodyPartName?) {
+        switch self {
+        case .Neck:
+            return (.Head,nil)
+        case .Waist:
+            return (.UpperBody,.LowerBody)
+        case .LeftShoulder:
+            return (.LeftUpperArm,nil)
+        case .LeftElbow:
+            return (.LeftUpperArm,nil)
+        case .LeftHip:
+            return (.LeftThigh,nil)
+        case .LeftKnee:
+            return (.LeftThigh,nil)
+        case .LeftAnkle:
+            return (.LeftShank,nil)
+        case .RightShoulder:
+            return (.RightUpperArm,nil)
+        case .RightElbow:
+            return (.RightUpperArm,nil)
+        case .RightHip:
+            return (.RightThigh,nil)
+        case .RightKnee:
+            return (.RightThigh,nil)
+        case .RightAnkle:
+            return (.RightShank,nil)
+        default:
+            return (nil,nil)
+        }
+    }
+    
 }
+

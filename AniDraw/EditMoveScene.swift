@@ -9,7 +9,7 @@
 import SpriteKit
 
 class EditMoveScene: SKScene {
-    var characterNode: CharacterNode? {
+    var characterNode: CharacterNode! {
         willSet {
             if let character = characterNode {
                 scene?.removeChildrenInArray([character])
@@ -41,7 +41,7 @@ class EditMoveScene: SKScene {
         lastUpdateTime = currentTime
         if playing {
             let posture = dancePlayback.getPostureByIntervalTime(dt)
-            characterNode?.posture = posture
+            characterNode.posture = posture ?? dancePlayback.currentPosture
             if dancePlayback.isEmpty {
                 playing = false
             }
@@ -87,7 +87,7 @@ class EditMoveScene: SKScene {
         case .UpperBody:
             let delta = node.zRotation - (p2 - p1).angle + CGFloat(M_PI_2)
             node.zRotation -= delta
-            characterNode?.parts[.LowerBody]?.zRotation += delta
+            characterNode.parts[.LowerBody]?.zRotation += delta
             break
         case .LeftForearm, .RightForearm, .LeftShank, .RightShank:
             let l1 = node.position.length()
@@ -134,7 +134,7 @@ class EditMoveScene: SKScene {
     
     func moveCharacter(translationInView: CGPoint) {
         let translation = CGPoint(x: translationInView.x, y: -translationInView.y)
-        characterNode?.position += translation
+        characterNode.position += translation
     }
     var playing = false
     
@@ -142,6 +142,7 @@ class EditMoveScene: SKScene {
     private var dancePlayback = DancePlayback()
     
     func playAnimation(dance: DanceMove) {
+        dancePlayback.previousPosture = characterNode.posture
         dancePlayback.startDanceMove(dance.keyframes)
         playing = true
     }

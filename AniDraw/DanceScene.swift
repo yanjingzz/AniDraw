@@ -91,6 +91,9 @@ class DanceScene: SKScene {
 //        singStatusLabel.text = "IsSinging: \(audioInput.isSinging)"
         
         levelLabel.text = "Level: \(danceModel.currentLevel), index: \(danceModel.currentIndex)"
+        tempoLabel.text = "Tempo factor: \(danceModel.currentTimeFactor)"
+        pitchLabel.text = "Frenquency: \(danceModel.currentPitch)"
+        amplitudePeakLabel.text = "Peak: \(danceModel.currentDecibel)"
         
         
         
