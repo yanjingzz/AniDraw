@@ -298,11 +298,11 @@ class DrawView: UIView{
         }
         if undoImages.count == 0 {
             UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
-            undoImages.push(UIGraphicsGetImageFromCurrentImageContext())
+            undoImages.append(UIGraphicsGetImageFromCurrentImageContext())
             UIGraphicsEndImageContext()
         }
         
-        undoImages.push(incrementalImage!)
+        undoImages.append(incrementalImage!)
         redoImages.removeAll()
         
     }
@@ -316,9 +316,9 @@ class DrawView: UIView{
         guard undoImages.count > 1 else{
             return false
         }
-        let temporaryImage = undoImages.pop()
-        redoImages.push(temporaryImage!)
-        incrementalImage = undoImages.get(undoImages.endIndex-1)
+        let temporaryImage = undoImages.removeLast()
+        redoImages.append(temporaryImage)
+        incrementalImage = undoImages[undoImages.endIndex-1]
         setNeedsDisplay()
         return true
         
@@ -329,9 +329,9 @@ class DrawView: UIView{
         guard !redoImages.isEmpty else {
             return false
         }
-        incrementalImage = redoImages.get(redoImages.endIndex-1)
-        let temporaryImage = redoImages.pop()
-        undoImages.push(temporaryImage!)
+        incrementalImage = redoImages[redoImages.endIndex-1]
+        let temporaryImage = redoImages.removeLast()
+        undoImages.append(temporaryImage)
         setNeedsDisplay()
         return true
     }

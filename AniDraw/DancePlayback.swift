@@ -213,11 +213,11 @@ class DancePlayback {
                 value = 0.5 * tmp * tmp * tmp * tmp * tmp + 1
             }
         case .SineEaseIn:
-            value = CGFloat(sinFloat(Float(ratio - 1.0) * M_PI_2_f)) + 1.0
+            value = CGFloat(sin(Double(ratio - 1.0) * M_PI_2)) + 1.0
         case .SineEaseOut:
-            value = CGFloat(sinFloat(Float(ratio) * M_PI_2_f))
+            value = CGFloat(sin(Double(ratio) * M_PI_2))
         case .SineEaseInOut:
-            value = CGFloat(0.5 * (1.0 - cos(Float(ratio) * M_PI_f)))
+            value = CGFloat(0.5 * (1.0 - cos(Double(ratio) * M_PI)))
         case .CircularEaseIn:
             value = 1 - sqrt(1 - ratio * ratio)
         case .CircularEaseOut:
@@ -242,28 +242,29 @@ class DancePlayback {
                     value = -0.5 * pow(2, -20 * ratio + 10) + 1
                 }
             }
+            
         case .ElasticEaseIn:
-            value = CGFloat(sinFloat(13 * Float(ratio) * M_PI_2_f)) * pow(2, -10 * (ratio - 1))
+            value = CGFloat(sin(13 * Double(ratio) * M_PI_2)) * pow(2, -10 * (ratio - 1))
         case .ElasticEaseOut:
-            value = CGFloat(sinFloat(-13 * Float(ratio + 1) * M_PI_2_f)) * pow(2, -10 * ratio) + 1.0
+            value = CGFloat(sin(-13 * Double(ratio + 1) * M_PI_2)) * pow(2, -10 * ratio) + 1.0
         case .ElasticEaseInOut:
             if ratio < 0.5 {
-                value = 0.5 * CGFloat(sinFloat(13 * Float(2 * ratio) * M_PI_2_f)) * pow(2, -10 * (2 * ratio - 1))
+                value = 0.5 * CGFloat(sin(13 * Double(2 * ratio) * M_PI_2)) * pow(2, -10 * (2 * ratio - 1))
             } else {
-                value = 0.5 * (CGFloat(sinFloat(-13 * Float(2 * ratio) * M_PI_2_f)) * pow(2, -10 * (2 * ratio - 1)) + 2)
+                value = 0.5 * (CGFloat(sin(-13 * Double(2 * ratio) * M_PI_2)) * pow(2, -10 * (2 * ratio - 1)) + 2)
             }
         case .BackEaseIn:
-            value = ratio * ratio * ratio - ratio * CGFloat(sinFloat(Float(ratio) * M_PI_f))
+            value = ratio * ratio * ratio - ratio * CGFloat(sin(Double(ratio) * M_PI))
         case .BackEaseOut:
             let tmp = 1 - ratio
-            value = 1 - (tmp * tmp * tmp - tmp * CGFloat(sinFloat(Float(tmp) * M_PI_f)))
+            value = 1 - (tmp * tmp * tmp - tmp * CGFloat(sin(Double(tmp) * M_PI)))
         case .BackEaseInOut:
             if ratio < 0.5 {
                 let tmp = 2 * ratio
-                value = 0.5 * (tmp * tmp * tmp - tmp * CGFloat(sinFloat(Float(tmp) * M_PI_f)))
+                value = 0.5 * (tmp * tmp * tmp - tmp * CGFloat(sin(Double(tmp) * M_PI)))
             } else {
                 let tmp = 1 - (2 * ratio - 1)
-                value = 0.5 * (1 - (tmp * tmp * tmp - tmp * CGFloat(sinFloat(Float(tmp) * M_PI_f)))) + 0.5
+                value = 0.5 * (1 - (tmp * tmp * tmp - tmp * CGFloat(sin(Double(tmp) * M_PI)))) + 0.5
             }
         case .BounceEaseIn:
             value = 1 - Bounce(1 - ratio)

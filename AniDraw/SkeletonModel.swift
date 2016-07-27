@@ -9,8 +9,8 @@
 import Foundation
 
 class SkeletonModel {
-    var isPerformClassifyPixels : Boolean = false
-    var isModelValid : Boolean = false
+    var isPerformClassifyPixels : Bool = false
+    var isModelValid : Bool = false
     var positionOffset : CGPoint = CGPoint(x:0,y:0)
     //joints' position is related to the image instead of view
     var joints = [JointName:CGPoint]()
@@ -18,10 +18,10 @@ class SkeletonModel {
     var matrix : [[(BodyPartName?,BodyPartName?)]] = []
     var matrixWidth : Int = 0
     var matrixHeight : Int = 0
-    var R : [[int]] = []
-    var G : [[int]] = []
-    var B : [[int]] = []
-    var A : [[int]] = []
+    var R : [[Int]] = []
+    var G : [[Int]] = []
+    var B : [[Int]] = []
+    var A : [[Int]] = []
     
     private struct Const {
         static let leftFootCenterOffset = CGPoint(x:0,y:0)
@@ -83,7 +83,7 @@ class SkeletonModel {
         
         var center = [BodyPartName:CGPoint]()
         var gradient = [BodyPartName:CGFloat]()
-        var vertical = [BodyPartName:Boolean]()
+        var vertical = [BodyPartName:Bool]()
         var radius = [JointName:Int]()
         
         //initialize center,gradient & vertical
@@ -210,7 +210,7 @@ class SkeletonModel {
         return matrix[Int(relativePosition.y)][Int(relativePosition.x)]
     }
 
-    func getSkeletonModelInitValid() -> Boolean {
+    func getSkeletonModelInitValid() -> Bool {
         return isModelValid
     }
     
@@ -284,7 +284,7 @@ class SkeletonModel {
         }
     }
     
-    func needAbort() -> Boolean {
+    func needAbort() -> Bool {
         if selfUpdateTimeStamp != SkeletonModel.lastUpdateTimeStamp {
             print("update abort!")
             return true
@@ -323,7 +323,7 @@ class SkeletonModel {
         free(pixels)
     }
     //for PART1
-    private func performMeasureRadius(joint:JointName,center:CGPoint,gradient:CGFloat,vertical:Boolean)->Int{
+    private func performMeasureRadius(joint:JointName,center:CGPoint,gradient:CGFloat,vertical:Bool)->Int{
         var X = Int(center.x)
         var Y = Int(center.y)
         
@@ -435,7 +435,7 @@ class SkeletonModel {
         }
     }
     //for PART2
-    private func performFillBlocks(part:BodyPartName,center:CGPoint,gradient:CGFloat,radius:Int,vertical:Boolean) {
+    private func performFillBlocks(part:BodyPartName,center:CGPoint,gradient:CGFloat,radius:Int,vertical:Bool) {
         
         let (joint1,joint2) = part.directionJoints
         var endPoint1 = joints[joint1]!
@@ -735,7 +735,7 @@ class SkeletonModel {
         }
     }
     
-    private func hasBodyPartName(x:Int,y:Int,part:BodyPartName) -> Boolean {
+    private func hasBodyPartName(x:Int,y:Int,part:BodyPartName) -> Bool {
         let (part1,part2) = matrix[y][x]
         if part1 == nil && part2 == nil {return false}
         if part1 == nil && part2 != nil {return part2 == part}
@@ -807,7 +807,7 @@ class SkeletonModel {
         return resultPoint
     }
     
-    private func checkJointsValid() -> Boolean{
+    private func checkJointsValid() -> Bool{
 
         if joints[.Neck]!.y > joints[.Waist]!.y ||
             joints[.Waist]!.y > joints[.LeftHip]!.y ||
