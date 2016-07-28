@@ -552,8 +552,6 @@ class SkeletonModel {
             rightPoint = makePointValid(rightPoint)
             tmpRadius = Int((leftPoint - rightPoint).length()/2)
             
-            print("(\(X),\(Y)),\(leftPoint),\(rightPoint),\(tmpRadius))")
-            
             if tmpRadius == 0 {return}
             if Y < destY {
                 Y += 1
@@ -773,6 +771,7 @@ class SkeletonModel {
     
     //for Part1:   circle
     private func setJointBasedCircle(radius:Int,center:CGPoint,addPart:(BodyPartName?,BodyPartName?)) {
+        
         if radius == 0 {return}
         let part1 = addPart.0
         let part2 = addPart.1

@@ -209,16 +209,18 @@ enum BodyPartName: Int {
     
     var zPosition: CGFloat{
         switch self {
-        case LeftUpperArm:
+        case .LeftUpperArm:
             return 9
         case .LeftForearm:
             return 10
-        case RightUpperArm:
+        case .RightUpperArm:
             return 9
         case .RightForearm:
             return 10
-        default:
+        case .Head:
             return 0
+        default:
+            return 1
         }
     }
     //seq: UpperBody->LowerBody->UpperArm->Thigh->Shank->Foot->Forearm->Head

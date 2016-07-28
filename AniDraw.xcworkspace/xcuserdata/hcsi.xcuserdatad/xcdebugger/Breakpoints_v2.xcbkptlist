@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AniDraw/SkeletonModel.swift"
-            timestampString = "491327042.946691"
+            timestampString = "491400483.261588"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "642"
-            endingLineNumber = "642"
+            startingLineNumber = "640"
+            endingLineNumber = "640"
             landmarkName = "fillInYDegrees(_:srcY:destX:destY:gradient:part:radius:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -216,11 +216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AniDraw/SkeletonModel.swift"
-            timestampString = "491327042.946691"
+            timestampString = "491400483.261588"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "606"
-            endingLineNumber = "606"
+            startingLineNumber = "604"
+            endingLineNumber = "604"
             landmarkName = "fillInYDegrees(_:srcY:destX:destY:gradient:part:radius:)"
             landmarkType = "5">
          </BreakpointContent>
