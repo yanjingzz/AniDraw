@@ -28,7 +28,7 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
     var currentLevel = 0
     var currentIndex = -1
     var currentStyle: DanceStyle {
-        return currentPitch > Const.pitchLogThreshold ? .Ballet : .HipHop
+        return (pitchAverage ?? currentPitch) > Const.pitchLogThreshold ? .Ballet : .HipHop
     }
     var currentMove: [Keyframe]?
     var lastIndex: [Int?] = Array<Int?>(count: 6, repeatedValue: nil)
@@ -77,7 +77,7 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
         static let BeatTrackerTotal = 20
         static let DurationThreshold = 0.1
         static let OriginalTempo = 0.5
-        static let pitchLogThreshold = log(350.0) //F4
+        static let pitchLogThreshold = log(261.6) //C4
         static let pitchLogMax = log(1046.50) //C6
         static let pitchLogFemaleMin = log(220.00) //A3
         static let maxPitchNum = 20
