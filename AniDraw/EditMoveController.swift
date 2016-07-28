@@ -88,6 +88,7 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
             danceMove.keyframes[currentIndex].posture = characterNode.posture
         }
         print(danceMove.keyframes)
+        print(danceMove.keyframes.flipped)
         
         scene.playAnimation(danceMove)
         currentIndex = -1
