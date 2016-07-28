@@ -14,7 +14,8 @@ import AVFoundation
 
 class DanceModel: NSObject, MyAudioReceiverDelegate {
 //    let danceMoveList = MovesStorage.AllMoves
-    let danceMoveList = Moves.dictOfStyle(.HipHop)
+    let maleMoveList = Moves.dictOfStyle(.HipHop)
+    let femaleMoveList = Moves.dictOfStyle(.Ballet)
     let dancePlayback = DancePlayback()
     let beatTracker = BeatTracker(total: Const.BeatTrackerTotal)
     var dataSet : [[CGFloat]] = []
@@ -26,7 +27,10 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
     var currentDecibel = 0.0
     var currentLevel = 0
     var currentIndex = -1
-    
+    var currentStyle: DanceStyle {
+        return currentPitch > Const.pitchLogThreshold ? .Ballet : .HipHop
+    }
+    var currentMove: [Keyframe]?
     var lastIndex: [Int?] = Array<Int?>(count: 6, repeatedValue: nil)
     
     
@@ -50,8 +54,8 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
             return posture
         }
         if isSinging {
-            if let keyframes = danceMoveList[currentLevel]?[currentIndex].keyframes where !keyframes.isEmpty {
-                dancePlayback.startDanceMove(keyframes)
+            if let keyframes = currentMove where !keyframes.isEmpty {
+                startWithFlipped(keyframes)
                 return dancePlayback.getPostureByIntervalTime(dtime * currentTimeFactor)!
             }
             
@@ -66,75 +70,122 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
     
     private struct Const {
         static let MaxLevel = 5
-        static let PitchHigherBound = 7.0
-        static let PitchLowerBound = 4.5
-        static let PitchRange = Const.PitchHigherBound - Const.PitchLowerBound
+        
         static let DecibelHigherBound = -5.0
         static let DecibelLowerBound = -50.0
         static let DecibelRange = Const.DecibelHigherBound - Const.DecibelLowerBound
         static let BeatTrackerTotal = 20
         static let DurationThreshold = 0.1
         static let OriginalTempo = 0.5
+        static let pitchLogThreshold = log(350.0) //F4
+        static let pitchLogMax = log(1046.50) //C6
+        static let pitchLogFemaleMin = log(220.00) //A3
+        static let maxPitchNum = 20
     
     }
     
+    
+    // all log(pitch)
+    var pitchHigherBound: Double? { return  lastPitches.maxElement() }
+    var pitchLowerBound: Double? { return  lastPitches.minElement() }
+    var pitchRange: Double? {
+        guard let min = pitchLowerBound, let max = pitchHigherBound else {
+            return nil
+        }
+        return max - min
+    }
+    var lastPitches = [Double]()
+    var pitchAverage: Double? {
+        if lastPitches.isEmpty {
+            return nil
+        }
+        return lastPitches.reduce(0.0, combine: +) / Double(lastPitches.count)
+    }
+    
     private func pickLevel(withPitch pitch: Double, decibel: Double) -> Int{
-        var pitch_index: Double = log(pitch)
-        pitch_index = (pitch_index-Const.PitchLowerBound) * Double(Const.MaxLevel) / Const.PitchRange
-        pitch_index > Double(Const.MaxLevel) + 1 ? 0 : pitch_index
+        let pitchIndex = updatePitch(pitch)
         
         let decibel_index = (decibel - Const.DecibelLowerBound) * Double(Const.MaxLevel) / Const.DecibelRange
         
-        let level = Int(max(pitch_index, decibel_index)).clamped(1, 5)
-        print("pick level: pitch \(pitch_index) decibel \(decibel_index): \(level)")
+        let level = pitchIndex
+        print("pick level: pitch \(pitchIndex) decibel \(decibel_index): \(level)")
         return level
         
     }
     
-    func pickIndex(level: Int) -> Int? {
+    func updatePitch(pitch: Double) -> Int {
+        var pitch_index: Double = log(pitch)
+        if lastPitches.isEmpty {
+            if pitch_index < Const.pitchLogThreshold {
+                lastPitches.append(0.0)
+                lastPitches.append(Const.pitchLogThreshold)
+            } else {
+                lastPitches.append(Const.pitchLogFemaleMin)
+                lastPitches.append(Const.pitchLogMax)
+            }
+        }
+        if let ave = pitchAverage where pitch_index > ave + Const.pitchLogThreshold {
+            return 1
+        }
+        lastPitches.append(pitch_index)
+        while lastPitches.count > Const.maxPitchNum {
+            lastPitches.removeFirst()
+        }
         
-        let array = danceMoveList[level]
-        let max = array?.count ?? 0
-        if max == 1 {
-            return 0
-        } else if max == 0 {
+        if let range = pitchRange where range != 0 {
+            pitch_index = (pitch_index-pitchLowerBound!) * Double(Const.MaxLevel) / range
+            return Int(round(pitch_index)).clamped(1,Const.MaxLevel)
+        } else {
+            return 1
+        }
+        
+    }
+    
+    func pickMove(level: Int) -> [Keyframe]? {
+        let array = Moves.ofStyle(currentStyle, withLevel: level)
+        guard let moves = array where !moves.isEmpty else {
             return nil
         }
+        let max = moves.count
+        if max == 1 {
+            return moves.first!.keyframes
+        }
+        
         var index = Int.random(max - 1)
         if index >= lastIndex[level] {
             index += 1
         }
+        currentIndex = index
+        lastIndex[level] = index
+        currentMove = moves[index].keyframes
         print("pick index: max \(max): \(index)")
         
-        return index
+        return currentMove
     
     }
     
     
     
     func startNewDanceMove(withPitch pitch: Float, decibel: Float, bpm: Float) {
-        
         let level = pickLevel(withPitch: Double(pitch), decibel: Double(decibel))
         if dancePlayback.isEnding {
             currentLevel = level
-            if let index = pickIndex(level) {
-                currentIndex = index
-                lastIndex[level] = index
-                if var kfs = danceMoveList[level]?[index].keyframes where !kfs.isEmpty {
-                    // flip the keyframes if moving off stage
-                    let nextX = kfs.last!.posture.position.x
-                    let currentX = dancePlayback.currentPosture.position.x
-                    if  nextX * currentX > 0 {
-                        kfs = kfs.flipped
-                    }
-                    
-                    dancePlayback.startDanceMove(kfs)
-                    
-                }
+            if let keyframes = pickMove(level) where !keyframes.isEmpty {
+                startWithFlipped(keyframes)
             }
         }
     }
     
+    private func startWithFlipped (keyframes: [Keyframe]) {
+        // flip the keyframes if moving off stage
+        let nextX = keyframes.last!.posture.position.x
+        let currentX = dancePlayback.currentPosture.position.x
+        if  nextX * currentX > 0 {
+            dancePlayback.startDanceMove(keyframes.flipped)
+        } else {
+            dancePlayback.startDanceMove(keyframes)
+        }
+    }
     
     func receiverDidReceiveData(data: ReceiverData!) {
         
@@ -157,9 +208,7 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
                 }
                 
             }
-            
             lastOnset = data.time
-            
         }
         
         if data.isSinging == false {
