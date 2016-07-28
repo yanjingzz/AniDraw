@@ -35,10 +35,10 @@ class SkeletonModel {
     
     static var priority: [BodyPartName:Int] = [
         .Head: 0,
-        .LowerBody: 15,
+        .LowerBody: 16,
         .UpperBody: 15,
-        .LeftThigh: 9,
-        .RightThigh: 9,
+        .LeftThigh: 17,
+        .RightThigh: 17,
         .LeftShank: 7,
         .RightShank: 7,
         .LeftFoot: 8,
@@ -101,14 +101,13 @@ class SkeletonModel {
                 }
                 if formerJoint == JointName.Waist {
                     //lowerBody:
-                    let hipCenter = (joints[.LeftHip]! + joints[.RightHip]!)/2
-                    center[part] = (joints[formerJoint]! + hipCenter)/2
-                    if joints[formerJoint]!.x == hipCenter.x {
+                    center[part] = joints[.Waist]!
+                    if joints[.Waist]!.x == joints[.Neck]!.x {
                         gradient[part] = 0
                         vertical[part] = true
                     } else {
-                        gradient[part] = (hipCenter.y - joints[formerJoint]!.y) /
-                            (hipCenter.x - joints[formerJoint]!.x)
+                        gradient[part] = (joints[.Neck]!.y - joints[.Waist]!.y) /
+                            (joints[.Neck]!.x - joints[.Waist]!.x)
                         vertical[part] = false
                     }
                 }
@@ -158,7 +157,7 @@ class SkeletonModel {
         //fill each blocks around the joint
         for joint in JointName.allJoints {
             if needAbort() == true {return}
-            if joint == JointName.Neck || joint == JointName.Waist {
+            if joint == JointName.Neck {
                 setJointBasedParaBola(radius[joint]!, center: joints[joint]!, ratio: 0.6, addPart: joint.addPart)
             } else {
                 if joint != JointName.LeftWrist && joint != JointName.RightWrist {
@@ -333,6 +332,8 @@ class SkeletonModel {
             Y = Int(joints[joint]!.y)
         }
         
+        if A[Y][X] == 0 {return 0}
+        
         let leftBound,rightBound,upBound,downBound : Int
         let (leftJoint,rightJoint,upJoint,downJoint) = joint.bounds
         leftBound = (leftJoint == nil ? 0:Int(joints[leftJoint!]!.x))
@@ -349,14 +350,6 @@ class SkeletonModel {
             var tempY = Y
             let dY = vertical == true ? 0 : -1 / gradient
             
-            while leftSide > leftBound && A[tempY][leftSide] == 0 {
-                leftSide -= 1
-                tempY = Y + Int(CGFloat(leftSide-X) * dY)
-                if tempY < upBound || tempY > downBound {
-                    return 0
-                }
-            }
-            if leftSide == leftBound {return 0}
             while leftSide >= leftBound && A[tempY][leftSide] != 0 {
                 leftSide -= 1
                 tempY = Y + Int(CGFloat(leftSide-X) * dY)
@@ -365,41 +358,25 @@ class SkeletonModel {
                 }
             }
             tempY = Y
-            while rightSide < rightBound && A[tempY][rightSide] == 0 {
-                rightSide += 1
-                tempY = Y + Int(CGFloat(rightSide+X) * dY)
-                if tempY < upBound || tempY > downBound {
-                    return 0
-                }
-            }
-            if leftSide == rightBound {return 0}
             while rightSide <= rightBound && A[tempY][rightSide] != 0 {
                 rightSide += 1
-                tempY = Y + Int(CGFloat(rightSide+X) * dY)
+                tempY = Y + Int(CGFloat(rightSide-X) * dY)
                 if tempY < upBound || tempY > downBound {
                     return 0
                 }
             }
-            var leftPoint = CGPoint(x:leftSide,y:Y+Int(CGFloat(leftSide+X)*dY))
-            var rightPoint = CGPoint(x:rightSide,y:Y+Int(CGFloat(rightSide+X)*dY))
+            
+            var leftPoint = CGPoint(x:leftSide,y:Y+Int(CGFloat(leftSide-X)*dY))
+            var rightPoint = CGPoint(x:rightSide,y:Y+Int(CGFloat(rightSide-X)*dY))
             leftPoint = makePointValid(leftPoint)
             rightPoint = makePointValid(rightPoint)
-            if joint == JointName.LeftElbow {
-                print("leftElbow!:point:\(joints[joint]),leftPoint:\(leftPoint),rightPoint:\(rightPoint)")
-            }
-            return Int((leftPoint-rightPoint).length()/2)
+            let radius = Int((leftPoint-rightPoint).length()/2)
+            print("radius:\(joint),\(center),\(leftPoint),\(rightPoint),\(radius)")
+            return radius
         } else {
             var upSide = Y
             var downSide = Y
             var tempX = X
-            while upSide > upBound && A[upSide][tempX] == 0 {
-                upSide -= 1
-                tempX = X + Int(gradient * CGFloat(Y - upSide))
-                if tempX < leftBound || tempX > rightBound {
-                    return 0
-                }
-            }
-            if upSide == upBound {return 0}
             while upSide >= upBound && A[upSide][tempX] != 0 {
                 upSide -= 1
                 tempX = X + Int(gradient * CGFloat(Y - upSide))
@@ -408,14 +385,6 @@ class SkeletonModel {
                 }
             }
             tempX = X
-            while downSide < downBound && A[downSide][tempX] == 0 {
-                downSide += 1
-                tempX = X + Int(gradient * CGFloat(Y - downSide))
-                if tempX < leftBound || tempX > rightBound {
-                    return 0
-                }
-            }
-            if downSide == downBound {return 0}
             while downSide <= downBound && A[downSide][tempX] != 0 {
                 downSide += 1
                 tempX = X + Int(gradient * CGFloat(Y - downSide))
@@ -427,11 +396,9 @@ class SkeletonModel {
             var downPoint = CGPoint(x:X+Int(gradient*CGFloat(Y-downSide)),y:downSide)
             upPoint = makePointValid(upPoint)
             downPoint = makePointValid(downPoint)
-            if joint == JointName.LeftElbow {
-                print("leftElbow!:point:\(joints[joint]),upPoint:\(upPoint),downPoint:\(downPoint)")
-            }
-
-            return Int((upPoint-downPoint).length()/2)
+            let radius = Int((upPoint-downPoint).length()/2)
+            print("radius:\(joint),\(center),\(upPoint),\(downPoint),\(radius)")
+            return radius
         }
     }
     //for PART2
@@ -449,13 +416,13 @@ class SkeletonModel {
             Y = Int(endPoint2.y)
         }
         
-        if part == BodyPartName.UpperBody {
-            X = Int(endPoint2.x)
-            Y = Int(endPoint2.y)
-        }
+//        if part == BodyPartName.UpperBody {
+//            X = Int(endPoint2.x)
+//            Y = Int(endPoint2.y)
+//        }
         
         if part == BodyPartName.LowerBody {
-            endPoint2 = center
+            endPoint2 = (joints[.LeftHip]! + joints[.RightHip]!)/2
             X = Int(joints[part.anchorJoint]!.x)
             Y = Int(joints[part.anchorJoint]!.y)
         }
@@ -467,29 +434,44 @@ class SkeletonModel {
         //choose fill direction according to gradient
         if vertical == true || abs(gradient) > 1 {
             //to endPoint1
-            fillInXDegrees(X, srcY: Y, destX: Int(endPoint1.x), destY: Int(endPoint1.y), gradient: gradient, part: part, radius: radius)
+            if X != Int(endPoint1.x) || Y != Int(endPoint1.y) {
+                fillInXDegrees(X, srcY: Y, destX: Int(endPoint1.x), destY: Int(endPoint1.y), gradient: gradient, part: part, radius: radius) }
             //to endPoint2
-            fillInXDegrees(X, srcY: Y, destX: Int(endPoint2.x), destY: Int(endPoint2.y), gradient: gradient, part: part, radius: radius)
+            if X != Int(endPoint2.x) || Y != Int(endPoint2.y) {
+                fillInXDegrees(X, srcY: Y, destX: Int(endPoint2.x), destY: Int(endPoint2.y), gradient: gradient, part: part, radius: radius) }
         } else {
             //to endPoint1
-            fillInYDegrees(X, srcY: Y, destX: Int(endPoint1.x), destY: Int(endPoint1.y), gradient: gradient, part: part, radius: radius)
+            if X != Int(endPoint1.x) || Y != Int(endPoint1.y) {
+                fillInYDegrees(X, srcY: Y, destX: Int(endPoint1.x), destY: Int(endPoint1.y), gradient: gradient, part: part, radius: radius) }
             //to endPoint2
-            fillInYDegrees(X, srcY: Y, destX: Int(endPoint2.x), destY: Int(endPoint2.y), gradient: gradient, part: part, radius: radius)
+            if X != Int(endPoint2.x) || Y != Int(endPoint2.y) {
+                fillInYDegrees(X, srcY: Y, destX: Int(endPoint2.x), destY: Int(endPoint2.y), gradient: gradient, part: part, radius: radius) }
         }
     }
     
     private func fillInXDegrees(srcX:Int,srcY:Int,destX:Int,destY:Int,gradient:CGFloat,part:BodyPartName,radius:Int) {
+        print("[[fillInX:\(part),\(radius),src:(\(srcX),\(srcY)),dest:(\(destX),\(destY))]]")
         let dif = gradient == 0 ? 0 : -1 / gradient
-        let dx = sqrt(CGFloat(radius * radius) / (CGFloat(1) + dif * dif))
         var X = srcX
         var Y = srcY
+        
+        var leftBound = 0
+        var rightBound = matrixWidth-1
+        
+        if part == BodyPartName.UpperBody {
+            leftBound = Int(joints[.LeftShoulder]!.x)
+            rightBound = Int(joints[.RightShoulder]!.x)
+        }
+        
+        var tmpRadius = radius
         while Y != destY {
             //from center to leftSide
+            let dx = sqrt(CGFloat(tmpRadius * tmpRadius) / (CGFloat(1) + dif * dif))
             var leftX = max(X - Int(dx),0)
             if needAbort() == true {return}
             var tmpX = leftX - 1
             var tmpY = Y + Int(dif*CGFloat(tmpX-X))
-            while tmpY >= 0 && tmpY < matrixHeight && tmpX >= 0 && A[tmpY][tmpX] != 0 {
+            while tmpY >= 0 && tmpY < matrixHeight && tmpX >= leftBound && A[tmpY][tmpX] != 0 {
                 leftX = tmpX
                 tmpX = leftX - 1
                 tmpY = Y + Int(dif*CGFloat(tmpX-X))
@@ -523,7 +505,7 @@ class SkeletonModel {
             if needAbort() == true {return}
             tmpX = rightX + 1
             tmpY = Y + Int(dif*CGFloat(tmpX-X))
-            while tmpY >= 0 && tmpY < matrixHeight && tmpX < matrixWidth-1 && A[tmpY][tmpX] != 0 {
+            while tmpY >= 0 && tmpY < matrixHeight && tmpX <= rightBound && A[tmpY][tmpX] != 0 {
                 rightX = tmpX
                 tmpX = rightX + 1
                 tmpY = Y + Int(dif*CGFloat(tmpX-X))
@@ -552,6 +534,17 @@ class SkeletonModel {
                 if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
                 {appendBodyPartName(tmpX, y: tmpY, part: part)}
             }
+            var leftPoint = CGPoint(x:leftX,y:Y+Int(CGFloat(leftX-X)*dif))
+            var rightPoint = CGPoint(x:rightX,y:Y+Int(CGFloat(rightX-X)*dif))
+            leftPoint = makePointValid(leftPoint)
+            rightPoint = makePointValid(rightPoint)
+            tmpRadius = Int((leftPoint - rightPoint).length()/2)
+            
+            print("(\(X),\(Y)),\(leftPoint),\(rightPoint),\(tmpRadius))")
+            
+            if tmpRadius == 0 {
+                print("tmpRadius == 0 : \(part)")
+                return}
             if Y < destY {
                 Y += 1
                 X = srcX - Int(CGFloat(Y-srcY)*dif)
@@ -563,23 +556,29 @@ class SkeletonModel {
     }
     
     private func fillInYDegrees(srcX:Int,srcY:Int,destX:Int,destY:Int,gradient:CGFloat,part:BodyPartName,radius:Int) {
-        let dy = sqrt(CGFloat(radius*radius) / (CGFloat(1) + gradient * gradient))
+        print("[[fillInY:\(part),\(radius),src:(\(srcX),\(srcY)),dest:(\(destX),\(destY))]]")
         var X = srcX
         var Y = srcY
+        
+        let upBound = 0
+        let downBound = matrixHeight-1
+        
+        var tmpRadius = radius
         while X != destX {
+            let dy = sqrt(CGFloat(tmpRadius*tmpRadius) / (CGFloat(1) + gradient * gradient))
             //from center to upSide
             var upY = max(0,Y - Int(dy))
             if needAbort() == true {return}
             var tmpY = upY - 1
             var tmpX = X - Int(gradient*CGFloat(tmpY - Y))
-            while tmpX >= 0 && tmpX < matrixWidth && tmpY >= 0 && A[tmpY][tmpX] != 0 {
+            while tmpX >= 0 && tmpX <= matrixWidth-1 && tmpY >= upBound && A[tmpY][tmpX] != 0 {
                 upY = tmpY
                 tmpY = upY - 1
                 tmpX = X - Int(gradient*CGFloat(tmpY - Y))
             }
             tmpY = upY
             tmpX = X - Int(gradient*CGFloat(tmpY - Y))
-            while tmpX >= 0 && tmpX < matrixWidth && tmpY <= Y && A[tmpY][tmpX] == 0 {
+            while tmpX >= 0 && tmpX <= matrixWidth-1 && tmpY <= Y && A[tmpY][tmpX] == 0 {
                 upY = tmpY
                 tmpY = upY + 1
                 tmpX = X - Int(gradient*CGFloat(tmpY - Y))
@@ -588,7 +587,7 @@ class SkeletonModel {
             tmpY = upY
             tmpX = X - Int(gradient*CGFloat(tmpY - Y))
             while tmpY != Y {
-                if tmpX >= 0 && tmpX < matrixWidth {
+                if tmpX >= 0 && tmpX <= matrixWidth-1 {
                     let part1 = matrix[tmpY][tmpX].0
                     if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
@@ -596,7 +595,7 @@ class SkeletonModel {
                 tmpY += 1
                 tmpX = X - Int(gradient*CGFloat(tmpY - Y))
             }
-            if tmpX >= 0 && tmpX < matrixWidth {
+            if tmpX >= 0 && tmpX <= matrixWidth-1 {
                 let part1 = matrix[tmpY][tmpX].0
                 if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
                 {appendBodyPartName(tmpX, y: tmpY, part: part)}
@@ -606,23 +605,23 @@ class SkeletonModel {
             if needAbort() == true {return}
             tmpY = downY + 1
             tmpX = X - Int(gradient*CGFloat(tmpY - Y))
-            while tmpX >= 0 && tmpX < matrixWidth && tmpY < matrixHeight-1 && A[tmpY][tmpX] != 0 {
+            while tmpX >= 0 && tmpX <= matrixWidth-1 && tmpY <= downBound && A[tmpY][tmpX] != 0 {
                 downY = tmpY
                 tmpY = downY + 1
                 tmpX = X - Int(gradient*CGFloat(tmpY - Y))
             }
             tmpY = downY
             tmpX = X - Int(gradient*CGFloat(tmpY - Y))
-            while tmpX >= 0 && tmpX < matrixWidth && tmpY >= Y && A[tmpY][tmpX] == 0 {
+            while tmpX >= 0 && tmpX <= matrixWidth-1 && tmpY >= Y && A[tmpY][tmpX] == 0 {
                 downY = tmpY
                 tmpY = downY - 1
                 tmpX = X - Int(gradient*CGFloat(tmpY - Y))
             }
-            //fill from upSide to center
+            //fill from downSide to center
             tmpY = downY
             tmpX = X - Int(gradient*CGFloat(tmpY - Y))
             while tmpY != Y {
-                if tmpX >= 0 && tmpX < matrixWidth {
+                if tmpX >= 0 && tmpX <= matrixWidth-1 {
                     let part1 = matrix[tmpY][tmpX].0
                     if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
                     {appendBodyPartName(tmpX, y: tmpY, part: part)}
@@ -630,11 +629,23 @@ class SkeletonModel {
                 tmpY -= 1
                 tmpX = X - Int(gradient*CGFloat(tmpY - Y))
             }
-            if tmpX >= 0 && tmpX < matrixWidth {
+            if tmpX >= 0 && tmpX <= matrixWidth-1 {
                 let part1 = matrix[tmpY][tmpX].0
                 if part1 == nil || (part1 != nil && SkeletonModel.priority[part] >= SkeletonModel.priority[part1!])
                 {appendBodyPartName(tmpX, y: tmpY, part: part)}
             }
+            var upPoint = CGPoint(x:X+Int(gradient*CGFloat(Y-upY)),y:upY)
+            var downPoint = CGPoint(x:X+Int(gradient*CGFloat(Y-downY)),y:downY)
+            upPoint = makePointValid(upPoint)
+            downPoint = makePointValid(downPoint)
+            tmpRadius = Int((upPoint - downPoint).length()/2)
+            
+            print("(\(X),\(Y)),\(upPoint),\(downPoint),\(tmpRadius))")
+
+            if tmpRadius == 0 {
+                print("tmpRadius == 0 : \(part)")
+                return}
+
             if X < destX {
                 X += 1
                 Y = srcY + Int(gradient * CGFloat(X - srcX))
@@ -774,7 +785,7 @@ class SkeletonModel {
                         return
                     }
                     let valueY = Double(-offsetY)
-                    if valueY > k * Double(offsetX*offsetX-radius*radius) {
+                    if valueY >= k * Double(offsetX*offsetX-radius*radius) {
                         let X = Int(center.x) + offsetX, Y = Int(center.y) + offsetY
                         appendBodyPartName(X, y: Y, part: upperBodyName!)
                     }
@@ -789,7 +800,7 @@ class SkeletonModel {
                         return
                     }
                     let valueY = Double(-offsetY)
-                    if valueY < -k * Double(offsetX*offsetX-radius*radius) {
+                    if valueY <= -k * Double(offsetX*offsetX-radius*radius) {
                         let X = Int(center.x) + offsetX, Y = Int(center.y) + offsetY
                         appendBodyPartName(X, y: Y, part: lowerBodyName!)
                     }
