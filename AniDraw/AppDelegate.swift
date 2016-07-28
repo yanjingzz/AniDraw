@@ -152,10 +152,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let error as NSError {
             print(error)
         }
-        GenericMoves.createAll()
-        EthnicMoves.createAll()
-        BalletMoves.createAll()
-        JazzMoves.createAll()
+//        GenericMoves.createAll()
+//        EthnicMoves.createAll()
+//        BalletMoves.createAll()
+//        JazzMoves.createAll()
         HipHopMoves.createAll()
     }
 

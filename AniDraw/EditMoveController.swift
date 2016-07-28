@@ -87,8 +87,11 @@ class EditMoveController: UIViewController, KeyframeDetailControllerDelegate {
         if currentIndex >= 0 {
             danceMove.keyframes[currentIndex].posture = characterNode.posture
         }
+        print("----------------------")
         print(danceMove.keyframes)
-        
+        print("[mirror?]")
+        print(danceMove.keyframes.flipped)
+        print("----------------------")
         scene.playAnimation(danceMove)
         currentIndex = -1
     }

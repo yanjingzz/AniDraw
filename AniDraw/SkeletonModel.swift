@@ -479,7 +479,7 @@ class SkeletonModel {
             if needAbort() == true {return}
             var tmpX = leftX - 1
             var tmpY = Y + Int(dif*CGFloat(tmpX-X))
-            while tmpY >= 0 && tmpY < matrixHeight && tmpX >= leftBound && A[tmpY][tmpX] != 0 {
+            while tmpY >= 0 && tmpY < matrixHeight && tmpX >= leftBound && A[tmpY][tmpX] != 0 && matrix[tmpY][tmpX].0 == nil{
                 leftX = tmpX
                 tmpX = leftX - 1
                 tmpY = Y + Int(dif*CGFloat(tmpX-X))
@@ -515,7 +515,7 @@ class SkeletonModel {
             if needAbort() == true {return}
             tmpX = rightX + 1
             tmpY = Y + Int(dif*CGFloat(tmpX-X))
-            while tmpY >= 0 && tmpY < matrixHeight && tmpX <= rightBound && A[tmpY][tmpX] != 0 {
+            while tmpY >= 0 && tmpY < matrixHeight && tmpX <= rightBound && A[tmpY][tmpX] != 0 && matrix[tmpY][tmpX].0 == nil{
                 rightX = tmpX
                 tmpX = rightX + 1
                 tmpY = Y + Int(dif*CGFloat(tmpX-X))
@@ -552,6 +552,7 @@ class SkeletonModel {
             rightPoint = makePointValid(rightPoint)
             tmpRadius = Int((leftPoint - rightPoint).length()/2)
             
+            print("(\(X),\(Y)),\(leftPoint),\(rightPoint),\(tmpRadius))")
             
             if tmpRadius == 0 {return}
             if Y < destY {
@@ -588,7 +589,7 @@ class SkeletonModel {
             if needAbort() == true {return}
             var tmpY = upY - 1
             var tmpX = X - Int(gradient*CGFloat(tmpY - Y))
-            while tmpX >= 0 && tmpX <= matrixWidth-1 && tmpY >= upBound && A[tmpY][tmpX] != 0 {
+            while tmpX >= 0 && tmpX <= matrixWidth-1 && tmpY >= upBound && A[tmpY][tmpX] != 0 && matrix[tmpY][tmpX].0 == nil{
                 upY = tmpY
                 tmpY = upY - 1
                 tmpX = X - Int(gradient*CGFloat(tmpY - Y))
@@ -624,7 +625,7 @@ class SkeletonModel {
             if needAbort() == true {return}
             tmpY = downY + 1
             tmpX = X - Int(gradient*CGFloat(tmpY - Y))
-            while tmpX >= 0 && tmpX <= matrixWidth-1 && tmpY <= downBound && A[tmpY][tmpX] != 0 {
+            while tmpX >= 0 && tmpX <= matrixWidth-1 && tmpY <= downBound && A[tmpY][tmpX] != 0 && matrix[tmpY][tmpX].0 == nil{
                 downY = tmpY
                 tmpY = downY + 1
                 tmpX = X - Int(gradient*CGFloat(tmpY - Y))
