@@ -15,12 +15,33 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="TcZ-FR-fNP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigation" translatesAutoresizingMaskIntoConstraints="NO" id="ttY-hb-qct">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="71"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TcZ-FR-fNP" firstAttribute="leading" secondItem="ttY-hb-qct" secondAttribute="leading" id="6iF-C8-p7a"/>
+                            <constraint firstItem="ttY-hb-qct" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Er6-Vg-Ycm"/>
+                            <constraint firstItem="TcZ-FR-fNP" firstAttribute="top" secondItem="ttY-hb-qct" secondAttribute="top" id="TNs-mH-JcF"/>
+                            <constraint firstAttribute="trailing" secondItem="TcZ-FR-fNP" secondAttribute="trailing" id="WNz-5D-oSb"/>
+                            <constraint firstItem="TcZ-FR-fNP" firstAttribute="trailing" secondItem="ttY-hb-qct" secondAttribute="trailing" id="Wp4-lY-jqk"/>
+                            <constraint firstItem="TcZ-FR-fNP" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="X8p-wk-yjv"/>
+                            <constraint firstItem="ttY-hb-qct" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="zIt-Jh-izk"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="24" y="324"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="1024" height="768"/>
+        <image name="navigation" width="1024" height="71"/>
+    </resources>
 </document>

@@ -90,10 +90,11 @@ class DanceScene: SKScene {
 //        }
 //        singStatusLabel.text = "IsSinging: \(audioInput.isSinging)"
         
-        levelLabel.text = "Level: \(danceModel.currentLevel), index: \(danceModel.currentIndex)"
-        tempoLabel.text = "Tempo factor: \(danceModel.currentTimeFactor)"
-        pitchLabel.text = "Frenquency: \(danceModel.currentPitch)"
+        levelLabel.text = "Level: \(danceModel.currentLevel ?? 0), index: \(danceModel.currentIndex ?? 0)"
+        tempoLabel.text = "Ave: \(danceModel.pitchAverage ?? 0), count: \(danceModel.lastPitches.count)"
+        pitchLabel.text = "Frenquency: \(log(danceModel.currentPitch))"
         amplitudePeakLabel.text = "Peak: \(danceModel.currentDecibel)"
+        amplitudeAverageLabel.text = "Higher: \(danceModel.pitchHigherBound), Lower: \(danceModel.pitchLowerBound)"
         
         
         

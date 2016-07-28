@@ -141,10 +141,10 @@ class DrawController: UIViewController, MSColorSelectionViewControllerDelegate, 
     }
     
     @IBAction func nextStep(sender: UIButton) {
-//        guard drawView.croppedImage != nil else {
-//            showNoDrawingHUD()
-//            return
-//        }
+        guard drawView.croppedImage != nil else {
+            showNoDrawingHUD()
+            return
+        }
         print(drawView.croppedImage?.size)
         performSegueWithIdentifier(Storyborad.NextStepSegueIdentifier, sender: sender)
     }

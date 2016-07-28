@@ -80,6 +80,7 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
         static let pitchLogThreshold = log(261.6) //C4
         static let pitchLogMax = log(1046.50) //C6
         static let pitchLogFemaleMin = log(220.00) //A3
+        static let pitchLogMaleMin = log(98.00) //G2
         static let maxPitchNum = 20
     
     }
@@ -105,7 +106,7 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
     private func pickLevel(withPitch pitch: Double, decibel: Double) -> Int{
         let pitchIndex = updatePitch(pitch)
         
-        let decibel_index = (decibel - Const.DecibelLowerBound) * Double(Const.MaxLevel) / Const.DecibelRange
+        let decibel_index = (decibel - Const.DecibelLowerBound) * Double(Const.MaxLevel) / Const.DecibelRange + 1
         
         let level = pitchIndex
         print("pick level: pitch \(pitchIndex) decibel \(decibel_index): \(level)")
@@ -117,7 +118,7 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
         var pitch_index: Double = log(pitch)
         if lastPitches.isEmpty {
             if pitch_index < Const.pitchLogThreshold {
-                lastPitches.append(0.0)
+                lastPitches.append(Const.pitchLogMaleMin)
                 lastPitches.append(Const.pitchLogThreshold)
             } else {
                 lastPitches.append(Const.pitchLogFemaleMin)
