@@ -1239,7 +1239,7 @@ struct HipHopMoves {
                     angleCurve: .EaseInOut,
                     positionCurve: .EaseInOut)],
             levelOfIntensity: 5,
-            style: .Generic,
+            style: .HipHop,
             name: "Jump Split")
         
 
@@ -1407,7 +1407,7 @@ struct HipHopMoves {
                     angleCurve: .EaseInOut,
                     positionCurve: .EaseInOut)],
             levelOfIntensity: 5,
-            style: .Generic,
+            style: .HipHop,
             name: "Arms Wave and up down")
         
         _ = DanceMove(
@@ -1574,7 +1574,7 @@ struct HipHopMoves {
                     angleCurve: .EaseInOut, 
                     positionCurve: .EaseInOut)], 
             levelOfIntensity: 4,
-            style: .Generic,
+            style: .HipHop,
             name: "Shoulder Slide")
         
         _ = DanceMove( 
@@ -1741,7 +1741,7 @@ struct HipHopMoves {
                     angleCurve: .EaseInOut, 
                     positionCurve: .EaseInOut)], 
             levelOfIntensity: 3,
-            style: .Generic,
+            style: .HipHop,
             name: "Hump")
         
         _ = DanceMove( 
@@ -1828,7 +1828,7 @@ struct HipHopMoves {
                     angleCurve: .EaseInOut, 
                     positionCurve: .EaseInOut)], 
             levelOfIntensity: 4,
-            style: .Generic,
+            style: .HipHop,
             name: "Waist Twist")
         
         _ = DanceMove( 
@@ -1915,7 +1915,7 @@ struct HipHopMoves {
                     angleCurve: .EaseOut, 
                     positionCurve: .EaseOut)], 
             levelOfIntensity: 3,
-            style: .Generic,
+            style: .HipHop,
             name: "Body Groove")
         
         _ = DanceMove(

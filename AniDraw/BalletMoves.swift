@@ -1401,7 +1401,7 @@ struct BalletMoves {
                     angleCurve: .ExponentialEaseOut,
                     positionCurve: .ExponentialEaseOut)],
             levelOfIntensity: 3,
-            style: .Generic,
+            style: .Ballet,
             name: "Tap And Lift")
         
         _ = DanceMove(
