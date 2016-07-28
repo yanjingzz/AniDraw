@@ -126,21 +126,21 @@ enum JointName: String {
         case .LeftElbow:
             return (.LeftUpperArm,.LeftForearm)
         case .LeftHip:
-            return (.LeftThigh,.LowerBody)
+            return (.LeftThigh,nil)
         case .LeftKnee:
             return (.LeftThigh,.LeftShank)
         case .LeftAnkle:
-            return (.LeftShank,.LeftFoot)
+            return (.LeftShank,nil)
         case .RightShoulder:
             return (.RightUpperArm,.UpperBody)
         case .RightElbow:
             return (.RightUpperArm,.RightForearm)
         case .RightHip:
-            return (.RightThigh,.LowerBody)
+            return (.RightThigh,nil)
         case .RightKnee:
             return (.RightThigh,.RightShank)
         case .RightAnkle:
-            return (.RightShank,.RightFoot)
+            return (.RightShank,nil)
         default:
             return (nil,nil)
         }

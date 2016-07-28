@@ -36,8 +36,14 @@ class DrawView: UIView{
             let origin = center - CGPoint(x: image.size.width / 2, y: image.size.height / 2)
             image.drawAtPoint(origin)
             incrementalImage = UIGraphicsGetImageFromCurrentImageContext()
+            undoImages.append(incrementalImage!)
             UIGraphicsEndImageContext()
             
+        }
+        if undoImages.count == 0 {
+            UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
+            undoImages.append(UIGraphicsGetImageFromCurrentImageContext())
+            UIGraphicsEndImageContext()
         }
     }
     
@@ -295,11 +301,6 @@ class DrawView: UIView{
         
         if undoImages.count >= 21 {
             undoImages.removeFirst()
-        }
-        if undoImages.count == 0 {
-            UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
-            undoImages.append(UIGraphicsGetImageFromCurrentImageContext())
-            UIGraphicsEndImageContext()
         }
         
         undoImages.append(incrementalImage!)

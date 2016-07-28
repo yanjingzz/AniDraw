@@ -57,9 +57,11 @@ class DanceScene: SKScene {
         characterNode.zPosition = 100
         addChild(characterNode)
 
+        UIApplication.sharedApplication().idleTimerDisabled = true
     }
     
     override func willMoveFromView(view: SKView) {
+        UIApplication.sharedApplication().idleTimerDisabled = false
     }
 
     
