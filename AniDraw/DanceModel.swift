@@ -77,7 +77,7 @@ class DanceModel: NSObject, MyAudioReceiverDelegate {
         static let BeatTrackerTotal = 20
         static let DurationThreshold = 0.1
         static let OriginalTempo = 0.5
-        static let pitchLogThreshold = log(261.6) //C4
+        static let pitchLogThreshold = log(392.00) //C4
         static let pitchLogMax = log(1046.50) //C6
         static let pitchLogFemaleMin = log(220.00) //A3
         static let pitchLogMaleMin = log(98.00) //G2

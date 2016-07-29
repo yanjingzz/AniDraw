@@ -92,7 +92,7 @@ class DanceScene: SKScene {
         
         levelLabel.text = "Level: \(danceModel.currentLevel ?? 0), index: \(danceModel.currentIndex ?? 0)"
         tempoLabel.text = "Ave: \(danceModel.pitchAverage ?? 0), count: \(danceModel.lastPitches.count)"
-        pitchLabel.text = "Frenquency: \(log(danceModel.currentPitch))"
+        pitchLabel.text = "Frenquency: \(danceModel.currentPitch)"
         amplitudePeakLabel.text = "Peak: \(danceModel.currentDecibel)"
         amplitudeAverageLabel.text = "Higher: \(danceModel.pitchHigherBound), Lower: \(danceModel.pitchLowerBound)"
         
