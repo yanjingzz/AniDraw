@@ -154,7 +154,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 //        GenericMoves.createAll()
 //        EthnicMoves.createAll()
-//        BalletMoves.createAll()
+        BalletMoves.createAll()
 //        JazzMoves.createAll()
         HipHopMoves.createAll()
     }
